@@ -1,0 +1,242 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"childIndexes" : 
+					[
+						1
+					],
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-0cd6b4575ffadc7106aa.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18
+					]
+				},
+				{
+					"build" : "chess_arm_executor__py",
+					"jsonFile" : "directory-chess_arm_executor__py-a83881ac91364e0a35c6.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"parentIndex" : 0,
+					"projectIndex" : 0,
+					"source" : "/home/ryanl/4231/MTRN4231_Project/build/chess_arm_executor/chess_arm_executor__py",
+					"targetIndexes" : 
+					[
+						5
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0,
+						1
+					],
+					"name" : "chess_arm_executor",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3,
+						4,
+						5,
+						6,
+						7,
+						8,
+						9,
+						10,
+						11,
+						12,
+						13,
+						14,
+						15,
+						16,
+						17,
+						18
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_chess_arm_executor_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_chess_arm_executor_egg-12492c0dbabfecf0bc4e.json",
+					"name" : "ament_cmake_python_build_chess_arm_executor_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_copy_chess_arm_executor::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_copy_chess_arm_executor-b125bacb6d60af905add.json",
+					"name" : "ament_cmake_python_copy_chess_arm_executor",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "arm_controller_node::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-arm_controller_node-ad463683cecad7a0bc2c.json",
+					"name" : "arm_controller_node",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "chess_arm_executor::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-chess_arm_executor-9dfca273541a41be8827.json",
+					"name" : "chess_arm_executor",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "chess_arm_executor__cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-chess_arm_executor__cpp-c151c8e370dd70f76f57.json",
+					"name" : "chess_arm_executor__cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 1,
+					"id" : "chess_arm_executor__py::@5f59c75920cab96938a9",
+					"jsonFile" : "target-chess_arm_executor__py-4480ce6e2012a86b3cea.json",
+					"name" : "chess_arm_executor__py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "chess_arm_executor__rosidl_generator_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-chess_arm_executor__rosidl_generator_c-ef85405ede39c535f094.json",
+					"name" : "chess_arm_executor__rosidl_generator_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "chess_arm_executor__rosidl_generator_py::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-chess_arm_executor__rosidl_generator_py-2b08d68746156b3f36e1.json",
+					"name" : "chess_arm_executor__rosidl_generator_py",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "chess_arm_executor__rosidl_typesupport_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-chess_arm_executor__rosidl_typesupport_c-b4359925b69969e44d9c.json",
+					"name" : "chess_arm_executor__rosidl_typesupport_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "chess_arm_executor__rosidl_typesupport_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-chess_arm_executor__rosidl_typesupport_c__pyext-2bbdaa391b1b13a6bf5a.json",
+					"name" : "chess_arm_executor__rosidl_typesupport_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "chess_arm_executor__rosidl_typesupport_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-chess_arm_executor__rosidl_typesupport_cpp-a516284d443a305e735c.json",
+					"name" : "chess_arm_executor__rosidl_typesupport_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "chess_arm_executor__rosidl_typesupport_fastrtps_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-chess_arm_executor__rosidl_typesupport_fastrtps_c-4655eb84522b90ad8037.json",
+					"name" : "chess_arm_executor__rosidl_typesupport_fastrtps_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "chess_arm_executor__rosidl_typesupport_fastrtps_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-chess_arm_executor__rosidl_typesupport_fastrtps_c__pyext-b25b2e9cb92f39c465b2.json",
+					"name" : "chess_arm_executor__rosidl_typesupport_fastrtps_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "chess_arm_executor__rosidl_typesupport_fastrtps_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-chess_arm_executor__rosidl_typesupport_fastrtps_cpp-a4c7c7f616c5172c4d16.json",
+					"name" : "chess_arm_executor__rosidl_typesupport_fastrtps_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "chess_arm_executor__rosidl_typesupport_introspection_c::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-chess_arm_executor__rosidl_typesupport_introspection_c-23e3b57fcb62b10414ef.json",
+					"name" : "chess_arm_executor__rosidl_typesupport_introspection_c",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "chess_arm_executor__rosidl_typesupport_introspection_c__pyext::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-chess_arm_executor__rosidl_typesupport_introspection_c__pyext-f3263587be79c09c5972.json",
+					"name" : "chess_arm_executor__rosidl_typesupport_introspection_c__pyext",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "chess_arm_executor__rosidl_typesupport_introspection_cpp::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-chess_arm_executor__rosidl_typesupport_introspection_cpp-61e00fa1d045a49490b9.json",
+					"name" : "chess_arm_executor__rosidl_typesupport_introspection_cpp",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "chess_arm_executor_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-chess_arm_executor_uninstall-ad2f97f51c7d334d1f8b.json",
+					"name" : "chess_arm_executor_uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-c78118223616f38df518.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/ryanl/4231/MTRN4231_Project/build/chess_arm_executor",
+		"source" : "/home/ryanl/4231/MTRN4231_Project/src/chess_arm_executor"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

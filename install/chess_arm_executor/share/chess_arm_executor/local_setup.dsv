@@ -1,0 +1,4 @@
+source;share/chess_arm_executor/environment/ament_prefix_path.sh
+source;share/chess_arm_executor/environment/library_path.sh
+source;share/chess_arm_executor/environment/path.sh
+source;share/chess_arm_executor/environment/pythonpath.sh

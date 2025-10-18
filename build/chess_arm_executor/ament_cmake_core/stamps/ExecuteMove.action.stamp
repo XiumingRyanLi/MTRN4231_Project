@@ -1,0 +1,21 @@
+# Goal
+string src_square
+string dst_square
+
+# piece type (enum)
+uint8 piece_type
+uint8 PAWN=0
+uint8 KNIGHT=1
+uint8 BISHOP=2
+uint8 ROOK=3
+uint8 QUEEN=4
+uint8 KING=5
+---
+# Result
+bool ok
+string message
+float32 z_pick_used
+---
+# Feedback
+string stage
+float32 z_pick_used

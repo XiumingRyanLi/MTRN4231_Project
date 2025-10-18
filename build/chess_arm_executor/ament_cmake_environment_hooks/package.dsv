@@ -1,0 +1,4 @@
+source;share/chess_arm_executor/local_setup.bash
+source;share/chess_arm_executor/local_setup.dsv
+source;share/chess_arm_executor/local_setup.sh
+source;share/chess_arm_executor/local_setup.zsh
