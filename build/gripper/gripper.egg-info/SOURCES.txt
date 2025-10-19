@@ -1,0 +1,14 @@
+package.xml
+setup.cfg
+setup.py
+gripper/__init__.py
+gripper/gripper_client.py
+gripper/gripper_server.py
+gripper.egg-info/PKG-INFO
+gripper.egg-info/SOURCES.txt
+gripper.egg-info/dependency_links.txt
+gripper.egg-info/entry_points.txt
+gripper.egg-info/requires.txt
+gripper.egg-info/top_level.txt
+gripper.egg-info/zip-safe
+resource/gripper
