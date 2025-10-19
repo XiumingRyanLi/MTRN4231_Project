@@ -13,8 +13,6 @@
   <exec_depend>control_msgs</exec_depend>
   <exec_depend>launch</exec_depend>
   <exec_depend>launch_ros</exec_depend>
-
-  <!-- Not a ROS pkg, but we rely on it at runtime -->
   <exec_depend>python3-serial</exec_depend>
 
   <test_depend>ament_lint_auto</test_depend>

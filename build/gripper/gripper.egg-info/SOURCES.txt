@@ -11,4 +11,5 @@ gripper.egg-info/entry_points.txt
 gripper.egg-info/requires.txt
 gripper.egg-info/top_level.txt
 gripper.egg-info/zip-safe
+launch/gripper_bringup.launch.py
 resource/gripper

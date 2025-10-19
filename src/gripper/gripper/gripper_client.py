@@ -180,3 +180,5 @@ def main():
 
 if __name__ == '__main__':
     main()
+
+# ros2 launch gripper gripper_bringup.launch.py serial_port:=/dev/ttyACM0 baudrate:=115200
