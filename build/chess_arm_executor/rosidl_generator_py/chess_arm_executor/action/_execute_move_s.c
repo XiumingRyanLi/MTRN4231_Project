@@ -53,6 +53,15 @@ bool chess_arm_executor__action__execute_move__goal__convert_from_py(PyObject * 
     assert(strncmp("chess_arm_executor.action._execute_move.ExecuteMove_Goal", full_classname_dest, 56) == 0);
   }
   chess_arm_executor__action__ExecuteMove_Goal * ros_message = _ros_message;
+  {  // mode
+    PyObject * field = PyObject_GetAttrString(_pymsg, "mode");
+    if (!field) {
+      return false;
+    }
+    assert(PyLong_Check(field));
+    ros_message->mode = (uint8_t)PyLong_AsUnsignedLong(field);
+    Py_DECREF(field);
+  }
   {  // src_square
     PyObject * field = PyObject_GetAttrString(_pymsg, "src_square");
     if (!field) {
@@ -114,6 +123,17 @@ PyObject * chess_arm_executor__action__execute_move__goal__convert_to_py(void * 
     }
   }
   chess_arm_executor__action__ExecuteMove_Goal * ros_message = (chess_arm_executor__action__ExecuteMove_Goal *)raw_ros_message;
+  {  // mode
+    PyObject * field = NULL;
+    field = PyLong_FromUnsignedLong(ros_message->mode);
+    {
+      int rc = PyObject_SetAttrString(_pymessage, "mode", field);
+      Py_DECREF(field);
+      if (rc) {
+        return NULL;
+      }
+    }
+  }
   {  // src_square
     PyObject * field = NULL;
     field = PyUnicode_DecodeUTF8(
@@ -241,15 +261,6 @@ bool chess_arm_executor__action__execute_move__result__convert_from_py(PyObject 
     Py_DECREF(encoded_field);
     Py_DECREF(field);
   }
-  {  // z_pick_used
-    PyObject * field = PyObject_GetAttrString(_pymsg, "z_pick_used");
-    if (!field) {
-      return false;
-    }
-    assert(PyFloat_Check(field));
-    ros_message->z_pick_used = (float)PyFloat_AS_DOUBLE(field);
-    Py_DECREF(field);
-  }
 
   return true;
 }
@@ -294,17 +305,6 @@ PyObject * chess_arm_executor__action__execute_move__result__convert_to_py(void 
     }
     {
       int rc = PyObject_SetAttrString(_pymessage, "message", field);
-      Py_DECREF(field);
-      if (rc) {
-        return NULL;
-      }
-    }
-  }
-  {  // z_pick_used
-    PyObject * field = NULL;
-    field = PyFloat_FromDouble(ros_message->z_pick_used);
-    {
-      int rc = PyObject_SetAttrString(_pymessage, "z_pick_used", field);
       Py_DECREF(field);
       if (rc) {
         return NULL;
@@ -384,15 +384,6 @@ bool chess_arm_executor__action__execute_move__feedback__convert_from_py(PyObjec
     Py_DECREF(encoded_field);
     Py_DECREF(field);
   }
-  {  // z_pick_used
-    PyObject * field = PyObject_GetAttrString(_pymsg, "z_pick_used");
-    if (!field) {
-      return false;
-    }
-    assert(PyFloat_Check(field));
-    ros_message->z_pick_used = (float)PyFloat_AS_DOUBLE(field);
-    Py_DECREF(field);
-  }
 
   return true;
 }
@@ -426,17 +417,6 @@ PyObject * chess_arm_executor__action__execute_move__feedback__convert_to_py(voi
     }
     {
       int rc = PyObject_SetAttrString(_pymessage, "stage", field);
-      Py_DECREF(field);
-      if (rc) {
-        return NULL;
-      }
-    }
-  }
-  {  // z_pick_used
-    PyObject * field = NULL;
-    field = PyFloat_FromDouble(ros_message->z_pick_used);
-    {
-      int rc = PyObject_SetAttrString(_pymessage, "z_pick_used", field);
       Py_DECREF(field);
       if (rc) {
         return NULL;

@@ -32,6 +32,8 @@ cdr_serialize(
   const chess_arm_executor::action::ExecuteMove_Goal & ros_message,
   eprosima::fastcdr::Cdr & cdr)
 {
+  // Member: mode
+  cdr << ros_message.mode;
   // Member: src_square
   cdr << ros_message.src_square;
   // Member: dst_square
@@ -47,6 +49,9 @@ cdr_deserialize(
   eprosima::fastcdr::Cdr & cdr,
   chess_arm_executor::action::ExecuteMove_Goal & ros_message)
 {
+  // Member: mode
+  cdr >> ros_message.mode;
+
   // Member: src_square
   cdr >> ros_message.src_square;
 
@@ -72,6 +77,12 @@ get_serialized_size(
   (void)padding;
   (void)wchar_size;
 
+  // Member: mode
+  {
+    size_t item_size = sizeof(ros_message.mode);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
   // Member: src_square
   current_alignment += padding +
     eprosima::fastcdr::Cdr::alignment(current_alignment, padding) +
@@ -109,6 +120,14 @@ max_serialized_size_ExecuteMove_Goal(
   full_bounded = true;
   is_plain = true;
 
+
+  // Member: mode
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint8_t);
+    current_alignment += array_size * sizeof(uint8_t);
+  }
 
   // Member: src_square
   {
@@ -291,8 +310,6 @@ cdr_serialize(
   cdr << (ros_message.ok ? true : false);
   // Member: message
   cdr << ros_message.message;
-  // Member: z_pick_used
-  cdr << ros_message.z_pick_used;
   return true;
 }
 
@@ -311,9 +328,6 @@ cdr_deserialize(
 
   // Member: message
   cdr >> ros_message.message;
-
-  // Member: z_pick_used
-  cdr >> ros_message.z_pick_used;
 
   return true;
 }
@@ -341,12 +355,6 @@ get_serialized_size(
   current_alignment += padding +
     eprosima::fastcdr::Cdr::alignment(current_alignment, padding) +
     (ros_message.message.size() + 1);
-  // Member: z_pick_used
-  {
-    size_t item_size = sizeof(ros_message.z_pick_used);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
 
   return current_alignment - initial_alignment;
 }
@@ -392,15 +400,6 @@ max_serialized_size_ExecuteMove_Result(
     }
   }
 
-  // Member: z_pick_used
-  {
-    size_t array_size = 1;
-
-    last_member_size = array_size * sizeof(uint32_t);
-    current_alignment += array_size * sizeof(uint32_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
-  }
-
   size_t ret_val = current_alignment - initial_alignment;
   if (is_plain) {
     // All members are plain, and type is not empty.
@@ -409,7 +408,7 @@ max_serialized_size_ExecuteMove_Result(
     using DataType = chess_arm_executor::action::ExecuteMove_Result;
     is_plain =
       (
-      offsetof(DataType, z_pick_used) +
+      offsetof(DataType, message) +
       last_member_size
       ) == ret_val;
   }
@@ -546,8 +545,6 @@ cdr_serialize(
 {
   // Member: stage
   cdr << ros_message.stage;
-  // Member: z_pick_used
-  cdr << ros_message.z_pick_used;
   return true;
 }
 
@@ -559,9 +556,6 @@ cdr_deserialize(
 {
   // Member: stage
   cdr >> ros_message.stage;
-
-  // Member: z_pick_used
-  cdr >> ros_message.z_pick_used;
 
   return true;
 }
@@ -583,12 +577,6 @@ get_serialized_size(
   current_alignment += padding +
     eprosima::fastcdr::Cdr::alignment(current_alignment, padding) +
     (ros_message.stage.size() + 1);
-  // Member: z_pick_used
-  {
-    size_t item_size = sizeof(ros_message.z_pick_used);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
 
   return current_alignment - initial_alignment;
 }
@@ -626,15 +614,6 @@ max_serialized_size_ExecuteMove_Feedback(
     }
   }
 
-  // Member: z_pick_used
-  {
-    size_t array_size = 1;
-
-    last_member_size = array_size * sizeof(uint32_t);
-    current_alignment += array_size * sizeof(uint32_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
-  }
-
   size_t ret_val = current_alignment - initial_alignment;
   if (is_plain) {
     // All members are plain, and type is not empty.
@@ -643,7 +622,7 @@ max_serialized_size_ExecuteMove_Feedback(
     using DataType = chess_arm_executor::action::ExecuteMove_Feedback;
     is_plain =
       (
-      offsetof(DataType, z_pick_used) +
+      offsetof(DataType, stage) +
       last_member_size
       ) == ret_val;
   }

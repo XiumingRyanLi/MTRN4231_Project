@@ -56,13 +56,29 @@ private:
 class Init_ExecuteMove_Goal_src_square
 {
 public:
-  Init_ExecuteMove_Goal_src_square()
-  : msg_(::rosidl_runtime_cpp::MessageInitialization::SKIP)
+  explicit Init_ExecuteMove_Goal_src_square(::chess_arm_executor::action::ExecuteMove_Goal & msg)
+  : msg_(msg)
   {}
   Init_ExecuteMove_Goal_dst_square src_square(::chess_arm_executor::action::ExecuteMove_Goal::_src_square_type arg)
   {
     msg_.src_square = std::move(arg);
     return Init_ExecuteMove_Goal_dst_square(msg_);
+  }
+
+private:
+  ::chess_arm_executor::action::ExecuteMove_Goal msg_;
+};
+
+class Init_ExecuteMove_Goal_mode
+{
+public:
+  Init_ExecuteMove_Goal_mode()
+  : msg_(::rosidl_runtime_cpp::MessageInitialization::SKIP)
+  {}
+  Init_ExecuteMove_Goal_src_square mode(::chess_arm_executor::action::ExecuteMove_Goal::_mode_type arg)
+  {
+    msg_.mode = std::move(arg);
+    return Init_ExecuteMove_Goal_src_square(msg_);
   }
 
 private:
@@ -80,7 +96,7 @@ template<>
 inline
 auto build<::chess_arm_executor::action::ExecuteMove_Goal>()
 {
-  return chess_arm_executor::action::builder::Init_ExecuteMove_Goal_src_square();
+  return chess_arm_executor::action::builder::Init_ExecuteMove_Goal_mode();
 }
 
 }  // namespace chess_arm_executor
@@ -95,32 +111,16 @@ namespace action
 namespace builder
 {
 
-class Init_ExecuteMove_Result_z_pick_used
-{
-public:
-  explicit Init_ExecuteMove_Result_z_pick_used(::chess_arm_executor::action::ExecuteMove_Result & msg)
-  : msg_(msg)
-  {}
-  ::chess_arm_executor::action::ExecuteMove_Result z_pick_used(::chess_arm_executor::action::ExecuteMove_Result::_z_pick_used_type arg)
-  {
-    msg_.z_pick_used = std::move(arg);
-    return std::move(msg_);
-  }
-
-private:
-  ::chess_arm_executor::action::ExecuteMove_Result msg_;
-};
-
 class Init_ExecuteMove_Result_message
 {
 public:
   explicit Init_ExecuteMove_Result_message(::chess_arm_executor::action::ExecuteMove_Result & msg)
   : msg_(msg)
   {}
-  Init_ExecuteMove_Result_z_pick_used message(::chess_arm_executor::action::ExecuteMove_Result::_message_type arg)
+  ::chess_arm_executor::action::ExecuteMove_Result message(::chess_arm_executor::action::ExecuteMove_Result::_message_type arg)
   {
     msg_.message = std::move(arg);
-    return Init_ExecuteMove_Result_z_pick_used(msg_);
+    return std::move(msg_);
   }
 
 private:
@@ -169,32 +169,16 @@ namespace action
 namespace builder
 {
 
-class Init_ExecuteMove_Feedback_z_pick_used
-{
-public:
-  explicit Init_ExecuteMove_Feedback_z_pick_used(::chess_arm_executor::action::ExecuteMove_Feedback & msg)
-  : msg_(msg)
-  {}
-  ::chess_arm_executor::action::ExecuteMove_Feedback z_pick_used(::chess_arm_executor::action::ExecuteMove_Feedback::_z_pick_used_type arg)
-  {
-    msg_.z_pick_used = std::move(arg);
-    return std::move(msg_);
-  }
-
-private:
-  ::chess_arm_executor::action::ExecuteMove_Feedback msg_;
-};
-
 class Init_ExecuteMove_Feedback_stage
 {
 public:
   Init_ExecuteMove_Feedback_stage()
   : msg_(::rosidl_runtime_cpp::MessageInitialization::SKIP)
   {}
-  Init_ExecuteMove_Feedback_z_pick_used stage(::chess_arm_executor::action::ExecuteMove_Feedback::_stage_type arg)
+  ::chess_arm_executor::action::ExecuteMove_Feedback stage(::chess_arm_executor::action::ExecuteMove_Feedback::_stage_type arg)
   {
     msg_.stage = std::move(arg);
-    return Init_ExecuteMove_Feedback_z_pick_used(msg_);
+    return std::move(msg_);
   }
 
 private:

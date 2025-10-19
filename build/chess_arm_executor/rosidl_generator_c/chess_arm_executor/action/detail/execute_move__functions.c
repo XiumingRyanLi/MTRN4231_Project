@@ -22,6 +22,7 @@ chess_arm_executor__action__ExecuteMove_Goal__init(chess_arm_executor__action__E
   if (!msg) {
     return false;
   }
+  // mode
   // src_square
   if (!rosidl_runtime_c__String__init(&msg->src_square)) {
     chess_arm_executor__action__ExecuteMove_Goal__fini(msg);
@@ -42,6 +43,7 @@ chess_arm_executor__action__ExecuteMove_Goal__fini(chess_arm_executor__action__E
   if (!msg) {
     return;
   }
+  // mode
   // src_square
   rosidl_runtime_c__String__fini(&msg->src_square);
   // dst_square
@@ -53,6 +55,10 @@ bool
 chess_arm_executor__action__ExecuteMove_Goal__are_equal(const chess_arm_executor__action__ExecuteMove_Goal * lhs, const chess_arm_executor__action__ExecuteMove_Goal * rhs)
 {
   if (!lhs || !rhs) {
+    return false;
+  }
+  // mode
+  if (lhs->mode != rhs->mode) {
     return false;
   }
   // src_square
@@ -82,6 +88,8 @@ chess_arm_executor__action__ExecuteMove_Goal__copy(
   if (!input || !output) {
     return false;
   }
+  // mode
+  output->mode = input->mode;
   // src_square
   if (!rosidl_runtime_c__String__copy(
       &(input->src_square), &(output->src_square)))
@@ -296,7 +304,6 @@ chess_arm_executor__action__ExecuteMove_Result__init(chess_arm_executor__action_
     chess_arm_executor__action__ExecuteMove_Result__fini(msg);
     return false;
   }
-  // z_pick_used
   return true;
 }
 
@@ -309,7 +316,6 @@ chess_arm_executor__action__ExecuteMove_Result__fini(chess_arm_executor__action_
   // ok
   // message
   rosidl_runtime_c__String__fini(&msg->message);
-  // z_pick_used
 }
 
 bool
@@ -326,10 +332,6 @@ chess_arm_executor__action__ExecuteMove_Result__are_equal(const chess_arm_execut
   if (!rosidl_runtime_c__String__are_equal(
       &(lhs->message), &(rhs->message)))
   {
-    return false;
-  }
-  // z_pick_used
-  if (lhs->z_pick_used != rhs->z_pick_used) {
     return false;
   }
   return true;
@@ -351,8 +353,6 @@ chess_arm_executor__action__ExecuteMove_Result__copy(
   {
     return false;
   }
-  // z_pick_used
-  output->z_pick_used = input->z_pick_used;
   return true;
 }
 
@@ -552,7 +552,6 @@ chess_arm_executor__action__ExecuteMove_Feedback__init(chess_arm_executor__actio
     chess_arm_executor__action__ExecuteMove_Feedback__fini(msg);
     return false;
   }
-  // z_pick_used
   return true;
 }
 
@@ -564,7 +563,6 @@ chess_arm_executor__action__ExecuteMove_Feedback__fini(chess_arm_executor__actio
   }
   // stage
   rosidl_runtime_c__String__fini(&msg->stage);
-  // z_pick_used
 }
 
 bool
@@ -577,10 +575,6 @@ chess_arm_executor__action__ExecuteMove_Feedback__are_equal(const chess_arm_exec
   if (!rosidl_runtime_c__String__are_equal(
       &(lhs->stage), &(rhs->stage)))
   {
-    return false;
-  }
-  // z_pick_used
-  if (lhs->z_pick_used != rhs->z_pick_used) {
     return false;
   }
   return true;
@@ -600,8 +594,6 @@ chess_arm_executor__action__ExecuteMove_Feedback__copy(
   {
     return false;
   }
-  // z_pick_used
-  output->z_pick_used = input->z_pick_used;
   return true;
 }
 

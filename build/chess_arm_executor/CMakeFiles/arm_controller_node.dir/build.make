@@ -253,10 +253,6 @@ arm_controller_node: /opt/ros/humble/lib/libmessage_filters.so
 arm_controller_node: /opt/ros/humble/lib/librclcpp.so
 arm_controller_node: /opt/ros/humble/lib/liblibstatistics_collector.so
 arm_controller_node: /opt/ros/humble/lib/librcl.so
-arm_controller_node: /opt/ros/humble/lib/librmw_implementation.so
-arm_controller_node: /opt/ros/humble/lib/librcl_logging_spdlog.so
-arm_controller_node: /opt/ros/humble/lib/librcl_logging_interface.so
-arm_controller_node: /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1
 arm_controller_node: /opt/ros/humble/lib/librcl_interfaces__rosidl_typesupport_fastrtps_c.so
 arm_controller_node: /opt/ros/humble/lib/librcl_interfaces__rosidl_typesupport_introspection_c.so
 arm_controller_node: /opt/ros/humble/lib/librcl_interfaces__rosidl_typesupport_fastrtps_cpp.so
@@ -265,6 +261,10 @@ arm_controller_node: /opt/ros/humble/lib/librcl_interfaces__rosidl_typesupport_c
 arm_controller_node: /opt/ros/humble/lib/librcl_interfaces__rosidl_generator_py.so
 arm_controller_node: /opt/ros/humble/lib/librcl_interfaces__rosidl_typesupport_c.so
 arm_controller_node: /opt/ros/humble/lib/librcl_interfaces__rosidl_generator_c.so
+arm_controller_node: /opt/ros/humble/lib/librmw_implementation.so
+arm_controller_node: /opt/ros/humble/lib/librcl_logging_spdlog.so
+arm_controller_node: /opt/ros/humble/lib/librcl_logging_interface.so
+arm_controller_node: /usr/lib/x86_64-linux-gnu/libfmt.so.8.1.1
 arm_controller_node: /opt/ros/humble/lib/librcl_yaml_param_parser.so
 arm_controller_node: /opt/ros/humble/lib/libyaml.so
 arm_controller_node: /opt/ros/humble/lib/librosgraph_msgs__rosidl_typesupport_fastrtps_c.so

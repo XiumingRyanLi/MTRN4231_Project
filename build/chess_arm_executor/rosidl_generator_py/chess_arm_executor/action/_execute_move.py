@@ -20,6 +20,8 @@ class Metaclass_ExecuteMove_Goal(type):
     _TYPE_SUPPORT = None
 
     __constants = {
+        'MOVE': 0,
+        'GO_HOME': 1,
         'PAWN': 0,
         'KNIGHT': 1,
         'BISHOP': 2,
@@ -54,6 +56,8 @@ class Metaclass_ExecuteMove_Goal(type):
         # the message class under "Data and other attributes defined here:"
         # as well as populate each message instance
         return {
+            'MOVE': cls.__constants['MOVE'],
+            'GO_HOME': cls.__constants['GO_HOME'],
             'PAWN': cls.__constants['PAWN'],
             'KNIGHT': cls.__constants['KNIGHT'],
             'BISHOP': cls.__constants['BISHOP'],
@@ -61,6 +65,16 @@ class Metaclass_ExecuteMove_Goal(type):
             'QUEEN': cls.__constants['QUEEN'],
             'KING': cls.__constants['KING'],
         }
+
+    @property
+    def MOVE(self):
+        """Message constant 'MOVE'."""
+        return Metaclass_ExecuteMove_Goal.__constants['MOVE']
+
+    @property
+    def GO_HOME(self):
+        """Message constant 'GO_HOME'."""
+        return Metaclass_ExecuteMove_Goal.__constants['GO_HOME']
 
     @property
     def PAWN(self):
@@ -98,6 +112,8 @@ class ExecuteMove_Goal(metaclass=Metaclass_ExecuteMove_Goal):
     Message class 'ExecuteMove_Goal'.
 
     Constants:
+      MOVE
+      GO_HOME
       PAWN
       KNIGHT
       BISHOP
@@ -107,18 +123,21 @@ class ExecuteMove_Goal(metaclass=Metaclass_ExecuteMove_Goal):
     """
 
     __slots__ = [
+        '_mode',
         '_src_square',
         '_dst_square',
         '_piece_type',
     ]
 
     _fields_and_field_types = {
+        'mode': 'uint8',
         'src_square': 'string',
         'dst_square': 'string',
         'piece_type': 'uint8',
     }
 
     SLOT_TYPES = (
+        rosidl_parser.definition.BasicType('uint8'),  # noqa: E501
         rosidl_parser.definition.UnboundedString(),  # noqa: E501
         rosidl_parser.definition.UnboundedString(),  # noqa: E501
         rosidl_parser.definition.BasicType('uint8'),  # noqa: E501
@@ -128,6 +147,7 @@ class ExecuteMove_Goal(metaclass=Metaclass_ExecuteMove_Goal):
         assert all('_' + key in self.__slots__ for key in kwargs.keys()), \
             'Invalid arguments passed to constructor: %s' % \
             ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
+        self.mode = kwargs.get('mode', int())
         self.src_square = kwargs.get('src_square', str())
         self.dst_square = kwargs.get('dst_square', str())
         self.piece_type = kwargs.get('piece_type', int())
@@ -161,6 +181,8 @@ class ExecuteMove_Goal(metaclass=Metaclass_ExecuteMove_Goal):
     def __eq__(self, other):
         if not isinstance(other, self.__class__):
             return False
+        if self.mode != other.mode:
+            return False
         if self.src_square != other.src_square:
             return False
         if self.dst_square != other.dst_square:
@@ -173,6 +195,21 @@ class ExecuteMove_Goal(metaclass=Metaclass_ExecuteMove_Goal):
     def get_fields_and_field_types(cls):
         from copy import copy
         return copy(cls._fields_and_field_types)
+
+    @builtins.property
+    def mode(self):
+        """Message field 'mode'."""
+        return self._mode
+
+    @mode.setter
+    def mode(self, value):
+        if __debug__:
+            assert \
+                isinstance(value, int), \
+                "The 'mode' field must be of type 'int'"
+            assert value >= 0 and value < 256, \
+                "The 'mode' field must be an unsigned integer in [0, 255]"
+        self._mode = value
 
     @builtins.property
     def src_square(self):
@@ -220,8 +257,6 @@ class ExecuteMove_Goal(metaclass=Metaclass_ExecuteMove_Goal):
 
 # already imported above
 # import builtins
-
-import math  # noqa: E402, I100
 
 # already imported above
 # import rosidl_parser.definition
@@ -274,19 +309,16 @@ class ExecuteMove_Result(metaclass=Metaclass_ExecuteMove_Result):
     __slots__ = [
         '_ok',
         '_message',
-        '_z_pick_used',
     ]
 
     _fields_and_field_types = {
         'ok': 'boolean',
         'message': 'string',
-        'z_pick_used': 'float',
     }
 
     SLOT_TYPES = (
         rosidl_parser.definition.BasicType('boolean'),  # noqa: E501
         rosidl_parser.definition.UnboundedString(),  # noqa: E501
-        rosidl_parser.definition.BasicType('float'),  # noqa: E501
     )
 
     def __init__(self, **kwargs):
@@ -295,7 +327,6 @@ class ExecuteMove_Result(metaclass=Metaclass_ExecuteMove_Result):
             ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
         self.ok = kwargs.get('ok', bool())
         self.message = kwargs.get('message', str())
-        self.z_pick_used = kwargs.get('z_pick_used', float())
 
     def __repr__(self):
         typename = self.__class__.__module__.split('.')
@@ -330,8 +361,6 @@ class ExecuteMove_Result(metaclass=Metaclass_ExecuteMove_Result):
             return False
         if self.message != other.message:
             return False
-        if self.z_pick_used != other.z_pick_used:
-            return False
         return True
 
     @classmethod
@@ -365,29 +394,11 @@ class ExecuteMove_Result(metaclass=Metaclass_ExecuteMove_Result):
                 "The 'message' field must be of type 'str'"
         self._message = value
 
-    @builtins.property
-    def z_pick_used(self):
-        """Message field 'z_pick_used'."""
-        return self._z_pick_used
-
-    @z_pick_used.setter
-    def z_pick_used(self, value):
-        if __debug__:
-            assert \
-                isinstance(value, float), \
-                "The 'z_pick_used' field must be of type 'float'"
-            assert not (value < -3.402823466e+38 or value > 3.402823466e+38) or math.isinf(value), \
-                "The 'z_pick_used' field must be a float in [-3.402823466e+38, 3.402823466e+38]"
-        self._z_pick_used = value
-
 
 # Import statements for member types
 
 # already imported above
 # import builtins
-
-# already imported above
-# import math
 
 # already imported above
 # import rosidl_parser.definition
@@ -439,17 +450,14 @@ class ExecuteMove_Feedback(metaclass=Metaclass_ExecuteMove_Feedback):
 
     __slots__ = [
         '_stage',
-        '_z_pick_used',
     ]
 
     _fields_and_field_types = {
         'stage': 'string',
-        'z_pick_used': 'float',
     }
 
     SLOT_TYPES = (
         rosidl_parser.definition.UnboundedString(),  # noqa: E501
-        rosidl_parser.definition.BasicType('float'),  # noqa: E501
     )
 
     def __init__(self, **kwargs):
@@ -457,7 +465,6 @@ class ExecuteMove_Feedback(metaclass=Metaclass_ExecuteMove_Feedback):
             'Invalid arguments passed to constructor: %s' % \
             ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
         self.stage = kwargs.get('stage', str())
-        self.z_pick_used = kwargs.get('z_pick_used', float())
 
     def __repr__(self):
         typename = self.__class__.__module__.split('.')
@@ -490,8 +497,6 @@ class ExecuteMove_Feedback(metaclass=Metaclass_ExecuteMove_Feedback):
             return False
         if self.stage != other.stage:
             return False
-        if self.z_pick_used != other.z_pick_used:
-            return False
         return True
 
     @classmethod
@@ -511,21 +516,6 @@ class ExecuteMove_Feedback(metaclass=Metaclass_ExecuteMove_Feedback):
                 isinstance(value, str), \
                 "The 'stage' field must be of type 'str'"
         self._stage = value
-
-    @builtins.property
-    def z_pick_used(self):
-        """Message field 'z_pick_used'."""
-        return self._z_pick_used
-
-    @z_pick_used.setter
-    def z_pick_used(self, value):
-        if __debug__:
-            assert \
-                isinstance(value, float), \
-                "The 'z_pick_used' field must be of type 'float'"
-            assert not (value < -3.402823466e+38 or value > 3.402823466e+38) or math.isinf(value), \
-                "The 'z_pick_used' field must be a float in [-3.402823466e+38, 3.402823466e+38]"
-        self._z_pick_used = value
 
 
 # Import statements for member types

@@ -1,0 +1,39 @@
+[0.027s] Invoking command in '/home/ryanl/4231/MTRN4231_Project/build/chess_arm_executor': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/chess_arm_executor -- -j16 -l16
+[0.179s] [  6%] Built target chess_arm_executor__cpp
+[0.180s] [ 12%] Built target chess_arm_executor__rosidl_generator_c
+[0.199s] [ 12%] Built target ament_cmake_python_symlink_chess_arm_executor
+[0.226s] [ 21%] Built target chess_arm_executor__rosidl_typesupport_introspection_c
+[0.226s] [ 30%] Built target chess_arm_executor__rosidl_typesupport_c
+[0.229s] [ 48%] Built target chess_arm_executor__rosidl_typesupport_cpp
+[0.229s] [ 48%] Built target chess_arm_executor__rosidl_typesupport_fastrtps_cpp
+[0.230s] [ 57%] Built target chess_arm_executor__rosidl_typesupport_introspection_cpp
+[0.251s] [ 66%] Built target chess_arm_executor__rosidl_typesupport_fastrtps_c
+[0.262s] [35m[1mConsolidate compiler generated dependencies of target arm_controller_node[0m
+[0.295s] [ 66%] Built target chess_arm_executor
+[0.321s] [ 69%] [32mBuilding CXX object CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o[0m
+[0.341s] [ 72%] Built target chess_arm_executor__py
+[0.389s] [ 78%] Built target chess_arm_executor__rosidl_generator_py
+[0.438s] [ 87%] Built target chess_arm_executor__rosidl_typesupport_fastrtps_c__pyext
+[0.438s] [ 90%] Built target chess_arm_executor__rosidl_typesupport_introspection_c__pyext
+[0.448s] [ 96%] Built target chess_arm_executor__rosidl_typesupport_c__pyext
+[0.644s] running egg_info
+[0.645s] writing chess_arm_executor.egg-info/PKG-INFO
+[0.646s] writing dependency_links to chess_arm_executor.egg-info/dependency_links.txt
+[0.646s] writing top-level names to chess_arm_executor.egg-info/top_level.txt
+[0.652s] reading manifest file 'chess_arm_executor.egg-info/SOURCES.txt'
+[0.653s] writing manifest file 'chess_arm_executor.egg-info/SOURCES.txt'
+[0.708s] [ 96%] Built target ament_cmake_python_build_chess_arm_executor_egg
+[9.590s] [01m[K/home/ryanl/4231/MTRN4231_Project/src/chess_arm_executor/src/arm_controller_node.cpp:[m[K In member function ‘[01m[Kvoid ChessArmExecutor::tryInitMoveGroup()[m[K’:
+[9.590s] [01m[K/home/ryanl/4231/MTRN4231_Project/src/chess_arm_executor/src/arm_controller_node.cpp:38:10:[m[K [01;31m[Kerror: [m[K‘[01m[Kmove_group_params_client_[m[K’ was not declared in this scope
+[9.590s]    38 |     if (![01;31m[Kmove_group_params_client_[m[K) {
+[9.590s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[9.618s] [01m[K/home/ryanl/4231/MTRN4231_Project/src/chess_arm_executor/src/arm_controller_node.cpp:43:10:[m[K [01;31m[Kerror: [m[K‘[01m[Kmove_group_params_client_[m[K’ was not declared in this scope
+[9.619s]    43 |     if (![01;31m[Kmove_group_params_client_[m[K->service_is_ready()) {
+[9.619s]       |          [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[9.648s] [01m[K/home/ryanl/4231/MTRN4231_Project/src/chess_arm_executor/src/arm_controller_node.cpp:57:5:[m[K [01;31m[Kerror: [m[K‘[01m[Kmove_group_params_client_[m[K’ was not declared in this scope
+[9.648s]    57 |     [01;31m[Kmove_group_params_client_[m[K->async_send_request(
+[9.648s]       |     [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[15.195s] gmake[2]: *** [CMakeFiles/arm_controller_node.dir/build.make:76: CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o] Error 1
+[15.195s] gmake[1]: *** [CMakeFiles/Makefile2:593: CMakeFiles/arm_controller_node.dir/all] Error 2
+[15.196s] gmake: *** [Makefile:146: all] Error 2
+[15.203s] Invoked command in '/home/ryanl/4231/MTRN4231_Project/build/chess_arm_executor' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/chess_arm_executor -- -j16 -l16

@@ -315,17 +315,17 @@ chess_arm_executor__rosidl_typesupport_cpp/fast:
 .PHONY : chess_arm_executor__rosidl_typesupport_cpp/fast
 
 #=============================================================================
-# Target rules for targets named ament_cmake_python_copy_chess_arm_executor
+# Target rules for targets named ament_cmake_python_symlink_chess_arm_executor
 
 # Build rule for target.
-ament_cmake_python_copy_chess_arm_executor: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ament_cmake_python_copy_chess_arm_executor
-.PHONY : ament_cmake_python_copy_chess_arm_executor
+ament_cmake_python_symlink_chess_arm_executor: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 ament_cmake_python_symlink_chess_arm_executor
+.PHONY : ament_cmake_python_symlink_chess_arm_executor
 
 # fast build rule for target.
-ament_cmake_python_copy_chess_arm_executor/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/ament_cmake_python_copy_chess_arm_executor.dir/build.make CMakeFiles/ament_cmake_python_copy_chess_arm_executor.dir/build
-.PHONY : ament_cmake_python_copy_chess_arm_executor/fast
+ament_cmake_python_symlink_chess_arm_executor/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/ament_cmake_python_symlink_chess_arm_executor.dir/build.make CMakeFiles/ament_cmake_python_symlink_chess_arm_executor.dir/build
+.PHONY : ament_cmake_python_symlink_chess_arm_executor/fast
 
 #=============================================================================
 # Target rules for targets named ament_cmake_python_build_chess_arm_executor_egg
@@ -720,7 +720,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... test"
 	@echo "... ament_cmake_python_build_chess_arm_executor_egg"
-	@echo "... ament_cmake_python_copy_chess_arm_executor"
+	@echo "... ament_cmake_python_symlink_chess_arm_executor"
 	@echo "... chess_arm_executor"
 	@echo "... chess_arm_executor__cpp"
 	@echo "... chess_arm_executor__py"

@@ -38,6 +38,7 @@ struct ExecuteMove_Goal_
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
+      this->mode = 0;
       this->src_square = "";
       this->dst_square = "";
       this->piece_type = 0;
@@ -51,6 +52,7 @@ struct ExecuteMove_Goal_
     if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
+      this->mode = 0;
       this->src_square = "";
       this->dst_square = "";
       this->piece_type = 0;
@@ -58,6 +60,9 @@ struct ExecuteMove_Goal_
   }
 
   // field types and members
+  using _mode_type =
+    uint8_t;
+  _mode_type mode;
   using _src_square_type =
     std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>>;
   _src_square_type src_square;
@@ -69,6 +74,12 @@ struct ExecuteMove_Goal_
   _piece_type_type piece_type;
 
   // setters for named parameter idiom
+  Type & set__mode(
+    const uint8_t & _arg)
+  {
+    this->mode = _arg;
+    return *this;
+  }
   Type & set__src_square(
     const std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>> & _arg)
   {
@@ -89,6 +100,10 @@ struct ExecuteMove_Goal_
   }
 
   // constant declarations
+  static constexpr uint8_t MOVE =
+    0u;
+  static constexpr uint8_t GO_HOME =
+    1u;
   static constexpr uint8_t PAWN =
     0u;
   static constexpr uint8_t KNIGHT =
@@ -142,6 +157,9 @@ struct ExecuteMove_Goal_
   // comparison operators
   bool operator==(const ExecuteMove_Goal_ & other) const
   {
+    if (this->mode != other.mode) {
+      return false;
+    }
     if (this->src_square != other.src_square) {
       return false;
     }
@@ -164,6 +182,16 @@ using ExecuteMove_Goal =
   chess_arm_executor::action::ExecuteMove_Goal_<std::allocator<void>>;
 
 // constant definitions
+#if __cplusplus < 201703L
+// static constexpr member variable definitions are only needed in C++14 and below, deprecated in C++17
+template<typename ContainerAllocator>
+constexpr uint8_t ExecuteMove_Goal_<ContainerAllocator>::MOVE;
+#endif  // __cplusplus < 201703L
+#if __cplusplus < 201703L
+// static constexpr member variable definitions are only needed in C++14 and below, deprecated in C++17
+template<typename ContainerAllocator>
+constexpr uint8_t ExecuteMove_Goal_<ContainerAllocator>::GO_HOME;
+#endif  // __cplusplus < 201703L
 #if __cplusplus < 201703L
 // static constexpr member variable definitions are only needed in C++14 and below, deprecated in C++17
 template<typename ContainerAllocator>
@@ -225,7 +253,6 @@ struct ExecuteMove_Result_
     {
       this->ok = false;
       this->message = "";
-      this->z_pick_used = 0.0f;
     }
   }
 
@@ -237,7 +264,6 @@ struct ExecuteMove_Result_
     {
       this->ok = false;
       this->message = "";
-      this->z_pick_used = 0.0f;
     }
   }
 
@@ -248,9 +274,6 @@ struct ExecuteMove_Result_
   using _message_type =
     std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>>;
   _message_type message;
-  using _z_pick_used_type =
-    float;
-  _z_pick_used_type z_pick_used;
 
   // setters for named parameter idiom
   Type & set__ok(
@@ -263,12 +286,6 @@ struct ExecuteMove_Result_
     const std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>> & _arg)
   {
     this->message = _arg;
-    return *this;
-  }
-  Type & set__z_pick_used(
-    const float & _arg)
-  {
-    this->z_pick_used = _arg;
     return *this;
   }
 
@@ -320,9 +337,6 @@ struct ExecuteMove_Result_
     if (this->message != other.message) {
       return false;
     }
-    if (this->z_pick_used != other.z_pick_used) {
-      return false;
-    }
     return true;
   }
   bool operator!=(const ExecuteMove_Result_ & other) const
@@ -366,7 +380,6 @@ struct ExecuteMove_Feedback_
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
       this->stage = "";
-      this->z_pick_used = 0.0f;
     }
   }
 
@@ -377,7 +390,6 @@ struct ExecuteMove_Feedback_
       rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
     {
       this->stage = "";
-      this->z_pick_used = 0.0f;
     }
   }
 
@@ -385,21 +397,12 @@ struct ExecuteMove_Feedback_
   using _stage_type =
     std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>>;
   _stage_type stage;
-  using _z_pick_used_type =
-    float;
-  _z_pick_used_type z_pick_used;
 
   // setters for named parameter idiom
   Type & set__stage(
     const std::basic_string<char, std::char_traits<char>, typename std::allocator_traits<ContainerAllocator>::template rebind_alloc<char>> & _arg)
   {
     this->stage = _arg;
-    return *this;
-  }
-  Type & set__z_pick_used(
-    const float & _arg)
-  {
-    this->z_pick_used = _arg;
     return *this;
   }
 
@@ -446,9 +449,6 @@ struct ExecuteMove_Feedback_
   bool operator==(const ExecuteMove_Feedback_ & other) const
   {
     if (this->stage != other.stage) {
-      return false;
-    }
-    if (this->z_pick_used != other.z_pick_used) {
       return false;
     }
     return true;

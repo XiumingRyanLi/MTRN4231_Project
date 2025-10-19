@@ -51,6 +51,11 @@ static bool _ExecuteMove_Goal__cdr_serialize(
     return false;
   }
   const _ExecuteMove_Goal__ros_msg_type * ros_message = static_cast<const _ExecuteMove_Goal__ros_msg_type *>(untyped_ros_message);
+  // Field name: mode
+  {
+    cdr << ros_message->mode;
+  }
+
   // Field name: src_square
   {
     const rosidl_runtime_c__String * str = &ros_message->src_square;
@@ -96,6 +101,11 @@ static bool _ExecuteMove_Goal__cdr_deserialize(
     return false;
   }
   _ExecuteMove_Goal__ros_msg_type * ros_message = static_cast<_ExecuteMove_Goal__ros_msg_type *>(untyped_ros_message);
+  // Field name: mode
+  {
+    cdr >> ros_message->mode;
+  }
+
   // Field name: src_square
   {
     std::string tmp;
@@ -150,6 +160,12 @@ size_t get_serialized_size_chess_arm_executor__action__ExecuteMove_Goal(
   (void)padding;
   (void)wchar_size;
 
+  // field.name mode
+  {
+    size_t item_size = sizeof(ros_message->mode);
+    current_alignment += item_size +
+      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
+  }
   // field.name src_square
   current_alignment += padding +
     eprosima::fastcdr::Cdr::alignment(current_alignment, padding) +
@@ -193,6 +209,13 @@ size_t max_serialized_size_chess_arm_executor__action__ExecuteMove_Goal(
   full_bounded = true;
   is_plain = true;
 
+  // member: mode
+  {
+    size_t array_size = 1;
+
+    last_member_size = array_size * sizeof(uint8_t);
+    current_alignment += array_size * sizeof(uint8_t);
+  }
   // member: src_square
   {
     size_t array_size = 1;
@@ -359,11 +382,6 @@ static bool _ExecuteMove_Result__cdr_serialize(
     cdr << str->data;
   }
 
-  // Field name: z_pick_used
-  {
-    cdr << ros_message->z_pick_used;
-  }
-
   return true;
 }
 
@@ -399,11 +417,6 @@ static bool _ExecuteMove_Result__cdr_deserialize(
     }
   }
 
-  // Field name: z_pick_used
-  {
-    cdr >> ros_message->z_pick_used;
-  }
-
   return true;
 }  // NOLINT(readability/fn_size)
 
@@ -431,12 +444,6 @@ size_t get_serialized_size_chess_arm_executor__action__ExecuteMove_Result(
   current_alignment += padding +
     eprosima::fastcdr::Cdr::alignment(current_alignment, padding) +
     (ros_message->message.size + 1);
-  // field.name z_pick_used
-  {
-    size_t item_size = sizeof(ros_message->z_pick_used);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
 
   return current_alignment - initial_alignment;
 }
@@ -485,14 +492,6 @@ size_t max_serialized_size_chess_arm_executor__action__ExecuteMove_Result(
         1;
     }
   }
-  // member: z_pick_used
-  {
-    size_t array_size = 1;
-
-    last_member_size = array_size * sizeof(uint32_t);
-    current_alignment += array_size * sizeof(uint32_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
-  }
 
   size_t ret_val = current_alignment - initial_alignment;
   if (is_plain) {
@@ -502,7 +501,7 @@ size_t max_serialized_size_chess_arm_executor__action__ExecuteMove_Result(
     using DataType = chess_arm_executor__action__ExecuteMove_Result;
     is_plain =
       (
-      offsetof(DataType, z_pick_used) +
+      offsetof(DataType, message) +
       last_member_size
       ) == ret_val;
   }
@@ -623,11 +622,6 @@ static bool _ExecuteMove_Feedback__cdr_serialize(
     cdr << str->data;
   }
 
-  // Field name: z_pick_used
-  {
-    cdr << ros_message->z_pick_used;
-  }
-
   return true;
 }
 
@@ -656,11 +650,6 @@ static bool _ExecuteMove_Feedback__cdr_deserialize(
     }
   }
 
-  // Field name: z_pick_used
-  {
-    cdr >> ros_message->z_pick_used;
-  }
-
   return true;
 }  // NOLINT(readability/fn_size)
 
@@ -682,12 +671,6 @@ size_t get_serialized_size_chess_arm_executor__action__ExecuteMove_Feedback(
   current_alignment += padding +
     eprosima::fastcdr::Cdr::alignment(current_alignment, padding) +
     (ros_message->stage.size + 1);
-  // field.name z_pick_used
-  {
-    size_t item_size = sizeof(ros_message->z_pick_used);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
 
   return current_alignment - initial_alignment;
 }
@@ -729,14 +712,6 @@ size_t max_serialized_size_chess_arm_executor__action__ExecuteMove_Feedback(
         1;
     }
   }
-  // member: z_pick_used
-  {
-    size_t array_size = 1;
-
-    last_member_size = array_size * sizeof(uint32_t);
-    current_alignment += array_size * sizeof(uint32_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint32_t));
-  }
 
   size_t ret_val = current_alignment - initial_alignment;
   if (is_plain) {
@@ -746,7 +721,7 @@ size_t max_serialized_size_chess_arm_executor__action__ExecuteMove_Feedback(
     using DataType = chess_arm_executor__action__ExecuteMove_Feedback;
     is_plain =
       (
-      offsetof(DataType, z_pick_used) +
+      offsetof(DataType, stage) +
       last_member_size
       ) == ret_val;
   }

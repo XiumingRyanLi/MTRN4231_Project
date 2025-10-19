@@ -1,0 +1,26 @@
+chess_arm_executor:
+  ros__parameters:
+    planning_group: "ur_manipulator"
+    ee_link: "tool0"
+    planner_id: "RRTConnectkConfigDefault"
+    velocity_scaling: 0.5
+    accel_scaling: 0.5
+    planning_time: 2.0
+    planning_attempts: 5
+
+    board_frame: "board"
+    world_frame: "world"
+    square_size: 0.040
+    z_approach: 0.070
+
+    # Per-piece absolute pick heights (m, in board frame)
+    z_pick:
+      pawn:   0.018
+      knight: 0.022
+      bishop: 0.022
+      rook:   0.025
+      queen:  0.028
+      king:   0.030
+
+    home_named_target: "home"
+    use_joint_constraints: true

@@ -36,7 +36,24 @@ void chess_arm_executor__action__ExecuteMove_Goal__rosidl_typesupport_introspect
   chess_arm_executor__action__ExecuteMove_Goal__fini(message_memory);
 }
 
-static rosidl_typesupport_introspection_c__MessageMember chess_arm_executor__action__ExecuteMove_Goal__rosidl_typesupport_introspection_c__ExecuteMove_Goal_message_member_array[3] = {
+static rosidl_typesupport_introspection_c__MessageMember chess_arm_executor__action__ExecuteMove_Goal__rosidl_typesupport_introspection_c__ExecuteMove_Goal_message_member_array[4] = {
+  {
+    "mode",  // name
+    rosidl_typesupport_introspection_c__ROS_TYPE_UINT8,  // type
+    0,  // upper bound of string
+    NULL,  // members of sub message
+    false,  // is array
+    0,  // array size
+    false,  // is upper bound
+    offsetof(chess_arm_executor__action__ExecuteMove_Goal, mode),  // bytes offset in struct
+    NULL,  // default value
+    NULL,  // size() function pointer
+    NULL,  // get_const(index) function pointer
+    NULL,  // get(index) function pointer
+    NULL,  // fetch(index, &value) function pointer
+    NULL,  // assign(index, value) function pointer
+    NULL  // resize(index) function pointer
+  },
   {
     "src_square",  // name
     rosidl_typesupport_introspection_c__ROS_TYPE_STRING,  // type
@@ -93,7 +110,7 @@ static rosidl_typesupport_introspection_c__MessageMember chess_arm_executor__act
 static const rosidl_typesupport_introspection_c__MessageMembers chess_arm_executor__action__ExecuteMove_Goal__rosidl_typesupport_introspection_c__ExecuteMove_Goal_message_members = {
   "chess_arm_executor__action",  // message namespace
   "ExecuteMove_Goal",  // message name
-  3,  // number of fields
+  4,  // number of fields
   sizeof(chess_arm_executor__action__ExecuteMove_Goal),
   chess_arm_executor__action__ExecuteMove_Goal__rosidl_typesupport_introspection_c__ExecuteMove_Goal_message_member_array,  // message members
   chess_arm_executor__action__ExecuteMove_Goal__rosidl_typesupport_introspection_c__ExecuteMove_Goal_init_function,  // function to initialize message memory (memory has to be allocated)
@@ -163,7 +180,7 @@ void chess_arm_executor__action__ExecuteMove_Result__rosidl_typesupport_introspe
   chess_arm_executor__action__ExecuteMove_Result__fini(message_memory);
 }
 
-static rosidl_typesupport_introspection_c__MessageMember chess_arm_executor__action__ExecuteMove_Result__rosidl_typesupport_introspection_c__ExecuteMove_Result_message_member_array[3] = {
+static rosidl_typesupport_introspection_c__MessageMember chess_arm_executor__action__ExecuteMove_Result__rosidl_typesupport_introspection_c__ExecuteMove_Result_message_member_array[2] = {
   {
     "ok",  // name
     rosidl_typesupport_introspection_c__ROS_TYPE_BOOLEAN,  // type
@@ -197,30 +214,13 @@ static rosidl_typesupport_introspection_c__MessageMember chess_arm_executor__act
     NULL,  // fetch(index, &value) function pointer
     NULL,  // assign(index, value) function pointer
     NULL  // resize(index) function pointer
-  },
-  {
-    "z_pick_used",  // name
-    rosidl_typesupport_introspection_c__ROS_TYPE_FLOAT,  // type
-    0,  // upper bound of string
-    NULL,  // members of sub message
-    false,  // is array
-    0,  // array size
-    false,  // is upper bound
-    offsetof(chess_arm_executor__action__ExecuteMove_Result, z_pick_used),  // bytes offset in struct
-    NULL,  // default value
-    NULL,  // size() function pointer
-    NULL,  // get_const(index) function pointer
-    NULL,  // get(index) function pointer
-    NULL,  // fetch(index, &value) function pointer
-    NULL,  // assign(index, value) function pointer
-    NULL  // resize(index) function pointer
   }
 };
 
 static const rosidl_typesupport_introspection_c__MessageMembers chess_arm_executor__action__ExecuteMove_Result__rosidl_typesupport_introspection_c__ExecuteMove_Result_message_members = {
   "chess_arm_executor__action",  // message namespace
   "ExecuteMove_Result",  // message name
-  3,  // number of fields
+  2,  // number of fields
   sizeof(chess_arm_executor__action__ExecuteMove_Result),
   chess_arm_executor__action__ExecuteMove_Result__rosidl_typesupport_introspection_c__ExecuteMove_Result_message_member_array,  // message members
   chess_arm_executor__action__ExecuteMove_Result__rosidl_typesupport_introspection_c__ExecuteMove_Result_init_function,  // function to initialize message memory (memory has to be allocated)
@@ -290,7 +290,7 @@ void chess_arm_executor__action__ExecuteMove_Feedback__rosidl_typesupport_intros
   chess_arm_executor__action__ExecuteMove_Feedback__fini(message_memory);
 }
 
-static rosidl_typesupport_introspection_c__MessageMember chess_arm_executor__action__ExecuteMove_Feedback__rosidl_typesupport_introspection_c__ExecuteMove_Feedback_message_member_array[2] = {
+static rosidl_typesupport_introspection_c__MessageMember chess_arm_executor__action__ExecuteMove_Feedback__rosidl_typesupport_introspection_c__ExecuteMove_Feedback_message_member_array[1] = {
   {
     "stage",  // name
     rosidl_typesupport_introspection_c__ROS_TYPE_STRING,  // type
@@ -307,30 +307,13 @@ static rosidl_typesupport_introspection_c__MessageMember chess_arm_executor__act
     NULL,  // fetch(index, &value) function pointer
     NULL,  // assign(index, value) function pointer
     NULL  // resize(index) function pointer
-  },
-  {
-    "z_pick_used",  // name
-    rosidl_typesupport_introspection_c__ROS_TYPE_FLOAT,  // type
-    0,  // upper bound of string
-    NULL,  // members of sub message
-    false,  // is array
-    0,  // array size
-    false,  // is upper bound
-    offsetof(chess_arm_executor__action__ExecuteMove_Feedback, z_pick_used),  // bytes offset in struct
-    NULL,  // default value
-    NULL,  // size() function pointer
-    NULL,  // get_const(index) function pointer
-    NULL,  // get(index) function pointer
-    NULL,  // fetch(index, &value) function pointer
-    NULL,  // assign(index, value) function pointer
-    NULL  // resize(index) function pointer
   }
 };
 
 static const rosidl_typesupport_introspection_c__MessageMembers chess_arm_executor__action__ExecuteMove_Feedback__rosidl_typesupport_introspection_c__ExecuteMove_Feedback_message_members = {
   "chess_arm_executor__action",  // message namespace
   "ExecuteMove_Feedback",  // message name
-  2,  // number of fields
+  1,  // number of fields
   sizeof(chess_arm_executor__action__ExecuteMove_Feedback),
   chess_arm_executor__action__ExecuteMove_Feedback__rosidl_typesupport_introspection_c__ExecuteMove_Feedback_message_member_array,  // message members
   chess_arm_executor__action__ExecuteMove_Feedback__rosidl_typesupport_introspection_c__ExecuteMove_Feedback_init_function,  // function to initialize message memory (memory has to be allocated)

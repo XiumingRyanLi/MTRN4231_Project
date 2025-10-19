@@ -34,7 +34,7 @@ target_include_directories(arm_controller_node PUBLIC
 # Link deps
 ament_target_dependencies(arm_controller_node
   rclcpp rclcpp_action moveit_ros_planning_interface moveit_msgs
-  geometry_msgs shape_msgs std_srvs tf2_ros tf2_geometry_msgs)
+  geometry_msgs shape_msgs std_srvs tf2_ros tf2_geometry_msgs rcl_interfaces)
 
 # Ensure interfaces build before the node
 add_dependencies(arm_controller_node ${PROJECT_NAME}__rosidl_typesupport_cpp)
@@ -45,6 +45,8 @@ target_link_libraries(arm_controller_node ${cpp_typesupport_target})
 
 install(TARGETS arm_controller_node DESTINATION lib/${PROJECT_NAME})
 install(DIRECTORY launch config action DESTINATION share/${PROJECT_NAME})
+install(DIRECTORY launch DESTINATION share/${PROJECT_NAME})
+install(DIRECTORY config DESTINATION share/${PROJECT_NAME})
 
 ament_export_dependencies(rosidl_default_runtime)
 ament_package()

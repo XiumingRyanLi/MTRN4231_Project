@@ -6,6 +6,8 @@
 module chess_arm_executor {
   module action {
     module ExecuteMove_Goal_Constants {
+      const uint8 MOVE = 0;
+      const uint8 GO_HOME = 1;
       const uint8 PAWN = 0;
       const uint8 KNIGHT = 1;
       const uint8 BISHOP = 2;
@@ -16,29 +18,21 @@ module chess_arm_executor {
     @verbatim (language="comment", text=
       "Goal")
     struct ExecuteMove_Goal {
+      uint8 mode;
+
       string src_square;
 
       string dst_square;
 
-      @verbatim (language="comment", text=
-        "piece type (enum)")
       uint8 piece_type;
     };
-    @verbatim (language="comment", text=
-      "Result")
     struct ExecuteMove_Result {
       boolean ok;
 
       string message;
-
-      float z_pick_used;
     };
-    @verbatim (language="comment", text=
-      "Feedback")
     struct ExecuteMove_Feedback {
       string stage;
-
-      float z_pick_used;
     };
   };
 };

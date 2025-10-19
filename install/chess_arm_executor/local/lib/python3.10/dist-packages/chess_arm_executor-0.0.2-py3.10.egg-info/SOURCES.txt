@@ -1,6 +1,1 @@
-setup.py
-chess_arm_executor/__init__.py
-chess_arm_executor.egg-info/PKG-INFO
-chess_arm_executor.egg-info/SOURCES.txt
-chess_arm_executor.egg-info/dependency_links.txt
-chess_arm_executor.egg-info/top_level.txt
+/home/ryanl/4231/MTRN4231_Project/build/chess_arm_executor/ament_cmake_python/chess_arm_executor/chess_arm_executor.egg-info/SOURCES.txt

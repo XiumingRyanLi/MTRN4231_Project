@@ -25,6 +25,13 @@ inline void to_flow_style_yaml(
   std::ostream & out)
 {
   out << "{";
+  // member: mode
+  {
+    out << "mode: ";
+    rosidl_generator_traits::value_to_yaml(msg.mode, out);
+    out << ", ";
+  }
+
   // member: src_square
   {
     out << "src_square: ";
@@ -51,6 +58,16 @@ inline void to_block_style_yaml(
   const ExecuteMove_Goal & msg,
   std::ostream & out, size_t indentation = 0)
 {
+  // member: mode
+  {
+    if (indentation > 0) {
+      out << std::string(indentation, ' ');
+    }
+    out << "mode: ";
+    rosidl_generator_traits::value_to_yaml(msg.mode, out);
+    out << "\n";
+  }
+
   // member: src_square
   {
     if (indentation > 0) {
@@ -162,13 +179,6 @@ inline void to_flow_style_yaml(
   {
     out << "message: ";
     rosidl_generator_traits::value_to_yaml(msg.message, out);
-    out << ", ";
-  }
-
-  // member: z_pick_used
-  {
-    out << "z_pick_used: ";
-    rosidl_generator_traits::value_to_yaml(msg.z_pick_used, out);
   }
   out << "}";
 }  // NOLINT(readability/fn_size)
@@ -194,16 +204,6 @@ inline void to_block_style_yaml(
     }
     out << "message: ";
     rosidl_generator_traits::value_to_yaml(msg.message, out);
-    out << "\n";
-  }
-
-  // member: z_pick_used
-  {
-    if (indentation > 0) {
-      out << std::string(indentation, ' ');
-    }
-    out << "z_pick_used: ";
-    rosidl_generator_traits::value_to_yaml(msg.z_pick_used, out);
     out << "\n";
   }
 }  // NOLINT(readability/fn_size)
@@ -281,13 +281,6 @@ inline void to_flow_style_yaml(
   {
     out << "stage: ";
     rosidl_generator_traits::value_to_yaml(msg.stage, out);
-    out << ", ";
-  }
-
-  // member: z_pick_used
-  {
-    out << "z_pick_used: ";
-    rosidl_generator_traits::value_to_yaml(msg.z_pick_used, out);
   }
   out << "}";
 }  // NOLINT(readability/fn_size)
@@ -303,16 +296,6 @@ inline void to_block_style_yaml(
     }
     out << "stage: ";
     rosidl_generator_traits::value_to_yaml(msg.stage, out);
-    out << "\n";
-  }
-
-  // member: z_pick_used
-  {
-    if (indentation > 0) {
-      out << std::string(indentation, ' ');
-    }
-    out << "z_pick_used: ";
-    rosidl_generator_traits::value_to_yaml(msg.z_pick_used, out);
     out << "\n";
   }
 }  // NOLINT(readability/fn_size)

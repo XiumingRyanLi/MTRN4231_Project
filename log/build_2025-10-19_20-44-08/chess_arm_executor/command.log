@@ -1,0 +1,2 @@
+Invoking command in '/home/ryanl/4231/MTRN4231_Project/build/chess_arm_executor': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/chess_arm_executor -- -j16 -l16
+Invoked command in '/home/ryanl/4231/MTRN4231_Project/build/chess_arm_executor' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/chess_arm_executor -- -j16 -l16

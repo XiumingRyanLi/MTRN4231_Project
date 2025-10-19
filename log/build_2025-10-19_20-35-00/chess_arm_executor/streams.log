@@ -1,0 +1,132 @@
+[0.022s] Invoking command in '/home/ryanl/4231/MTRN4231_Project/build/chess_arm_executor': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/chess_arm_executor -- -j16 -l16
+[0.152s] [  6%] Built target chess_arm_executor__cpp
+[0.152s] [ 12%] Built target chess_arm_executor__rosidl_generator_c
+[0.176s] [ 12%] Built target ament_cmake_python_symlink_chess_arm_executor
+[0.211s] [ 21%] Built target chess_arm_executor__rosidl_typesupport_c
+[0.213s] [ 30%] Built target chess_arm_executor__rosidl_typesupport_introspection_c
+[0.216s] [ 39%] Built target chess_arm_executor__rosidl_typesupport_fastrtps_cpp
+[0.216s] [ 48%] Built target chess_arm_executor__rosidl_typesupport_fastrtps_c
+[0.220s] [ 57%] Built target chess_arm_executor__rosidl_typesupport_introspection_cpp
+[0.235s] [ 66%] Built target chess_arm_executor__rosidl_typesupport_cpp
+[0.267s] [35m[1mConsolidate compiler generated dependencies of target arm_controller_node[0m
+[0.281s] [ 66%] Built target chess_arm_executor
+[0.328s] [ 72%] Built target chess_arm_executor__py
+[0.329s] [ 72%] [32mBuilding CXX object CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o[0m
+[0.382s] [ 78%] Built target chess_arm_executor__rosidl_generator_py
+[0.431s] [ 90%] Built target chess_arm_executor__rosidl_typesupport_c__pyext
+[0.431s] [ 90%] Built target chess_arm_executor__rosidl_typesupport_fastrtps_c__pyext
+[0.432s] [ 96%] Built target chess_arm_executor__rosidl_typesupport_introspection_c__pyext
+[0.650s] running egg_info
+[0.651s] writing chess_arm_executor.egg-info/PKG-INFO
+[0.652s] writing dependency_links to chess_arm_executor.egg-info/dependency_links.txt
+[0.652s] writing top-level names to chess_arm_executor.egg-info/top_level.txt
+[0.657s] reading manifest file 'chess_arm_executor.egg-info/SOURCES.txt'
+[0.658s] writing manifest file 'chess_arm_executor.egg-info/SOURCES.txt'
+[0.712s] [ 96%] Built target ament_cmake_python_build_chess_arm_executor_egg
+[18.095s] [100%] [32m[1mLinking CXX executable arm_controller_node[0m
+[19.061s] [100%] Built target arm_controller_node
+[19.091s] Invoked command in '/home/ryanl/4231/MTRN4231_Project/build/chess_arm_executor' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/chess_arm_executor -- -j16 -l16
+[19.112s] Invoking command in '/home/ryanl/4231/MTRN4231_Project/build/chess_arm_executor': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/ryanl/4231/MTRN4231_Project/build/chess_arm_executor
+[19.125s] -- Install configuration: ""
+[19.126s] -- Execute custom install script
+[19.127s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/ament_index/resource_index/rosidl_interfaces/chess_arm_executor
+[19.128s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/include/chess_arm_executor/chess_arm_executor/action/detail/execute_move__functions.h
+[19.128s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/include/chess_arm_executor/chess_arm_executor/action/detail/execute_move__struct.h
+[19.128s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/include/chess_arm_executor/chess_arm_executor/action/detail/execute_move__type_support.h
+[19.129s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/include/chess_arm_executor/chess_arm_executor/action/execute_move.h
+[19.129s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/include/chess_arm_executor/chess_arm_executor/msg/rosidl_generator_c__visibility_control.h
+[19.129s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/environment/library_path.sh
+[19.130s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/environment/library_path.dsv
+[19.131s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/include/chess_arm_executor/chess_arm_executor/action/detail/execute_move__rosidl_typesupport_fastrtps_c.h
+[19.131s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/include/chess_arm_executor/chess_arm_executor/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[19.132s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/include/chess_arm_executor/chess_arm_executor/action/detail/execute_move__builder.hpp
+[19.132s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/include/chess_arm_executor/chess_arm_executor/action/detail/execute_move__struct.hpp
+[19.132s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/include/chess_arm_executor/chess_arm_executor/action/detail/execute_move__traits.hpp
+[19.132s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/include/chess_arm_executor/chess_arm_executor/action/detail/execute_move__type_support.hpp
+[19.133s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/include/chess_arm_executor/chess_arm_executor/action/execute_move.hpp
+[19.133s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/include/chess_arm_executor/chess_arm_executor/msg/rosidl_generator_cpp__visibility_control.hpp
+[19.134s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/include/chess_arm_executor/chess_arm_executor/action/detail/execute_move__rosidl_typesupport_fastrtps_cpp.hpp
+[19.134s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/include/chess_arm_executor/chess_arm_executor/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[19.135s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/include/chess_arm_executor/chess_arm_executor/action/detail/execute_move__rosidl_typesupport_introspection_c.h
+[19.135s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/include/chess_arm_executor/chess_arm_executor/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[19.136s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/include/chess_arm_executor/chess_arm_executor/action/detail/execute_move__rosidl_typesupport_introspection_cpp.hpp
+[19.136s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/environment/pythonpath.sh
+[19.137s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/environment/pythonpath.dsv
+[19.137s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor-0.0.2-py3.10.egg-info/PKG-INFO
+[19.137s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor-0.0.2-py3.10.egg-info/SOURCES.txt
+[19.138s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor-0.0.2-py3.10.egg-info/dependency_links.txt
+[19.138s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor-0.0.2-py3.10.egg-info/top_level.txt
+[19.139s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor/__init__.py
+[19.140s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor/_chess_arm_executor_s.ep.rosidl_typesupport_c.c
+[19.140s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor/_chess_arm_executor_s.ep.rosidl_typesupport_fastrtps_c.c
+[19.140s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor/_chess_arm_executor_s.ep.rosidl_typesupport_introspection_c.c
+[19.140s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor/action/__init__.py
+[19.141s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor/action/_execute_move.py
+[19.141s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor/action/_execute_move_s.c
+[19.141s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor/chess_arm_executor_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[19.142s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor/chess_arm_executor_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[19.142s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor/chess_arm_executor_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[19.142s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor/libchess_arm_executor__rosidl_generator_py.so
+[19.143s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor/chess_arm_executor_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[19.143s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor/chess_arm_executor_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[19.143s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor/chess_arm_executor_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[19.144s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/action/ExecuteMove.idl
+[19.144s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/action/ExecuteMove.action
+[19.145s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/lib/chess_arm_executor/arm_controller_node
+[19.145s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/launch/chess_arm_executor.launch.py
+[19.146s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/config/chess_arm_executor.yaml
+[19.146s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/config/params.yaml
+[19.146s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/action/ExecuteMove.action
+[19.147s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/launch/chess_arm_executor.launch.py
+[19.147s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/config/chess_arm_executor.yaml
+[19.147s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/config/params.yaml
+[19.148s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/ament_index/resource_index/package_run_dependencies/chess_arm_executor
+[19.148s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/ament_index/resource_index/parent_prefix_path/chess_arm_executor
+[19.148s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/environment/ament_prefix_path.sh
+[19.149s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/environment/ament_prefix_path.dsv
+[19.149s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/environment/path.sh
+[19.149s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/environment/path.dsv
+[19.150s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/local_setup.bash
+[19.150s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/local_setup.sh
+[19.150s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/local_setup.zsh
+[19.151s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/local_setup.dsv
+[19.151s] -- Symlinking: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/package.dsv
+[19.173s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/ament_index/resource_index/packages/chess_arm_executor
+[19.174s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/rosidl_cmake-extras.cmake
+[19.174s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/ament_cmake_export_dependencies-extras.cmake
+[19.174s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/ament_cmake_export_include_directories-extras.cmake
+[19.175s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/ament_cmake_export_libraries-extras.cmake
+[19.175s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/ament_cmake_export_targets-extras.cmake
+[19.176s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[19.176s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[19.177s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/chess_arm_executorConfig.cmake
+[19.177s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/chess_arm_executorConfig-version.cmake
+[19.177s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/package.xml
+[19.178s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/lib/libchess_arm_executor__rosidl_generator_c.so
+[19.179s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/lib/libchess_arm_executor__rosidl_typesupport_fastrtps_c.so
+[19.180s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/lib/libchess_arm_executor__rosidl_typesupport_fastrtps_cpp.so
+[19.180s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/lib/libchess_arm_executor__rosidl_typesupport_introspection_c.so
+[19.181s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/lib/libchess_arm_executor__rosidl_typesupport_c.so
+[19.182s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/lib/libchess_arm_executor__rosidl_typesupport_introspection_cpp.so
+[19.183s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/lib/libchess_arm_executor__rosidl_typesupport_cpp.so
+[19.252s] Listing '/home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor'...
+[19.253s] Listing '/home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor/action'...
+[19.262s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/lib/libchess_arm_executor__rosidl_generator_py.so
+[19.263s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/export_chess_arm_executor__rosidl_generator_cExport.cmake
+[19.263s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/export_chess_arm_executor__rosidl_generator_cExport-noconfig.cmake
+[19.263s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/export_chess_arm_executor__rosidl_typesupport_fastrtps_cExport.cmake
+[19.264s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/export_chess_arm_executor__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[19.264s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/export_chess_arm_executor__rosidl_generator_cppExport.cmake
+[19.264s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/export_chess_arm_executor__rosidl_typesupport_fastrtps_cppExport.cmake
+[19.264s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/export_chess_arm_executor__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[19.265s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/chess_arm_executor__rosidl_typesupport_introspection_cExport.cmake
+[19.265s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/chess_arm_executor__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[19.265s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/chess_arm_executor__rosidl_typesupport_cExport.cmake
+[19.266s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/chess_arm_executor__rosidl_typesupport_cExport-noconfig.cmake
+[19.266s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/chess_arm_executor__rosidl_typesupport_introspection_cppExport.cmake
+[19.266s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/chess_arm_executor__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[19.266s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/chess_arm_executor__rosidl_typesupport_cppExport.cmake
+[19.266s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/chess_arm_executor__rosidl_typesupport_cppExport-noconfig.cmake
+[19.266s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/export_chess_arm_executor__rosidl_generator_pyExport.cmake
+[19.266s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/export_chess_arm_executor__rosidl_generator_pyExport-noconfig.cmake
+[19.272s] Invoked command in '/home/ryanl/4231/MTRN4231_Project/build/chess_arm_executor' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/ryanl/4231/MTRN4231_Project/build/chess_arm_executor

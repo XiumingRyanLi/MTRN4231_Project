@@ -1,0 +1,105 @@
+[0.030s] Invoking command in '/home/ryanl/4231/MTRN4231_Project/build/chess_arm_executor': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/chess_arm_executor -- -j16 -l16
+[0.135s] [35m[1mConsolidate compiler generated dependencies of target chess_arm_executor__rosidl_generator_c[0m
+[0.160s] [  3%] Built target chess_arm_executor__cpp
+[0.161s] [ 12%] Built target chess_arm_executor__rosidl_generator_c
+[0.182s] [ 12%] Built target ament_cmake_python_symlink_chess_arm_executor
+[0.187s] [35m[1mConsolidate compiler generated dependencies of target chess_arm_executor__rosidl_typesupport_c[0m
+[0.187s] [35m[1mConsolidate compiler generated dependencies of target chess_arm_executor__rosidl_typesupport_introspection_c[0m
+[0.187s] [35m[1mConsolidate compiler generated dependencies of target chess_arm_executor__rosidl_typesupport_cpp[0m
+[0.187s] [35m[1mConsolidate compiler generated dependencies of target chess_arm_executor__rosidl_typesupport_fastrtps_c[0m
+[0.188s] [35m[1mConsolidate compiler generated dependencies of target chess_arm_executor__rosidl_typesupport_introspection_cpp[0m
+[0.188s] [35m[1mConsolidate compiler generated dependencies of target chess_arm_executor__rosidl_typesupport_fastrtps_cpp[0m
+[0.219s] [ 21%] Built target chess_arm_executor__rosidl_typesupport_introspection_c
+[0.224s] [ 30%] Built target chess_arm_executor__rosidl_typesupport_cpp
+[0.224s] [ 39%] Built target chess_arm_executor__rosidl_typesupport_c
+[0.227s] [ 48%] Built target chess_arm_executor__rosidl_typesupport_introspection_cpp
+[0.230s] [ 57%] Built target chess_arm_executor__rosidl_typesupport_fastrtps_c
+[0.232s] [ 66%] Built target chess_arm_executor__rosidl_typesupport_fastrtps_cpp
+[0.252s] [35m[1mConsolidate compiler generated dependencies of target arm_controller_node[0m
+[0.280s] [ 66%] Built target chess_arm_executor
+[0.326s] [ 69%] [32mBuilding CXX object CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o[0m
+[0.337s] [ 72%] Built target chess_arm_executor__py
+[0.366s] [35m[1mConsolidate compiler generated dependencies of target chess_arm_executor__rosidl_generator_py[0m
+[0.398s] [ 78%] Built target chess_arm_executor__rosidl_generator_py
+[0.422s] [35m[1mConsolidate compiler generated dependencies of target chess_arm_executor__rosidl_typesupport_fastrtps_c__pyext[0m
+[0.422s] [35m[1mConsolidate compiler generated dependencies of target chess_arm_executor__rosidl_typesupport_introspection_c__pyext[0m
+[0.422s] [35m[1mConsolidate compiler generated dependencies of target chess_arm_executor__rosidl_typesupport_c__pyext[0m
+[0.455s] [ 96%] Built target chess_arm_executor__rosidl_typesupport_fastrtps_c__pyext
+[0.456s] [ 96%] Built target chess_arm_executor__rosidl_typesupport_introspection_c__pyext
+[0.456s] [ 96%] Built target chess_arm_executor__rosidl_typesupport_c__pyext
+[0.689s] running egg_info
+[0.690s] writing chess_arm_executor.egg-info/PKG-INFO
+[0.691s] writing dependency_links to chess_arm_executor.egg-info/dependency_links.txt
+[0.691s] writing top-level names to chess_arm_executor.egg-info/top_level.txt
+[0.698s] reading manifest file 'chess_arm_executor.egg-info/SOURCES.txt'
+[0.699s] writing manifest file 'chess_arm_executor.egg-info/SOURCES.txt'
+[0.766s] [ 96%] Built target ament_cmake_python_build_chess_arm_executor_egg
+[9.770s] In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/client.hpp:39[m[K,
+[9.770s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/callback_group.hpp:24[m[K,
+[9.770s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:20[m[K,
+[9.770s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategy.hpp:25[m[K,
+[9.770s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/memory_strategies.hpp:18[m[K,
+[9.770s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor_options.hpp:20[m[K,
+[9.771s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executor.hpp:37[m[K,
+[9.771s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp:25[m[K,
+[9.771s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:21[m[K,
+[9.771s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+[9.771s]                  from [01m[K/home/ryanl/4231/MTRN4231_Project/src/chess_arm_executor/src/arm_controller_node.cpp:1[m[K:
+[9.771s] /opt/ros/humble/include/rclcpp/rclcpp/function_traits.hpp: In instantiation of ‘[01m[Kstruct rclcpp::function_traits::function_traits<void (ChessArmExecutor::ChessArmExecutor()::<lambda()>::*)()>[m[K’:
+[9.772s] [01m[K/opt/ros/humble/include/rclcpp/rclcpp/function_traits.hpp:51:9:[m[K   required from ‘[01m[Kstruct rclcpp::function_traits::function_traits<ChessArmExecutor::ChessArmExecutor()::<lambda()> >[m[K’
+[9.772s] [01m[K/opt/ros/humble/include/rclcpp/rclcpp/function_traits.hpp:165:8:[m[K   required from ‘[01m[Kstruct rclcpp::function_traits::same_arguments<ChessArmExecutor::ChessArmExecutor()::<lambda()>, std::function<void()> >[m[K’
+[9.772s] [01m[K/opt/ros/humble/include/rclcpp/rclcpp/timer.hpp:167:80:[m[K   required by substitution of ‘[01m[Ktemplate<class DurationRepT, class DurationT, class CallbackT> typename rclcpp::WallTimer<CallbackT>::SharedPtr rclcpp::Node::create_wall_timer(std::chrono::duration<_Rep1, _Period1>, CallbackT, rclcpp::CallbackGroup::SharedPtr) [with DurationRepT = long int; DurationT = std::ratio<1, 1000>; CallbackT = ChessArmExecutor::ChessArmExecutor()::<lambda()>][m[K’
+[9.772s] [01m[K/home/ryanl/4231/MTRN4231_Project/src/chess_arm_executor/src/arm_controller_node.cpp:25:41:[m[K   required from here
+[9.772s] [01m[K/opt/ros/humble/include/rclcpp/rclcpp/function_traits.hpp:52:40:[m[K [01;31m[Kerror: [m[K‘[01m[Koperator()[m[K’ is not a member of ‘[01m[Kvoid (ChessArmExecutor::ChessArmExecutor()::<lambda()>::*)()[m[K’
+[9.772s]    52 |     typename function_traits<decltype( [01;31m[K&FunctionT::operator()[m[K)>::arguments>::type;
+[9.773s]       |                                        [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[9.773s] [01m[K/opt/ros/humble/include/rclcpp/rclcpp/function_traits.hpp:52:40:[m[K [01;31m[Kerror: [m[K‘[01m[Koperator()[m[K’ is not a member of ‘[01m[Kvoid (ChessArmExecutor::ChessArmExecutor()::<lambda()>::*)()[m[K’
+[9.773s] [01m[K/opt/ros/humble/include/rclcpp/rclcpp/function_traits.hpp:52:40:[m[K [01;31m[Kerror: [m[K‘[01m[Koperator()[m[K’ is not a member of ‘[01m[Kvoid (ChessArmExecutor::ChessArmExecutor()::<lambda()>::*)()[m[K’
+[9.773s] [01m[K/home/ryanl/4231/MTRN4231_Project/src/chess_arm_executor/src/arm_controller_node.cpp:[m[K In constructor ‘[01m[KChessArmExecutor::ChessArmExecutor()[m[K’:
+[9.773s] [01m[K/home/ryanl/4231/MTRN4231_Project/src/chess_arm_executor/src/arm_controller_node.cpp:25:41:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[KChessArmExecutor::create_wall_timer(std::chrono::milliseconds, ChessArmExecutor::ChessArmExecutor()::<lambda()>)[m[K’
+[9.773s]    25 |     auto timer = [01;31m[Kthis->create_wall_timer([m[K
+[9.773s]       |                  [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~^[m[K
+[9.773s]    26 | [01;31m[K      std::chrono::milliseconds(100),[m[K
+[9.774s]       |       [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K    
+[9.774s]    27 | [01;31m[K      [this, timer_weak = std::weak_ptr<rclcpp::TimerBase>()]() mutable {[m[K
+[9.774s]       |       [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[9.774s]    28 | [01;31m[K        if (move_group_) return;[m[K
+[9.774s]       |         [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~[m[K         
+[9.774s]    29 | [01;31m[K        try {[m[K
+[9.774s]       |         [01;31m[K~~~~~[m[K                            
+[9.774s]    30 | [01;31m[K          move_group_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>([m[K
+[9.774s]       |           [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[9.774s]    31 | [01;31m[K            shared_from_this(), "ur_manipulator");[m[K
+[9.775s]       |             [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[9.775s]    32 | [01;31m[K          move_group_->setPlannerId("RRTConnectkConfigDefault");[m[K
+[9.775s]       |           [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[9.775s]    33 | [01;31m[K          move_group_->setMaxVelocityScalingFactor(0.5);[m[K
+[9.775s]       |           [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[9.775s]    34 | [01;31m[K          move_group_->setMaxAccelerationScalingFactor(0.5);[m[K
+[9.775s]       |           [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[9.775s]    35 | [01;31m[K          RCLCPP_INFO(get_logger(), "MoveIt MoveGroup ready.");[m[K
+[9.776s]       |           [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[9.776s]    36 | [01;31m[K        } catch (...) {[m[K
+[9.776s]       |         [01;31m[K~~~~~~~~~~~~~~~[m[K                  
+[9.776s]    37 | [01;31m[K          RCLCPP_WARN(get_logger(), "MoveGroup not ready yet, retrying...");[m[K
+[9.776s]       |           [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[9.777s]    38 | [01;31m[K          return;[m[K
+[9.777s]       |           [01;31m[K~~~~~~~[m[K                        
+[9.777s]    39 | [01;31m[K        }[m[K
+[9.777s]       |         [01;31m[K~[m[K                                
+[9.777s]    40 | [01;31m[K        if (auto t = timer_weak.lock()) t->cancel();[m[K
+[9.777s]       |         [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[9.778s]    41 | [01;31m[K      })[m[K;
+[9.778s]       |       [01;31m[K~~[m[K                                 
+[9.778s] In file included from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors/single_threaded_executor.hpp:28[m[K,
+[9.778s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/executors.hpp:22[m[K,
+[9.778s]                  from [01m[K/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:155[m[K,
+[9.778s]                  from [01m[K/home/ryanl/4231/MTRN4231_Project/src/chess_arm_executor/src/arm_controller_node.cpp:1[m[K:
+[9.779s] [01m[K/opt/ros/humble/include/rclcpp/rclcpp/node.hpp:238:3:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Ktemplate<class DurationRepT, class DurationT, class CallbackT> typename rclcpp::WallTimer<CallbackT>::SharedPtr rclcpp::Node::create_wall_timer(std::chrono::duration<_Rep1, _Period1>, CallbackT, rclcpp::CallbackGroup::SharedPtr)[m[K’
+[9.779s]   238 |   [01;36m[Kcreate_wall_timer[m[K(
+[9.779s]       |   [01;36m[K^~~~~~~~~~~~~~~~~[m[K
+[9.779s] [01m[K/opt/ros/humble/include/rclcpp/rclcpp/node.hpp:238:3:[m[K [01;36m[Knote: [m[K  substitution of deduced template arguments resulted in errors seen above
+[14.933s] gmake[2]: *** [CMakeFiles/arm_controller_node.dir/build.make:76: CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o] Error 1
+[14.933s] gmake[1]: *** [CMakeFiles/Makefile2:593: CMakeFiles/arm_controller_node.dir/all] Error 2
+[14.933s] gmake: *** [Makefile:146: all] Error 2
+[14.940s] Invoked command in '/home/ryanl/4231/MTRN4231_Project/build/chess_arm_executor' returned '2': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/chess_arm_executor -- -j16 -l16

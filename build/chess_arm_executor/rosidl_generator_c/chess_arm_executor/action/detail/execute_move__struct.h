@@ -17,6 +17,18 @@ extern "C"
 
 // Constants defined in the message
 
+/// Constant 'MOVE'.
+enum
+{
+  chess_arm_executor__action__ExecuteMove_Goal__MOVE = 0
+};
+
+/// Constant 'GO_HOME'.
+enum
+{
+  chess_arm_executor__action__ExecuteMove_Goal__GO_HOME = 1
+};
+
 /// Constant 'PAWN'.
 enum
 {
@@ -61,9 +73,9 @@ enum
 /// Struct defined in action/ExecuteMove in the package chess_arm_executor.
 typedef struct chess_arm_executor__action__ExecuteMove_Goal
 {
+  uint8_t mode;
   rosidl_runtime_c__String src_square;
   rosidl_runtime_c__String dst_square;
-  /// piece type (enum)
   uint8_t piece_type;
 } chess_arm_executor__action__ExecuteMove_Goal;
 
@@ -90,7 +102,6 @@ typedef struct chess_arm_executor__action__ExecuteMove_Result
 {
   bool ok;
   rosidl_runtime_c__String message;
-  float z_pick_used;
 } chess_arm_executor__action__ExecuteMove_Result;
 
 // Struct for a sequence of chess_arm_executor__action__ExecuteMove_Result.
@@ -115,7 +126,6 @@ typedef struct chess_arm_executor__action__ExecuteMove_Result__Sequence
 typedef struct chess_arm_executor__action__ExecuteMove_Feedback
 {
   rosidl_runtime_c__String stage;
-  float z_pick_used;
 } chess_arm_executor__action__ExecuteMove_Feedback;
 
 // Struct for a sequence of chess_arm_executor__action__ExecuteMove_Feedback.
