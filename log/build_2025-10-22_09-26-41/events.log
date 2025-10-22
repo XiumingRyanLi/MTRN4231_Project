@@ -1,0 +1,752 @@
+[0.000000] (-) TimerEvent: {}
+[0.000453] (-) JobUnselected: {'identifier': 'chess_arm_executor'}
+[0.000541] (arm_interfaces) JobQueued: {'identifier': 'arm_interfaces', 'dependencies': OrderedDict()}
+[0.000613] (arm_controller) JobQueued: {'identifier': 'arm_controller', 'dependencies': OrderedDict([('arm_interfaces', '/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces')])}
+[0.000682] (arm_interfaces) JobStarted: {'identifier': 'arm_interfaces'}
+[0.022010] (arm_interfaces) JobProgress: {'identifier': 'arm_interfaces', 'progress': 'cmake'}
+[0.023804] (arm_interfaces) JobProgress: {'identifier': 'arm_interfaces', 'progress': 'build'}
+[0.025586] (arm_interfaces) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/ryanl/4231/MTRN4231_Project/build/arm_interfaces', '--', '-j16', '-l16'], 'cwd': '/home/ryanl/4231/MTRN4231_Project/build/arm_interfaces', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'ryanl'), ('GIT_ASKPASS', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('MOTD_SHOWN', 'update-motd'), ('HOME', '/home/ryanl'), ('OLDPWD', '/home/ryanl/4231/MTRN4231_Project/src'), ('TERM_PROGRAM_VERSION', '1.105.1'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-9b5063fd-53bd-4fad-b2ee-b314c95e0b79.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/node'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'ryanl'), ('NAME', 'Ryan'), ('WSL_INTEROP', '/run/WSL/409_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/bin/remote-cli:/home/ryanl/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/MCC:/mnt/c/Program Files/Eclipse Adoptium/jdk-11.0.20.101-hotspot/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/150/DTS/Binn/:/mnt/c/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit/:/mnt/c/Program Files/MATLAB/R2024b/bin:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/:/mnt/c/Gradle/bin:/mnt/c/Program Files (x86)/STMicroelectronics/STM32 ST-LINK Utility/ST-LINK Utility:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files (x86)/IVI Foundation/VISA/WinNT/Bin/:/mnt/c/Program Files/IVI Foundation/VISA/Win64/Bin/:/mnt/c/Program Files (x86)/IVI Foundation/VISA/WinNT/Bin:/mnt/c/Program Files/usbipd-win/:/mnt/c/Program Files/Tailscale/:/mnt/c/Program Files/Netbird:/mnt/c/Program Files/Git/cmd:/mnt/c/Users/ryanl/AppData/Local/Programs/Python/Python311/Scripts/:/mnt/c/Users/ryanl/AppData/Local/Programs/Python/Python311/:/mnt/c/Users/ryanl/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/ryanl/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/ryanl/AppData/Roaming/npm:/mnt/c/opencv/build/x64/vc16/bin:/mnt/c/Users/ryanl/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/ryanl/AppData/Local/Programs/MiKTeX/miktex/bin/x64/:/mnt/c/Users/ryanl/.dotnet/tools:/snap/bin:/home/ryanl/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-14419cdd9e.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/ryanl/4231/MTRN4231_Project/build/arm_interfaces'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('WSLENV', 'VSCODE_WSL_EXT_LOCATION/up')]), 'shell': False}
+[0.098747] (-) TimerEvent: {}
+[0.170917] (arm_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target arm_interfaces__rosidl_generator_c\x1b[0m\n'}
+[0.195711] (arm_interfaces) StdoutLine: {'line': b'[  3%] Built target arm_interfaces__cpp\n'}
+[0.198478] (arm_interfaces) StdoutLine: {'line': b'[ 12%] Built target arm_interfaces__rosidl_generator_c\n'}
+[0.198854] (-) TimerEvent: {}
+[0.224780] (arm_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target arm_interfaces__rosidl_typesupport_cpp\x1b[0m\n'}
+[0.227788] (arm_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target arm_interfaces__rosidl_typesupport_introspection_c\x1b[0m\n'}
+[0.228288] (arm_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target arm_interfaces__rosidl_typesupport_fastrtps_c\x1b[0m\n'}
+[0.228405] (arm_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target arm_interfaces__rosidl_typesupport_fastrtps_cpp\x1b[0m\n'}
+[0.228527] (arm_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target arm_interfaces__rosidl_typesupport_introspection_cpp\x1b[0m\n'}
+[0.230898] (arm_interfaces) StdoutLine: {'line': b'[ 12%] Built target ament_cmake_python_copy_arm_interfaces\n'}
+[0.233672] (arm_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target arm_interfaces__rosidl_typesupport_c\x1b[0m\n'}
+[0.261796] (arm_interfaces) StdoutLine: {'line': b'[ 32%] Built target arm_interfaces__rosidl_typesupport_cpp\n'}
+[0.262237] (arm_interfaces) StdoutLine: {'line': b'[ 32%] Built target arm_interfaces__rosidl_typesupport_introspection_c\n'}
+[0.262447] (arm_interfaces) StdoutLine: {'line': b'[ 41%] Built target arm_interfaces__rosidl_typesupport_introspection_cpp\n'}
+[0.262593] (arm_interfaces) StdoutLine: {'line': b'[ 51%] Built target arm_interfaces__rosidl_typesupport_c\n'}
+[0.262900] (arm_interfaces) StdoutLine: {'line': b'[ 61%] Built target arm_interfaces__rosidl_typesupport_fastrtps_c\n'}
+[0.264142] (arm_interfaces) StdoutLine: {'line': b'[ 70%] Built target arm_interfaces__rosidl_typesupport_fastrtps_cpp\n'}
+[0.299067] (-) TimerEvent: {}
+[0.309573] (arm_interfaces) StdoutLine: {'line': b'[ 70%] Built target arm_interfaces\n'}
+[0.356318] (arm_interfaces) StdoutLine: {'line': b'[ 74%] Built target arm_interfaces__py\n'}
+[0.381344] (arm_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target arm_interfaces__rosidl_generator_py\x1b[0m\n'}
+[0.399315] (-) TimerEvent: {}
+[0.407397] (arm_interfaces) StdoutLine: {'line': b'[ 80%] Built target arm_interfaces__rosidl_generator_py\n'}
+[0.432013] (arm_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target arm_interfaces__rosidl_typesupport_introspection_c__pyext\x1b[0m\n'}
+[0.432432] (arm_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target arm_interfaces__rosidl_typesupport_fastrtps_c__pyext\x1b[0m\n'}
+[0.432604] (arm_interfaces) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target arm_interfaces__rosidl_typesupport_c__pyext\x1b[0m\n'}
+[0.458013] (arm_interfaces) StdoutLine: {'line': b'[ 87%] Built target arm_interfaces__rosidl_typesupport_c__pyext\n'}
+[0.458426] (arm_interfaces) StdoutLine: {'line': b'[ 93%] Built target arm_interfaces__rosidl_typesupport_fastrtps_c__pyext\n'}
+[0.459796] (arm_interfaces) StdoutLine: {'line': b'[100%] Built target arm_interfaces__rosidl_typesupport_introspection_c__pyext\n'}
+[0.499485] (-) TimerEvent: {}
+[0.599882] (-) TimerEvent: {}
+[0.700373] (-) TimerEvent: {}
+[0.731319] (arm_interfaces) StdoutLine: {'line': b'running egg_info\n'}
+[0.732515] (arm_interfaces) StdoutLine: {'line': b'writing arm_interfaces.egg-info/PKG-INFO\n'}
+[0.732937] (arm_interfaces) StdoutLine: {'line': b'writing dependency_links to arm_interfaces.egg-info/dependency_links.txt\n'}
+[0.733249] (arm_interfaces) StdoutLine: {'line': b'writing top-level names to arm_interfaces.egg-info/top_level.txt\n'}
+[0.740499] (arm_interfaces) StdoutLine: {'line': b"reading manifest file 'arm_interfaces.egg-info/SOURCES.txt'\n"}
+[0.741900] (arm_interfaces) StdoutLine: {'line': b"writing manifest file 'arm_interfaces.egg-info/SOURCES.txt'\n"}
+[0.785719] (arm_interfaces) StdoutLine: {'line': b'[100%] Built target ament_cmake_python_build_arm_interfaces_egg\n'}
+[0.800548] (-) TimerEvent: {}
+[0.809032] (arm_interfaces) CommandEnded: {'returncode': 0}
+[0.812643] (arm_interfaces) JobProgress: {'identifier': 'arm_interfaces', 'progress': 'install'}
+[0.833303] (arm_interfaces) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/ryanl/4231/MTRN4231_Project/build/arm_interfaces'], 'cwd': '/home/ryanl/4231/MTRN4231_Project/build/arm_interfaces', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'ryanl'), ('GIT_ASKPASS', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('MOTD_SHOWN', 'update-motd'), ('HOME', '/home/ryanl'), ('OLDPWD', '/home/ryanl/4231/MTRN4231_Project/src'), ('TERM_PROGRAM_VERSION', '1.105.1'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-9b5063fd-53bd-4fad-b2ee-b314c95e0b79.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/node'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'ryanl'), ('NAME', 'Ryan'), ('WSL_INTEROP', '/run/WSL/409_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/bin/remote-cli:/home/ryanl/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/MCC:/mnt/c/Program Files/Eclipse Adoptium/jdk-11.0.20.101-hotspot/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/150/DTS/Binn/:/mnt/c/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit/:/mnt/c/Program Files/MATLAB/R2024b/bin:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/:/mnt/c/Gradle/bin:/mnt/c/Program Files (x86)/STMicroelectronics/STM32 ST-LINK Utility/ST-LINK Utility:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files (x86)/IVI Foundation/VISA/WinNT/Bin/:/mnt/c/Program Files/IVI Foundation/VISA/Win64/Bin/:/mnt/c/Program Files (x86)/IVI Foundation/VISA/WinNT/Bin:/mnt/c/Program Files/usbipd-win/:/mnt/c/Program Files/Tailscale/:/mnt/c/Program Files/Netbird:/mnt/c/Program Files/Git/cmd:/mnt/c/Users/ryanl/AppData/Local/Programs/Python/Python311/Scripts/:/mnt/c/Users/ryanl/AppData/Local/Programs/Python/Python311/:/mnt/c/Users/ryanl/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/ryanl/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/ryanl/AppData/Roaming/npm:/mnt/c/opencv/build/x64/vc16/bin:/mnt/c/Users/ryanl/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/ryanl/AppData/Local/Programs/MiKTeX/miktex/bin/x64/:/mnt/c/Users/ryanl/.dotnet/tools:/snap/bin:/home/ryanl/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-14419cdd9e.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/ryanl/4231/MTRN4231_Project/build/arm_interfaces'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('WSLENV', 'VSCODE_WSL_EXT_LOCATION/up')]), 'shell': False}
+[0.849376] (arm_interfaces) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[0.850592] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/ament_index/resource_index/rosidl_interfaces/arm_interfaces\n'}
+[0.851160] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces\n'}
+[0.851536] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action\n'}
+[0.851952] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/detail\n'}
+[0.852045] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/detail/pick_place__functions.h\n'}
+[0.852216] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/detail/pick_place__struct.h\n'}
+[0.852586] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/detail/pick_place__type_support.h\n'}
+[0.852692] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/detail/pick_place__functions.c\n'}
+[0.852775] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/pick_place.h\n'}
+[0.852852] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/msg\n'}
+[0.852992] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/msg/rosidl_generator_c__visibility_control.h\n'}
+[0.853073] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/environment/library_path.sh\n'}
+[0.853164] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/environment/library_path.dsv\n'}
+[0.854296] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/lib/libarm_interfaces__rosidl_generator_c.so\n'}
+[0.854677] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces\n'}
+[0.854899] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action\n'}
+[0.855219] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/detail\n'}
+[0.855466] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/detail/pick_place__rosidl_typesupport_fastrtps_c.h\n'}
+[0.855646] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/msg\n'}
+[0.855867] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[0.856703] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/lib/libarm_interfaces__rosidl_typesupport_fastrtps_c.so\n'}
+[0.857176] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces\n'}
+[0.857377] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action\n'}
+[0.857793] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/detail\n'}
+[0.858076] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/detail/pick_place__type_support.c\n'}
+[0.858326] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/detail/pick_place__rosidl_typesupport_introspection_c.h\n'}
+[0.858624] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/msg\n'}
+[0.858751] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[0.859737] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/lib/libarm_interfaces__rosidl_typesupport_introspection_c.so\n'}
+[0.861625] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/lib/libarm_interfaces__rosidl_typesupport_c.so\n'}
+[0.862077] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces\n'}
+[0.862502] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action\n'}
+[0.862789] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/pick_place.hpp\n'}
+[0.863122] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/detail\n'}
+[0.863621] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/detail/pick_place__traits.hpp\n'}
+[0.863926] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/detail/pick_place__struct.hpp\n'}
+[0.864072] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/detail/pick_place__builder.hpp\n'}
+[0.864293] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/detail/pick_place__type_support.hpp\n'}
+[0.864529] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/msg\n'}
+[0.864752] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[0.865000] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces\n'}
+[0.865335] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action\n'}
+[0.865633] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/detail\n'}
+[0.866129] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/detail/pick_place__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[0.866387] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/detail/dds_fastrtps\n'}
+[0.866684] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/msg\n'}
+[0.867311] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[0.867512] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/lib/libarm_interfaces__rosidl_typesupport_fastrtps_cpp.so\n'}
+[0.867636] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces\n'}
+[0.867764] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action\n'}
+[0.867881] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/detail\n'}
+[0.867987] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/detail/pick_place__rosidl_typesupport_introspection_cpp.hpp\n'}
+[0.868100] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/detail/pick_place__type_support.cpp\n'}
+[0.868299] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/lib/libarm_interfaces__rosidl_typesupport_introspection_cpp.so\n'}
+[0.870519] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/lib/libarm_interfaces__rosidl_typesupport_cpp.so\n'}
+[0.871008] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/environment/pythonpath.sh\n'}
+[0.871508] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/environment/pythonpath.dsv\n'}
+[0.871662] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/local/lib/python3.10/dist-packages/arm_interfaces-0.0.0-py3.10.egg-info\n'}
+[0.871776] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/local/lib/python3.10/dist-packages/arm_interfaces-0.0.0-py3.10.egg-info/top_level.txt\n'}
+[0.873005] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/local/lib/python3.10/dist-packages/arm_interfaces-0.0.0-py3.10.egg-info/SOURCES.txt\n'}
+[0.873197] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/local/lib/python3.10/dist-packages/arm_interfaces-0.0.0-py3.10.egg-info/dependency_links.txt\n'}
+[0.873528] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/local/lib/python3.10/dist-packages/arm_interfaces-0.0.0-py3.10.egg-info/PKG-INFO\n'}
+[0.874296] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/local/lib/python3.10/dist-packages/arm_interfaces\n'}
+[0.874449] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/local/lib/python3.10/dist-packages/arm_interfaces/_arm_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[0.874688] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/local/lib/python3.10/dist-packages/arm_interfaces/arm_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[0.874947] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/local/lib/python3.10/dist-packages/arm_interfaces/__init__.py\n'}
+[0.875286] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/local/lib/python3.10/dist-packages/arm_interfaces/libarm_interfaces__rosidl_generator_py.so\n'}
+[0.875495] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/local/lib/python3.10/dist-packages/arm_interfaces/arm_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[0.875645] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/local/lib/python3.10/dist-packages/arm_interfaces/action\n'}
+[0.875827] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/local/lib/python3.10/dist-packages/arm_interfaces/action/_pick_place.py\n'}
+[0.876028] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/local/lib/python3.10/dist-packages/arm_interfaces/action/__init__.py\n'}
+[0.876328] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/local/lib/python3.10/dist-packages/arm_interfaces/action/_pick_place_s.c\n'}
+[0.876442] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/local/lib/python3.10/dist-packages/arm_interfaces/_arm_interfaces_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[0.876544] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/local/lib/python3.10/dist-packages/arm_interfaces/arm_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[0.876643] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/local/lib/python3.10/dist-packages/arm_interfaces/_arm_interfaces_s.ep.rosidl_typesupport_c.c\n'}
+[0.900667] (-) TimerEvent: {}
+[0.940036] (arm_interfaces) StdoutLine: {'line': b"Listing '/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/local/lib/python3.10/dist-packages/arm_interfaces'...\n"}
+[0.940489] (arm_interfaces) StdoutLine: {'line': b"Listing '/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/local/lib/python3.10/dist-packages/arm_interfaces/action'...\n"}
+[0.949921] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/local/lib/python3.10/dist-packages/arm_interfaces/arm_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[0.951432] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/local/lib/python3.10/dist-packages/arm_interfaces/arm_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[0.952941] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/local/lib/python3.10/dist-packages/arm_interfaces/arm_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[0.954352] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/lib/libarm_interfaces__rosidl_generator_py.so\n'}
+[0.954826] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/action/PickPlace.idl\n'}
+[0.955082] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/action/PickPlace.action\n'}
+[0.955509] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/ament_index/resource_index/package_run_dependencies/arm_interfaces\n'}
+[0.955745] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/ament_index/resource_index/parent_prefix_path/arm_interfaces\n'}
+[0.956051] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/environment/ament_prefix_path.sh\n'}
+[0.956420] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/environment/ament_prefix_path.dsv\n'}
+[0.956711] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/environment/path.sh\n'}
+[0.957079] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/environment/path.dsv\n'}
+[0.957265] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/local_setup.bash\n'}
+[0.957411] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/local_setup.sh\n'}
+[0.957532] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/local_setup.zsh\n'}
+[0.957665] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/local_setup.dsv\n'}
+[0.957990] (arm_interfaces) StdoutLine: {'line': b'-- Installing: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/package.dsv\n'}
+[0.958455] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/ament_index/resource_index/packages/arm_interfaces\n'}
+[0.958645] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/cmake/export_arm_interfaces__rosidl_generator_cExport.cmake\n'}
+[0.959029] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/cmake/export_arm_interfaces__rosidl_generator_cExport-noconfig.cmake\n'}
+[0.959533] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/cmake/export_arm_interfaces__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[0.959885] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/cmake/export_arm_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[0.960451] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfaces__rosidl_typesupport_introspection_cExport.cmake\n'}
+[0.960735] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[0.961404] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfaces__rosidl_typesupport_cExport.cmake\n'}
+[0.961741] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfaces__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[0.962444] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/cmake/export_arm_interfaces__rosidl_generator_cppExport.cmake\n'}
+[0.963703] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/cmake/export_arm_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[0.964177] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/cmake/export_arm_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[0.964922] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfaces__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[0.965354] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[0.965976] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfaces__rosidl_typesupport_cppExport.cmake\n'}
+[0.966398] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfaces__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[0.967098] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/cmake/export_arm_interfaces__rosidl_generator_pyExport.cmake\n'}
+[0.967443] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/cmake/export_arm_interfaces__rosidl_generator_pyExport-noconfig.cmake\n'}
+[0.967957] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/cmake/rosidl_cmake-extras.cmake\n'}
+[0.968219] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[0.968651] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[0.968806] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[0.969082] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[0.969350] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[0.969491] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[0.969628] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfacesConfig.cmake\n'}
+[0.969777] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/cmake/arm_interfacesConfig-version.cmake\n'}
+[0.969910] (arm_interfaces) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/package.xml\n'}
+[0.973867] (arm_interfaces) CommandEnded: {'returncode': 0}
+[1.000940] (-) TimerEvent: {}
+[1.023432] (arm_interfaces) JobEnded: {'identifier': 'arm_interfaces', 'rc': 0}
+[1.025377] (arm_controller) JobStarted: {'identifier': 'arm_controller'}
+[1.101098] (-) TimerEvent: {}
+[1.201598] (-) TimerEvent: {}
+[1.302027] (-) TimerEvent: {}
+[1.402572] (-) TimerEvent: {}
+[1.503127] (-) TimerEvent: {}
+[1.596480] (arm_controller) JobProgress: {'identifier': 'arm_controller', 'progress': 'cmake'}
+[1.603287] (-) TimerEvent: {}
+[1.665704] (arm_controller) Command: {'cmd': ['/usr/bin/cmake', '/home/ryanl/4231/MTRN4231_Project/src/arm_controller', '-DCMAKE_INSTALL_PREFIX=/home/ryanl/4231/MTRN4231_Project/install/arm_controller'], 'cwd': '/home/ryanl/4231/MTRN4231_Project/build/arm_controller', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'ryanl'), ('GIT_ASKPASS', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/extensions/git/dist/askpass.sh'), ('ROS_PACKAGE_PATH', '/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('MOTD_SHOWN', 'update-motd'), ('HOME', '/home/ryanl'), ('OLDPWD', '/home/ryanl/4231/MTRN4231_Project/src'), ('TERM_PROGRAM_VERSION', '1.105.1'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-9b5063fd-53bd-4fad-b2ee-b314c95e0b79.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/node'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'ryanl'), ('NAME', 'Ryan'), ('WSL_INTEROP', '/run/WSL/409_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/lib/x86_64-linux-gnu/pkgconfig:/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/lib/pkgconfig'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/bin/remote-cli:/home/ryanl/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/MCC:/mnt/c/Program Files/Eclipse Adoptium/jdk-11.0.20.101-hotspot/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/150/DTS/Binn/:/mnt/c/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit/:/mnt/c/Program Files/MATLAB/R2024b/bin:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/:/mnt/c/Gradle/bin:/mnt/c/Program Files (x86)/STMicroelectronics/STM32 ST-LINK Utility/ST-LINK Utility:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files (x86)/IVI Foundation/VISA/WinNT/Bin/:/mnt/c/Program Files/IVI Foundation/VISA/Win64/Bin/:/mnt/c/Program Files (x86)/IVI Foundation/VISA/WinNT/Bin:/mnt/c/Program Files/usbipd-win/:/mnt/c/Program Files/Tailscale/:/mnt/c/Program Files/Netbird:/mnt/c/Program Files/Git/cmd:/mnt/c/Users/ryanl/AppData/Local/Programs/Python/Python311/Scripts/:/mnt/c/Users/ryanl/AppData/Local/Programs/Python/Python311/:/mnt/c/Users/ryanl/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/ryanl/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/ryanl/AppData/Roaming/npm:/mnt/c/opencv/build/x64/vc16/bin:/mnt/c/Users/ryanl/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/ryanl/AppData/Local/Programs/MiKTeX/miktex/bin/x64/:/mnt/c/Users/ryanl/.dotnet/tools:/snap/bin:/home/ryanl/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-14419cdd9e.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/ryanl/4231/MTRN4231_Project/build/arm_controller'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('WSLENV', 'VSCODE_WSL_EXT_LOCATION/up'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble:/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces')]), 'shell': False}
+[1.703458] (-) TimerEvent: {}
+[1.803934] (-) TimerEvent: {}
+[1.904433] (-) TimerEvent: {}
+[2.004991] (-) TimerEvent: {}
+[2.105662] (-) TimerEvent: {}
+[2.119219] (arm_controller) StdoutLine: {'line': b'-- The C compiler identification is GNU 11.4.0\n'}
+[2.205817] (-) TimerEvent: {}
+[2.306381] (-) TimerEvent: {}
+[2.406899] (-) TimerEvent: {}
+[2.507444] (-) TimerEvent: {}
+[2.607910] (-) TimerEvent: {}
+[2.708423] (-) TimerEvent: {}
+[2.809002] (-) TimerEvent: {}
+[2.909601] (-) TimerEvent: {}
+[3.010211] (-) TimerEvent: {}
+[3.110763] (-) TimerEvent: {}
+[3.211285] (-) TimerEvent: {}
+[3.311809] (-) TimerEvent: {}
+[3.412331] (-) TimerEvent: {}
+[3.438593] (arm_controller) StdoutLine: {'line': b'-- The CXX compiler identification is GNU 11.4.0\n'}
+[3.512477] (-) TimerEvent: {}
+[3.613051] (-) TimerEvent: {}
+[3.713581] (-) TimerEvent: {}
+[3.814178] (-) TimerEvent: {}
+[3.914773] (-) TimerEvent: {}
+[4.015340] (-) TimerEvent: {}
+[4.115855] (-) TimerEvent: {}
+[4.216358] (-) TimerEvent: {}
+[4.263728] (arm_controller) StdoutLine: {'line': b'-- Detecting C compiler ABI info\n'}
+[4.316504] (-) TimerEvent: {}
+[4.417004] (-) TimerEvent: {}
+[4.517495] (-) TimerEvent: {}
+[4.580464] (arm_controller) StdoutLine: {'line': b'-- Detecting C compiler ABI info - done\n'}
+[4.589310] (arm_controller) StdoutLine: {'line': b'-- Check for working C compiler: /usr/bin/cc - skipped\n'}
+[4.590802] (arm_controller) StdoutLine: {'line': b'-- Detecting C compile features\n'}
+[4.592215] (arm_controller) StdoutLine: {'line': b'-- Detecting C compile features - done\n'}
+[4.601293] (arm_controller) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info\n'}
+[4.617654] (-) TimerEvent: {}
+[4.718098] (-) TimerEvent: {}
+[4.818559] (-) TimerEvent: {}
+[4.919243] (-) TimerEvent: {}
+[4.959227] (arm_controller) StdoutLine: {'line': b'-- Detecting CXX compiler ABI info - done\n'}
+[4.970195] (arm_controller) StdoutLine: {'line': b'-- Check for working CXX compiler: /usr/bin/c++ - skipped\n'}
+[4.970784] (arm_controller) StdoutLine: {'line': b'-- Detecting CXX compile features\n'}
+[4.971261] (arm_controller) StdoutLine: {'line': b'-- Detecting CXX compile features - done\n'}
+[5.019395] (-) TimerEvent: {}
+[5.059139] (arm_controller) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[5.119544] (-) TimerEvent: {}
+[5.219978] (-) TimerEvent: {}
+[5.304575] (arm_controller) StdoutLine: {'line': b'-- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter \n'}
+[5.320119] (-) TimerEvent: {}
+[5.420730] (-) TimerEvent: {}
+[5.497454] (arm_controller) StdoutLine: {'line': b'-- Found rclcpp: 16.0.14 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[5.520885] (-) TimerEvent: {}
+[5.621351] (-) TimerEvent: {}
+[5.721847] (-) TimerEvent: {}
+[5.822509] (-) TimerEvent: {}
+[5.923343] (-) TimerEvent: {}
+[5.972467] (arm_controller) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[5.993482] (arm_controller) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[6.022572] (arm_controller) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[6.023462] (-) TimerEvent: {}
+[6.062074] (arm_controller) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[6.101620] (arm_controller) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[6.123630] (-) TimerEvent: {}
+[6.224119] (-) TimerEvent: {}
+[6.224606] (arm_controller) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[6.234016] (arm_controller) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[6.324174] (-) TimerEvent: {}
+[6.424661] (-) TimerEvent: {}
+[6.525177] (-) TimerEvent: {}
+[6.625634] (-) TimerEvent: {}
+[6.726159] (-) TimerEvent: {}
+[6.826688] (-) TimerEvent: {}
+[6.927283] (-) TimerEvent: {}
+[7.027785] (-) TimerEvent: {}
+[7.128303] (-) TimerEvent: {}
+[7.228756] (-) TimerEvent: {}
+[7.329187] (-) TimerEvent: {}
+[7.429725] (-) TimerEvent: {}
+[7.530290] (-) TimerEvent: {}
+[7.630836] (-) TimerEvent: {}
+[7.731357] (-) TimerEvent: {}
+[7.831831] (-) TimerEvent: {}
+[7.932256] (-) TimerEvent: {}
+[8.032717] (-) TimerEvent: {}
+[8.133246] (-) TimerEvent: {}
+[8.233811] (-) TimerEvent: {}
+[8.334427] (-) TimerEvent: {}
+[8.434896] (-) TimerEvent: {}
+[8.535440] (-) TimerEvent: {}
+[8.636012] (-) TimerEvent: {}
+[8.736542] (-) TimerEvent: {}
+[8.836956] (-) TimerEvent: {}
+[8.937416] (-) TimerEvent: {}
+[9.038034] (-) TimerEvent: {}
+[9.138617] (-) TimerEvent: {}
+[9.239086] (-) TimerEvent: {}
+[9.339582] (-) TimerEvent: {}
+[9.440116] (-) TimerEvent: {}
+[9.482708] (arm_controller) StdoutLine: {'line': b'-- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  \n'}
+[9.540248] (-) TimerEvent: {}
+[9.640763] (-) TimerEvent: {}
+[9.741234] (-) TimerEvent: {}
+[9.841716] (-) TimerEvent: {}
+[9.942252] (-) TimerEvent: {}
+[10.042782] (-) TimerEvent: {}
+[10.143336] (-) TimerEvent: {}
+[10.243851] (-) TimerEvent: {}
+[10.344380] (-) TimerEvent: {}
+[10.444881] (-) TimerEvent: {}
+[10.545329] (-) TimerEvent: {}
+[10.645855] (-) TimerEvent: {}
+[10.746378] (-) TimerEvent: {}
+[10.846953] (-) TimerEvent: {}
+[10.947564] (-) TimerEvent: {}
+[11.048065] (-) TimerEvent: {}
+[11.148541] (-) TimerEvent: {}
+[11.249089] (-) TimerEvent: {}
+[11.349598] (-) TimerEvent: {}
+[11.450132] (-) TimerEvent: {}
+[11.550755] (-) TimerEvent: {}
+[11.651397] (-) TimerEvent: {}
+[11.751939] (-) TimerEvent: {}
+[11.852443] (-) TimerEvent: {}
+[11.952968] (-) TimerEvent: {}
+[12.053487] (-) TimerEvent: {}
+[12.154044] (-) TimerEvent: {}
+[12.254562] (-) TimerEvent: {}
+[12.355103] (-) TimerEvent: {}
+[12.455604] (-) TimerEvent: {}
+[12.556205] (-) TimerEvent: {}
+[12.656771] (-) TimerEvent: {}
+[12.757274] (-) TimerEvent: {}
+[12.836444] (arm_controller) StdoutLine: {'line': b'-- Found FastRTPS: /opt/ros/humble/include  \n'}
+[12.857404] (-) TimerEvent: {}
+[12.957878] (-) TimerEvent: {}
+[13.058467] (-) TimerEvent: {}
+[13.159076] (-) TimerEvent: {}
+[13.259748] (-) TimerEvent: {}
+[13.360349] (-) TimerEvent: {}
+[13.460886] (-) TimerEvent: {}
+[13.561381] (-) TimerEvent: {}
+[13.661837] (-) TimerEvent: {}
+[13.762334] (-) TimerEvent: {}
+[13.862893] (-) TimerEvent: {}
+[13.963499] (-) TimerEvent: {}
+[14.064072] (-) TimerEvent: {}
+[14.164603] (-) TimerEvent: {}
+[14.265143] (-) TimerEvent: {}
+[14.365714] (-) TimerEvent: {}
+[14.466216] (-) TimerEvent: {}
+[14.566736] (-) TimerEvent: {}
+[14.667372] (-) TimerEvent: {}
+[14.767911] (-) TimerEvent: {}
+[14.868430] (-) TimerEvent: {}
+[14.968899] (-) TimerEvent: {}
+[15.069430] (-) TimerEvent: {}
+[15.170102] (-) TimerEvent: {}
+[15.270742] (-) TimerEvent: {}
+[15.432168] (-) TimerEvent: {}
+[15.532623] (-) TimerEvent: {}
+[15.633078] (-) TimerEvent: {}
+[15.733653] (-) TimerEvent: {}
+[15.834244] (-) TimerEvent: {}
+[15.934793] (-) TimerEvent: {}
+[16.035370] (-) TimerEvent: {}
+[16.136091] (-) TimerEvent: {}
+[16.236558] (-) TimerEvent: {}
+[16.336996] (-) TimerEvent: {}
+[16.437534] (-) TimerEvent: {}
+[16.538102] (-) TimerEvent: {}
+[16.638598] (-) TimerEvent: {}
+[16.739151] (-) TimerEvent: {}
+[16.839617] (-) TimerEvent: {}
+[16.940124] (-) TimerEvent: {}
+[17.040746] (-) TimerEvent: {}
+[17.141267] (-) TimerEvent: {}
+[17.241830] (-) TimerEvent: {}
+[17.342361] (-) TimerEvent: {}
+[17.442918] (-) TimerEvent: {}
+[17.543509] (-) TimerEvent: {}
+[17.644009] (-) TimerEvent: {}
+[17.744453] (-) TimerEvent: {}
+[17.844913] (-) TimerEvent: {}
+[17.945445] (-) TimerEvent: {}
+[18.046066] (-) TimerEvent: {}
+[18.146633] (-) TimerEvent: {}
+[18.247253] (-) TimerEvent: {}
+[18.347739] (-) TimerEvent: {}
+[18.448322] (-) TimerEvent: {}
+[18.548855] (-) TimerEvent: {}
+[18.649463] (-) TimerEvent: {}
+[18.750165] (-) TimerEvent: {}
+[18.758232] (arm_controller) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[18.850284] (-) TimerEvent: {}
+[18.857500] (arm_controller) StdoutLine: {'line': b'-- Looking for pthread.h\n'}
+[18.950557] (-) TimerEvent: {}
+[19.051138] (-) TimerEvent: {}
+[19.151580] (-) TimerEvent: {}
+[19.188191] (arm_controller) StdoutLine: {'line': b'-- Looking for pthread.h - found\n'}
+[19.189086] (arm_controller) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n'}
+[19.251721] (-) TimerEvent: {}
+[19.352216] (-) TimerEvent: {}
+[19.452669] (-) TimerEvent: {}
+[19.518069] (arm_controller) StdoutLine: {'line': b'-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n'}
+[19.520030] (arm_controller) StdoutLine: {'line': b'-- Found Threads: TRUE  \n'}
+[19.552820] (-) TimerEvent: {}
+[19.653272] (-) TimerEvent: {}
+[19.658954] (arm_controller) StdoutLine: {'line': b'-- Found rclcpp_action: 16.0.15 (/opt/ros/humble/share/rclcpp_action/cmake)\n'}
+[19.747729] (arm_controller) StdoutLine: {'line': b'-- Found tf2_ros: 0.25.15 (/opt/ros/humble/share/tf2_ros/cmake)\n'}
+[19.753401] (-) TimerEvent: {}
+[19.853874] (-) TimerEvent: {}
+[19.942100] (arm_controller) StdoutLine: {'line': b'-- Found tf2_geometry_msgs: 0.25.15 (/opt/ros/humble/share/tf2_geometry_msgs/cmake)\n'}
+[19.954439] (-) TimerEvent: {}
+[20.055094] (-) TimerEvent: {}
+[20.078589] (arm_controller) StdoutLine: {'line': b'-- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)\n'}
+[20.081936] (arm_controller) StdoutLine: {'line': b'-- Found Eigen3: TRUE (found version "3.4.0") \n'}
+[20.082334] (arm_controller) StdoutLine: {'line': b'-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target\n'}
+[20.092182] (arm_controller) StdoutLine: {'line': b'-- Found moveit_ros_planning_interface: 2.5.9 (/opt/ros/humble/share/moveit_ros_planning_interface/cmake)\n'}
+[20.156514] (-) TimerEvent: {}
+[20.167864] (arm_controller) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: date_time filesystem program_options system thread \n'}
+[20.256748] (-) TimerEvent: {}
+[20.357581] (-) TimerEvent: {}
+[20.458327] (-) TimerEvent: {}
+[20.522587] (arm_controller) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: chrono date_time filesystem iostreams program_options regex serialization system thread \n'}
+[20.558671] (-) TimerEvent: {}
+[20.660485] (-) TimerEvent: {}
+[20.762133] (-) TimerEvent: {}
+[20.863599] (-) TimerEvent: {}
+[20.965133] (-) TimerEvent: {}
+[21.065778] (-) TimerEvent: {}
+[21.167230] (-) TimerEvent: {}
+[21.267778] (-) TimerEvent: {}
+[21.369272] (-) TimerEvent: {}
+[21.470947] (-) TimerEvent: {}
+[21.572616] (-) TimerEvent: {}
+[21.673378] (-) TimerEvent: {}
+[21.774946] (-) TimerEvent: {}
+[21.876750] (-) TimerEvent: {}
+[21.977605] (-) TimerEvent: {}
+[22.079064] (-) TimerEvent: {}
+[22.180619] (-) TimerEvent: {}
+[22.281885] (-) TimerEvent: {}
+[22.382572] (-) TimerEvent: {}
+[22.483308] (-) TimerEvent: {}
+[22.583949] (-) TimerEvent: {}
+[22.684520] (-) TimerEvent: {}
+[22.785263] (-) TimerEvent: {}
+[22.885996] (-) TimerEvent: {}
+[22.986806] (-) TimerEvent: {}
+[23.087400] (-) TimerEvent: {}
+[23.188171] (-) TimerEvent: {}
+[23.288892] (-) TimerEvent: {}
+[23.389510] (-) TimerEvent: {}
+[23.490336] (-) TimerEvent: {}
+[23.591108] (-) TimerEvent: {}
+[23.692943] (-) TimerEvent: {}
+[23.786354] (arm_controller) StdoutLine: {'line': b'-- Found parameter_traits: 0.5.0 (/opt/ros/humble/share/parameter_traits/cmake)\n'}
+[23.793271] (-) TimerEvent: {}
+[23.832138] (arm_controller) StdoutLine: {'line': b'-- Found rclcpp_lifecycle: 16.0.14 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)\n'}
+[23.894439] (-) TimerEvent: {}
+[23.916955] (arm_controller) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: filesystem \n'}
+[23.995042] (-) TimerEvent: {}
+[24.096883] (-) TimerEvent: {}
+[24.198657] (-) TimerEvent: {}
+[24.300343] (-) TimerEvent: {}
+[24.400868] (-) TimerEvent: {}
+[24.501452] (-) TimerEvent: {}
+[24.602029] (-) TimerEvent: {}
+[24.702564] (-) TimerEvent: {}
+[24.803119] (-) TimerEvent: {}
+[24.903576] (-) TimerEvent: {}
+[25.004076] (-) TimerEvent: {}
+[25.104593] (-) TimerEvent: {}
+[25.205120] (-) TimerEvent: {}
+[25.305618] (-) TimerEvent: {}
+[25.406208] (-) TimerEvent: {}
+[25.506832] (-) TimerEvent: {}
+[25.607388] (-) TimerEvent: {}
+[25.707924] (-) TimerEvent: {}
+[25.808461] (-) TimerEvent: {}
+[25.909005] (-) TimerEvent: {}
+[26.009506] (-) TimerEvent: {}
+[26.110024] (-) TimerEvent: {}
+[26.210533] (-) TimerEvent: {}
+[26.311159] (-) TimerEvent: {}
+[26.411625] (-) TimerEvent: {}
+[26.512106] (-) TimerEvent: {}
+[26.612591] (-) TimerEvent: {}
+[26.713083] (-) TimerEvent: {}
+[26.813598] (-) TimerEvent: {}
+[26.914214] (-) TimerEvent: {}
+[27.014874] (-) TimerEvent: {}
+[27.115368] (-) TimerEvent: {}
+[27.215884] (-) TimerEvent: {}
+[27.316490] (-) TimerEvent: {}
+[27.321572] (arm_controller) StdoutLine: {'line': b'-- library: /usr/lib/x86_64-linux-gnu/libcurl.so\n'}
+[27.416656] (-) TimerEvent: {}
+[27.517115] (-) TimerEvent: {}
+[27.617639] (-) TimerEvent: {}
+[27.718167] (-) TimerEvent: {}
+[27.818680] (-) TimerEvent: {}
+[27.919207] (-) TimerEvent: {}
+[28.019723] (-) TimerEvent: {}
+[28.120220] (-) TimerEvent: {}
+[28.220737] (-) TimerEvent: {}
+[28.321259] (-) TimerEvent: {}
+[28.421734] (-) TimerEvent: {}
+[28.522261] (-) TimerEvent: {}
+[28.622757] (-) TimerEvent: {}
+[28.723368] (-) TimerEvent: {}
+[28.823856] (-) TimerEvent: {}
+[28.924372] (-) TimerEvent: {}
+[29.024843] (-) TimerEvent: {}
+[29.125386] (-) TimerEvent: {}
+[29.225883] (-) TimerEvent: {}
+[29.326436] (-) TimerEvent: {}
+[29.427063] (-) TimerEvent: {}
+[29.527613] (-) TimerEvent: {}
+[29.628099] (-) TimerEvent: {}
+[29.728653] (-) TimerEvent: {}
+[29.829173] (-) TimerEvent: {}
+[29.929742] (-) TimerEvent: {}
+[30.030326] (-) TimerEvent: {}
+[30.130914] (-) TimerEvent: {}
+[30.231501] (-) TimerEvent: {}
+[30.331989] (-) TimerEvent: {}
+[30.432523] (-) TimerEvent: {}
+[30.477230] (arm_controller) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread chrono \n'}
+[30.531858] (arm_controller) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: thread system filesystem regex date_time program_options \n'}
+[30.532618] (-) TimerEvent: {}
+[30.573303] (arm_controller) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread \n'}
+[30.632845] (-) TimerEvent: {}
+[30.635976] (arm_controller) StdoutLine: {'line': b'-- Found arm_interfaces: 0.0.0 (/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share/arm_interfaces/cmake)\n'}
+[30.733002] (-) TimerEvent: {}
+[30.789715] (arm_controller) StdoutLine: {'line': b'-- Configuring done\n'}
+[30.833146] (-) TimerEvent: {}
+[30.882415] (arm_controller) StdoutLine: {'line': b'-- Generating done\n'}
+[30.894333] (arm_controller) StdoutLine: {'line': b'-- Build files have been written to: /home/ryanl/4231/MTRN4231_Project/build/arm_controller\n'}
+[30.917602] (arm_controller) CommandEnded: {'returncode': 0}
+[30.918737] (arm_controller) JobProgress: {'identifier': 'arm_controller', 'progress': 'build'}
+[30.920729] (arm_controller) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/ryanl/4231/MTRN4231_Project/build/arm_controller', '--', '-j16', '-l16'], 'cwd': '/home/ryanl/4231/MTRN4231_Project/build/arm_controller', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'ryanl'), ('GIT_ASKPASS', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/extensions/git/dist/askpass.sh'), ('ROS_PACKAGE_PATH', '/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('MOTD_SHOWN', 'update-motd'), ('HOME', '/home/ryanl'), ('OLDPWD', '/home/ryanl/4231/MTRN4231_Project/src'), ('TERM_PROGRAM_VERSION', '1.105.1'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-9b5063fd-53bd-4fad-b2ee-b314c95e0b79.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/node'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'ryanl'), ('NAME', 'Ryan'), ('WSL_INTEROP', '/run/WSL/409_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/lib/x86_64-linux-gnu/pkgconfig:/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/lib/pkgconfig'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/bin/remote-cli:/home/ryanl/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/MCC:/mnt/c/Program Files/Eclipse Adoptium/jdk-11.0.20.101-hotspot/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/150/DTS/Binn/:/mnt/c/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit/:/mnt/c/Program Files/MATLAB/R2024b/bin:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/:/mnt/c/Gradle/bin:/mnt/c/Program Files (x86)/STMicroelectronics/STM32 ST-LINK Utility/ST-LINK Utility:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files (x86)/IVI Foundation/VISA/WinNT/Bin/:/mnt/c/Program Files/IVI Foundation/VISA/Win64/Bin/:/mnt/c/Program Files (x86)/IVI Foundation/VISA/WinNT/Bin:/mnt/c/Program Files/usbipd-win/:/mnt/c/Program Files/Tailscale/:/mnt/c/Program Files/Netbird:/mnt/c/Program Files/Git/cmd:/mnt/c/Users/ryanl/AppData/Local/Programs/Python/Python311/Scripts/:/mnt/c/Users/ryanl/AppData/Local/Programs/Python/Python311/:/mnt/c/Users/ryanl/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/ryanl/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/ryanl/AppData/Roaming/npm:/mnt/c/opencv/build/x64/vc16/bin:/mnt/c/Users/ryanl/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/ryanl/AppData/Local/Programs/MiKTeX/miktex/bin/x64/:/mnt/c/Users/ryanl/.dotnet/tools:/snap/bin:/home/ryanl/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-14419cdd9e.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/ryanl/4231/MTRN4231_Project/build/arm_controller'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('WSLENV', 'VSCODE_WSL_EXT_LOCATION/up'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble:/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces')]), 'shell': False}
+[30.933300] (-) TimerEvent: {}
+[31.019313] (arm_controller) StdoutLine: {'line': b'[ 50%] \x1b[32mBuilding CXX object CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o\x1b[0m\n'}
+[31.033545] (-) TimerEvent: {}
+[31.134077] (-) TimerEvent: {}
+[31.234538] (-) TimerEvent: {}
+[31.335391] (-) TimerEvent: {}
+[31.436055] (-) TimerEvent: {}
+[31.536644] (-) TimerEvent: {}
+[31.637182] (-) TimerEvent: {}
+[31.737769] (-) TimerEvent: {}
+[31.838480] (-) TimerEvent: {}
+[31.938954] (-) TimerEvent: {}
+[32.039494] (-) TimerEvent: {}
+[32.140032] (-) TimerEvent: {}
+[32.240514] (-) TimerEvent: {}
+[32.341056] (-) TimerEvent: {}
+[32.441586] (-) TimerEvent: {}
+[32.542186] (-) TimerEvent: {}
+[32.642724] (-) TimerEvent: {}
+[32.743334] (-) TimerEvent: {}
+[32.843760] (-) TimerEvent: {}
+[32.944224] (-) TimerEvent: {}
+[33.044809] (-) TimerEvent: {}
+[33.145381] (-) TimerEvent: {}
+[33.245940] (-) TimerEvent: {}
+[33.346548] (-) TimerEvent: {}
+[33.447090] (-) TimerEvent: {}
+[33.547531] (-) TimerEvent: {}
+[33.647968] (-) TimerEvent: {}
+[33.748473] (-) TimerEvent: {}
+[33.849027] (-) TimerEvent: {}
+[33.949493] (-) TimerEvent: {}
+[34.050022] (-) TimerEvent: {}
+[34.150545] (-) TimerEvent: {}
+[34.251485] (-) TimerEvent: {}
+[34.352129] (-) TimerEvent: {}
+[34.452945] (-) TimerEvent: {}
+[34.553790] (-) TimerEvent: {}
+[34.654377] (-) TimerEvent: {}
+[34.754858] (-) TimerEvent: {}
+[34.855404] (-) TimerEvent: {}
+[34.955866] (-) TimerEvent: {}
+[35.056368] (-) TimerEvent: {}
+[35.156878] (-) TimerEvent: {}
+[35.257451] (-) TimerEvent: {}
+[35.358127] (-) TimerEvent: {}
+[35.458707] (-) TimerEvent: {}
+[35.559422] (-) TimerEvent: {}
+[35.660088] (-) TimerEvent: {}
+[35.760695] (-) TimerEvent: {}
+[35.861269] (-) TimerEvent: {}
+[35.962007] (-) TimerEvent: {}
+[36.062701] (-) TimerEvent: {}
+[36.163545] (-) TimerEvent: {}
+[36.264179] (-) TimerEvent: {}
+[36.364764] (-) TimerEvent: {}
+[36.465468] (-) TimerEvent: {}
+[36.566089] (-) TimerEvent: {}
+[36.666694] (-) TimerEvent: {}
+[36.767316] (-) TimerEvent: {}
+[36.867926] (-) TimerEvent: {}
+[36.968615] (-) TimerEvent: {}
+[37.069262] (-) TimerEvent: {}
+[37.169794] (-) TimerEvent: {}
+[37.270322] (-) TimerEvent: {}
+[37.370822] (-) TimerEvent: {}
+[37.471364] (-) TimerEvent: {}
+[37.571960] (-) TimerEvent: {}
+[37.672472] (-) TimerEvent: {}
+[37.773059] (-) TimerEvent: {}
+[37.873714] (-) TimerEvent: {}
+[37.974330] (-) TimerEvent: {}
+[38.074951] (-) TimerEvent: {}
+[38.175508] (-) TimerEvent: {}
+[38.276154] (-) TimerEvent: {}
+[38.376783] (-) TimerEvent: {}
+[38.477315] (-) TimerEvent: {}
+[38.577917] (-) TimerEvent: {}
+[38.678486] (-) TimerEvent: {}
+[38.779084] (-) TimerEvent: {}
+[38.879776] (-) TimerEvent: {}
+[38.980302] (-) TimerEvent: {}
+[39.080829] (-) TimerEvent: {}
+[39.181388] (-) TimerEvent: {}
+[39.282021] (-) TimerEvent: {}
+[39.382659] (-) TimerEvent: {}
+[39.483253] (-) TimerEvent: {}
+[39.583839] (-) TimerEvent: {}
+[39.684646] (-) TimerEvent: {}
+[39.785367] (-) TimerEvent: {}
+[39.886025] (-) TimerEvent: {}
+[39.986884] (-) TimerEvent: {}
+[40.087677] (-) TimerEvent: {}
+[40.188377] (-) TimerEvent: {}
+[40.288930] (-) TimerEvent: {}
+[40.423478] (-) TimerEvent: {}
+[40.523952] (-) TimerEvent: {}
+[40.624492] (-) TimerEvent: {}
+[40.725096] (-) TimerEvent: {}
+[40.825556] (-) TimerEvent: {}
+[40.897231] (arm_controller) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ryanl/4231/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kbool ArmController::linear_step(const Pose&, const string&, std::shared_ptr<rclcpp_action::ServerGoalHandle<arm_interfaces::action::PickPlace> >)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[40.897653] (arm_controller) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ryanl/4231/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:68:81:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kusing MoveItErrorCode = class moveit::core::MoveItErrorCode\x1b[m\x1b[K\xe2\x80\x99 is deprecated: Use moveit::core::MoveItErrorCode [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations\x07-Wdeprecated-declarations\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[40.897763] (arm_controller) StderrLine: {'line': b'   68 | an(plan) != moveit::planning_interface::MoveItErrorCode::\x1b[01;35m\x1b[KSUCCESS\x1b[m\x1b[K) {\n'}
+[40.897845] (arm_controller) StderrLine: {'line': b'      |                                                          \x1b[01;35m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[40.897920] (arm_controller) StderrLine: {'line': b'\n'}
+[40.898148] (arm_controller) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ryanl/4231/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:6\x1b[m\x1b[K:\n'}
+[40.898234] (arm_controller) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/humble/include/moveit/move_group_interface/move_group_interface.h:71:7:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kdeclared here\n'}
+[40.898310] (arm_controller) StderrLine: {'line': b'   71 | using \x1b[01;36m\x1b[KMoveItErrorCode\x1b[m\x1b[K [[deprecated("Use moveit::core::MoveItErrorCode")]] = moveit::core::MoveItErrorCode;\n'}
+[40.898381] (arm_controller) StderrLine: {'line': b'      |       \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[40.898449] (arm_controller) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ryanl/4231/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:73:60:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kusing MoveItErrorCode = class moveit::core::MoveItErrorCode\x1b[m\x1b[K\xe2\x80\x99 is deprecated: Use moveit::core::MoveItErrorCode [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations\x07-Wdeprecated-declarations\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[40.898531] (arm_controller) StderrLine: {'line': b'   73 |   if (ec != moveit::planning_interface::MoveItErrorCode::\x1b[01;35m\x1b[KSUCCESS\x1b[m\x1b[K) {\n'}
+[40.898600] (arm_controller) StderrLine: {'line': b'      |                                                          \x1b[01;35m\x1b[K^~~~~~~\x1b[m\x1b[K\n'}
+[40.898662] (arm_controller) StderrLine: {'line': b'\n'}
+[40.898724] (arm_controller) StderrLine: {'line': b'In file included from \x1b[01m\x1b[K/home/ryanl/4231/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:6\x1b[m\x1b[K:\n'}
+[40.898785] (arm_controller) StderrLine: {'line': b'\x1b[01m\x1b[K/opt/ros/humble/include/moveit/move_group_interface/move_group_interface.h:71:7:\x1b[m\x1b[K \x1b[01;36m\x1b[Knote: \x1b[m\x1b[Kdeclared here\n'}
+[40.898846] (arm_controller) StderrLine: {'line': b'   71 | using \x1b[01;36m\x1b[KMoveItErrorCode\x1b[m\x1b[K [[deprecated("Use moveit::core::MoveItErrorCode")]] = moveit::core::MoveItErrorCode;\n'}
+[40.898916] (arm_controller) StderrLine: {'line': b'      |       \x1b[01;36m\x1b[K^~~~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[40.925726] (-) TimerEvent: {}
+[41.026484] (-) TimerEvent: {}
+[41.127082] (-) TimerEvent: {}
+[41.227674] (-) TimerEvent: {}
+[41.328171] (-) TimerEvent: {}
+[41.428656] (-) TimerEvent: {}
+[41.529280] (-) TimerEvent: {}
+[41.629913] (-) TimerEvent: {}
+[41.730550] (-) TimerEvent: {}
+[41.831212] (-) TimerEvent: {}
+[41.931853] (-) TimerEvent: {}
+[42.032343] (-) TimerEvent: {}
+[42.132857] (-) TimerEvent: {}
+[42.233500] (-) TimerEvent: {}
+[42.334184] (-) TimerEvent: {}
+[42.434824] (-) TimerEvent: {}
+[42.535535] (-) TimerEvent: {}
+[42.636205] (-) TimerEvent: {}
+[42.736929] (-) TimerEvent: {}
+[42.837506] (-) TimerEvent: {}
+[42.938084] (-) TimerEvent: {}
+[43.038852] (-) TimerEvent: {}
+[43.139681] (-) TimerEvent: {}
+[43.240389] (-) TimerEvent: {}
+[43.340852] (-) TimerEvent: {}
+[43.441903] (-) TimerEvent: {}
+[43.542657] (-) TimerEvent: {}
+[43.643376] (-) TimerEvent: {}
+[43.743966] (-) TimerEvent: {}
+[43.844628] (-) TimerEvent: {}
+[43.945154] (-) TimerEvent: {}
+[44.045751] (-) TimerEvent: {}
+[44.146351] (-) TimerEvent: {}
+[44.246964] (-) TimerEvent: {}
+[44.347640] (-) TimerEvent: {}
+[44.448188] (-) TimerEvent: {}
+[44.548737] (-) TimerEvent: {}
+[44.649336] (-) TimerEvent: {}
+[44.749931] (-) TimerEvent: {}
+[44.850533] (-) TimerEvent: {}
+[44.951110] (-) TimerEvent: {}
+[45.051813] (-) TimerEvent: {}
+[45.152515] (-) TimerEvent: {}
+[45.253124] (-) TimerEvent: {}
+[45.353675] (-) TimerEvent: {}
+[45.454260] (-) TimerEvent: {}
+[45.554819] (-) TimerEvent: {}
+[45.655422] (-) TimerEvent: {}
+[45.756035] (-) TimerEvent: {}
+[45.856652] (-) TimerEvent: {}
+[45.957288] (-) TimerEvent: {}
+[46.058049] (-) TimerEvent: {}
+[46.158647] (-) TimerEvent: {}
+[46.259307] (-) TimerEvent: {}
+[46.359926] (-) TimerEvent: {}
+[46.460424] (-) TimerEvent: {}
+[46.560932] (-) TimerEvent: {}
+[46.661408] (-) TimerEvent: {}
+[46.761876] (-) TimerEvent: {}
+[46.862462] (-) TimerEvent: {}
+[46.873540] (arm_controller) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable arm_controller_node\x1b[0m\n'}
+[46.962628] (-) TimerEvent: {}
+[47.063228] (-) TimerEvent: {}
+[47.163844] (-) TimerEvent: {}
+[47.264482] (-) TimerEvent: {}
+[47.364919] (-) TimerEvent: {}
+[47.465427] (-) TimerEvent: {}
+[47.565954] (-) TimerEvent: {}
+[47.666499] (-) TimerEvent: {}
+[47.767085] (-) TimerEvent: {}
+[47.867672] (-) TimerEvent: {}
+[47.968145] (-) TimerEvent: {}
+[48.068667] (-) TimerEvent: {}
+[48.169418] (-) TimerEvent: {}
+[48.199413] (arm_controller) StdoutLine: {'line': b'[100%] Built target arm_controller_node\n'}
+[48.260445] (arm_controller) CommandEnded: {'returncode': 0}
+[48.261812] (arm_controller) JobProgress: {'identifier': 'arm_controller', 'progress': 'install'}
+[48.263633] (arm_controller) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/ryanl/4231/MTRN4231_Project/build/arm_controller'], 'cwd': '/home/ryanl/4231/MTRN4231_Project/build/arm_controller', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'ryanl'), ('GIT_ASKPASS', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/extensions/git/dist/askpass.sh'), ('ROS_PACKAGE_PATH', '/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('MOTD_SHOWN', 'update-motd'), ('HOME', '/home/ryanl'), ('OLDPWD', '/home/ryanl/4231/MTRN4231_Project/src'), ('TERM_PROGRAM_VERSION', '1.105.1'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-9b5063fd-53bd-4fad-b2ee-b314c95e0b79.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/node'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'ryanl'), ('NAME', 'Ryan'), ('WSL_INTEROP', '/run/WSL/409_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('PKG_CONFIG_PATH', '/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/lib/x86_64-linux-gnu/pkgconfig:/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/lib/pkgconfig'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/bin/remote-cli:/home/ryanl/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/MCC:/mnt/c/Program Files/Eclipse Adoptium/jdk-11.0.20.101-hotspot/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/150/DTS/Binn/:/mnt/c/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit/:/mnt/c/Program Files/MATLAB/R2024b/bin:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/:/mnt/c/Gradle/bin:/mnt/c/Program Files (x86)/STMicroelectronics/STM32 ST-LINK Utility/ST-LINK Utility:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files (x86)/IVI Foundation/VISA/WinNT/Bin/:/mnt/c/Program Files/IVI Foundation/VISA/Win64/Bin/:/mnt/c/Program Files (x86)/IVI Foundation/VISA/WinNT/Bin:/mnt/c/Program Files/usbipd-win/:/mnt/c/Program Files/Tailscale/:/mnt/c/Program Files/Netbird:/mnt/c/Program Files/Git/cmd:/mnt/c/Users/ryanl/AppData/Local/Programs/Python/Python311/Scripts/:/mnt/c/Users/ryanl/AppData/Local/Programs/Python/Python311/:/mnt/c/Users/ryanl/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/ryanl/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/ryanl/AppData/Roaming/npm:/mnt/c/opencv/build/x64/vc16/bin:/mnt/c/Users/ryanl/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/ryanl/AppData/Local/Programs/MiKTeX/miktex/bin/x64/:/mnt/c/Users/ryanl/.dotnet/tools:/snap/bin:/home/ryanl/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-14419cdd9e.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/ryanl/4231/MTRN4231_Project/build/arm_controller'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('WSLENV', 'VSCODE_WSL_EXT_LOCATION/up'), ('CMAKE_PREFIX_PATH', '/opt/ros/humble:/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces')]), 'shell': False}
+[48.269476] (-) TimerEvent: {}
+[48.278323] (arm_controller) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[48.281829] (arm_controller) StdoutLine: {'line': b'-- Installing: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/lib/arm_controller/arm_controller_node\n'}
+[48.284995] (arm_controller) StdoutLine: {'line': b'-- Set runtime path of "/home/ryanl/4231/MTRN4231_Project/install/arm_controller/lib/arm_controller/arm_controller_node" to ""\n'}
+[48.285314] (arm_controller) StdoutLine: {'line': b'-- Installing: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/launch\n'}
+[48.287775] (arm_controller) StdoutLine: {'line': b'-- Installing: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/launch/arm_controller.launch.py\n'}
+[48.288194] (arm_controller) StdoutLine: {'line': b'-- Installing: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/config\n'}
+[48.289384] (arm_controller) StdoutLine: {'line': b'-- Installing: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/config/params.yaml\n'}
+[48.292135] (arm_controller) StdoutLine: {'line': b'-- Installing: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/ament_index/resource_index/package_run_dependencies/arm_controller\n'}
+[48.293450] (arm_controller) StdoutLine: {'line': b'-- Installing: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/ament_index/resource_index/parent_prefix_path/arm_controller\n'}
+[48.294727] (arm_controller) StdoutLine: {'line': b'-- Installing: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/environment/ament_prefix_path.sh\n'}
+[48.295252] (arm_controller) StdoutLine: {'line': b'-- Installing: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/environment/ament_prefix_path.dsv\n'}
+[48.295623] (arm_controller) StdoutLine: {'line': b'-- Installing: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/environment/path.sh\n'}
+[48.295986] (arm_controller) StdoutLine: {'line': b'-- Installing: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/environment/path.dsv\n'}
+[48.296333] (arm_controller) StdoutLine: {'line': b'-- Installing: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/local_setup.bash\n'}
+[48.296673] (arm_controller) StdoutLine: {'line': b'-- Installing: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/local_setup.sh\n'}
+[48.297084] (arm_controller) StdoutLine: {'line': b'-- Installing: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/local_setup.zsh\n'}
+[48.297397] (arm_controller) StdoutLine: {'line': b'-- Installing: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/local_setup.dsv\n'}
+[48.297820] (arm_controller) StdoutLine: {'line': b'-- Installing: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/package.dsv\n'}
+[48.298907] (arm_controller) StdoutLine: {'line': b'-- Installing: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/ament_index/resource_index/packages/arm_controller\n'}
+[48.300004] (arm_controller) StdoutLine: {'line': b'-- Installing: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/cmake/arm_controllerConfig.cmake\n'}
+[48.300325] (arm_controller) StdoutLine: {'line': b'-- Installing: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/cmake/arm_controllerConfig-version.cmake\n'}
+[48.300714] (arm_controller) StdoutLine: {'line': b'-- Installing: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/package.xml\n'}
+[48.306331] (arm_controller) CommandEnded: {'returncode': 0}
+[48.328719] (arm_controller) JobEnded: {'identifier': 'arm_controller', 'rc': 0}
+[48.330391] (-) EventReactorShutdown: {}

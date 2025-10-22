@@ -1,0 +1,9 @@
+arm_controller:
+  ros__parameters:
+    planning_group: "manipulator"
+    base_frame: "base_link"        # or "board"
+    tcp_link: "tool0"              # your EE TCP link
+    vel_scale: 0.2                 # node param (not in action)
+    acc_scale: 0.2                 # node param (not in action)
+    gripper_open_cmd: "/gripper/open"
+    gripper_close_cmd: "/gripper/close"

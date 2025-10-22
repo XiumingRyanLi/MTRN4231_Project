@@ -1,0 +1,6 @@
+Invoking command in '/home/ryanl/4231/MTRN4231_Project/build/arm_interfaces': /usr/bin/cmake /home/ryanl/4231/MTRN4231_Project/src/arm_interfaces -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces
+Invoked command in '/home/ryanl/4231/MTRN4231_Project/build/arm_interfaces' returned '0': /usr/bin/cmake /home/ryanl/4231/MTRN4231_Project/src/arm_interfaces -DCATKIN_INSTALL_INTO_PREFIX_ROOT=0 -DCMAKE_INSTALL_PREFIX=/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces
+Invoking command in '/home/ryanl/4231/MTRN4231_Project/build/arm_interfaces': /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/arm_interfaces -- -j16 -l16
+Invoked command in '/home/ryanl/4231/MTRN4231_Project/build/arm_interfaces' returned '0': /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/arm_interfaces -- -j16 -l16
+Invoking command in '/home/ryanl/4231/MTRN4231_Project/build/arm_interfaces': /usr/bin/cmake --install /home/ryanl/4231/MTRN4231_Project/build/arm_interfaces
+Invoked command in '/home/ryanl/4231/MTRN4231_Project/build/arm_interfaces' returned '0': /usr/bin/cmake --install /home/ryanl/4231/MTRN4231_Project/build/arm_interfaces

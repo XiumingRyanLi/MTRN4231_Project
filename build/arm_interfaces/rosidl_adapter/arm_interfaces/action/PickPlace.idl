@@ -1,0 +1,43 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from arm_interfaces/action/PickPlace.action
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/PoseStamped.idl"
+
+module arm_interfaces {
+  module action {
+    @verbatim (language="comment", text=
+      "Goal")
+    struct PickPlace_Goal {
+      @verbatim (language="comment", text=
+        "TCP pose AT grasp height")
+      geometry_msgs::msg::PoseStamped pick_pose;
+
+      @verbatim (language="comment", text=
+        "TCP pose AT release height")
+      geometry_msgs::msg::PoseStamped place_pose;
+
+      @verbatim (language="comment", text=
+        "vertical lift (m) for pick+place approach/retreat")
+      double lift_distance;
+    };
+    @verbatim (language="comment", text=
+      "Result")
+    struct PickPlace_Result {
+      boolean success;
+
+      string message;
+    };
+    @verbatim (language="comment", text=
+      "Feedback")
+    struct PickPlace_Feedback {
+      @verbatim (language="comment", text=
+        "0..100")
+      double progress_percent;
+
+      @verbatim (language="comment", text=
+        "\"approach_pick\"|\"grasp\"|\"lift\"|\"transfer\"|\"lower_place\"|\"release\"|\"retreat\"")
+      string stage;
+    };
+  };
+};

@@ -1,0 +1,4 @@
+Invoking command in '/home/ryanl/4231/MTRN4231_Project/build/arm_interfaces': /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/arm_interfaces -- -j16 -l16
+Invoked command in '/home/ryanl/4231/MTRN4231_Project/build/arm_interfaces' returned '0': /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/arm_interfaces -- -j16 -l16
+Invoking command in '/home/ryanl/4231/MTRN4231_Project/build/arm_interfaces': /usr/bin/cmake --install /home/ryanl/4231/MTRN4231_Project/build/arm_interfaces
+Invoked command in '/home/ryanl/4231/MTRN4231_Project/build/arm_interfaces' returned '0': /usr/bin/cmake --install /home/ryanl/4231/MTRN4231_Project/build/arm_interfaces

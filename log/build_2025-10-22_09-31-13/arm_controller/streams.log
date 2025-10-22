@@ -1,0 +1,30 @@
+[0.562s] Invoking command in '/home/ryanl/4231/MTRN4231_Project/build/arm_controller': CMAKE_PREFIX_PATH=/opt/ros/humble:/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces LD_LIBRARY_PATH=/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/lib/x86_64-linux-gnu/pkgconfig:/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/lib/pkgconfig PYTHONPATH=/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/arm_controller -- -j16 -l16
+[0.655s] [35m[1mConsolidate compiler generated dependencies of target arm_controller_node[0m
+[0.720s] [ 50%] [32mBuilding CXX object CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o[0m
+[15.263s] [100%] [32m[1mLinking CXX executable arm_controller_node[0m
+[16.055s] [100%] Built target arm_controller_node
+[16.126s] Invoked command in '/home/ryanl/4231/MTRN4231_Project/build/arm_controller' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble:/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces LD_LIBRARY_PATH=/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/lib/x86_64-linux-gnu/pkgconfig:/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/lib/pkgconfig PYTHONPATH=/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/arm_controller -- -j16 -l16
+[16.129s] Invoking command in '/home/ryanl/4231/MTRN4231_Project/build/arm_controller': CMAKE_PREFIX_PATH=/opt/ros/humble:/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces LD_LIBRARY_PATH=/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/lib/x86_64-linux-gnu/pkgconfig:/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/lib/pkgconfig PYTHONPATH=/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share /usr/bin/cmake --install /home/ryanl/4231/MTRN4231_Project/build/arm_controller
+[16.143s] -- Install configuration: ""
+[16.143s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/lib/arm_controller/arm_controller_node
+[16.148s] -- Set runtime path of "/home/ryanl/4231/MTRN4231_Project/install/arm_controller/lib/arm_controller/arm_controller_node" to ""
+[16.148s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/launch
+[16.149s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/launch/arm_controller.launch.py
+[16.149s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/config
+[16.149s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/config/params.yaml
+[16.149s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/ament_index/resource_index/package_run_dependencies/arm_controller
+[16.149s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/ament_index/resource_index/parent_prefix_path/arm_controller
+[16.150s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/environment/ament_prefix_path.sh
+[16.150s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/environment/ament_prefix_path.dsv
+[16.150s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/environment/path.sh
+[16.150s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/environment/path.dsv
+[16.151s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/local_setup.bash
+[16.151s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/local_setup.sh
+[16.151s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/local_setup.zsh
+[16.151s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/local_setup.dsv
+[16.151s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/package.dsv
+[16.151s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/ament_index/resource_index/packages/arm_controller
+[16.151s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/cmake/arm_controllerConfig.cmake
+[16.151s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/cmake/arm_controllerConfig-version.cmake
+[16.151s] -- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/package.xml
+[16.155s] Invoked command in '/home/ryanl/4231/MTRN4231_Project/build/arm_controller' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble:/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces LD_LIBRARY_PATH=/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/lib:${LD_LIBRARY_PATH} PKG_CONFIG_PATH=/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/lib/x86_64-linux-gnu/pkgconfig:/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/lib/pkgconfig PYTHONPATH=/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} ROS_PACKAGE_PATH=/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/share /usr/bin/cmake --install /home/ryanl/4231/MTRN4231_Project/build/arm_controller

@@ -1,0 +1,5 @@
+[0.000000] (-) TimerEvent: {}
+[0.001075] (-) JobUnselected: {'identifier': 'arm_controller'}
+[0.001161] (-) JobUnselected: {'identifier': 'arm_interfaces'}
+[0.001215] (-) JobUnselected: {'identifier': 'ur5e_robot_config'}
+[0.001710] (-) EventReactorShutdown: {}

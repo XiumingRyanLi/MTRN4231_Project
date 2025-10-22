@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<package format="3">
+  <name>ur5e_robot_config</name>
+  <version>0.0.0</version>
+  <description>TODO: Package description</description>
+  <maintainer email="z5422416@ad.unsw.edu.au">ryanl</maintainer>
+  <license>TODO: License declaration</license>
+
+  <exec_depend>xacro</exec_depend>
+  <exec_depend>robot_state_publisher</exec_depend>
+  <exec_depend>controller_manager</exec_depend>
+  <exec_depend>ros2_control</exec_depend>
+  <exec_depend>ros2_controllers</exec_depend>
+  <exec_depend>ur_description</exec_depend>
+  <exec_depend>ur_robot_driver</exec_depend>
+
+  <!-- MoveIt runtime (move_group is launched from ur5e_moveit_config) -->
+  <exec_depend>moveit_ros_planning</exec_depend>
+  <exec_depend>moveit_ros_move_group</exec_depend>
+</package>

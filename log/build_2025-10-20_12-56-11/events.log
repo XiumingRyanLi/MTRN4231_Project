@@ -1,0 +1,714 @@
+[0.000000] (-) TimerEvent: {}
+[0.000858] (chess_arm_executor) JobQueued: {'identifier': 'chess_arm_executor', 'dependencies': OrderedDict()}
+[0.001524] (chess_arm_executor) JobStarted: {'identifier': 'chess_arm_executor'}
+[0.040428] (chess_arm_executor) JobProgress: {'identifier': 'chess_arm_executor', 'progress': 'cmake'}
+[0.044403] (chess_arm_executor) JobProgress: {'identifier': 'chess_arm_executor', 'progress': 'build'}
+[0.045721] (chess_arm_executor) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/ryanl/4231/MTRN4231_Project/build/chess_arm_executor', '--', '-j16', '-l16'], 'cwd': '/home/ryanl/4231/MTRN4231_Project/build/chess_arm_executor', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'ryanl'), ('GIT_ASKPASS', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('MOTD_SHOWN', 'update-motd'), ('HOME', '/home/ryanl'), ('TERM_PROGRAM_VERSION', '1.105.1'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-2168a9c7-0b78-42c4-8140-b26752a39e58.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/node'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/ryanl/4231/MTRN4231_Project/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'ryanl'), ('NAME', 'Ryan'), ('WSL_INTEROP', '/run/WSL/421_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/bin/remote-cli:/home/ryanl/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/MCC:/mnt/c/Program Files/Eclipse Adoptium/jdk-11.0.20.101-hotspot/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/150/DTS/Binn/:/mnt/c/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit/:/mnt/c/Program Files/MATLAB/R2024b/bin:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/:/mnt/c/Gradle/bin:/mnt/c/Program Files (x86)/STMicroelectronics/STM32 ST-LINK Utility/ST-LINK Utility:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files (x86)/IVI Foundation/VISA/WinNT/Bin/:/mnt/c/Program Files/IVI Foundation/VISA/Win64/Bin/:/mnt/c/Program Files (x86)/IVI Foundation/VISA/WinNT/Bin:/mnt/c/Program Files/usbipd-win/:/mnt/c/Program Files/Tailscale/:/mnt/c/Program Files/Netbird:/mnt/c/Program Files/Git/cmd:/mnt/c/Users/ryanl/AppData/Local/Programs/Python/Python311/Scripts/:/mnt/c/Users/ryanl/AppData/Local/Programs/Python/Python311/:/mnt/c/Users/ryanl/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/ryanl/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/ryanl/AppData/Roaming/npm:/mnt/c/opencv/build/x64/vc16/bin:/mnt/c/Users/ryanl/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/ryanl/AppData/Local/Programs/MiKTeX/miktex/bin/x64/:/mnt/c/Users/ryanl/.dotnet/tools:/snap/bin:/home/ryanl/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-14419cdd9e.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/ryanl/4231/MTRN4231_Project/install/gripper:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/ryanl/4231/MTRN4231_Project/build/chess_arm_executor'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/ryanl/4231/MTRN4231_Project/build/gripper:/home/ryanl/4231/MTRN4231_Project/install/gripper/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('WSLENV', 'VSCODE_WSL_EXT_LOCATION/up:VSCODE_SERVER_TAR/up'), ('CMAKE_PREFIX_PATH', '/home/ryanl/4231/MTRN4231_Project/install/gripper:/opt/ros/humble')]), 'shell': False}
+[0.102174] (-) TimerEvent: {}
+[0.202898] (-) TimerEvent: {}
+[0.306262] (-) TimerEvent: {}
+[0.408099] (-) TimerEvent: {}
+[0.472231] (chess_arm_executor) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.509053] (-) TimerEvent: {}
+[0.610863] (-) TimerEvent: {}
+[0.712837] (-) TimerEvent: {}
+[0.734267] (chess_arm_executor) StdoutLine: {'line': b'-- Override CMake install command with custom implementation using symlinks instead of copying resources\n'}
+[0.781085] (chess_arm_executor) StdoutLine: {'line': b'-- Found rclcpp: 16.0.14 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.813636] (-) TimerEvent: {}
+[0.916065] (-) TimerEvent: {}
+[1.018011] (-) TimerEvent: {}
+[1.118724] (-) TimerEvent: {}
+[1.241451] (-) TimerEvent: {}
+[1.245396] (chess_arm_executor) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[1.255595] (chess_arm_executor) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[1.281001] (chess_arm_executor) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[1.317632] (chess_arm_executor) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[1.342977] (-) TimerEvent: {}
+[1.356557] (chess_arm_executor) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[1.445608] (-) TimerEvent: {}
+[1.467802] (chess_arm_executor) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[1.475021] (chess_arm_executor) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[1.546930] (-) TimerEvent: {}
+[1.647671] (-) TimerEvent: {}
+[1.748332] (-) TimerEvent: {}
+[1.849149] (-) TimerEvent: {}
+[1.951508] (-) TimerEvent: {}
+[2.053872] (-) TimerEvent: {}
+[2.155067] (-) TimerEvent: {}
+[2.257347] (-) TimerEvent: {}
+[2.359456] (-) TimerEvent: {}
+[2.460400] (-) TimerEvent: {}
+[2.562956] (-) TimerEvent: {}
+[2.664530] (-) TimerEvent: {}
+[2.766402] (-) TimerEvent: {}
+[2.868612] (-) TimerEvent: {}
+[2.970952] (-) TimerEvent: {}
+[3.071864] (-) TimerEvent: {}
+[3.173697] (-) TimerEvent: {}
+[3.274994] (-) TimerEvent: {}
+[3.377232] (-) TimerEvent: {}
+[3.479347] (-) TimerEvent: {}
+[3.581955] (-) TimerEvent: {}
+[3.683435] (-) TimerEvent: {}
+[3.784269] (-) TimerEvent: {}
+[3.886430] (-) TimerEvent: {}
+[3.988689] (-) TimerEvent: {}
+[4.090585] (-) TimerEvent: {}
+[4.193108] (-) TimerEvent: {}
+[4.295180] (-) TimerEvent: {}
+[4.397479] (-) TimerEvent: {}
+[4.499882] (-) TimerEvent: {}
+[4.602422] (-) TimerEvent: {}
+[4.705009] (-) TimerEvent: {}
+[4.806924] (-) TimerEvent: {}
+[4.909237] (-) TimerEvent: {}
+[5.011102] (-) TimerEvent: {}
+[5.112687] (-) TimerEvent: {}
+[5.213985] (-) TimerEvent: {}
+[5.315744] (-) TimerEvent: {}
+[5.417842] (-) TimerEvent: {}
+[5.520445] (-) TimerEvent: {}
+[5.622695] (-) TimerEvent: {}
+[5.724841] (-) TimerEvent: {}
+[5.825706] (-) TimerEvent: {}
+[5.928211] (-) TimerEvent: {}
+[6.029407] (-) TimerEvent: {}
+[6.130546] (-) TimerEvent: {}
+[6.233858] (-) TimerEvent: {}
+[6.336181] (-) TimerEvent: {}
+[6.439624] (-) TimerEvent: {}
+[6.543235] (-) TimerEvent: {}
+[6.646787] (-) TimerEvent: {}
+[6.750303] (-) TimerEvent: {}
+[6.853649] (-) TimerEvent: {}
+[6.956148] (-) TimerEvent: {}
+[7.057033] (-) TimerEvent: {}
+[7.160004] (-) TimerEvent: {}
+[7.263520] (-) TimerEvent: {}
+[7.366675] (-) TimerEvent: {}
+[7.467960] (-) TimerEvent: {}
+[7.569561] (-) TimerEvent: {}
+[7.670651] (-) TimerEvent: {}
+[7.771719] (-) TimerEvent: {}
+[7.875934] (-) TimerEvent: {}
+[7.982400] (-) TimerEvent: {}
+[8.084183] (-) TimerEvent: {}
+[8.188143] (-) TimerEvent: {}
+[8.294445] (-) TimerEvent: {}
+[8.397615] (-) TimerEvent: {}
+[8.500212] (-) TimerEvent: {}
+[8.602642] (-) TimerEvent: {}
+[8.709042] (-) TimerEvent: {}
+[8.810796] (-) TimerEvent: {}
+[8.917295] (-) TimerEvent: {}
+[9.023560] (-) TimerEvent: {}
+[9.125672] (-) TimerEvent: {}
+[9.228248] (-) TimerEvent: {}
+[9.330601] (-) TimerEvent: {}
+[9.433281] (-) TimerEvent: {}
+[9.535946] (-) TimerEvent: {}
+[9.638606] (-) TimerEvent: {}
+[9.740694] (-) TimerEvent: {}
+[9.842356] (-) TimerEvent: {}
+[9.944918] (-) TimerEvent: {}
+[10.046762] (-) TimerEvent: {}
+[10.148852] (-) TimerEvent: {}
+[10.249723] (-) TimerEvent: {}
+[10.351813] (-) TimerEvent: {}
+[10.454445] (-) TimerEvent: {}
+[10.556847] (-) TimerEvent: {}
+[10.659441] (-) TimerEvent: {}
+[10.761266] (-) TimerEvent: {}
+[10.863063] (-) TimerEvent: {}
+[10.963712] (-) TimerEvent: {}
+[11.065752] (-) TimerEvent: {}
+[11.169103] (-) TimerEvent: {}
+[11.272387] (-) TimerEvent: {}
+[11.374126] (-) TimerEvent: {}
+[11.477533] (-) TimerEvent: {}
+[11.580851] (-) TimerEvent: {}
+[11.684193] (-) TimerEvent: {}
+[11.787523] (-) TimerEvent: {}
+[11.890015] (-) TimerEvent: {}
+[11.993449] (-) TimerEvent: {}
+[12.096765] (-) TimerEvent: {}
+[12.200068] (-) TimerEvent: {}
+[12.303339] (-) TimerEvent: {}
+[12.406596] (-) TimerEvent: {}
+[12.509900] (-) TimerEvent: {}
+[12.613293] (-) TimerEvent: {}
+[12.714014] (-) TimerEvent: {}
+[12.818336] (-) TimerEvent: {}
+[12.923181] (-) TimerEvent: {}
+[13.027938] (-) TimerEvent: {}
+[13.130300] (-) TimerEvent: {}
+[13.233678] (-) TimerEvent: {}
+[13.336919] (-) TimerEvent: {}
+[13.440233] (-) TimerEvent: {}
+[13.543592] (-) TimerEvent: {}
+[13.646958] (-) TimerEvent: {}
+[13.747612] (-) TimerEvent: {}
+[13.851007] (-) TimerEvent: {}
+[13.954292] (-) TimerEvent: {}
+[14.057600] (-) TimerEvent: {}
+[14.160901] (-) TimerEvent: {}
+[14.264188] (-) TimerEvent: {}
+[14.367413] (-) TimerEvent: {}
+[14.470654] (-) TimerEvent: {}
+[14.573903] (-) TimerEvent: {}
+[14.677281] (-) TimerEvent: {}
+[14.778159] (-) TimerEvent: {}
+[14.881126] (-) TimerEvent: {}
+[14.983066] (-) TimerEvent: {}
+[15.086479] (-) TimerEvent: {}
+[15.189839] (-) TimerEvent: {}
+[15.293276] (-) TimerEvent: {}
+[15.396577] (-) TimerEvent: {}
+[15.499894] (-) TimerEvent: {}
+[15.603166] (-) TimerEvent: {}
+[15.703816] (-) TimerEvent: {}
+[15.804535] (-) TimerEvent: {}
+[15.906070] (-) TimerEvent: {}
+[16.009484] (-) TimerEvent: {}
+[16.112793] (-) TimerEvent: {}
+[16.234347] (chess_arm_executor) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[16.234821] (-) TimerEvent: {}
+[16.337955] (-) TimerEvent: {}
+[16.394752] (chess_arm_executor) StdoutLine: {'line': b'-- Found rclcpp_action: 16.0.15 (/opt/ros/humble/share/rclcpp_action/cmake)\n'}
+[16.440568] (-) TimerEvent: {}
+[16.479651] (chess_arm_executor) StdoutLine: {'line': b'-- Found moveit_ros_planning_interface: 2.5.9 (/opt/ros/humble/share/moveit_ros_planning_interface/cmake)\n'}
+[16.515902] (chess_arm_executor) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: date_time filesystem program_options system thread \n'}
+[16.542139] (-) TimerEvent: {}
+[16.645539] (-) TimerEvent: {}
+[16.748888] (-) TimerEvent: {}
+[16.851591] (-) TimerEvent: {}
+[16.870724] (chess_arm_executor) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: chrono date_time filesystem iostreams program_options regex serialization system thread \n'}
+[16.953434] (-) TimerEvent: {}
+[17.056818] (-) TimerEvent: {}
+[17.160172] (-) TimerEvent: {}
+[17.263532] (-) TimerEvent: {}
+[17.366861] (-) TimerEvent: {}
+[17.470110] (-) TimerEvent: {}
+[17.573469] (-) TimerEvent: {}
+[17.674312] (-) TimerEvent: {}
+[17.776991] (-) TimerEvent: {}
+[17.880363] (-) TimerEvent: {}
+[17.983711] (-) TimerEvent: {}
+[18.086982] (-) TimerEvent: {}
+[18.190251] (-) TimerEvent: {}
+[18.293596] (-) TimerEvent: {}
+[18.396864] (-) TimerEvent: {}
+[18.500106] (-) TimerEvent: {}
+[18.603387] (-) TimerEvent: {}
+[18.704066] (-) TimerEvent: {}
+[18.806762] (-) TimerEvent: {}
+[18.909947] (-) TimerEvent: {}
+[19.013511] (-) TimerEvent: {}
+[19.080174] (chess_arm_executor) StdoutLine: {'line': b'-- Found parameter_traits: 0.5.0 (/opt/ros/humble/share/parameter_traits/cmake)\n'}
+[19.104920] (chess_arm_executor) StdoutLine: {'line': b'-- Found rclcpp_lifecycle: 16.0.14 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)\n'}
+[19.114146] (-) TimerEvent: {}
+[19.173940] (chess_arm_executor) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: filesystem \n'}
+[19.216682] (-) TimerEvent: {}
+[19.320062] (-) TimerEvent: {}
+[19.423483] (-) TimerEvent: {}
+[19.526754] (-) TimerEvent: {}
+[19.630026] (-) TimerEvent: {}
+[19.733285] (-) TimerEvent: {}
+[19.836612] (-) TimerEvent: {}
+[19.939947] (-) TimerEvent: {}
+[20.043279] (-) TimerEvent: {}
+[20.146591] (-) TimerEvent: {}
+[20.249872] (-) TimerEvent: {}
+[20.353207] (-) TimerEvent: {}
+[20.456593] (-) TimerEvent: {}
+[20.557317] (-) TimerEvent: {}
+[20.658780] (-) TimerEvent: {}
+[20.760450] (-) TimerEvent: {}
+[20.862281] (-) TimerEvent: {}
+[20.964176] (-) TimerEvent: {}
+[21.066268] (-) TimerEvent: {}
+[21.168729] (-) TimerEvent: {}
+[21.271124] (-) TimerEvent: {}
+[21.372777] (-) TimerEvent: {}
+[21.474463] (-) TimerEvent: {}
+[21.576326] (-) TimerEvent: {}
+[21.678328] (-) TimerEvent: {}
+[21.780536] (-) TimerEvent: {}
+[21.882769] (-) TimerEvent: {}
+[21.985146] (-) TimerEvent: {}
+[22.086849] (-) TimerEvent: {}
+[22.189390] (-) TimerEvent: {}
+[22.291224] (-) TimerEvent: {}
+[22.393274] (-) TimerEvent: {}
+[22.494599] (-) TimerEvent: {}
+[22.597009] (-) TimerEvent: {}
+[22.699458] (-) TimerEvent: {}
+[22.779785] (chess_arm_executor) StdoutLine: {'line': b'-- library: /usr/lib/x86_64-linux-gnu/libcurl.so\n'}
+[22.800758] (-) TimerEvent: {}
+[22.852516] (chess_arm_executor) StdoutLine: {'line': b'-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target\n'}
+[22.901436] (-) TimerEvent: {}
+[23.002295] (-) TimerEvent: {}
+[23.104110] (-) TimerEvent: {}
+[23.208731] (-) TimerEvent: {}
+[23.314930] (-) TimerEvent: {}
+[23.421107] (-) TimerEvent: {}
+[23.522924] (-) TimerEvent: {}
+[23.627162] (-) TimerEvent: {}
+[23.727852] (-) TimerEvent: {}
+[23.829993] (-) TimerEvent: {}
+[23.932332] (-) TimerEvent: {}
+[24.034878] (-) TimerEvent: {}
+[24.136714] (-) TimerEvent: {}
+[24.238518] (-) TimerEvent: {}
+[24.340436] (-) TimerEvent: {}
+[24.442514] (-) TimerEvent: {}
+[24.545027] (-) TimerEvent: {}
+[24.647518] (-) TimerEvent: {}
+[24.748639] (-) TimerEvent: {}
+[24.851140] (-) TimerEvent: {}
+[24.952763] (-) TimerEvent: {}
+[25.055300] (-) TimerEvent: {}
+[25.157653] (-) TimerEvent: {}
+[25.259224] (-) TimerEvent: {}
+[25.359931] (-) TimerEvent: {}
+[25.461059] (-) TimerEvent: {}
+[25.565644] (-) TimerEvent: {}
+[25.666406] (-) TimerEvent: {}
+[25.769639] (-) TimerEvent: {}
+[25.872926] (-) TimerEvent: {}
+[25.976161] (-) TimerEvent: {}
+[26.079480] (-) TimerEvent: {}
+[26.181576] (-) TimerEvent: {}
+[26.284929] (-) TimerEvent: {}
+[26.385763] (-) TimerEvent: {}
+[26.486682] (-) TimerEvent: {}
+[26.593126] (-) TimerEvent: {}
+[26.696950] (chess_arm_executor) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread chrono \n'}
+[26.697315] (-) TimerEvent: {}
+[26.754979] (chess_arm_executor) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: thread system filesystem regex date_time program_options \n'}
+[26.794117] (chess_arm_executor) StdoutLine: {'line': b'-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread \n'}
+[26.797696] (-) TimerEvent: {}
+[26.860380] (chess_arm_executor) StdoutLine: {'line': b'-- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)\n'}
+[26.900049] (-) TimerEvent: {}
+[27.000723] (-) TimerEvent: {}
+[27.103617] (-) TimerEvent: {}
+[27.204544] (-) TimerEvent: {}
+[27.305207] (-) TimerEvent: {}
+[27.383052] (chess_arm_executor) StdoutLine: {'line': b'-- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)\n'}
+[27.405977] (-) TimerEvent: {}
+[27.510461] (-) TimerEvent: {}
+[27.616609] (-) TimerEvent: {}
+[27.720270] (-) TimerEvent: {}
+[27.826903] (-) TimerEvent: {}
+[27.933200] (-) TimerEvent: {}
+[27.964134] (chess_arm_executor) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[28.034803] (-) TimerEvent: {}
+[28.140849] (-) TimerEvent: {}
+[28.188235] (chess_arm_executor) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[28.235574] (chess_arm_executor) StdoutLine: {'line': b'-- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)\n'}
+[28.241287] (-) TimerEvent: {}
+[28.282182] (chess_arm_executor) StdoutLine: {'line': b'-- Using PYTHON_EXECUTABLE: /usr/bin/python3\n'}
+[28.282633] (chess_arm_executor) StdoutLine: {'line': b'-- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10\n'}
+[28.282787] (chess_arm_executor) StdoutLine: {'line': b'-- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so\n'}
+[28.341663] (-) TimerEvent: {}
+[28.373478] (chess_arm_executor) StdoutLine: {'line': b'-- Configuring done\n'}
+[28.445608] (-) TimerEvent: {}
+[28.547620] (-) TimerEvent: {}
+[28.614860] (chess_arm_executor) StdoutLine: {'line': b'-- Generating done\n'}
+[28.649607] (-) TimerEvent: {}
+[28.660513] (chess_arm_executor) StdoutLine: {'line': b'-- Build files have been written to: /home/ryanl/4231/MTRN4231_Project/build/chess_arm_executor\n'}
+[28.749971] (-) TimerEvent: {}
+[28.774293] (chess_arm_executor) StdoutLine: {'line': b'[  3%] Built target chess_arm_executor__cpp\n'}
+[28.775777] (chess_arm_executor) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target chess_arm_executor__rosidl_generator_c\x1b[0m\n'}
+[28.799743] (chess_arm_executor) StdoutLine: {'line': b'[  3%] Built target ament_cmake_python_symlink_chess_arm_executor\n'}
+[28.801454] (chess_arm_executor) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target chess_arm_executor__rosidl_typesupport_introspection_cpp\x1b[0m\n'}
+[28.802015] (chess_arm_executor) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target chess_arm_executor__rosidl_typesupport_fastrtps_cpp\x1b[0m\n'}
+[28.802227] (chess_arm_executor) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target chess_arm_executor__rosidl_typesupport_cpp\x1b[0m\n'}
+[28.819547] (chess_arm_executor) StdoutLine: {'line': b'[  6%] \x1b[32mBuilding C object CMakeFiles/chess_arm_executor__rosidl_generator_c.dir/rosidl_generator_c/chess_arm_executor/action/detail/execute_move__functions.c.o\x1b[0m\n'}
+[28.846248] (chess_arm_executor) StdoutLine: {'line': b'[  9%] \x1b[32mBuilding CXX object CMakeFiles/chess_arm_executor__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/chess_arm_executor/action/detail/execute_move__type_support.cpp.o\x1b[0m\n'}
+[28.846981] (chess_arm_executor) StdoutLine: {'line': b'[ 12%] \x1b[32mBuilding CXX object CMakeFiles/chess_arm_executor__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/chess_arm_executor/action/execute_move__type_support.cpp.o\x1b[0m\n'}
+[28.848827] (chess_arm_executor) StdoutLine: {'line': b'[ 15%] \x1b[32mBuilding CXX object CMakeFiles/chess_arm_executor__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/chess_arm_executor/action/detail/dds_fastrtps/execute_move__type_support.cpp.o\x1b[0m\n'}
+[28.850310] (-) TimerEvent: {}
+[28.950936] (-) TimerEvent: {}
+[29.051549] (-) TimerEvent: {}
+[29.152278] (-) TimerEvent: {}
+[29.253092] (-) TimerEvent: {}
+[29.316003] (chess_arm_executor) StdoutLine: {'line': b'[ 18%] \x1b[32m\x1b[1mLinking C shared library libchess_arm_executor__rosidl_generator_c.so\x1b[0m\n'}
+[29.353440] (-) TimerEvent: {}
+[29.433032] (chess_arm_executor) StdoutLine: {'line': b'running egg_info\n'}
+[29.435274] (chess_arm_executor) StdoutLine: {'line': b'writing chess_arm_executor.egg-info/PKG-INFO\n'}
+[29.436265] (chess_arm_executor) StdoutLine: {'line': b'writing dependency_links to chess_arm_executor.egg-info/dependency_links.txt\n'}
+[29.437070] (chess_arm_executor) StdoutLine: {'line': b'writing top-level names to chess_arm_executor.egg-info/top_level.txt\n'}
+[29.448966] (chess_arm_executor) StdoutLine: {'line': b"reading manifest file 'chess_arm_executor.egg-info/SOURCES.txt'\n"}
+[29.450953] (chess_arm_executor) StdoutLine: {'line': b"writing manifest file 'chess_arm_executor.egg-info/SOURCES.txt'\n"}
+[29.453811] (-) TimerEvent: {}
+[29.530165] (chess_arm_executor) StdoutLine: {'line': b'[ 18%] Built target ament_cmake_python_build_chess_arm_executor_egg\n'}
+[29.554394] (-) TimerEvent: {}
+[29.655708] (-) TimerEvent: {}
+[29.712998] (chess_arm_executor) StdoutLine: {'line': b'[ 21%] Built target chess_arm_executor__rosidl_generator_c\n'}
+[29.746480] (chess_arm_executor) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target chess_arm_executor__rosidl_typesupport_c\x1b[0m\n'}
+[29.747162] (chess_arm_executor) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target chess_arm_executor__rosidl_typesupport_fastrtps_c\x1b[0m\n'}
+[29.747607] (chess_arm_executor) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target chess_arm_executor__rosidl_typesupport_introspection_c\x1b[0m\n'}
+[29.756032] (-) TimerEvent: {}
+[29.779362] (chess_arm_executor) StdoutLine: {'line': b'[ 24%] \x1b[32mBuilding C object CMakeFiles/chess_arm_executor__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/chess_arm_executor/action/detail/execute_move__type_support.c.o\x1b[0m\n'}
+[29.780007] (chess_arm_executor) StdoutLine: {'line': b'[ 27%] \x1b[32mBuilding CXX object CMakeFiles/chess_arm_executor__rosidl_typesupport_c.dir/rosidl_typesupport_c/chess_arm_executor/action/execute_move__type_support.cpp.o\x1b[0m\n'}
+[29.785825] (chess_arm_executor) StdoutLine: {'line': b'[ 30%] \x1b[32mBuilding CXX object CMakeFiles/chess_arm_executor__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/chess_arm_executor/action/detail/execute_move__type_support_c.cpp.o\x1b[0m\n'}
+[29.856807] (-) TimerEvent: {}
+[29.912752] (chess_arm_executor) StdoutLine: {'line': b'[ 33%] \x1b[32m\x1b[1mLinking C shared library libchess_arm_executor__rosidl_typesupport_introspection_c.so\x1b[0m\n'}
+[29.934300] (chess_arm_executor) StdoutLine: {'line': b'[ 36%] \x1b[32m\x1b[1mLinking CXX shared library libchess_arm_executor__rosidl_typesupport_c.so\x1b[0m\n'}
+[29.957143] (-) TimerEvent: {}
+[30.057998] (-) TimerEvent: {}
+[30.158898] (-) TimerEvent: {}
+[30.159724] (chess_arm_executor) StdoutLine: {'line': b'[ 39%] \x1b[32m\x1b[1mLinking CXX shared library libchess_arm_executor__rosidl_typesupport_cpp.so\x1b[0m\n'}
+[30.259133] (-) TimerEvent: {}
+[30.274341] (chess_arm_executor) StdoutLine: {'line': b'[ 42%] Built target chess_arm_executor__rosidl_typesupport_introspection_c\n'}
+[30.319878] (chess_arm_executor) StdoutLine: {'line': b'[ 45%] Built target chess_arm_executor__rosidl_typesupport_c\n'}
+[30.359387] (-) TimerEvent: {}
+[30.394745] (chess_arm_executor) StdoutLine: {'line': b'[ 48%] \x1b[32m\x1b[1mLinking CXX shared library libchess_arm_executor__rosidl_typesupport_fastrtps_cpp.so\x1b[0m\n'}
+[30.452167] (chess_arm_executor) StdoutLine: {'line': b'[ 51%] \x1b[32m\x1b[1mLinking CXX shared library libchess_arm_executor__rosidl_typesupport_introspection_cpp.so\x1b[0m\n'}
+[30.459645] (-) TimerEvent: {}
+[30.515243] (chess_arm_executor) StdoutLine: {'line': b'[ 54%] Built target chess_arm_executor__rosidl_typesupport_cpp\n'}
+[30.541373] (chess_arm_executor) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target arm_controller_node\x1b[0m\n'}
+[30.559914] (-) TimerEvent: {}
+[30.660561] (-) TimerEvent: {}
+[30.670119] (chess_arm_executor) StdoutLine: {'line': b'[ 57%] \x1b[32m\x1b[1mLinking CXX shared library libchess_arm_executor__rosidl_typesupport_fastrtps_c.so\x1b[0m\n'}
+[30.691817] (chess_arm_executor) StdoutLine: {'line': b'[ 60%] \x1b[32mBuilding CXX object CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o\x1b[0m\n'}
+[30.760903] (-) TimerEvent: {}
+[30.802780] (chess_arm_executor) StdoutLine: {'line': b'[ 63%] Built target chess_arm_executor__rosidl_typesupport_fastrtps_cpp\n'}
+[30.858467] (chess_arm_executor) StdoutLine: {'line': b'[ 66%] Built target chess_arm_executor__rosidl_typesupport_introspection_cpp\n'}
+[30.861174] (-) TimerEvent: {}
+[30.962252] (-) TimerEvent: {}
+[31.063180] (-) TimerEvent: {}
+[31.105050] (chess_arm_executor) StdoutLine: {'line': b'[ 69%] Built target chess_arm_executor__rosidl_typesupport_fastrtps_c\n'}
+[31.147562] (chess_arm_executor) StdoutLine: {'line': b'[ 69%] Built target chess_arm_executor\n'}
+[31.163401] (-) TimerEvent: {}
+[31.209469] (chess_arm_executor) StdoutLine: {'line': b'[ 72%] Built target chess_arm_executor__py\n'}
+[31.231974] (chess_arm_executor) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target chess_arm_executor__rosidl_generator_py\x1b[0m\n'}
+[31.260707] (chess_arm_executor) StdoutLine: {'line': b'[ 75%] \x1b[32mBuilding C object CMakeFiles/chess_arm_executor__rosidl_generator_py.dir/rosidl_generator_py/chess_arm_executor/action/_execute_move_s.c.o\x1b[0m\n'}
+[31.263665] (-) TimerEvent: {}
+[31.365893] (-) TimerEvent: {}
+[31.468142] (-) TimerEvent: {}
+[31.571607] (-) TimerEvent: {}
+[31.625480] (chess_arm_executor) StdoutLine: {'line': b'[ 78%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/chess_arm_executor/libchess_arm_executor__rosidl_generator_py.so\x1b[0m\n'}
+[31.671925] (-) TimerEvent: {}
+[31.772663] (-) TimerEvent: {}
+[31.873406] (-) TimerEvent: {}
+[31.965130] (chess_arm_executor) StdoutLine: {'line': b'[ 78%] Built target chess_arm_executor__rosidl_generator_py\n'}
+[31.973748] (-) TimerEvent: {}
+[31.988085] (chess_arm_executor) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target chess_arm_executor__rosidl_typesupport_fastrtps_c__pyext\x1b[0m\n'}
+[31.988462] (chess_arm_executor) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target chess_arm_executor__rosidl_typesupport_c__pyext\x1b[0m\n'}
+[31.988853] (chess_arm_executor) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target chess_arm_executor__rosidl_typesupport_introspection_c__pyext\x1b[0m\n'}
+[32.033552] (chess_arm_executor) StdoutLine: {'line': b'[ 81%] \x1b[32mBuilding C object CMakeFiles/chess_arm_executor__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/chess_arm_executor/_chess_arm_executor_s.ep.rosidl_typesupport_introspection_c.c.o\x1b[0m\n'}
+[32.034068] (chess_arm_executor) StdoutLine: {'line': b'[ 84%] \x1b[32mBuilding C object CMakeFiles/chess_arm_executor__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/chess_arm_executor/_chess_arm_executor_s.ep.rosidl_typesupport_c.c.o\x1b[0m\n'}
+[32.041878] (chess_arm_executor) StdoutLine: {'line': b'[ 87%] \x1b[32mBuilding C object CMakeFiles/chess_arm_executor__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/chess_arm_executor/_chess_arm_executor_s.ep.rosidl_typesupport_fastrtps_c.c.o\x1b[0m\n'}
+[32.074206] (-) TimerEvent: {}
+[32.174996] (-) TimerEvent: {}
+[32.275925] (-) TimerEvent: {}
+[32.343086] (chess_arm_executor) StdoutLine: {'line': b'[ 93%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/chess_arm_executor/chess_arm_executor_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[32.343393] (chess_arm_executor) StdoutLine: {'line': b'[ 93%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/chess_arm_executor/chess_arm_executor_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[32.348920] (chess_arm_executor) StdoutLine: {'line': b'[ 96%] \x1b[32m\x1b[1mLinking C shared library rosidl_generator_py/chess_arm_executor/chess_arm_executor_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\x1b[0m\n'}
+[32.376199] (-) TimerEvent: {}
+[32.477041] (-) TimerEvent: {}
+[32.579346] (-) TimerEvent: {}
+[32.593399] (chess_arm_executor) StdoutLine: {'line': b'[ 96%] Built target chess_arm_executor__rosidl_typesupport_introspection_c__pyext\n'}
+[32.597450] (chess_arm_executor) StdoutLine: {'line': b'[ 96%] Built target chess_arm_executor__rosidl_typesupport_fastrtps_c__pyext\n'}
+[32.674331] (chess_arm_executor) StdoutLine: {'line': b'[ 96%] Built target chess_arm_executor__rosidl_typesupport_c__pyext\n'}
+[32.679752] (-) TimerEvent: {}
+[32.783112] (-) TimerEvent: {}
+[32.885268] (-) TimerEvent: {}
+[32.986572] (-) TimerEvent: {}
+[33.089846] (-) TimerEvent: {}
+[33.193303] (-) TimerEvent: {}
+[33.239516] (chess_arm_executor) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ryanl/4231/MTRN4231_Project/src/chess_arm_executor/src/arm_controller_node.cpp:241:1:\x1b[m\x1b[K \x1b[01;35m\x1b[Kwarning: \x1b[m\x1b[Kmulti-line comment [\x1b[01;35m\x1b[K\x1b]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wcomment\x07-Wcomment\x1b]8;;\x07\x1b[m\x1b[K]\n'}
+[33.240053] (chess_arm_executor) StderrLine: {'line': b'  241 | \x1b[01;35m\x1b[K/\x1b[m\x1b[K/ ros2 action send_goal /play_move chess_arm_executor/action/ExecuteMove \\\n'}
+[33.240251] (chess_arm_executor) StderrLine: {'line': b'      | \x1b[01;35m\x1b[K^\x1b[m\x1b[K\n'}
+[33.296231] (-) TimerEvent: {}
+[33.398480] (-) TimerEvent: {}
+[33.500660] (-) TimerEvent: {}
+[33.602895] (-) TimerEvent: {}
+[33.704679] (-) TimerEvent: {}
+[33.805461] (-) TimerEvent: {}
+[33.907648] (-) TimerEvent: {}
+[34.009775] (-) TimerEvent: {}
+[34.111871] (-) TimerEvent: {}
+[34.213845] (-) TimerEvent: {}
+[34.316406] (-) TimerEvent: {}
+[34.418445] (-) TimerEvent: {}
+[34.520834] (-) TimerEvent: {}
+[34.623062] (-) TimerEvent: {}
+[34.725192] (-) TimerEvent: {}
+[34.827447] (-) TimerEvent: {}
+[34.929314] (-) TimerEvent: {}
+[35.030099] (-) TimerEvent: {}
+[35.130912] (-) TimerEvent: {}
+[35.234385] (-) TimerEvent: {}
+[35.335544] (-) TimerEvent: {}
+[35.439088] (-) TimerEvent: {}
+[35.542434] (-) TimerEvent: {}
+[35.645530] (-) TimerEvent: {}
+[35.746698] (-) TimerEvent: {}
+[35.849273] (-) TimerEvent: {}
+[35.951812] (-) TimerEvent: {}
+[36.054369] (-) TimerEvent: {}
+[36.156928] (-) TimerEvent: {}
+[36.258715] (-) TimerEvent: {}
+[36.361388] (-) TimerEvent: {}
+[36.463518] (-) TimerEvent: {}
+[36.565514] (-) TimerEvent: {}
+[36.667502] (-) TimerEvent: {}
+[36.769366] (-) TimerEvent: {}
+[36.871096] (-) TimerEvent: {}
+[36.972932] (-) TimerEvent: {}
+[37.075175] (-) TimerEvent: {}
+[37.177409] (-) TimerEvent: {}
+[37.279403] (-) TimerEvent: {}
+[37.381664] (-) TimerEvent: {}
+[37.483977] (-) TimerEvent: {}
+[37.586376] (-) TimerEvent: {}
+[37.687329] (-) TimerEvent: {}
+[37.789321] (-) TimerEvent: {}
+[37.891482] (-) TimerEvent: {}
+[37.992322] (-) TimerEvent: {}
+[38.094052] (-) TimerEvent: {}
+[38.195895] (-) TimerEvent: {}
+[38.297752] (-) TimerEvent: {}
+[38.399488] (-) TimerEvent: {}
+[38.501066] (-) TimerEvent: {}
+[38.603224] (-) TimerEvent: {}
+[38.705020] (-) TimerEvent: {}
+[38.805830] (-) TimerEvent: {}
+[38.910752] (-) TimerEvent: {}
+[39.011598] (-) TimerEvent: {}
+[39.112355] (-) TimerEvent: {}
+[39.213203] (-) TimerEvent: {}
+[39.317879] (-) TimerEvent: {}
+[39.419184] (-) TimerEvent: {}
+[39.520023] (-) TimerEvent: {}
+[39.621308] (-) TimerEvent: {}
+[39.726294] (-) TimerEvent: {}
+[39.827013] (-) TimerEvent: {}
+[39.930015] (-) TimerEvent: {}
+[40.030651] (-) TimerEvent: {}
+[40.132042] (-) TimerEvent: {}
+[40.233123] (-) TimerEvent: {}
+[40.337887] (-) TimerEvent: {}
+[40.439392] (-) TimerEvent: {}
+[40.544410] (-) TimerEvent: {}
+[40.646169] (-) TimerEvent: {}
+[40.751230] (-) TimerEvent: {}
+[40.856303] (-) TimerEvent: {}
+[40.961406] (-) TimerEvent: {}
+[41.066455] (-) TimerEvent: {}
+[41.170058] (-) TimerEvent: {}
+[41.273883] (-) TimerEvent: {}
+[41.377550] (-) TimerEvent: {}
+[41.481195] (-) TimerEvent: {}
+[41.584798] (-) TimerEvent: {}
+[41.688598] (-) TimerEvent: {}
+[41.792122] (-) TimerEvent: {}
+[41.895848] (-) TimerEvent: {}
+[41.999557] (-) TimerEvent: {}
+[42.103149] (-) TimerEvent: {}
+[42.206806] (-) TimerEvent: {}
+[42.310445] (-) TimerEvent: {}
+[42.413946] (-) TimerEvent: {}
+[42.517357] (-) TimerEvent: {}
+[42.620936] (-) TimerEvent: {}
+[42.724341] (-) TimerEvent: {}
+[42.827736] (-) TimerEvent: {}
+[42.931051] (-) TimerEvent: {}
+[43.034341] (-) TimerEvent: {}
+[43.137853] (-) TimerEvent: {}
+[43.240024] (-) TimerEvent: {}
+[43.343631] (-) TimerEvent: {}
+[43.447087] (-) TimerEvent: {}
+[43.550630] (-) TimerEvent: {}
+[43.654005] (-) TimerEvent: {}
+[43.757349] (-) TimerEvent: {}
+[43.860609] (-) TimerEvent: {}
+[43.964080] (-) TimerEvent: {}
+[44.067491] (-) TimerEvent: {}
+[44.170982] (-) TimerEvent: {}
+[44.274351] (-) TimerEvent: {}
+[44.375052] (-) TimerEvent: {}
+[44.478575] (-) TimerEvent: {}
+[44.582386] (-) TimerEvent: {}
+[44.684621] (-) TimerEvent: {}
+[44.786793] (-) TimerEvent: {}
+[44.889120] (-) TimerEvent: {}
+[44.992648] (-) TimerEvent: {}
+[45.096047] (-) TimerEvent: {}
+[45.199584] (-) TimerEvent: {}
+[45.303069] (-) TimerEvent: {}
+[45.406308] (-) TimerEvent: {}
+[45.509703] (-) TimerEvent: {}
+[45.611731] (-) TimerEvent: {}
+[45.715321] (-) TimerEvent: {}
+[45.818743] (-) TimerEvent: {}
+[45.922163] (-) TimerEvent: {}
+[46.024345] (-) TimerEvent: {}
+[46.127794] (-) TimerEvent: {}
+[46.228500] (-) TimerEvent: {}
+[46.331976] (-) TimerEvent: {}
+[46.435578] (-) TimerEvent: {}
+[46.539191] (-) TimerEvent: {}
+[46.642713] (-) TimerEvent: {}
+[46.746352] (-) TimerEvent: {}
+[46.850827] (-) TimerEvent: {}
+[46.954369] (-) TimerEvent: {}
+[47.056561] (-) TimerEvent: {}
+[47.160112] (-) TimerEvent: {}
+[47.262949] (-) TimerEvent: {}
+[47.366528] (-) TimerEvent: {}
+[47.470082] (-) TimerEvent: {}
+[47.573545] (-) TimerEvent: {}
+[47.676948] (-) TimerEvent: {}
+[47.780410] (-) TimerEvent: {}
+[47.883838] (-) TimerEvent: {}
+[47.987360] (-) TimerEvent: {}
+[48.090934] (-) TimerEvent: {}
+[48.195104] (-) TimerEvent: {}
+[48.298614] (-) TimerEvent: {}
+[48.400424] (-) TimerEvent: {}
+[48.503830] (-) TimerEvent: {}
+[48.607223] (-) TimerEvent: {}
+[48.611586] (chess_arm_executor) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable arm_controller_node\x1b[0m\n'}
+[48.709894] (-) TimerEvent: {}
+[48.812383] (-) TimerEvent: {}
+[48.913083] (-) TimerEvent: {}
+[49.014536] (-) TimerEvent: {}
+[49.115252] (-) TimerEvent: {}
+[49.218706] (-) TimerEvent: {}
+[49.322017] (-) TimerEvent: {}
+[49.424935] (-) TimerEvent: {}
+[49.525744] (-) TimerEvent: {}
+[49.631333] (-) TimerEvent: {}
+[49.732863] (-) TimerEvent: {}
+[49.837637] (-) TimerEvent: {}
+[49.942045] (-) TimerEvent: {}
+[50.047056] (-) TimerEvent: {}
+[50.147914] (-) TimerEvent: {}
+[50.190560] (chess_arm_executor) StdoutLine: {'line': b'[100%] Built target arm_controller_node\n'}
+[50.248529] (-) TimerEvent: {}
+[50.260185] (chess_arm_executor) CommandEnded: {'returncode': 0}
+[50.263556] (chess_arm_executor) JobProgress: {'identifier': 'chess_arm_executor', 'progress': 'install'}
+[50.283012] (chess_arm_executor) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/ryanl/4231/MTRN4231_Project/build/chess_arm_executor'], 'cwd': '/home/ryanl/4231/MTRN4231_Project/build/chess_arm_executor', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'ryanl'), ('GIT_ASKPASS', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/extensions/git/dist/askpass.sh'), ('SHLVL', '1'), ('LD_LIBRARY_PATH', '/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('MOTD_SHOWN', 'update-motd'), ('HOME', '/home/ryanl'), ('TERM_PROGRAM_VERSION', '1.105.1'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-2168a9c7-0b78-42c4-8140-b26752a39e58.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/node'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/ryanl/4231/MTRN4231_Project/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'ryanl'), ('NAME', 'Ryan'), ('WSL_INTEROP', '/run/WSL/421_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/bin/remote-cli:/home/ryanl/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/MCC:/mnt/c/Program Files/Eclipse Adoptium/jdk-11.0.20.101-hotspot/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/150/DTS/Binn/:/mnt/c/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit/:/mnt/c/Program Files/MATLAB/R2024b/bin:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/:/mnt/c/Gradle/bin:/mnt/c/Program Files (x86)/STMicroelectronics/STM32 ST-LINK Utility/ST-LINK Utility:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files (x86)/IVI Foundation/VISA/WinNT/Bin/:/mnt/c/Program Files/IVI Foundation/VISA/Win64/Bin/:/mnt/c/Program Files (x86)/IVI Foundation/VISA/WinNT/Bin:/mnt/c/Program Files/usbipd-win/:/mnt/c/Program Files/Tailscale/:/mnt/c/Program Files/Netbird:/mnt/c/Program Files/Git/cmd:/mnt/c/Users/ryanl/AppData/Local/Programs/Python/Python311/Scripts/:/mnt/c/Users/ryanl/AppData/Local/Programs/Python/Python311/:/mnt/c/Users/ryanl/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/ryanl/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/ryanl/AppData/Roaming/npm:/mnt/c/opencv/build/x64/vc16/bin:/mnt/c/Users/ryanl/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/ryanl/AppData/Local/Programs/MiKTeX/miktex/bin/x64/:/mnt/c/Users/ryanl/.dotnet/tools:/snap/bin:/home/ryanl/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-14419cdd9e.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/ryanl/4231/MTRN4231_Project/install/gripper:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/ryanl/4231/MTRN4231_Project/build/chess_arm_executor'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/ryanl/4231/MTRN4231_Project/build/gripper:/home/ryanl/4231/MTRN4231_Project/install/gripper/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('WSLENV', 'VSCODE_WSL_EXT_LOCATION/up:VSCODE_SERVER_TAR/up'), ('CMAKE_PREFIX_PATH', '/home/ryanl/4231/MTRN4231_Project/install/gripper:/opt/ros/humble')]), 'shell': False}
+[50.298015] (chess_arm_executor) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[50.298768] (chess_arm_executor) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[50.300835] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/ament_index/resource_index/rosidl_interfaces/chess_arm_executor\n'}
+[50.303205] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/include/chess_arm_executor/chess_arm_executor/action/detail/execute_move__functions.h\n'}
+[50.303598] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/include/chess_arm_executor/chess_arm_executor/action/detail/execute_move__struct.h\n'}
+[50.303920] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/include/chess_arm_executor/chess_arm_executor/action/detail/execute_move__type_support.h\n'}
+[50.304241] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/include/chess_arm_executor/chess_arm_executor/action/execute_move.h\n'}
+[50.304588] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/include/chess_arm_executor/chess_arm_executor/msg/rosidl_generator_c__visibility_control.h\n'}
+[50.306007] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/environment/library_path.sh\n'}
+[50.307044] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/environment/library_path.dsv\n'}
+[50.308599] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/include/chess_arm_executor/chess_arm_executor/action/detail/execute_move__rosidl_typesupport_fastrtps_c.h\n'}
+[50.308995] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/include/chess_arm_executor/chess_arm_executor/msg/rosidl_typesupport_fastrtps_c__visibility_control.h\n'}
+[50.310580] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/include/chess_arm_executor/chess_arm_executor/action/detail/execute_move__builder.hpp\n'}
+[50.311052] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/include/chess_arm_executor/chess_arm_executor/action/detail/execute_move__struct.hpp\n'}
+[50.311457] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/include/chess_arm_executor/chess_arm_executor/action/detail/execute_move__traits.hpp\n'}
+[50.311773] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/include/chess_arm_executor/chess_arm_executor/action/detail/execute_move__type_support.hpp\n'}
+[50.312169] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/include/chess_arm_executor/chess_arm_executor/action/execute_move.hpp\n'}
+[50.312546] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/include/chess_arm_executor/chess_arm_executor/msg/rosidl_generator_cpp__visibility_control.hpp\n'}
+[50.315411] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/include/chess_arm_executor/chess_arm_executor/action/detail/execute_move__rosidl_typesupport_fastrtps_cpp.hpp\n'}
+[50.316169] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/include/chess_arm_executor/chess_arm_executor/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h\n'}
+[50.317752] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/include/chess_arm_executor/chess_arm_executor/action/detail/execute_move__rosidl_typesupport_introspection_c.h\n'}
+[50.318078] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/include/chess_arm_executor/chess_arm_executor/msg/rosidl_typesupport_introspection_c__visibility_control.h\n'}
+[50.320810] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/include/chess_arm_executor/chess_arm_executor/action/detail/execute_move__rosidl_typesupport_introspection_cpp.hpp\n'}
+[50.321960] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/environment/pythonpath.sh\n'}
+[50.322997] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/environment/pythonpath.dsv\n'}
+[50.324486] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor-0.0.2-py3.10.egg-info/PKG-INFO\n'}
+[50.325431] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor-0.0.2-py3.10.egg-info/SOURCES.txt\n'}
+[50.326516] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor-0.0.2-py3.10.egg-info/dependency_links.txt\n'}
+[50.327809] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor-0.0.2-py3.10.egg-info/top_level.txt\n'}
+[50.329830] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor/__init__.py\n'}
+[50.330854] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor/_chess_arm_executor_s.ep.rosidl_typesupport_c.c\n'}
+[50.332042] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor/_chess_arm_executor_s.ep.rosidl_typesupport_fastrtps_c.c\n'}
+[50.333427] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor/_chess_arm_executor_s.ep.rosidl_typesupport_introspection_c.c\n'}
+[50.334440] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor/action/__init__.py\n'}
+[50.335505] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor/action/_execute_move.py\n'}
+[50.336474] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor/action/_execute_move_s.c\n'}
+[50.337496] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor/chess_arm_executor_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[50.338518] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor/chess_arm_executor_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[50.339569] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor/chess_arm_executor_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[50.340530] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor/libchess_arm_executor__rosidl_generator_py.so\n'}
+[50.341077] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor/chess_arm_executor_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so\n'}
+[50.341628] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor/chess_arm_executor_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so\n'}
+[50.342259] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor/chess_arm_executor_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so\n'}
+[50.343622] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/action/ExecuteMove.idl\n'}
+[50.344624] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/action/ExecuteMove.action\n'}
+[50.345886] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/lib/chess_arm_executor/arm_controller_node\n'}
+[50.347450] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/launch/chess_arm_executor.launch.py\n'}
+[50.348672] (-) TimerEvent: {}
+[50.349082] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/config/chess_arm_executor.yaml\n'}
+[50.350384] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/config/params.yaml\n'}
+[50.352197] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/action/ExecuteMove.action\n'}
+[50.352854] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/launch/chess_arm_executor.launch.py\n'}
+[50.353518] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/config/chess_arm_executor.yaml\n'}
+[50.353878] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/config/params.yaml\n'}
+[50.354401] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/ament_index/resource_index/package_run_dependencies/chess_arm_executor\n'}
+[50.355788] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/ament_index/resource_index/parent_prefix_path/chess_arm_executor\n'}
+[50.357195] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/environment/ament_prefix_path.sh\n'}
+[50.358777] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/environment/ament_prefix_path.dsv\n'}
+[50.360045] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/environment/path.sh\n'}
+[50.361381] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/environment/path.dsv\n'}
+[50.362766] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/local_setup.bash\n'}
+[50.364271] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/local_setup.sh\n'}
+[50.365830] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/local_setup.zsh\n'}
+[50.367483] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/local_setup.dsv\n'}
+[50.368121] (chess_arm_executor) StdoutLine: {'line': b'-- Symlinking: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/package.dsv\n'}
+[50.390470] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/ament_index/resource_index/packages/chess_arm_executor\n'}
+[50.391753] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/rosidl_cmake-extras.cmake\n'}
+[50.392637] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/ament_cmake_export_dependencies-extras.cmake\n'}
+[50.393529] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/ament_cmake_export_include_directories-extras.cmake\n'}
+[50.394578] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/ament_cmake_export_libraries-extras.cmake\n'}
+[50.395676] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/ament_cmake_export_targets-extras.cmake\n'}
+[50.396454] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake\n'}
+[50.397182] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake\n'}
+[50.398028] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/chess_arm_executorConfig.cmake\n'}
+[50.398834] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/chess_arm_executorConfig-version.cmake\n'}
+[50.399747] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/package.xml\n'}
+[50.401780] (chess_arm_executor) StdoutLine: {'line': b'-- Installing: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/lib/libchess_arm_executor__rosidl_generator_c.so\n'}
+[50.402953] (chess_arm_executor) StdoutLine: {'line': b'-- Set runtime path of "/home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/lib/libchess_arm_executor__rosidl_generator_c.so" to ""\n'}
+[50.404887] (chess_arm_executor) StdoutLine: {'line': b'-- Installing: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/lib/libchess_arm_executor__rosidl_typesupport_fastrtps_c.so\n'}
+[50.406101] (chess_arm_executor) StdoutLine: {'line': b'-- Set runtime path of "/home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/lib/libchess_arm_executor__rosidl_typesupport_fastrtps_c.so" to ""\n'}
+[50.408458] (chess_arm_executor) StdoutLine: {'line': b'-- Installing: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/lib/libchess_arm_executor__rosidl_typesupport_fastrtps_cpp.so\n'}
+[50.409800] (chess_arm_executor) StdoutLine: {'line': b'-- Set runtime path of "/home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/lib/libchess_arm_executor__rosidl_typesupport_fastrtps_cpp.so" to ""\n'}
+[50.412046] (chess_arm_executor) StdoutLine: {'line': b'-- Installing: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/lib/libchess_arm_executor__rosidl_typesupport_introspection_c.so\n'}
+[50.413164] (chess_arm_executor) StdoutLine: {'line': b'-- Set runtime path of "/home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/lib/libchess_arm_executor__rosidl_typesupport_introspection_c.so" to ""\n'}
+[50.415788] (chess_arm_executor) StdoutLine: {'line': b'-- Installing: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/lib/libchess_arm_executor__rosidl_typesupport_c.so\n'}
+[50.417135] (chess_arm_executor) StdoutLine: {'line': b'-- Set runtime path of "/home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/lib/libchess_arm_executor__rosidl_typesupport_c.so" to ""\n'}
+[50.419452] (chess_arm_executor) StdoutLine: {'line': b'-- Installing: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/lib/libchess_arm_executor__rosidl_typesupport_introspection_cpp.so\n'}
+[50.420500] (chess_arm_executor) StdoutLine: {'line': b'-- Set runtime path of "/home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/lib/libchess_arm_executor__rosidl_typesupport_introspection_cpp.so" to ""\n'}
+[50.422617] (chess_arm_executor) StdoutLine: {'line': b'-- Installing: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/lib/libchess_arm_executor__rosidl_typesupport_cpp.so\n'}
+[50.423642] (chess_arm_executor) StdoutLine: {'line': b'-- Set runtime path of "/home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/lib/libchess_arm_executor__rosidl_typesupport_cpp.so" to ""\n'}
+[50.450737] (-) TimerEvent: {}
+[50.501240] (chess_arm_executor) StdoutLine: {'line': b"Listing '/home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor'...\n"}
+[50.501500] (chess_arm_executor) StdoutLine: {'line': b"Compiling '/home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor/__init__.py'...\n"}
+[50.501601] (chess_arm_executor) StdoutLine: {'line': b"Listing '/home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor/action'...\n"}
+[50.501687] (chess_arm_executor) StdoutLine: {'line': b"Compiling '/home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor/action/__init__.py'...\n"}
+[50.501816] (chess_arm_executor) StdoutLine: {'line': b"Compiling '/home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/local/lib/python3.10/dist-packages/chess_arm_executor/action/_execute_move.py'...\n"}
+[50.511883] (chess_arm_executor) StdoutLine: {'line': b'-- Installing: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/lib/libchess_arm_executor__rosidl_generator_py.so\n'}
+[50.513243] (chess_arm_executor) StdoutLine: {'line': b'-- Set runtime path of "/home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/lib/libchess_arm_executor__rosidl_generator_py.so" to ""\n'}
+[50.514418] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/export_chess_arm_executor__rosidl_generator_cExport.cmake\n'}
+[50.514733] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/export_chess_arm_executor__rosidl_generator_cExport-noconfig.cmake\n'}
+[50.515653] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/export_chess_arm_executor__rosidl_typesupport_fastrtps_cExport.cmake\n'}
+[50.516006] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/export_chess_arm_executor__rosidl_typesupport_fastrtps_cExport-noconfig.cmake\n'}
+[50.516785] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/export_chess_arm_executor__rosidl_generator_cppExport.cmake\n'}
+[50.517634] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/export_chess_arm_executor__rosidl_typesupport_fastrtps_cppExport.cmake\n'}
+[50.517822] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/export_chess_arm_executor__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake\n'}
+[50.518377] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/chess_arm_executor__rosidl_typesupport_introspection_cExport.cmake\n'}
+[50.518735] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/chess_arm_executor__rosidl_typesupport_introspection_cExport-noconfig.cmake\n'}
+[50.519220] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/chess_arm_executor__rosidl_typesupport_cExport.cmake\n'}
+[50.519519] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/chess_arm_executor__rosidl_typesupport_cExport-noconfig.cmake\n'}
+[50.520018] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/chess_arm_executor__rosidl_typesupport_introspection_cppExport.cmake\n'}
+[50.520141] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/chess_arm_executor__rosidl_typesupport_introspection_cppExport-noconfig.cmake\n'}
+[50.520734] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/chess_arm_executor__rosidl_typesupport_cppExport.cmake\n'}
+[50.520977] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/chess_arm_executor__rosidl_typesupport_cppExport-noconfig.cmake\n'}
+[50.521536] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/export_chess_arm_executor__rosidl_generator_pyExport.cmake\n'}
+[50.521693] (chess_arm_executor) StdoutLine: {'line': b'-- Up-to-date: /home/ryanl/4231/MTRN4231_Project/install/chess_arm_executor/share/chess_arm_executor/cmake/export_chess_arm_executor__rosidl_generator_pyExport-noconfig.cmake\n'}
+[50.526945] (chess_arm_executor) CommandEnded: {'returncode': 0}
+[50.552259] (-) TimerEvent: {}
+[50.581030] (chess_arm_executor) JobEnded: {'identifier': 'chess_arm_executor', 'rc': 0}
+[50.583159] (-) EventReactorShutdown: {}
