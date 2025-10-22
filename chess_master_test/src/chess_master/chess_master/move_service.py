@@ -39,17 +39,45 @@ class ChessMaster(Node):
             msg.data = str(self.board)
             self.pub.publish(msg)
 
+    def is_valid_fen(self, fen: str) -> bool:
+        try:
+            chess.Board(fen)
+            return True
+        except ValueError:
+            return False
+
     def service_callback(self, request, response):
         text = request.confirm
+        print(text)
         self.get_logger().info(f'Incoming request: {text}')
 
         with self.lock:
+            # Set board with FEN
+            if self.is_valid_fen(text):
+                self.board = chess.Board(text)
+                self.get_logger().info("Board updated to given FEN!")
+                response.chess_move = "Board set"
+                return response
+
             # Board reset check
             if text.lower() == "reset":
                 self.board.reset()
                 response.chess_move = "Board reset"
                 self.get_logger().info("Board reset.")
                 return response
+
+            # Promotion check (for white only)
+            if len(text) < 4:
+                response.chess_move = "Error: Invalid move format (e.g. use 'e2e4' or 'e7e8q' for promotion)"
+                return response
+            
+            if len(text) == 4:
+                from_sq = chess.parse_square(text[:2])
+                piece = self.board.piece_at(from_sq)
+                if text[1] == '7' and text[3] == '8':
+                    if piece and piece.piece_type == chess.PAWN:
+                        text += "q"  # default to queen promotion
+            
 
             # Move user piece
             try:
