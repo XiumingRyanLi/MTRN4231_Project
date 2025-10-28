@@ -1,1 +1,0 @@
-/home/ryanl/4231/MTRN4231_Project/build/chess_arm_executor/rosidl_generator_py/chess_arm_executor/_chess_arm_executor_s.ep.rosidl_typesupport_introspection_c.c

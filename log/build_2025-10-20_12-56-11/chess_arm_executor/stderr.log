@@ -1,3 +1,0 @@
-[01m[K/home/ryanl/4231/MTRN4231_Project/src/chess_arm_executor/src/arm_controller_node.cpp:241:1:[m[K [01;35m[Kwarning: [m[Kmulti-line comment [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wcomment-Wcomment]8;;[m[K]
-  241 | [01;35m[K/[m[K/ ros2 action send_goal /play_move chess_arm_executor/action/ExecuteMove \
-      | [01;35m[K^[m[K

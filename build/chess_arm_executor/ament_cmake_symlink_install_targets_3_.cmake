@@ -1,1 +1,0 @@
-ament_cmake_symlink_install_targets("TARGET_FILES" "/home/ryanl/4231/MTRN4231_Project/build/chess_arm_executor/arm_controller_node" "TARGETS" "arm_controller_node" "DESTINATION" "lib/chess_arm_executor")

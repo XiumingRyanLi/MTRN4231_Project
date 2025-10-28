@@ -3,7 +3,7 @@ from setuptools import setup
 
 setup(
     name='arm_interfaces',
-    version='0.0.0',
+    version='0.0.1',
     packages=find_packages(
         include=('arm_interfaces', 'arm_interfaces.*')),
 )

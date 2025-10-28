@@ -1,2 +1,1 @@
-source;share/arm_controller/environment/ament_prefix_path.sh
-source;share/arm_controller/environment/path.sh
+/home/ryanl/4231/MTRN4231_Project/build/arm_controller/ament_cmake_environment_hooks/local_setup.dsv

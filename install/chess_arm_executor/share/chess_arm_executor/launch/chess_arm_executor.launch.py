@@ -1,1 +1,0 @@
-/home/ryanl/4231/MTRN4231_Project/src/chess_arm_executor/launch/chess_arm_executor.launch.py

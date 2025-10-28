@@ -1,8 +1,0 @@
-setup.py
-chess_arm_executor/__init__.py
-chess_arm_executor.egg-info/PKG-INFO
-chess_arm_executor.egg-info/SOURCES.txt
-chess_arm_executor.egg-info/dependency_links.txt
-chess_arm_executor.egg-info/top_level.txt
-chess_arm_executor/action/__init__.py
-chess_arm_executor/action/_execute_move.py

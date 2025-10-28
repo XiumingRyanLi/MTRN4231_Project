@@ -1,0 +1,44 @@
+[0.022s] Invoking command in '/home/ryanl/4231/MTRN4231_Project/build/ur5e_robot_config': /usr/bin/cmake /home/ryanl/4231/MTRN4231_Project/src/ur5e_robot_config -DCMAKE_INSTALL_PREFIX=/home/ryanl/4231/MTRN4231_Project/install/ur5e_robot_config
+[0.046s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.387s] Error parsing '/home/ryanl/4231/MTRN4231_Project/src/ur5e_robot_config/package.xml':
+[0.493s] Traceback (most recent call last):
+[0.493s]   File "/usr/lib/python3/dist-packages/catkin_pkg/package.py", line 610, in parse_package_string
+[0.494s]     root = dom.parseString(data)
+[0.494s]   File "/usr/lib/python3.10/xml/dom/minidom.py", line 2000, in parseString
+[0.496s]     return expatbuilder.parseString(string)
+[0.496s]   File "/usr/lib/python3.10/xml/dom/expatbuilder.py", line 925, in parseString
+[0.497s]     return builder.parseString(string)
+[0.497s]   File "/usr/lib/python3.10/xml/dom/expatbuilder.py", line 223, in parseString
+[0.498s]     parser.Parse(string, True)
+[0.498s] xml.parsers.expat.ExpatError: no element found: line 30, column 0
+[0.498s] 
+[0.498s] During handling of the above exception, another exception occurred:
+[0.498s] 
+[0.499s] Traceback (most recent call last):
+[0.499s]   File "/opt/ros/humble/share/ament_cmake_core/cmake/core/package_xml_2_cmake.py", line 150, in <module>
+[0.499s]     main()
+[0.499s]   File "/opt/ros/humble/share/ament_cmake_core/cmake/core/package_xml_2_cmake.py", line 53, in main
+[0.499s]     raise e
+[0.499s]   File "/opt/ros/humble/share/ament_cmake_core/cmake/core/package_xml_2_cmake.py", line 49, in main
+[0.500s]     package = parse_package_string(
+[0.500s]   File "/usr/lib/python3/dist-packages/catkin_pkg/package.py", line 612, in parse_package_string
+[0.500s]     raise InvalidPackage('The manifest contains invalid XML:\n%s' % ex, filename)
+[0.500s] catkin_pkg.package.InvalidPackage: Error(s) in package '/home/ryanl/4231/MTRN4231_Project/src/ur5e_robot_config/package.xml':
+[0.500s] The manifest contains invalid XML:
+[0.500s] no element found: line 30, column 0
+[0.531s] [31mCMake Error at /opt/ros/humble/share/ament_cmake_core/cmake/core/ament_package_xml.cmake:95 (message):
+[0.532s]   execute_process(/usr/bin/python3
+[0.532s]   /opt/ros/humble/share/ament_cmake_core/cmake/core/package_xml_2_cmake.py
+[0.532s]   /home/ryanl/4231/MTRN4231_Project/src/ur5e_robot_config/package.xml
+[0.532s]   /home/ryanl/4231/MTRN4231_Project/build/ur5e_robot_config/ament_cmake_core/package.cmake)
+[0.532s]   returned error code 1
+[0.532s] Call Stack (most recent call first):
+[0.532s]   /opt/ros/humble/share/ament_cmake_core/cmake/core/ament_package_xml.cmake:49 (_ament_package_xml)
+[0.532s]   /opt/ros/humble/share/ament_cmake_python/cmake/ament_python_install_package.cmake:60 (ament_package_xml)
+[0.532s]   /opt/ros/humble/share/ament_cmake_python/cmake/ament_python_install_package.cmake:39 (_ament_cmake_python_install_package)
+[0.533s]   CMakeLists.txt:16 (ament_python_install_package)
+[0.533s] 
+[0.533s] [0m
+[0.533s] -- Configuring incomplete, errors occurred!
+[0.533s] See also "/home/ryanl/4231/MTRN4231_Project/build/ur5e_robot_config/CMakeFiles/CMakeOutput.log".
+[0.542s] Invoked command in '/home/ryanl/4231/MTRN4231_Project/build/ur5e_robot_config' returned '1': /usr/bin/cmake /home/ryanl/4231/MTRN4231_Project/src/ur5e_robot_config -DCMAKE_INSTALL_PREFIX=/home/ryanl/4231/MTRN4231_Project/install/ur5e_robot_config

@@ -16,7 +16,7 @@ set(_arm_interfaces_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT arm_interfaces_FIND_QUIETLY)
-  message(STATUS "Found arm_interfaces: 0.0.0 (${arm_interfaces_DIR})")
+  message(STATUS "Found arm_interfaces: 0.0.1 (${arm_interfaces_DIR})")
 endif()
 
 # warn when using a deprecated package

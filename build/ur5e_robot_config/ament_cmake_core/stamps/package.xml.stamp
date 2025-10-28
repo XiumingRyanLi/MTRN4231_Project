@@ -2,20 +2,33 @@
 <?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>ur5e_robot_config</name>
-  <version>0.0.0</version>
-  <description>TODO: Package description</description>
+  <version>0.0.1</version>
+  <description>UR5e description/config package (URDF/Xacro, MoveIt, rviz, launch).</description>
   <maintainer email="z5422416@ad.unsw.edu.au">ryanl</maintainer>
-  <license>TODO: License declaration</license>
+  <license>BSD-3-Clause</license>
 
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- runtime deps your launch files expect -->
+  <exec_depend>launch</exec_depend>
+  <exec_depend>launch_ros</exec_depend>
+  <exec_depend>rviz2</exec_depend>
   <exec_depend>xacro</exec_depend>
-  <exec_depend>robot_state_publisher</exec_depend>
-  <exec_depend>controller_manager</exec_depend>
-  <exec_depend>ros2_control</exec_depend>
-  <exec_depend>ros2_controllers</exec_depend>
-  <exec_depend>ur_description</exec_depend>
-  <exec_depend>ur_robot_driver</exec_depend>
 
-  <!-- MoveIt runtime (move_group is launched from ur5e_moveit_config) -->
-  <exec_depend>moveit_ros_planning</exec_depend>
+  <!-- MoveIt stacks if your launch uses them -->
   <exec_depend>moveit_ros_move_group</exec_depend>
+  <exec_depend>moveit_ros_visualization</exec_depend>
+  <exec_depend>moveit_planners_ompl</exec_depend>
+  <exec_depend>moveit_simple_controller_manager</exec_depend>
+  <exec_depend>moveit_kinematics</exec_depend>
+  <exec_depend>moveit_servo</exec_depend>
+  <exec_depend>warehouse_ros_sqlite</exec_depend>
+
+  <!-- robot description used by your URDF/xacro -->
+  <exec_depend>ur_description</exec_depend>
+  <exec_depend>urdf</exec_depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
 </package>

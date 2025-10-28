@@ -1,2 +1,0 @@
-Invoking command in '/home/ryanl/4231/MTRN4231_Project/build/ur5e_robot_moveit': /usr/bin/cmake /home/ryanl/4231/MTRN4231_Project/src/ur5e_robot_moveit -DCMAKE_INSTALL_PREFIX=/home/ryanl/4231/MTRN4231_Project/install/ur5e_robot_moveit
-Invoked command in '/home/ryanl/4231/MTRN4231_Project/build/ur5e_robot_moveit' returned '1': /usr/bin/cmake /home/ryanl/4231/MTRN4231_Project/src/ur5e_robot_moveit -DCMAKE_INSTALL_PREFIX=/home/ryanl/4231/MTRN4231_Project/install/ur5e_robot_moveit

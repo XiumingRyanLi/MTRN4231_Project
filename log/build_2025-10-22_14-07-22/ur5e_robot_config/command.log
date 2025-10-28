@@ -1,4 +1,0 @@
-Invoking command in '/home/ryanl/4231/MTRN4231_Project/build/ur5e_robot_config': /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/ur5e_robot_config -- -j16 -l16
-Invoked command in '/home/ryanl/4231/MTRN4231_Project/build/ur5e_robot_config' returned '0': /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/ur5e_robot_config -- -j16 -l16
-Invoking command in '/home/ryanl/4231/MTRN4231_Project/build/ur5e_robot_config': /usr/bin/cmake --install /home/ryanl/4231/MTRN4231_Project/build/ur5e_robot_config
-Invoked command in '/home/ryanl/4231/MTRN4231_Project/build/ur5e_robot_config' returned '0': /usr/bin/cmake --install /home/ryanl/4231/MTRN4231_Project/build/ur5e_robot_config

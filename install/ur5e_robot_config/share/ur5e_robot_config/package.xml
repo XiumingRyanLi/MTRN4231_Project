@@ -7,6 +7,7 @@
   <maintainer email="z5422416@ad.unsw.edu.au">ryanl</maintainer>
   <license>TODO: License declaration</license>
 
+  <buildtool_depend>ament_cmake</buildtool_depend>
   <exec_depend>xacro</exec_depend>
   <exec_depend>robot_state_publisher</exec_depend>
   <exec_depend>controller_manager</exec_depend>
@@ -14,6 +15,7 @@
   <exec_depend>ros2_controllers</exec_depend>
   <exec_depend>ur_description</exec_depend>
   <exec_depend>ur_robot_driver</exec_depend>
+  <exec_depend>ros2launch</exec_depend>
 
   <!-- MoveIt runtime (move_group is launched from ur5e_moveit_config) -->
   <exec_depend>moveit_ros_planning</exec_depend>

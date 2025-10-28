@@ -1,1 +1,0 @@
-/home/ryanl/4231/MTRN4231_Project/build/chess_arm_executor/rosidl_generator_c/chess_arm_executor/msg/rosidl_generator_c__visibility_control.h
