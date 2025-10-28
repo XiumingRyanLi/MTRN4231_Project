@@ -310,8 +310,8 @@ message(STATUS "Execute custom install script")
 
 # begin of custom install code
 
-# install(DIRECTORY "config" "launch" "rviz" "srdf" "urdf" "include" "DESTINATION" "share/ur5e_robot_config")
-ament_cmake_symlink_install_directory("/home/ryanl/4231/MTRN4231_Project/src/ur5e_robot_config" DIRECTORY "config" "launch" "rviz" "srdf" "urdf" "include" "DESTINATION" "share/ur5e_robot_config")
+# install(DIRECTORY "urdf" "srdf" "config" "launch" "rviz" "DESTINATION" "share/ur5e_robot_config")
+ament_cmake_symlink_install_directory("/home/ryanl/4231/MTRN4231_Project/src/ur5e_robot_config" DIRECTORY "urdf" "srdf" "config" "launch" "rviz" "DESTINATION" "share/ur5e_robot_config")
 
 # install(FILES "/home/ryanl/4231/MTRN4231_Project/build/ur5e_robot_config/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/ur5e_robot_config" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 ament_cmake_symlink_install_files("/home/ryanl/4231/MTRN4231_Project/src/ur5e_robot_config" FILES "/home/ryanl/4231/MTRN4231_Project/build/ur5e_robot_config/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/ur5e_robot_config" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")

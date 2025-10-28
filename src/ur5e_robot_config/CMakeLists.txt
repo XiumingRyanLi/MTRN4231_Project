@@ -7,8 +7,7 @@ endif()
 
 find_package(ament_cmake REQUIRED)
 
-# Install resources
-install(DIRECTORY config launch rviz srdf urdf include
+install(DIRECTORY urdf srdf config launch rviz
   DESTINATION share/${PROJECT_NAME}
 )
 

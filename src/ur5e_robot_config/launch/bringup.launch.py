@@ -1,46 +1,67 @@
 from launch import LaunchDescription
-from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
-from launch.conditions import IfCondition, UnlessCondition
-from launch.substitutions import LaunchConfiguration
-from launch.launch_description_sources import PythonLaunchDescriptionSource
-from ament_index_python.packages import get_package_share_directory
+from launch.actions import DeclareLaunchArgument
+from launch.substitutions import Command, LaunchConfiguration
+from launch_ros.actions import Node
 import os
 
 def generate_launch_description():
-    use_fake = LaunchConfiguration('use_fake_hardware')
-    robot_ip  = LaunchConfiguration('robot_ip')
-    ur_type   = LaunchConfiguration('ur_type')
+    pkg = 'ur5e_robot_config'
+    use_rviz = LaunchConfiguration('use_rviz', default='true')
 
-    declare_use_fake = DeclareLaunchArgument('use_fake_hardware', default_value='true')
-    declare_robot_ip = DeclareLaunchArgument('robot_ip', default_value='192.168.56.101')
-    declare_ur_type  = DeclareLaunchArgument('ur_type',  default_value='ur5e')
+    # Paths
+    from ament_index_python.packages import get_package_share_directory
+    share = get_package_share_directory(pkg)
+    urdf = os.path.join(share, 'urdf', 'ur5e.urdf.xacro')
+    srdf = os.path.join(share, 'srdf', 'ur5e.srdf')
+    kinematics = os.path.join(share, 'config', 'kinematics.yaml')
+    ompl = os.path.join(share, 'config', 'ompl_planning.yaml')
+    mctrl = os.path.join(share, 'config', 'moveit_controllers.yaml')
+    r2ctrl = os.path.join(share, 'config', 'ros2_controllers.yaml')
+    rviz_cfg = os.path.join(share, 'rviz', 'ur5e_moveit.rviz')
 
-    ur_driver_share = get_package_share_directory('ur_robot_driver')
-    moveit_share    = get_package_share_directory('ur5e_moveit_config')  # created in Step 6
-    this_share      = get_package_share_directory('ur5e_robot_moveit')
+    robot_description = Command(['xacro ', urdf])
 
-    real_driver = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(os.path.join(ur_driver_share, 'launch', 'ur_control.launch.py')),
-        launch_arguments={
-            'ur_type': ur_type,
-            'robot_ip': robot_ip,
-            'launch_rviz': 'false',
-            'use_tool_communication': 'false',
-        }.items(),
-        condition=UnlessCondition(use_fake)
+    # Robot State Publisher
+    rsp = Node(
+        package='robot_state_publisher', executable='robot_state_publisher',
+        parameters=[{'robot_description': robot_description}]
     )
 
-    fake_control = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(os.path.join(this_share, 'launch', 'fake_control_and_rsp.launch.py')),
-        condition=IfCondition(use_fake)
+    # Controllers (manager + broadcaster + trajectory ctrl)
+    cm = Node(
+        package='controller_manager', executable='ros2_control_node',
+        parameters=[{'robot_description': robot_description}, r2ctrl],
+        output='screen'
     )
 
-    move_group = IncludeLaunchDescription(
-        PythonLaunchDescriptionSource(os.path.join(moveit_share, 'launch', 'move_group.launch.py')),
-        launch_arguments={}.items()
+    jsb = Node(
+        package='controller_manager', executable='spawner',
+        arguments=['joint_state_broadcaster'], output='screen'
+    )
+
+    traj = Node(
+        package='controller_manager', executable='spawner',
+        arguments=['scaled_joint_trajectory_controller'], output='screen'
+    )
+
+    # MoveIt move_group
+    move_group = Node(
+        package='moveit_ros_move_group', executable='move_group',
+        output='screen',
+        parameters=[
+            {'robot_description': robot_description},
+            {'robot_description_semantic': open(srdf).read()},
+            kinematics, ompl, mctrl
+        ]
+    )
+
+    rviz = Node(
+        package='rviz2', executable='rviz2',
+        arguments=['-d', rviz_cfg],
+        condition=IfCondition(use_rviz)
     )
 
     return LaunchDescription([
-        declare_use_fake, declare_robot_ip, declare_ur_type,
-        real_driver, fake_control, move_group
+        DeclareLaunchArgument('use_rviz', default_value='true'),
+        rsp, cm, jsb, traj, move_group, rviz
     ])
