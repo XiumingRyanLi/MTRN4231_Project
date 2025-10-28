@@ -1,0 +1,12 @@
+-- Install configuration: ""
+-- Execute custom install script
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/ur5e_robot_config/share/ur5e_robot_config/urdf/my_gripper.xacro
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/ur5e_robot_config/share/ur5e_robot_config/urdf/ur5e_with_tool.urdf.xacro
+[31mCMake Error at ament_cmake_symlink_install/ament_cmake_symlink_install.cmake:100 (message):
+  ament_cmake_symlink_install_directory() can't find
+  '/home/ryanl/4231/MTRN4231_Project/src/ur5e_robot_config/srdf'
+Call Stack (most recent call first):
+  ament_cmake_symlink_install/ament_cmake_symlink_install.cmake:314 (ament_cmake_symlink_install_directory)
+  cmake_install.cmake:46 (include)
+
+[0m

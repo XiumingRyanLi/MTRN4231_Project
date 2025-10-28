@@ -1,1 +1,1 @@
-xacro;robot_state_publisher;controller_manager;ros2_control;ros2_controllers;ur_description;ur_robot_driver;ros2launch;moveit_ros_planning;moveit_ros_move_group
+/home/ryanl/4231/MTRN4231_Project/build/ur5e_robot_config/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/ur5e_robot_config
