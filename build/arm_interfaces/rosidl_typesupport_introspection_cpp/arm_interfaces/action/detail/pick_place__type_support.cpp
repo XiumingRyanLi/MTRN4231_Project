@@ -37,7 +37,7 @@ void PickPlace_Goal_fini_function(void * message_memory)
   typed_message->~PickPlace_Goal();
 }
 
-static const ::rosidl_typesupport_introspection_cpp::MessageMember PickPlace_Goal_message_member_array[3] = {
+static const ::rosidl_typesupport_introspection_cpp::MessageMember PickPlace_Goal_message_member_array[1] = {
   {
     "pick_pose",  // name
     ::rosidl_typesupport_introspection_cpp::ROS_TYPE_MESSAGE,  // type
@@ -54,47 +54,13 @@ static const ::rosidl_typesupport_introspection_cpp::MessageMember PickPlace_Goa
     nullptr,  // fetch(index, &value) function pointer
     nullptr,  // assign(index, value) function pointer
     nullptr  // resize(index) function pointer
-  },
-  {
-    "place_pose",  // name
-    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_MESSAGE,  // type
-    0,  // upper bound of string
-    ::rosidl_typesupport_introspection_cpp::get_message_type_support_handle<geometry_msgs::msg::PoseStamped>(),  // members of sub message
-    false,  // is array
-    0,  // array size
-    false,  // is upper bound
-    offsetof(arm_interfaces::action::PickPlace_Goal, place_pose),  // bytes offset in struct
-    nullptr,  // default value
-    nullptr,  // size() function pointer
-    nullptr,  // get_const(index) function pointer
-    nullptr,  // get(index) function pointer
-    nullptr,  // fetch(index, &value) function pointer
-    nullptr,  // assign(index, value) function pointer
-    nullptr  // resize(index) function pointer
-  },
-  {
-    "lift_distance",  // name
-    ::rosidl_typesupport_introspection_cpp::ROS_TYPE_DOUBLE,  // type
-    0,  // upper bound of string
-    nullptr,  // members of sub message
-    false,  // is array
-    0,  // array size
-    false,  // is upper bound
-    offsetof(arm_interfaces::action::PickPlace_Goal, lift_distance),  // bytes offset in struct
-    nullptr,  // default value
-    nullptr,  // size() function pointer
-    nullptr,  // get_const(index) function pointer
-    nullptr,  // get(index) function pointer
-    nullptr,  // fetch(index, &value) function pointer
-    nullptr,  // assign(index, value) function pointer
-    nullptr  // resize(index) function pointer
   }
 };
 
 static const ::rosidl_typesupport_introspection_cpp::MessageMembers PickPlace_Goal_message_members = {
   "arm_interfaces::action",  // message namespace
   "PickPlace_Goal",  // message name
-  3,  // number of fields
+  1,  // number of fields
   sizeof(arm_interfaces::action::PickPlace_Goal),
   PickPlace_Goal_message_member_array,  // message members
   PickPlace_Goal_init_function,  // function to initialize message memory (memory has to be allocated)

@@ -17,7 +17,6 @@
 
 // Include directives for member types
 // Member 'pick_pose'
-// Member 'place_pose'
 #include "geometry_msgs/msg/detail/pose_stamped__struct.hpp"
 
 #ifndef _WIN32
@@ -39,55 +38,27 @@ struct PickPlace_Goal_
   using Type = PickPlace_Goal_<ContainerAllocator>;
 
   explicit PickPlace_Goal_(rosidl_runtime_cpp::MessageInitialization _init = rosidl_runtime_cpp::MessageInitialization::ALL)
-  : pick_pose(_init),
-    place_pose(_init)
+  : pick_pose(_init)
   {
-    if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
-      rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
-    {
-      this->lift_distance = 0.0;
-    }
+    (void)_init;
   }
 
   explicit PickPlace_Goal_(const ContainerAllocator & _alloc, rosidl_runtime_cpp::MessageInitialization _init = rosidl_runtime_cpp::MessageInitialization::ALL)
-  : pick_pose(_alloc, _init),
-    place_pose(_alloc, _init)
+  : pick_pose(_alloc, _init)
   {
-    if (rosidl_runtime_cpp::MessageInitialization::ALL == _init ||
-      rosidl_runtime_cpp::MessageInitialization::ZERO == _init)
-    {
-      this->lift_distance = 0.0;
-    }
+    (void)_init;
   }
 
   // field types and members
   using _pick_pose_type =
     geometry_msgs::msg::PoseStamped_<ContainerAllocator>;
   _pick_pose_type pick_pose;
-  using _place_pose_type =
-    geometry_msgs::msg::PoseStamped_<ContainerAllocator>;
-  _place_pose_type place_pose;
-  using _lift_distance_type =
-    double;
-  _lift_distance_type lift_distance;
 
   // setters for named parameter idiom
   Type & set__pick_pose(
     const geometry_msgs::msg::PoseStamped_<ContainerAllocator> & _arg)
   {
     this->pick_pose = _arg;
-    return *this;
-  }
-  Type & set__place_pose(
-    const geometry_msgs::msg::PoseStamped_<ContainerAllocator> & _arg)
-  {
-    this->place_pose = _arg;
-    return *this;
-  }
-  Type & set__lift_distance(
-    const double & _arg)
-  {
-    this->lift_distance = _arg;
     return *this;
   }
 
@@ -134,12 +105,6 @@ struct PickPlace_Goal_
   bool operator==(const PickPlace_Goal_ & other) const
   {
     if (this->pick_pose != other.pick_pose) {
-      return false;
-    }
-    if (this->place_pose != other.place_pose) {
-      return false;
-    }
-    if (this->lift_distance != other.lift_distance) {
       return false;
     }
     return true;

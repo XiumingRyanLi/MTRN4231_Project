@@ -21,6 +21,8 @@ ament_target_dependencies(arm_controller_node
   moveit_ros_planning_interface arm_interfaces)
 
 install(TARGETS arm_controller_node DESTINATION lib/${PROJECT_NAME})
-install(DIRECTORY launch config DESTINATION share/${PROJECT_NAME})
+install(DIRECTORY launch config urdf srdf DESTINATION share/${PROJECT_NAME})
+
+
 
 ament_package()

@@ -1,7 +1,5 @@
 # Goal
 geometry_msgs/PoseStamped pick_pose    # TCP pose AT grasp height
-geometry_msgs/PoseStamped place_pose   # TCP pose AT release height
-float64 lift_distance                  # vertical lift (m) for pick+place approach/retreat
 
 ---
 # Result

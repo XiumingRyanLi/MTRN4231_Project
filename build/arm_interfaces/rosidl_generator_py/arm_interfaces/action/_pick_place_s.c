@@ -20,10 +20,6 @@ ROSIDL_GENERATOR_C_IMPORT
 bool geometry_msgs__msg__pose_stamped__convert_from_py(PyObject * _pymsg, void * _ros_message);
 ROSIDL_GENERATOR_C_IMPORT
 PyObject * geometry_msgs__msg__pose_stamped__convert_to_py(void * raw_ros_message);
-ROSIDL_GENERATOR_C_IMPORT
-bool geometry_msgs__msg__pose_stamped__convert_from_py(PyObject * _pymsg, void * _ros_message);
-ROSIDL_GENERATOR_C_IMPORT
-PyObject * geometry_msgs__msg__pose_stamped__convert_to_py(void * raw_ros_message);
 
 ROSIDL_GENERATOR_C_EXPORT
 bool arm_interfaces__action__pick_place__goal__convert_from_py(PyObject * _pymsg, void * _ros_message)
@@ -69,26 +65,6 @@ bool arm_interfaces__action__pick_place__goal__convert_from_py(PyObject * _pymsg
     }
     Py_DECREF(field);
   }
-  {  // place_pose
-    PyObject * field = PyObject_GetAttrString(_pymsg, "place_pose");
-    if (!field) {
-      return false;
-    }
-    if (!geometry_msgs__msg__pose_stamped__convert_from_py(field, &ros_message->place_pose)) {
-      Py_DECREF(field);
-      return false;
-    }
-    Py_DECREF(field);
-  }
-  {  // lift_distance
-    PyObject * field = PyObject_GetAttrString(_pymsg, "lift_distance");
-    if (!field) {
-      return false;
-    }
-    assert(PyFloat_Check(field));
-    ros_message->lift_distance = PyFloat_AS_DOUBLE(field);
-    Py_DECREF(field);
-  }
 
   return true;
 }
@@ -119,31 +95,6 @@ PyObject * arm_interfaces__action__pick_place__goal__convert_to_py(void * raw_ro
     }
     {
       int rc = PyObject_SetAttrString(_pymessage, "pick_pose", field);
-      Py_DECREF(field);
-      if (rc) {
-        return NULL;
-      }
-    }
-  }
-  {  // place_pose
-    PyObject * field = NULL;
-    field = geometry_msgs__msg__pose_stamped__convert_to_py(&ros_message->place_pose);
-    if (!field) {
-      return NULL;
-    }
-    {
-      int rc = PyObject_SetAttrString(_pymessage, "place_pose", field);
-      Py_DECREF(field);
-      if (rc) {
-        return NULL;
-      }
-    }
-  }
-  {  // lift_distance
-    PyObject * field = NULL;
-    field = PyFloat_FromDouble(ros_message->lift_distance);
-    {
-      int rc = PyObject_SetAttrString(_pymessage, "lift_distance", field);
       Py_DECREF(field);
       if (rc) {
         return NULL;

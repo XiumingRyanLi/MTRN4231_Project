@@ -34,7 +34,7 @@ extern "C"
 {
 #endif
 
-#include "geometry_msgs/msg/detail/pose_stamped__functions.h"  // pick_pose, place_pose
+#include "geometry_msgs/msg/detail/pose_stamped__functions.h"  // pick_pose
 
 // forward declare type support functions
 ROSIDL_TYPESUPPORT_FASTRTPS_C_IMPORT_arm_interfaces
@@ -78,25 +78,6 @@ static bool _PickPlace_Goal__cdr_serialize(
     }
   }
 
-  // Field name: place_pose
-  {
-    const message_type_support_callbacks_t * callbacks =
-      static_cast<const message_type_support_callbacks_t *>(
-      ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(
-        rosidl_typesupport_fastrtps_c, geometry_msgs, msg, PoseStamped
-      )()->data);
-    if (!callbacks->cdr_serialize(
-        &ros_message->place_pose, cdr))
-    {
-      return false;
-    }
-  }
-
-  // Field name: lift_distance
-  {
-    cdr << ros_message->lift_distance;
-  }
-
   return true;
 }
 
@@ -123,25 +104,6 @@ static bool _PickPlace_Goal__cdr_deserialize(
     }
   }
 
-  // Field name: place_pose
-  {
-    const message_type_support_callbacks_t * callbacks =
-      static_cast<const message_type_support_callbacks_t *>(
-      ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(
-        rosidl_typesupport_fastrtps_c, geometry_msgs, msg, PoseStamped
-      )()->data);
-    if (!callbacks->cdr_deserialize(
-        cdr, &ros_message->place_pose))
-    {
-      return false;
-    }
-  }
-
-  // Field name: lift_distance
-  {
-    cdr >> ros_message->lift_distance;
-  }
-
   return true;
 }  // NOLINT(readability/fn_size)
 
@@ -163,16 +125,6 @@ size_t get_serialized_size_arm_interfaces__action__PickPlace_Goal(
 
   current_alignment += get_serialized_size_geometry_msgs__msg__PoseStamped(
     &(ros_message->pick_pose), current_alignment);
-  // field.name place_pose
-
-  current_alignment += get_serialized_size_geometry_msgs__msg__PoseStamped(
-    &(ros_message->place_pose), current_alignment);
-  // field.name lift_distance
-  {
-    size_t item_size = sizeof(ros_message->lift_distance);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
 
   return current_alignment - initial_alignment;
 }
@@ -221,33 +173,6 @@ size_t max_serialized_size_arm_interfaces__action__PickPlace_Goal(
       is_plain &= inner_is_plain;
     }
   }
-  // member: place_pose
-  {
-    size_t array_size = 1;
-
-
-    last_member_size = 0;
-    for (size_t index = 0; index < array_size; ++index) {
-      bool inner_full_bounded;
-      bool inner_is_plain;
-      size_t inner_size;
-      inner_size =
-        max_serialized_size_geometry_msgs__msg__PoseStamped(
-        inner_full_bounded, inner_is_plain, current_alignment);
-      last_member_size += inner_size;
-      current_alignment += inner_size;
-      full_bounded &= inner_full_bounded;
-      is_plain &= inner_is_plain;
-    }
-  }
-  // member: lift_distance
-  {
-    size_t array_size = 1;
-
-    last_member_size = array_size * sizeof(uint64_t);
-    current_alignment += array_size * sizeof(uint64_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
-  }
 
   size_t ret_val = current_alignment - initial_alignment;
   if (is_plain) {
@@ -257,7 +182,7 @@ size_t max_serialized_size_arm_interfaces__action__PickPlace_Goal(
     using DataType = arm_interfaces__action__PickPlace_Goal;
     is_plain =
       (
-      offsetof(DataType, lift_distance) +
+      offsetof(DataType, pick_pose) +
       last_member_size
       ) == ret_val;
   }

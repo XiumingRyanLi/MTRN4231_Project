@@ -1,0 +1,28 @@
+[0.039s] Invoking command in '/home/ryanl/4231/MTRN4231_Project/build/end_effector_description': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/end_effector_description -- -j16 -l16
+[0.184s] Invoked command in '/home/ryanl/4231/MTRN4231_Project/build/end_effector_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/end_effector_description -- -j16 -l16
+[0.216s] Invoking command in '/home/ryanl/4231/MTRN4231_Project/build/end_effector_description': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --install /home/ryanl/4231/MTRN4231_Project/build/end_effector_description
+[0.233s] -- Install configuration: ""
+[0.235s] -- Execute custom install script
+[0.237s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/launch/auxiliary.launch.py
+[0.237s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/launch/display.launch.py
+[0.238s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/rviz/default.rviz
+[0.239s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/rviz/end_effector_only.rviz
+[0.240s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/rviz/end_effector_withModel.rviz
+[0.241s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/urdf/end_effector_withDriverSupport.xacro
+[0.242s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/etc/robot_calibration.yaml
+[0.242s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/ament_index/resource_index/package_run_dependencies/end_effector_description
+[0.243s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/ament_index/resource_index/parent_prefix_path/end_effector_description
+[0.244s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/environment/ament_prefix_path.sh
+[0.244s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/environment/ament_prefix_path.dsv
+[0.245s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/environment/path.sh
+[0.246s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/environment/path.dsv
+[0.247s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/local_setup.bash
+[0.247s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/local_setup.sh
+[0.248s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/local_setup.zsh
+[0.249s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/local_setup.dsv
+[0.249s] -- Symlinking: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/package.dsv
+[0.272s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/ament_index/resource_index/packages/end_effector_description
+[0.272s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/cmake/end_effector_descriptionConfig.cmake
+[0.273s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/cmake/end_effector_descriptionConfig-version.cmake
+[0.274s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/package.xml
+[0.279s] Invoked command in '/home/ryanl/4231/MTRN4231_Project/build/end_effector_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --install /home/ryanl/4231/MTRN4231_Project/build/end_effector_description

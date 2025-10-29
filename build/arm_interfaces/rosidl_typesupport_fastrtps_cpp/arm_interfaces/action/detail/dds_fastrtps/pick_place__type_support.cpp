@@ -40,8 +40,6 @@ max_serialized_size_PoseStamped(
 }  // namespace msg
 }  // namespace geometry_msgs
 
-// functions for geometry_msgs::msg::PoseStamped already declared above
-
 
 namespace arm_interfaces
 {
@@ -62,12 +60,6 @@ cdr_serialize(
   geometry_msgs::msg::typesupport_fastrtps_cpp::cdr_serialize(
     ros_message.pick_pose,
     cdr);
-  // Member: place_pose
-  geometry_msgs::msg::typesupport_fastrtps_cpp::cdr_serialize(
-    ros_message.place_pose,
-    cdr);
-  // Member: lift_distance
-  cdr << ros_message.lift_distance;
   return true;
 }
 
@@ -80,13 +72,6 @@ cdr_deserialize(
   // Member: pick_pose
   geometry_msgs::msg::typesupport_fastrtps_cpp::cdr_deserialize(
     cdr, ros_message.pick_pose);
-
-  // Member: place_pose
-  geometry_msgs::msg::typesupport_fastrtps_cpp::cdr_deserialize(
-    cdr, ros_message.place_pose);
-
-  // Member: lift_distance
-  cdr >> ros_message.lift_distance;
 
   return true;
 }
@@ -109,17 +94,6 @@ get_serialized_size(
   current_alignment +=
     geometry_msgs::msg::typesupport_fastrtps_cpp::get_serialized_size(
     ros_message.pick_pose, current_alignment);
-  // Member: place_pose
-
-  current_alignment +=
-    geometry_msgs::msg::typesupport_fastrtps_cpp::get_serialized_size(
-    ros_message.place_pose, current_alignment);
-  // Member: lift_distance
-  {
-    size_t item_size = sizeof(ros_message.lift_distance);
-    current_alignment += item_size +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, item_size);
-  }
 
   return current_alignment - initial_alignment;
 }
@@ -163,34 +137,6 @@ max_serialized_size_PickPlace_Goal(
     }
   }
 
-  // Member: place_pose
-  {
-    size_t array_size = 1;
-
-
-    last_member_size = 0;
-    for (size_t index = 0; index < array_size; ++index) {
-      bool inner_full_bounded;
-      bool inner_is_plain;
-      size_t inner_size =
-        geometry_msgs::msg::typesupport_fastrtps_cpp::max_serialized_size_PoseStamped(
-        inner_full_bounded, inner_is_plain, current_alignment);
-      last_member_size += inner_size;
-      current_alignment += inner_size;
-      full_bounded &= inner_full_bounded;
-      is_plain &= inner_is_plain;
-    }
-  }
-
-  // Member: lift_distance
-  {
-    size_t array_size = 1;
-
-    last_member_size = array_size * sizeof(uint64_t);
-    current_alignment += array_size * sizeof(uint64_t) +
-      eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
-  }
-
   size_t ret_val = current_alignment - initial_alignment;
   if (is_plain) {
     // All members are plain, and type is not empty.
@@ -199,7 +145,7 @@ max_serialized_size_PickPlace_Goal(
     using DataType = arm_interfaces::action::PickPlace_Goal;
     is_plain =
       (
-      offsetof(DataType, lift_distance) +
+      offsetof(DataType, pick_pose) +
       last_member_size
       ) == ret_val;
   }

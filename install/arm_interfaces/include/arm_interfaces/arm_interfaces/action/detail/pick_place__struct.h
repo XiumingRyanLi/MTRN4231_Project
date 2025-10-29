@@ -19,7 +19,6 @@ extern "C"
 
 // Include directives for member types
 // Member 'pick_pose'
-// Member 'place_pose'
 #include "geometry_msgs/msg/detail/pose_stamped__struct.h"
 
 /// Struct defined in action/PickPlace in the package arm_interfaces.
@@ -27,10 +26,6 @@ typedef struct arm_interfaces__action__PickPlace_Goal
 {
   /// TCP pose AT grasp height
   geometry_msgs__msg__PoseStamped pick_pose;
-  /// TCP pose AT release height
-  geometry_msgs__msg__PoseStamped place_pose;
-  /// vertical lift (m) for pick+place approach/retreat
-  double lift_distance;
 } arm_interfaces__action__PickPlace_Goal;
 
 // Struct for a sequence of arm_interfaces__action__PickPlace_Goal.

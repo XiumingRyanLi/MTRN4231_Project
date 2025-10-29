@@ -14,10 +14,8 @@
 
 // Include directives for member types
 // Member `pick_pose`
-// Member `place_pose`
 #include "geometry_msgs/msg/pose_stamped.h"
 // Member `pick_pose`
-// Member `place_pose`
 #include "geometry_msgs/msg/detail/pose_stamped__rosidl_typesupport_introspection_c.h"
 
 #ifdef __cplusplus
@@ -39,7 +37,7 @@ void arm_interfaces__action__PickPlace_Goal__rosidl_typesupport_introspection_c_
   arm_interfaces__action__PickPlace_Goal__fini(message_memory);
 }
 
-static rosidl_typesupport_introspection_c__MessageMember arm_interfaces__action__PickPlace_Goal__rosidl_typesupport_introspection_c__PickPlace_Goal_message_member_array[3] = {
+static rosidl_typesupport_introspection_c__MessageMember arm_interfaces__action__PickPlace_Goal__rosidl_typesupport_introspection_c__PickPlace_Goal_message_member_array[1] = {
   {
     "pick_pose",  // name
     rosidl_typesupport_introspection_c__ROS_TYPE_MESSAGE,  // type
@@ -56,47 +54,13 @@ static rosidl_typesupport_introspection_c__MessageMember arm_interfaces__action_
     NULL,  // fetch(index, &value) function pointer
     NULL,  // assign(index, value) function pointer
     NULL  // resize(index) function pointer
-  },
-  {
-    "place_pose",  // name
-    rosidl_typesupport_introspection_c__ROS_TYPE_MESSAGE,  // type
-    0,  // upper bound of string
-    NULL,  // members of sub message (initialized later)
-    false,  // is array
-    0,  // array size
-    false,  // is upper bound
-    offsetof(arm_interfaces__action__PickPlace_Goal, place_pose),  // bytes offset in struct
-    NULL,  // default value
-    NULL,  // size() function pointer
-    NULL,  // get_const(index) function pointer
-    NULL,  // get(index) function pointer
-    NULL,  // fetch(index, &value) function pointer
-    NULL,  // assign(index, value) function pointer
-    NULL  // resize(index) function pointer
-  },
-  {
-    "lift_distance",  // name
-    rosidl_typesupport_introspection_c__ROS_TYPE_DOUBLE,  // type
-    0,  // upper bound of string
-    NULL,  // members of sub message
-    false,  // is array
-    0,  // array size
-    false,  // is upper bound
-    offsetof(arm_interfaces__action__PickPlace_Goal, lift_distance),  // bytes offset in struct
-    NULL,  // default value
-    NULL,  // size() function pointer
-    NULL,  // get_const(index) function pointer
-    NULL,  // get(index) function pointer
-    NULL,  // fetch(index, &value) function pointer
-    NULL,  // assign(index, value) function pointer
-    NULL  // resize(index) function pointer
   }
 };
 
 static const rosidl_typesupport_introspection_c__MessageMembers arm_interfaces__action__PickPlace_Goal__rosidl_typesupport_introspection_c__PickPlace_Goal_message_members = {
   "arm_interfaces__action",  // message namespace
   "PickPlace_Goal",  // message name
-  3,  // number of fields
+  1,  // number of fields
   sizeof(arm_interfaces__action__PickPlace_Goal),
   arm_interfaces__action__PickPlace_Goal__rosidl_typesupport_introspection_c__PickPlace_Goal_message_member_array,  // message members
   arm_interfaces__action__PickPlace_Goal__rosidl_typesupport_introspection_c__PickPlace_Goal_init_function,  // function to initialize message memory (memory has to be allocated)
@@ -115,8 +79,6 @@ ROSIDL_TYPESUPPORT_INTROSPECTION_C_EXPORT_arm_interfaces
 const rosidl_message_type_support_t *
 ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, arm_interfaces, action, PickPlace_Goal)() {
   arm_interfaces__action__PickPlace_Goal__rosidl_typesupport_introspection_c__PickPlace_Goal_message_member_array[0].members_ =
-    ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, geometry_msgs, msg, PoseStamped)();
-  arm_interfaces__action__PickPlace_Goal__rosidl_typesupport_introspection_c__PickPlace_Goal_message_member_array[1].members_ =
     ROSIDL_TYPESUPPORT_INTERFACE__MESSAGE_SYMBOL_NAME(rosidl_typesupport_introspection_c, geometry_msgs, msg, PoseStamped)();
   if (!arm_interfaces__action__PickPlace_Goal__rosidl_typesupport_introspection_c__PickPlace_Goal_message_type_support_handle.typesupport_identifier) {
     arm_interfaces__action__PickPlace_Goal__rosidl_typesupport_introspection_c__PickPlace_Goal_message_type_support_handle.typesupport_identifier =

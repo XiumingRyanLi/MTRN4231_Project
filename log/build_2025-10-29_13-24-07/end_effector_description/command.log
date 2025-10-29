@@ -1,0 +1,4 @@
+Invoking command in '/home/ryanl/4231/MTRN4231_Project/build/end_effector_description': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/end_effector_description -- -j16 -l16
+Invoked command in '/home/ryanl/4231/MTRN4231_Project/build/end_effector_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/end_effector_description -- -j16 -l16
+Invoking command in '/home/ryanl/4231/MTRN4231_Project/build/end_effector_description': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --install /home/ryanl/4231/MTRN4231_Project/build/end_effector_description
+Invoked command in '/home/ryanl/4231/MTRN4231_Project/build/end_effector_description' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble:${CMAKE_PREFIX_PATH} /usr/bin/cmake --install /home/ryanl/4231/MTRN4231_Project/build/end_effector_description

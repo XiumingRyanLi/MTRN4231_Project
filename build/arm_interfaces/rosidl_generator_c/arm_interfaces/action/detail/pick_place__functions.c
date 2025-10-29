@@ -13,7 +13,6 @@
 
 // Include directives for member types
 // Member `pick_pose`
-// Member `place_pose`
 #include "geometry_msgs/msg/detail/pose_stamped__functions.h"
 
 bool
@@ -27,12 +26,6 @@ arm_interfaces__action__PickPlace_Goal__init(arm_interfaces__action__PickPlace_G
     arm_interfaces__action__PickPlace_Goal__fini(msg);
     return false;
   }
-  // place_pose
-  if (!geometry_msgs__msg__PoseStamped__init(&msg->place_pose)) {
-    arm_interfaces__action__PickPlace_Goal__fini(msg);
-    return false;
-  }
-  // lift_distance
   return true;
 }
 
@@ -44,9 +37,6 @@ arm_interfaces__action__PickPlace_Goal__fini(arm_interfaces__action__PickPlace_G
   }
   // pick_pose
   geometry_msgs__msg__PoseStamped__fini(&msg->pick_pose);
-  // place_pose
-  geometry_msgs__msg__PoseStamped__fini(&msg->place_pose);
-  // lift_distance
 }
 
 bool
@@ -59,16 +49,6 @@ arm_interfaces__action__PickPlace_Goal__are_equal(const arm_interfaces__action__
   if (!geometry_msgs__msg__PoseStamped__are_equal(
       &(lhs->pick_pose), &(rhs->pick_pose)))
   {
-    return false;
-  }
-  // place_pose
-  if (!geometry_msgs__msg__PoseStamped__are_equal(
-      &(lhs->place_pose), &(rhs->place_pose)))
-  {
-    return false;
-  }
-  // lift_distance
-  if (lhs->lift_distance != rhs->lift_distance) {
     return false;
   }
   return true;
@@ -88,14 +68,6 @@ arm_interfaces__action__PickPlace_Goal__copy(
   {
     return false;
   }
-  // place_pose
-  if (!geometry_msgs__msg__PoseStamped__copy(
-      &(input->place_pose), &(output->place_pose)))
-  {
-    return false;
-  }
-  // lift_distance
-  output->lift_distance = input->lift_distance;
   return true;
 }
 

@@ -21,48 +21,16 @@ namespace action
 namespace builder
 {
 
-class Init_PickPlace_Goal_lift_distance
-{
-public:
-  explicit Init_PickPlace_Goal_lift_distance(::arm_interfaces::action::PickPlace_Goal & msg)
-  : msg_(msg)
-  {}
-  ::arm_interfaces::action::PickPlace_Goal lift_distance(::arm_interfaces::action::PickPlace_Goal::_lift_distance_type arg)
-  {
-    msg_.lift_distance = std::move(arg);
-    return std::move(msg_);
-  }
-
-private:
-  ::arm_interfaces::action::PickPlace_Goal msg_;
-};
-
-class Init_PickPlace_Goal_place_pose
-{
-public:
-  explicit Init_PickPlace_Goal_place_pose(::arm_interfaces::action::PickPlace_Goal & msg)
-  : msg_(msg)
-  {}
-  Init_PickPlace_Goal_lift_distance place_pose(::arm_interfaces::action::PickPlace_Goal::_place_pose_type arg)
-  {
-    msg_.place_pose = std::move(arg);
-    return Init_PickPlace_Goal_lift_distance(msg_);
-  }
-
-private:
-  ::arm_interfaces::action::PickPlace_Goal msg_;
-};
-
 class Init_PickPlace_Goal_pick_pose
 {
 public:
   Init_PickPlace_Goal_pick_pose()
   : msg_(::rosidl_runtime_cpp::MessageInitialization::SKIP)
   {}
-  Init_PickPlace_Goal_place_pose pick_pose(::arm_interfaces::action::PickPlace_Goal::_pick_pose_type arg)
+  ::arm_interfaces::action::PickPlace_Goal pick_pose(::arm_interfaces::action::PickPlace_Goal::_pick_pose_type arg)
   {
     msg_.pick_pose = std::move(arg);
-    return Init_PickPlace_Goal_place_pose(msg_);
+    return std::move(msg_);
   }
 
 private:

@@ -12,14 +12,6 @@ module arm_interfaces {
       @verbatim (language="comment", text=
         "TCP pose AT grasp height")
       geometry_msgs::msg::PoseStamped pick_pose;
-
-      @verbatim (language="comment", text=
-        "TCP pose AT release height")
-      geometry_msgs::msg::PoseStamped place_pose;
-
-      @verbatim (language="comment", text=
-        "vertical lift (m) for pick+place approach/retreat")
-      double lift_distance;
     };
     @verbatim (language="comment", text=
       "Result")

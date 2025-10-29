@@ -135,13 +135,67 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
   /usr/include/c++/11/backward/auto_ptr.h \
   /usr/include/c++/11/pstl/glue_memory_defs.h \
   /usr/include/c++/11/pstl/execution_defs.h \
+  /usr/include/c++/11/thread \
+  /usr/include/c++/11/bits/std_thread.h \
+  /usr/include/c++/11/bits/this_thread_sleep.h \
+  /usr/include/c++/11/chrono \
+  /usr/include/c++/11/ratio \
+  /usr/include/c++/11/cstdint \
+  /usr/include/c++/11/limits \
+  /usr/include/c++/11/ctime \
+  /usr/include/c++/11/bits/parse_numbers.h \
+  /usr/include/c++/11/cerrno \
+  /usr/include/errno.h \
+  /usr/include/x86_64-linux-gnu/bits/errno.h \
+  /usr/include/linux/errno.h \
+  /usr/include/x86_64-linux-gnu/asm/errno.h \
+  /usr/include/asm-generic/errno.h \
+  /usr/include/asm-generic/errno-base.h \
+  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
+  /usr/include/c++/11/string \
+  /usr/include/c++/11/bits/char_traits.h \
+  /usr/include/c++/11/bits/localefwd.h \
+  /usr/include/x86_64-linux-gnu/c++/11/bits/c++locale.h \
+  /usr/include/c++/11/clocale \
+  /usr/include/locale.h \
+  /usr/include/x86_64-linux-gnu/bits/locale.h \
+  /usr/include/c++/11/cctype \
+  /usr/include/ctype.h \
+  /usr/include/c++/11/bits/ostream_insert.h \
+  /usr/include/c++/11/bits/cxxabi_forced.h \
+  /usr/include/c++/11/bits/basic_string.h \
+  /usr/include/c++/11/string_view \
+  /usr/include/c++/11/bits/string_view.tcc \
+  /usr/include/c++/11/ext/string_conversions.h \
+  /usr/include/c++/11/cstdlib \
+  /usr/include/stdlib.h \
+  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
+  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
+  /usr/include/x86_64-linux-gnu/sys/types.h \
+  /usr/include/endian.h \
+  /usr/include/x86_64-linux-gnu/bits/byteswap.h \
+  /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
+  /usr/include/x86_64-linux-gnu/sys/select.h \
+  /usr/include/x86_64-linux-gnu/bits/select.h \
+  /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
+  /usr/include/alloca.h \
+  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
+  /usr/include/c++/11/bits/std_abs.h \
+  /usr/include/c++/11/cstdio \
+  /usr/include/stdio.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
+  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
+  /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
+  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
+  /usr/include/c++/11/bits/charconv.h \
+  /usr/include/c++/11/bits/basic_string.tcc \
   /opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp \
   /usr/include/c++/11/csignal \
   /usr/include/signal.h \
   /usr/include/x86_64-linux-gnu/bits/signum-generic.h \
   /usr/include/x86_64-linux-gnu/bits/signum-arch.h \
   /usr/include/x86_64-linux-gnu/bits/types/sig_atomic_t.h \
-  /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/siginfo_t.h \
   /usr/include/x86_64-linux-gnu/bits/types/__sigval_t.h \
   /usr/include/x86_64-linux-gnu/bits/siginfo-arch.h \
@@ -171,67 +225,15 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
   /opt/ros/humble/include/rclcpp/rclcpp/executors.hpp \
   /usr/include/c++/11/future \
   /usr/include/c++/11/mutex \
-  /usr/include/c++/11/chrono \
-  /usr/include/c++/11/ratio \
-  /usr/include/c++/11/cstdint \
-  /usr/include/c++/11/limits \
-  /usr/include/c++/11/ctime \
-  /usr/include/c++/11/bits/parse_numbers.h \
   /usr/include/c++/11/system_error \
   /usr/include/x86_64-linux-gnu/c++/11/bits/error_constants.h \
-  /usr/include/c++/11/cerrno \
-  /usr/include/errno.h \
-  /usr/include/x86_64-linux-gnu/bits/errno.h \
-  /usr/include/linux/errno.h \
-  /usr/include/x86_64-linux-gnu/asm/errno.h \
-  /usr/include/asm-generic/errno.h \
-  /usr/include/asm-generic/errno-base.h \
-  /usr/include/x86_64-linux-gnu/bits/types/error_t.h \
   /usr/include/c++/11/stdexcept \
-  /usr/include/c++/11/string \
-  /usr/include/c++/11/bits/char_traits.h \
-  /usr/include/c++/11/bits/localefwd.h \
-  /usr/include/x86_64-linux-gnu/c++/11/bits/c++locale.h \
-  /usr/include/c++/11/clocale \
-  /usr/include/locale.h \
-  /usr/include/x86_64-linux-gnu/bits/locale.h \
-  /usr/include/c++/11/cctype \
-  /usr/include/ctype.h \
-  /usr/include/c++/11/bits/ostream_insert.h \
-  /usr/include/c++/11/bits/cxxabi_forced.h \
-  /usr/include/c++/11/bits/basic_string.h \
-  /usr/include/c++/11/string_view \
-  /usr/include/c++/11/bits/string_view.tcc \
-  /usr/include/c++/11/ext/string_conversions.h \
-  /usr/include/c++/11/cstdlib \
-  /usr/include/stdlib.h \
-  /usr/include/x86_64-linux-gnu/bits/waitflags.h \
-  /usr/include/x86_64-linux-gnu/bits/waitstatus.h \
-  /usr/include/x86_64-linux-gnu/sys/types.h \
-  /usr/include/endian.h \
-  /usr/include/x86_64-linux-gnu/bits/byteswap.h \
-  /usr/include/x86_64-linux-gnu/bits/uintn-identity.h \
-  /usr/include/x86_64-linux-gnu/sys/select.h \
-  /usr/include/x86_64-linux-gnu/bits/select.h \
-  /usr/include/alloca.h \
-  /usr/include/x86_64-linux-gnu/bits/stdlib-float.h \
-  /usr/include/c++/11/bits/std_abs.h \
-  /usr/include/c++/11/cstdio \
-  /usr/include/stdio.h \
-  /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h \
-  /usr/include/x86_64-linux-gnu/bits/types/__fpos64_t.h \
-  /usr/include/x86_64-linux-gnu/bits/types/struct_FILE.h \
-  /usr/include/x86_64-linux-gnu/bits/types/cookie_io_functions_t.h \
-  /usr/include/x86_64-linux-gnu/bits/stdio_lim.h \
-  /usr/include/c++/11/bits/charconv.h \
-  /usr/include/c++/11/bits/basic_string.tcc \
   /usr/include/c++/11/bits/std_mutex.h \
   /usr/include/c++/11/bits/unique_lock.h \
   /usr/include/c++/11/condition_variable \
   /usr/include/c++/11/atomic \
   /usr/include/c++/11/bits/atomic_futex.h \
   /usr/include/c++/11/bits/std_function.h \
-  /usr/include/c++/11/bits/std_thread.h \
   /opt/ros/humble/include/rclcpp/rclcpp/executors/multi_threaded_executor.hpp \
   /usr/include/c++/11/set \
   /usr/include/c++/11/bits/stl_tree.h \
@@ -239,8 +241,6 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
   /usr/include/c++/11/bits/stl_set.h \
   /usr/include/c++/11/bits/stl_multiset.h \
   /usr/include/c++/11/bits/erase_if.h \
-  /usr/include/c++/11/thread \
-  /usr/include/c++/11/bits/this_thread_sleep.h \
   /usr/include/c++/11/unordered_map \
   /usr/include/c++/11/bits/hashtable.h \
   /usr/include/c++/11/bits/hashtable_policy.h \
@@ -860,6 +860,26 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
   /opt/ros/humble/include/tf2/tf2/LinearMath/Vector3.hpp \
   /opt/ros/humble/include/tf2_ros/tf2_ros/buffer_interface.h \
   /opt/ros/humble/include/tf2_ros/tf2_ros/visibility_control.h \
+  /opt/ros/humble/include/tf2_ros/tf2_ros/transform_listener.h \
+  /opt/ros/humble/include/tf2/tf2/buffer_core.hpp \
+  /opt/ros/humble/include/tf2/tf2/LinearMath/Transform.hpp \
+  /opt/ros/humble/include/tf2/tf2/buffer_core_interface.hpp \
+  /opt/ros/humble/include/tf2/tf2/transform_storage.hpp \
+  /opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/tf_message.hpp \
+  /opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/detail/tf_message__struct.hpp \
+  /opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/detail/tf_message__builder.hpp \
+  /opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/detail/tf_message__traits.hpp \
+  /opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/detail/tf_message__type_support.hpp \
+  /opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/rosidl_generator_cpp__visibility_control.hpp \
+  /opt/ros/humble/include/tf2_ros/tf2_ros/qos.hpp \
+  /opt/ros/humble/include/tf2_ros/tf2_ros/buffer.h \
+  /opt/ros/humble/include/tf2_ros/tf2_ros/async_buffer_interface.h \
+  /opt/ros/humble/include/tf2_ros/tf2_ros/create_timer_interface.h \
+  /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/frame_graph.hpp \
+  /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__struct.hpp \
+  /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__builder.hpp \
+  /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__traits.hpp \
+  /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__type_support.hpp \
   /opt/ros/humble/include/moveit/move_group_interface/move_group_interface.h \
   /opt/ros/humble/include/moveit/macros/class_forward.h \
   /opt/ros/humble/include/moveit/macros/declare_ptr.h \
@@ -1403,20 +1423,20 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
   /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/motion_plan_request.hpp \
   /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/motion_plan_request__builder.hpp \
   /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/motion_plan_request__type_support.hpp \
-  /opt/ros/humble/include/tf2_ros/tf2_ros/buffer.h \
-  /opt/ros/humble/include/tf2_ros/tf2_ros/async_buffer_interface.h \
-  /opt/ros/humble/include/tf2/tf2/buffer_core.hpp \
-  /opt/ros/humble/include/tf2/tf2/LinearMath/Transform.hpp \
-  /opt/ros/humble/include/tf2/tf2/buffer_core_interface.hpp \
-  /opt/ros/humble/include/tf2/tf2/transform_storage.hpp \
-  /opt/ros/humble/include/tf2_ros/tf2_ros/create_timer_interface.h \
-  /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/frame_graph.hpp \
-  /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__struct.hpp \
-  /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__builder.hpp \
-  /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__traits.hpp \
-  /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__type_support.hpp \
-  /opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/rosidl_generator_cpp__visibility_control.hpp \
   /opt/ros/humble/include/moveit_move_group_interface_export.h \
+  /opt/ros/humble/include/moveit/planning_scene_interface/planning_scene_interface.h \
+  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/object_color.hpp \
+  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/object_color__builder.hpp \
+  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/object_color__type_support.hpp \
+  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/collision_object.hpp \
+  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/collision_object__builder.hpp \
+  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/collision_object__type_support.hpp \
+  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/attached_collision_object.hpp \
+  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/attached_collision_object__builder.hpp \
+  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/attached_collision_object__type_support.hpp \
+  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/planning_scene.hpp \
+  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/planning_scene__builder.hpp \
+  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/planning_scene__type_support.hpp \
   /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/pick_place.hpp \
   /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/detail/pick_place__struct.hpp \
   /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/detail/pick_place__builder.hpp \
@@ -1435,27 +1455,25 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 
 /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/detail/pick_place__struct.hpp:
 
-/opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/rosidl_generator_cpp__visibility_control.hpp:
+/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/planning_scene__type_support.hpp:
 
-/opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__type_support.hpp:
+/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/planning_scene__builder.hpp:
 
-/opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__traits.hpp:
+/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/planning_scene.hpp:
 
-/opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__builder.hpp:
+/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/attached_collision_object__type_support.hpp:
 
-/opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__struct.hpp:
+/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/attached_collision_object__builder.hpp:
 
-/opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/frame_graph.hpp:
+/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/attached_collision_object.hpp:
 
-/opt/ros/humble/include/tf2_ros/tf2_ros/create_timer_interface.h:
+/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/collision_object__builder.hpp:
 
-/opt/ros/humble/include/tf2/tf2/transform_storage.hpp:
+/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/collision_object.hpp:
 
-/opt/ros/humble/include/tf2/tf2/buffer_core_interface.hpp:
+/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/object_color__type_support.hpp:
 
-/opt/ros/humble/include/tf2/tf2/buffer_core.hpp:
-
-/opt/ros/humble/include/tf2_ros/tf2_ros/buffer.h:
+/opt/ros/humble/include/moveit/planning_scene_interface/planning_scene_interface.h:
 
 /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/pick_place.hpp:
 
@@ -1530,8 +1548,6 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/constraints__type_support.hpp:
 
 /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/visibility_constraint__traits.hpp:
-
-/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/orientation_constraint__traits.hpp:
 
 /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/bounding_volume__traits.hpp:
 
@@ -1628,10 +1644,6 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 /opt/ros/humble/include/moveit/robot_model/revolute_joint_model.h:
 
 /opt/ros/humble/include/moveit/robot_model/planar_joint_model.h:
-
-/opt/ros/humble/include/tf2_ros/tf2_ros/async_buffer_interface.h:
-
-/opt/ros/humble/include/moveit/robot_model/floating_joint_model.h:
 
 /opt/ros/humble/include/moveit/robot_model/fixed_joint_model.h:
 
@@ -1783,15 +1795,45 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 
 /usr/include/eigen3/Eigen/src/Core/PlainObjectBase.h:
 
+/usr/include/eigen3/Eigen/src/Core/NoAlias.h:
+
+/usr/include/eigen3/Eigen/src/Core/NestByValue.h:
+
+/usr/include/eigen3/Eigen/src/plugins/ArrayCwiseUnaryOps.h:
+
+/usr/include/eigen3/Eigen/src/Core/ArrayBase.h:
+
+/usr/include/eigen3/Eigen/src/Core/Assign.h:
+
+/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:
+
+/usr/include/eigen3/Eigen/src/Core/Diagonal.h:
+
+/usr/include/eigen3/Eigen/src/Core/EigenBase.h:
+
+/usr/include/eigen3/Eigen/src/Core/MatrixBase.h:
+
+/usr/include/eigen3/Eigen/src/plugins/ReshapedMethods.h:
+
+/usr/include/eigen3/Eigen/src/plugins/IndexedViewMethods.h:
+
 /opt/ros/humble/include/libstatistics_collector/libstatistics_collector/topic_statistics_collector/constants.hpp:
 
 /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/time.hpp:
 
+/usr/include/eigen3/Eigen/src/Core/CoreEvaluators.h:
+
+/opt/ros/humble/include/rclcpp/rclcpp/typesupport_helpers.hpp:
+
+/opt/ros/humble/include/tf2/tf2/transform_storage.hpp:
+
 /usr/include/boost/preprocessor/facilities/identity.hpp:
 
-/usr/include/eigen3/Eigen/src/Core/NestByValue.h:
-
 /usr/include/c++/11/tr1/exp_integral.tcc:
+
+/usr/include/eigen3/Eigen/src/Core/util/BlasUtil.h:
+
+/usr/include/c++/11/tr1/ell_integral.tcc:
 
 /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/joint_state__traits.hpp:
 
@@ -1829,6 +1871,10 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 
 /opt/ros/humble/include/rclcpp/rclcpp/generic_publisher.hpp:
 
+/usr/include/eigen3/Eigen/src/plugins/CommonCwiseBinaryOps.h:
+
+/opt/ros/humble/include/rclcpp/rclcpp/intra_process_setting.hpp:
+
 /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/time__builder.hpp:
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/pose_with_covariance_stamped.hpp:
@@ -1840,6 +1886,8 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 /usr/include/boost/preprocessor/logical/bitand.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/experimental/create_intra_process_buffer.hpp:
+
+/opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__builder.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/rate.hpp:
 
@@ -1963,6 +2011,10 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/wrench.hpp:
 
+/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/orientation_constraint__traits.hpp:
+
+/opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/detail/tf_message__builder.hpp:
+
 /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/time__type_support.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/logger.hpp:
@@ -1987,11 +2039,13 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 
 /usr/include/c++/11/optional:
 
-/usr/include/x86_64-linux-gnu/bits/sigstksz.h:
-
 /usr/include/c++/11/condition_variable:
 
+/usr/include/x86_64-linux-gnu/bits/sigstksz.h:
+
 /opt/ros/humble/include/rclcpp/rclcpp/any_executable.hpp:
+
+/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/collision_object__type_support.hpp:
 
 /usr/include/x86_64-linux-gnu/bits/types.h:
 
@@ -2053,11 +2107,15 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 
 /opt/ros/humble/include/rclcpp/rclcpp/experimental/subscription_intra_process_base.hpp:
 
+/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/object_color__builder.hpp:
+
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/vector3_stamped__struct.hpp:
 
 /opt/ros/humble/include/rcl/rcl/node.h:
 
 /opt/ros/humble/include/rmw/rmw/event_callback_type.h:
+
+/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/object_color.hpp:
 
 /opt/ros/humble/include/rcl/rcl/context.h:
 
@@ -2066,6 +2124,10 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 /opt/ros/humble/include/rclcpp/rclcpp/wait_set_template.hpp:
 
 /opt/ros/humble/include/rcl/rcl/client.h:
+
+/usr/include/eigen3/Eigen/src/Core/DenseStorage.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/11/include/stdalign.h:
 
 /opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/marker_array__type_support.hpp:
 
@@ -2084,6 +2146,8 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 /opt/ros/humble/include/rcl/rcl/visibility_control.h:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/set_parameters.hpp:
+
+/opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__type_support.hpp:
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform__traits.hpp:
 
@@ -2222,6 +2286,10 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 /usr/include/c++/11/bits/stl_map.h:
 
 /opt/ros/humble/include/rosidl_runtime_cpp/rosidl_runtime_cpp/message_initialization.hpp:
+
+/usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h:
+
+/usr/include/tinyxml2.h:
 
 /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/cartesian_trajectory__struct.hpp:
 
@@ -2379,6 +2447,10 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 
 /usr/include/pthread.h:
 
+/usr/include/eigen3/Eigen/src/plugins/ArrayCwiseBinaryOps.h:
+
+/usr/include/c++/11/bits/refwrap.h:
+
 /opt/ros/humble/include/rmw/rmw/incompatible_qos_events_statuses.h:
 
 /usr/include/boost/random/detail/config.hpp:
@@ -2388,8 +2460,6 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 /usr/include/c++/11/bits/specfun.h:
 
 /usr/include/x86_64-linux-gnu/bits/pthreadtypes.h:
-
-/usr/include/eigen3/Eigen/src/Core/Assign.h:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_descriptor__builder.hpp:
 
@@ -2442,6 +2512,8 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/allowed_collision_matrix__traits.hpp:
 
 /usr/include/c++/11/cwchar:
+
+/opt/ros/humble/include/tf2/tf2/buffer_core.hpp:
 
 /usr/lib/gcc/x86_64-linux-gnu/11/include/stdint.h:
 
@@ -2510,6 +2582,10 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 /usr/include/c++/11/bits/stl_tree.h:
 
 /usr/include/c++/11/bits/stl_raw_storage_iter.h:
+
+/usr/include/eigen3/Eigen/src/Core/Product.h:
+
+/opt/ros/humble/include/moveit/robot_model/joint_model_group.h:
 
 /usr/include/c++/11/tr1/beta_function.tcc:
 
@@ -2635,6 +2711,12 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 
 /usr/include/x86_64-linux-gnu/gnu/stubs-64.h:
 
+/usr/include/x86_64-linux-gnu/sys/select.h:
+
+/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/set_parameters_atomically__struct.hpp:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point__type_support.hpp:
+
 /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/cartesian_trajectory_point__struct.hpp:
 
 /usr/include/c++/11/bits/stl_algobase.h:
@@ -2648,12 +2730,6 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/point_stamped.hpp:
 
 /usr/include/boost/exception/exception.hpp:
-
-/usr/include/x86_64-linux-gnu/sys/select.h:
-
-/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/set_parameters_atomically__struct.hpp:
-
-/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point__type_support.hpp:
 
 /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/grasp__type_support.hpp:
 
@@ -2695,9 +2771,9 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 
 /home/ryanl/4231/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:
 
-/usr/include/c++/11/tr1/special_function_util.h:
-
 /usr/include/x86_64-linux-gnu/bits/byteswap.h:
+
+/usr/include/c++/11/tr1/special_function_util.h:
 
 /usr/include/eigen3/Eigen/src/Core/products/GeneralBlockPanelKernel.h:
 
@@ -2813,6 +2889,10 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 
 /usr/include/x86_64-linux-gnu/bits/wchar.h:
 
+/usr/include/eigen3/Eigen/src/Core/ReturnByValue.h:
+
+/opt/ros/humble/include/statistics_msgs/statistics_msgs/msg/detail/statistic_data_point__struct.hpp:
+
 /usr/include/eigen3/Eigen/src/Core/CwiseUnaryOp.h:
 
 /opt/ros/humble/include/rclcpp/rclcpp/node_interfaces/node_services_interface.hpp:
@@ -2889,133 +2969,31 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 
 /usr/include/c++/11/bits/atomic_lockfree_defines.h:
 
-/usr/include/c++/11/bits/stl_list.h:
+/usr/include/stdio.h:
 
-/opt/ros/humble/include/rclcpp/rclcpp/topic_statistics_state.hpp:
-
-/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:
-
-/usr/include/c++/11/pstl/glue_memory_defs.h:
-
-/usr/include/c++/11/csignal:
-
-/usr/include/c++/11/tr1/gamma.tcc:
-
-/opt/ros/humble/include/rmw/rmw/message_sequence.h:
-
-/usr/include/boost/integer/integer_log2.hpp:
-
-/usr/include/c++/11/bits/ios_base.h:
-
-/usr/include/eigen3/Eigen/src/Geometry/Quaternion.h:
-
-/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/set_parameters__builder.hpp:
-
-/opt/ros/humble/include/rclcpp/rclcpp/clock.hpp:
-
-/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform_stamped__type_support.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/siginfo-consts.h:
-
-/usr/include/c++/11/streambuf:
-
-/opt/ros/humble/include/rclcpp/rclcpp/detail/rmw_implementation_specific_publisher_payload.hpp:
-
-/opt/ros/humble/include/action_msgs/action_msgs/msg/detail/goal_info__functions.h:
-
-/opt/ros/humble/include/rclcpp_action/rclcpp_action/exceptions.hpp:
-
-/opt/ros/humble/include/statistics_msgs/statistics_msgs/msg/metrics_message.hpp:
-
-/usr/include/x86_64-linux-gnu/c++/11/bits/c++locale.h:
-
-/usr/include/linux/errno.h:
-
-/usr/include/sched.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h:
-
-/usr/include/c++/11/bits/ptr_traits.h:
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/wrench_stamped.hpp:
 
 /usr/include/c++/11/bits/stream_iterator.h:
 
 /usr/include/c++/11/bits/cpp_type_traits.h:
 
-/usr/include/stdint.h:
-
-/usr/include/c++/11/bits/erase_if.h:
-
-/usr/include/x86_64-linux-gnu/bits/sigaction.h:
-
-/opt/ros/humble/include/rmw/rmw/network_flow_endpoint_array.h:
-
-/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/vector3_stamped__type_support.hpp:
-
-/opt/ros/humble/include/action_msgs/action_msgs/msg/detail/goal_status__struct.hpp:
-
-/usr/include/c++/11/bits/algorithmfwd.h:
-
-/usr/include/c++/11/bits/basic_string.tcc:
-
-/opt/ros/humble/include/rcl_action/rcl_action/goal_handle.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/stack_t.h:
-
-/opt/ros/humble/include/rclcpp_action/rclcpp_action/server_goal_handle.hpp:
-
-/opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/marker_array__builder.hpp:
-
-/usr/include/x86_64-linux-gnu/sys/ucontext.h:
-
-/opt/ros/humble/include/moveit_msgs/moveit_msgs/action/execute_trajectory.hpp:
-
-/usr/include/c++/11/bits/hashtable_policy.h:
-
-/usr/include/x86_64-linux-gnu/bits/posix_opt.h:
-
-/usr/include/strings.h:
-
-/opt/ros/humble/include/rclcpp/rclcpp/event.hpp:
-
-/usr/include/c++/11/bits/exception_defines.h:
-
-/opt/ros/humble/include/tf2/tf2/LinearMath/Quaternion.hpp:
-
-/usr/include/c++/11/ext/numeric_traits.h:
-
-/usr/include/boost/mpl/aux_/config/preprocessor.hpp:
-
-/usr/include/time.h:
-
-/usr/include/x86_64-linux-gnu/bits/unistd_ext.h:
-
-/opt/ros/humble/include/moveit_kinematics_base_export.h:
-
-/usr/include/eigen3/Eigen/src/Core/util/MKL_support.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h:
-
-/usr/include/x86_64-linux-gnu/bits/ss_flags.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
-
-/usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
-
-/usr/include/boost/mpl/aux_/config/workaround.hpp:
-
-/usr/include/c++/11/bits/unique_lock.h:
-
-/usr/include/x86_64-linux-gnu/bits/sigthread.h:
-
-/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/attached_collision_object__traits.hpp:
-
-/usr/include/c++/11/chrono:
+/usr/include/c++/11/bits/std_thread.h:
 
 /usr/include/x86_64-linux-gnu/bits/wordsize.h:
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion_stamped__traits.hpp:
 
+/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/attached_collision_object__traits.hpp:
+
+/usr/include/c++/11/chrono:
+
+/usr/include/x86_64-linux-gnu/bits/sigthread.h:
+
 /usr/include/c++/11/cstdio:
+
+/usr/include/c++/11/ratio:
+
+/usr/include/boost/random/detail/integer_log2.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/any_subscription_callback.hpp:
 
@@ -3024,20 +3002,6 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 /usr/include/c++/11/cstdint:
 
 /opt/ros/humble/include/rclcpp/rclcpp/detail/resolve_intra_process_buffer_type.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/types/struct_sigstack.h:
-
-/usr/include/c++/11/limits:
-
-/opt/ros/humble/include/rcpputils/rcpputils/filesystem_helper.hpp:
-
-/opt/ros/humble/include/rclcpp/rclcpp/executors/single_threaded_executor.hpp:
-
-/opt/ros/humble/include/rclcpp/rclcpp/wait_set.hpp:
-
-/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/joint_limits.hpp:
-
-/usr/include/c++/11/utility:
 
 /opt/ros/humble/include/rcl/rcl/arguments.h:
 
@@ -3051,22 +3015,6 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 
 /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/joint_limits__traits.hpp:
 
-/usr/include/c++/11/string:
-
-/opt/ros/humble/include/rmw/rmw/security_options.h:
-
-/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/polygon_stamped__builder.hpp:
-
-/opt/ros/humble/include/moveit_move_group_interface_export.h:
-
-/usr/include/x86_64-linux-gnu/bits/signum-arch.h:
-
-/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/cartesian_point__traits.hpp:
-
-/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/set_parameters_atomically__type_support.hpp:
-
-/usr/include/x86_64-linux-gnu/bits/errno.h:
-
 /usr/include/x86_64-linux-gnu/bits/types/struct_sched_param.h:
 
 /usr/include/asm-generic/errno.h:
@@ -3078,6 +3026,10 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 /usr/include/asm-generic/errno-base.h:
 
 /usr/include/eigen3/Eigen/src/Core/util/DisableStupidWarnings.h:
+
+/usr/include/linux/errno.h:
+
+/usr/include/x86_64-linux-gnu/c++/11/bits/c++locale.h:
 
 /usr/include/c++/11/functional:
 
@@ -3093,19 +3045,19 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_stamped__traits.hpp:
 
-/usr/include/eigen3/Eigen/src/Core/products/SelfadjointRank2Update.h:
-
-/opt/ros/humble/include/rclcpp/rclcpp/detail/cpp_callback_trampoline.hpp:
-
-/opt/ros/humble/include/rclcpp/rclcpp/experimental/buffers/intra_process_buffer.hpp:
-
-/usr/include/c++/11/pstl/glue_algorithm_defs.h:
-
-/usr/include/c++/11/stdexcept:
-
-/usr/include/c++/11/bits/std_thread.h:
-
 /usr/include/c++/11/bits/localefwd.h:
+
+/opt/ros/humble/include/rclcpp_action/rclcpp_action/exceptions.hpp:
+
+/opt/ros/humble/include/statistics_msgs/statistics_msgs/msg/metrics_message.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/siginfo-consts.h:
+
+/usr/include/c++/11/streambuf:
+
+/opt/ros/humble/include/rclcpp/rclcpp/detail/rmw_implementation_specific_publisher_payload.hpp:
+
+/opt/ros/humble/include/action_msgs/action_msgs/msg/detail/goal_info__functions.h:
 
 /usr/include/boost/random/uniform_int_distribution.hpp:
 
@@ -3122,6 +3074,12 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 /usr/include/c++/11/bits/shared_ptr_atomic.h:
 
 /usr/include/c++/11/iomanip:
+
+/opt/ros/humble/include/rclcpp/rclcpp/executors/single_threaded_executor.hpp:
+
+/opt/ros/humble/include/rclcpp/rclcpp/wait_set.hpp:
+
+/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/joint_limits.hpp:
 
 /usr/include/c++/11/locale:
 
@@ -3155,14 +3113,6 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 
 /usr/include/x86_64-linux-gnu/bits/waitflags.h:
 
-/usr/include/c++/11/future:
-
-/usr/include/x86_64-linux-gnu/sys/types.h:
-
-/usr/include/c++/11/codecvt:
-
-/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_descriptor__type_support.hpp:
-
 /usr/include/eigen3/Eigen/src/LU/InverseImpl.h:
 
 /opt/ros/humble/include/rosidl_runtime_cpp/rosidl_runtime_cpp/message_type_support_decl.hpp:
@@ -3171,14 +3121,6 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 
 /usr/include/boost/random/detail/generator_bits.hpp:
 
-/usr/include/stdio.h:
-
-/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/wrench_stamped.hpp:
-
-/usr/include/c++/11/ratio:
-
-/usr/include/boost/random/detail/integer_log2.hpp:
-
 /opt/ros/humble/include/rcutils/rcutils/logging_macros.h:
 
 /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/visibility_control.h:
@@ -3186,6 +3128,144 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 /opt/ros/humble/include/action_msgs/action_msgs/msg/detail/goal_info__type_support.h:
 
 /usr/include/boost/preprocessor/repeat.hpp:
+
+/usr/include/c++/11/bits/algorithmfwd.h:
+
+/usr/include/c++/11/bits/basic_string.tcc:
+
+/opt/ros/humble/include/rcl_action/rcl_action/goal_handle.h:
+
+/usr/include/x86_64-linux-gnu/bits/sigaction.h:
+
+/opt/ros/humble/include/rmw/rmw/network_flow_endpoint_array.h:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/vector3_stamped__type_support.hpp:
+
+/opt/ros/humble/include/action_msgs/action_msgs/msg/detail/goal_status__struct.hpp:
+
+/usr/include/c++/11/bits/stl_list.h:
+
+/opt/ros/humble/include/rclcpp/rclcpp/topic_statistics_state.hpp:
+
+/opt/ros/humble/include/rclcpp/rclcpp/rclcpp.hpp:
+
+/usr/include/c++/11/pstl/glue_memory_defs.h:
+
+/usr/include/c++/11/csignal:
+
+/usr/include/c++/11/string:
+
+/opt/ros/humble/include/rmw/rmw/security_options.h:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/polygon_stamped__builder.hpp:
+
+/usr/include/x86_64-linux-gnu/bits/errno.h:
+
+/opt/ros/humble/include/moveit_move_group_interface_export.h:
+
+/usr/include/x86_64-linux-gnu/bits/signum-arch.h:
+
+/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/cartesian_point__traits.hpp:
+
+/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/set_parameters_atomically__type_support.hpp:
+
+/opt/ros/humble/include/moveit_kinematics_base_export.h:
+
+/usr/include/eigen3/Eigen/src/Core/util/MKL_support.h:
+
+/usr/lib/gcc/x86_64-linux-gnu/11/include/stdarg.h:
+
+/usr/include/x86_64-linux-gnu/bits/ss_flags.h:
+
+/usr/include/c++/11/tr1/gamma.tcc:
+
+/opt/ros/humble/include/rmw/rmw/message_sequence.h:
+
+/usr/include/boost/integer/integer_log2.hpp:
+
+/usr/include/c++/11/bits/ios_base.h:
+
+/usr/include/eigen3/Eigen/src/Geometry/Quaternion.h:
+
+/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/set_parameters__builder.hpp:
+
+/opt/ros/humble/include/rclcpp/rclcpp/clock.hpp:
+
+/opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform_stamped__type_support.hpp:
+
+/usr/include/sched.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h:
+
+/usr/include/c++/11/bits/ptr_traits.h:
+
+/usr/include/stdint.h:
+
+/usr/include/c++/11/bits/erase_if.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/stack_t.h:
+
+/opt/ros/humble/include/rclcpp_action/rclcpp_action/server_goal_handle.hpp:
+
+/opt/ros/humble/include/visualization_msgs/visualization_msgs/msg/detail/marker_array__builder.hpp:
+
+/usr/include/x86_64-linux-gnu/sys/ucontext.h:
+
+/opt/ros/humble/include/moveit_msgs/moveit_msgs/action/execute_trajectory.hpp:
+
+/usr/include/c++/11/bits/hashtable_policy.h:
+
+/usr/include/x86_64-linux-gnu/bits/posix_opt.h:
+
+/usr/include/strings.h:
+
+/opt/ros/humble/include/rclcpp/rclcpp/event.hpp:
+
+/usr/include/c++/11/bits/exception_defines.h:
+
+/opt/ros/humble/include/tf2/tf2/LinearMath/Quaternion.hpp:
+
+/usr/include/c++/11/ext/numeric_traits.h:
+
+/usr/include/boost/mpl/aux_/config/preprocessor.hpp:
+
+/usr/include/time.h:
+
+/usr/include/x86_64-linux-gnu/bits/unistd_ext.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__FILE.h:
+
+/usr/include/x86_64-linux-gnu/bits/types/__locale_t.h:
+
+/usr/include/c++/11/limits:
+
+/usr/include/x86_64-linux-gnu/bits/types/struct_sigstack.h:
+
+/usr/include/boost/mpl/aux_/config/workaround.hpp:
+
+/usr/include/c++/11/bits/unique_lock.h:
+
+/usr/include/x86_64-linux-gnu/sys/types.h:
+
+/usr/include/c++/11/codecvt:
+
+/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_descriptor__type_support.hpp:
+
+/usr/include/c++/11/future:
+
+/opt/ros/humble/include/rcpputils/rcpputils/filesystem_helper.hpp:
+
+/usr/include/c++/11/utility:
+
+/usr/include/eigen3/Eigen/src/Core/products/SelfadjointRank2Update.h:
+
+/opt/ros/humble/include/rclcpp/rclcpp/detail/cpp_callback_trampoline.hpp:
+
+/opt/ros/humble/include/rclcpp/rclcpp/experimental/buffers/intra_process_buffer.hpp:
+
+/usr/include/c++/11/pstl/glue_algorithm_defs.h:
+
+/usr/include/c++/11/stdexcept:
 
 /usr/include/c++/11/bits/hashtable.h:
 
@@ -3283,6 +3363,8 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/list_parameters_result__builder.hpp:
 
+/opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__struct.hpp:
+
 /usr/include/eigen3/Eigen/StdVector:
 
 /usr/include/c++/11/set:
@@ -3301,8 +3383,6 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_event__builder.hpp:
 
-/usr/include/eigen3/Eigen/src/Core/MatrixBase.h:
-
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/integer_range__traits.hpp:
 
 /usr/include/eigen3/Eigen/src/Core/CwiseTernaryOp.h:
@@ -3320,6 +3400,8 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter__traits.hpp:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/detail/parameter_event__type_support.hpp:
+
+/opt/ros/humble/include/tf2/tf2/buffer_core_interface.hpp:
 
 /opt/ros/humble/include/sensor_msgs/sensor_msgs/msg/detail/joint_state__type_support.hpp:
 
@@ -3457,9 +3539,9 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 
 /opt/ros/humble/include/action_msgs/action_msgs/msg/detail/goal_status__type_support.hpp:
 
-/usr/include/c++/11/bits/refwrap.h:
+/usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h:
 
-/usr/include/eigen3/Eigen/src/plugins/ArrayCwiseBinaryOps.h:
+/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/list_parameters.hpp:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/list_parameters__struct.hpp:
 
@@ -3484,6 +3566,8 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/set_parameters_atomically.hpp:
 
 /opt/ros/humble/include/rcl_yaml_param_parser/rcl_yaml_param_parser/visibility_control.h:
+
+/opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/frame_graph.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/parameter_service.hpp:
 
@@ -3619,6 +3703,8 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 
 /usr/include/x86_64-linux-gnu/bits/posix2_lim.h:
 
+/opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__traits.hpp:
+
 /opt/ros/humble/include/action_msgs/action_msgs/msg/detail/goal_info__builder.hpp:
 
 /opt/ros/humble/include/rcl/rcl/service.h:
@@ -3697,6 +3783,8 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/transform.hpp:
 
+/opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/detail/tf_message__struct.hpp:
+
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/vector3_stamped__builder.hpp:
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform__struct.hpp:
@@ -3718,6 +3806,8 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose__traits.hpp:
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/vector3.hpp:
+
+/opt/ros/humble/include/tf2_ros/tf2_ros/create_timer_interface.h:
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/pose.hpp:
 
@@ -3867,6 +3957,28 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 
 /opt/ros/humble/include/tf2_ros/tf2_ros/visibility_control.h:
 
+/opt/ros/humble/include/tf2_ros/tf2_ros/transform_listener.h:
+
+/usr/include/eigen3/Eigen/src/Core/arch/SSE/Complex.h:
+
+/opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/tf_message.hpp:
+
+/opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/detail/tf_message__traits.hpp:
+
+/opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/detail/tf_message__type_support.hpp:
+
+/opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/rosidl_generator_cpp__visibility_control.hpp:
+
+/usr/include/boost/mpl/aux_/preprocessor/params.hpp:
+
+/opt/ros/humble/include/tf2_ros/tf2_ros/qos.hpp:
+
+/opt/ros/humble/include/tf2_ros/tf2_ros/buffer.h:
+
+/opt/ros/humble/include/moveit/robot_model/floating_joint_model.h:
+
+/opt/ros/humble/include/tf2_ros/tf2_ros/async_buffer_interface.h:
+
 /opt/ros/humble/include/moveit/move_group_interface/move_group_interface.h:
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point__struct.hpp:
@@ -3999,8 +4111,6 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 
 /usr/include/boost/random/traits.hpp:
 
-/usr/include/eigen3/Eigen/src/plugins/IndexedViewMethods.h:
-
 /usr/include/boost/type_traits/remove_cv.hpp:
 
 /usr/include/boost/random/detail/int_float_pair.hpp:
@@ -4057,8 +4167,6 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 
 /usr/include/boost/mpl/aux_/config/dtp.hpp:
 
-/usr/include/boost/mpl/aux_/preprocessor/params.hpp:
-
 /opt/ros/humble/include/rcutils/rcutils/types/rcutils_ret.h:
 
 /usr/include/boost/preprocessor/logical/bool.hpp:
@@ -4114,8 +4222,6 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 /usr/include/x86_64-linux-gnu/bits/uio_lim.h:
 
 /usr/include/boost/random/detail/disable_warnings.hpp:
-
-/usr/include/eigen3/Eigen/src/Core/ArrayBase.h:
 
 /usr/include/boost/random/detail/enable_warnings.hpp:
 
@@ -4179,8 +4285,6 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 
 /usr/include/eigen3/Eigen/src/Core/arch/SSE/MathFunctions.h:
 
-/usr/include/eigen3/Eigen/src/Core/arch/SSE/Complex.h:
-
 /usr/include/eigen3/Eigen/src/Core/functors/BinaryFunctors.h:
 
 /usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h:
@@ -4204,47 +4308,3 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp:
 
 /usr/include/eigen3/Eigen/src/plugins/BlockMethods.h:
-
-/usr/include/eigen3/Eigen/src/Core/AssignEvaluator.h:
-
-/usr/include/eigen3/Eigen/src/plugins/ReshapedMethods.h:
-
-/opt/ros/humble/include/rclcpp/rclcpp/intra_process_setting.hpp:
-
-/usr/include/eigen3/Eigen/src/plugins/CommonCwiseBinaryOps.h:
-
-/usr/include/tinyxml2.h:
-
-/usr/include/eigen3/Eigen/src/plugins/MatrixCwiseUnaryOps.h:
-
-/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/list_parameters.hpp:
-
-/usr/include/eigen3/Eigen/src/plugins/MatrixCwiseBinaryOps.h:
-
-/usr/include/eigen3/Eigen/src/Core/Diagonal.h:
-
-/usr/include/eigen3/Eigen/src/Core/EigenBase.h:
-
-/opt/ros/humble/include/moveit/robot_model/joint_model_group.h:
-
-/usr/include/eigen3/Eigen/src/Core/Product.h:
-
-/opt/ros/humble/include/rclcpp/rclcpp/typesupport_helpers.hpp:
-
-/usr/include/eigen3/Eigen/src/Core/CoreEvaluators.h:
-
-/usr/include/eigen3/Eigen/src/plugins/ArrayCwiseUnaryOps.h:
-
-/usr/include/c++/11/tr1/ell_integral.tcc:
-
-/usr/include/eigen3/Eigen/src/Core/util/BlasUtil.h:
-
-/usr/lib/gcc/x86_64-linux-gnu/11/include/stdalign.h:
-
-/usr/include/eigen3/Eigen/src/Core/DenseStorage.h:
-
-/opt/ros/humble/include/statistics_msgs/statistics_msgs/msg/detail/statistic_data_point__struct.hpp:
-
-/usr/include/eigen3/Eigen/src/Core/ReturnByValue.h:
-
-/usr/include/eigen3/Eigen/src/Core/NoAlias.h:

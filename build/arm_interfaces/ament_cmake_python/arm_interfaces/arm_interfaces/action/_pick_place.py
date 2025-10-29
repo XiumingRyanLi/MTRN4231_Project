@@ -7,8 +7,6 @@
 
 import builtins  # noqa: E402, I100
 
-import math  # noqa: E402, I100
-
 import rosidl_parser.definition  # noqa: E402, I100
 
 
@@ -62,20 +60,14 @@ class PickPlace_Goal(metaclass=Metaclass_PickPlace_Goal):
 
     __slots__ = [
         '_pick_pose',
-        '_place_pose',
-        '_lift_distance',
     ]
 
     _fields_and_field_types = {
         'pick_pose': 'geometry_msgs/PoseStamped',
-        'place_pose': 'geometry_msgs/PoseStamped',
-        'lift_distance': 'double',
     }
 
     SLOT_TYPES = (
         rosidl_parser.definition.NamespacedType(['geometry_msgs', 'msg'], 'PoseStamped'),  # noqa: E501
-        rosidl_parser.definition.NamespacedType(['geometry_msgs', 'msg'], 'PoseStamped'),  # noqa: E501
-        rosidl_parser.definition.BasicType('double'),  # noqa: E501
     )
 
     def __init__(self, **kwargs):
@@ -84,9 +76,6 @@ class PickPlace_Goal(metaclass=Metaclass_PickPlace_Goal):
             ', '.join(sorted(k for k in kwargs.keys() if '_' + k not in self.__slots__))
         from geometry_msgs.msg import PoseStamped
         self.pick_pose = kwargs.get('pick_pose', PoseStamped())
-        from geometry_msgs.msg import PoseStamped
-        self.place_pose = kwargs.get('place_pose', PoseStamped())
-        self.lift_distance = kwargs.get('lift_distance', float())
 
     def __repr__(self):
         typename = self.__class__.__module__.split('.')
@@ -119,10 +108,6 @@ class PickPlace_Goal(metaclass=Metaclass_PickPlace_Goal):
             return False
         if self.pick_pose != other.pick_pose:
             return False
-        if self.place_pose != other.place_pose:
-            return False
-        if self.lift_distance != other.lift_distance:
-            return False
         return True
 
     @classmethod
@@ -143,35 +128,6 @@ class PickPlace_Goal(metaclass=Metaclass_PickPlace_Goal):
                 isinstance(value, PoseStamped), \
                 "The 'pick_pose' field must be a sub message of type 'PoseStamped'"
         self._pick_pose = value
-
-    @builtins.property
-    def place_pose(self):
-        """Message field 'place_pose'."""
-        return self._place_pose
-
-    @place_pose.setter
-    def place_pose(self, value):
-        if __debug__:
-            from geometry_msgs.msg import PoseStamped
-            assert \
-                isinstance(value, PoseStamped), \
-                "The 'place_pose' field must be a sub message of type 'PoseStamped'"
-        self._place_pose = value
-
-    @builtins.property
-    def lift_distance(self):
-        """Message field 'lift_distance'."""
-        return self._lift_distance
-
-    @lift_distance.setter
-    def lift_distance(self, value):
-        if __debug__:
-            assert \
-                isinstance(value, float), \
-                "The 'lift_distance' field must be of type 'float'"
-            assert not (value < -1.7976931348623157e+308 or value > 1.7976931348623157e+308) or math.isinf(value), \
-                "The 'lift_distance' field must be a double in [-1.7976931348623157e+308, 1.7976931348623157e+308]"
-        self._lift_distance = value
 
 
 # Import statements for member types
@@ -321,8 +277,7 @@ class PickPlace_Result(metaclass=Metaclass_PickPlace_Result):
 # already imported above
 # import builtins
 
-# already imported above
-# import math
+import math  # noqa: E402, I100
 
 # already imported above
 # import rosidl_parser.definition

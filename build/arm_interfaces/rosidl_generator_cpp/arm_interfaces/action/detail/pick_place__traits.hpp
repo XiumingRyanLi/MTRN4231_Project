@@ -16,7 +16,6 @@
 
 // Include directives for member types
 // Member 'pick_pose'
-// Member 'place_pose'
 #include "geometry_msgs/msg/detail/pose_stamped__traits.hpp"
 
 namespace arm_interfaces
@@ -34,20 +33,6 @@ inline void to_flow_style_yaml(
   {
     out << "pick_pose: ";
     to_flow_style_yaml(msg.pick_pose, out);
-    out << ", ";
-  }
-
-  // member: place_pose
-  {
-    out << "place_pose: ";
-    to_flow_style_yaml(msg.place_pose, out);
-    out << ", ";
-  }
-
-  // member: lift_distance
-  {
-    out << "lift_distance: ";
-    rosidl_generator_traits::value_to_yaml(msg.lift_distance, out);
   }
   out << "}";
 }  // NOLINT(readability/fn_size)
@@ -63,25 +48,6 @@ inline void to_block_style_yaml(
     }
     out << "pick_pose:\n";
     to_block_style_yaml(msg.pick_pose, out, indentation + 2);
-  }
-
-  // member: place_pose
-  {
-    if (indentation > 0) {
-      out << std::string(indentation, ' ');
-    }
-    out << "place_pose:\n";
-    to_block_style_yaml(msg.place_pose, out, indentation + 2);
-  }
-
-  // member: lift_distance
-  {
-    if (indentation > 0) {
-      out << std::string(indentation, ' ');
-    }
-    out << "lift_distance: ";
-    rosidl_generator_traits::value_to_yaml(msg.lift_distance, out);
-    out << "\n";
   }
 }  // NOLINT(readability/fn_size)
 
