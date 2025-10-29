@@ -40,10 +40,6 @@ class ChessMaster(Node):
                 return
             self.last_fen = fen
 
-            # msg = String()
-            # msg.data = str(self.board)
-            # self.pub.publish(msg)
-
             # Export SVG and convert to PNG
             svg = chess.svg.board(board=self.board, size=480)
             output_path = os.path.expanduser("~/MTRN4231_Project/board.png")
@@ -114,6 +110,20 @@ class ChessMaster(Node):
 
             response.robot_move = best_move.uci()
             self.get_logger().info(f"Next move: {best_move.uci()}")
+
+            # Check for special move
+            response.is_en_passant = False
+            response.is_castling = False
+            response.is_promotion = False
+            response.is_capture = False
+            if self.board.is_en_passant(best_move):
+                response.is_en_passant = True
+            if self.board.is_capture(best_move):
+                response.is_capture = True
+            if self.board.is_castling(best_move):
+                response.is_castling = True
+            if best_move.promotion:
+                response.is_promotion = True
 
             self.board.push(best_move)
 
