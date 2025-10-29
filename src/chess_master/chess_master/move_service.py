@@ -1,10 +1,14 @@
 from interfaces.srv import ChessMove
-
+from sensor_msgs.msg import CompressedImage
+from array import array
+import os
 import threading
 import rclpy
 from rclpy.node import Node
 import chess
 import chess.engine
+import chess.svg
+import cairosvg
 from std_msgs.msg import String
 
 ENGINE_PATH = "./stockfish/stockfish"
@@ -23,11 +27,12 @@ class ChessMaster(Node):
         self.srv = self.create_service(
             ChessMove, 'chess_move', self.service_callback)
 
-        self.pub = self.create_publisher(String, 'board_state', 10)
+        # self.pub = self.create_publisher(String, 'board_state', 10)
+        self.pub = self.create_publisher(CompressedImage, 'board_state', 10)
 
-        self.timer = self.create_timer(1.0, self.timer_callback)
+        self.timer = self.create_timer(1.0, self.pub_callback)
 
-    def timer_callback(self):
+    def pub_callback(self):
         with self.lock:
             fen = self.board.fen()
             # Skip publish if nothing changed since last tick
@@ -35,8 +40,20 @@ class ChessMaster(Node):
                 return
             self.last_fen = fen
 
-            msg = String()
-            msg.data = str(self.board)
+            # msg = String()
+            # msg.data = str(self.board)
+            # self.pub.publish(msg)
+
+            # Export SVG and convert to PNG
+            svg = chess.svg.board(board=self.board, size=480)
+            output_path = os.path.expanduser("~/MTRN4231_Project/board.png")
+            png_bytes = cairosvg.svg2png(bytestring=svg.encode("utf-8"))
+
+            # Publish PNG
+            msg = CompressedImage()
+            msg.format = "png"
+            # msg.data = png_bytes
+            msg.data = array('B', png_bytes)
             self.pub.publish(msg)
 
     def is_valid_fen(self, fen: str) -> bool:
@@ -47,7 +64,7 @@ class ChessMaster(Node):
             return False
 
     def service_callback(self, request, response):
-        text = request.confirm
+        text = request.user_move
         print(text)
         self.get_logger().info(f'Incoming request: {text}')
 
@@ -56,38 +73,37 @@ class ChessMaster(Node):
             if self.is_valid_fen(text):
                 self.board = chess.Board(text)
                 self.get_logger().info("Board updated to given FEN!")
-                response.chess_move = "Board set"
+                response.robot_move = "Board set"
                 return response
 
             # Board reset check
             if text.lower() == "reset":
                 self.board.reset()
-                response.chess_move = "Board reset"
+                response.robot_move = "Board reset"
                 self.get_logger().info("Board reset.")
                 return response
 
             # Promotion check (for white only)
             if len(text) < 4:
-                response.chess_move = "Error: Invalid move format (e.g. use 'e2e4' or 'e7e8q' for promotion)"
+                response.robot_move = "Error: Invalid move format (e.g. use 'e2e4' or 'e7e8q' for promotion)"
                 return response
-            
+
             if len(text) == 4:
                 from_sq = chess.parse_square(text[:2])
                 piece = self.board.piece_at(from_sq)
                 if text[1] == '7' and text[3] == '8':
                     if piece and piece.piece_type == chess.PAWN:
                         text += "q"  # default to queen promotion
-            
 
             # Move user piece
             try:
                 move = chess.Move.from_uci(text)
             except ValueError:
-                response.chess_move = "Error: Invalid move format (e.g. use 'e2e4' or 'e7e8q' for promotion)"
+                response.robot_move = "Error: Invalid move format (e.g. use 'e2e4' or 'e7e8q' for promotion)"
                 return response
 
             if move not in self.board.legal_moves:
-                response.chess_move = 'Error: Illegal move in current state'
+                response.robot_move = 'Error: Illegal move in current state'
                 return response
 
             self.board.push(move)
@@ -96,7 +112,7 @@ class ChessMaster(Node):
             result = self.engine.play(self.board, chess.engine.Limit(time=1))
             best_move = result.move
 
-            response.chess_move = best_move.uci()
+            response.robot_move = best_move.uci()
             self.get_logger().info(f"Next move: {best_move.uci()}")
 
             self.board.push(best_move)
