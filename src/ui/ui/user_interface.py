@@ -15,7 +15,7 @@ class UserInterface(tk.Tk):
         # initiate GUI window
         super().__init__()
         self.title("Chess Client")
-        self.geometry("500x650")  # window size
+        self.geometry("500x750")  # window size
 
         self.move_label = tk.Label(self, text="Enter UCI move (e.g., e2e4):")
         self.move_label.pack(pady=(12, 4))
@@ -33,7 +33,19 @@ class UserInterface(tk.Tk):
         self.reset_btn.pack(side="left", padx=5)
 
         self.status = tk.Label(self, text="Ready.")
-        self.status.pack(pady=(4, 8))
+        self.status.pack(pady=4)
+
+        self.is_capture = tk.Label(self, text="Is it a capture move?")
+        self.is_capture.pack(pady=4)
+
+        self.is_castling = tk.Label(self, text="Is it castling?")
+        self.is_castling.pack(pady=4)
+
+        self.is_en_passant = tk.Label(self, text="Is it an en passant?")
+        self.is_en_passant.pack(pady=4)
+
+        self.is_promotion = tk.Label(self, text="Is it promotion?")
+        self.is_promotion.pack(pady=4)
 
         self.board_label = tk.Label(self)
         self.board_label.pack(pady=(12, 8), fill="both", expand=True)
@@ -50,8 +62,6 @@ class UserInterface(tk.Tk):
         self.req = ChessMove.Request()
 
         # create board state subscriber
-        # self.sub = self.node.create_subscription(
-        #     String, 'board_state', self.listener_callback, 10)
         self.sub = self.node.create_subscription(
             CompressedImage, 'board_state', self.listener_callback, 10)
 
@@ -93,6 +103,22 @@ class UserInterface(tk.Tk):
             try:
                 result = self.future.result()
                 self.status.config(text=f"Output: {result.robot_move}")
+                self.is_capture.config(text="Is it a capture move? No")
+                if result.is_capture:
+                    self.is_capture.config(text="Is it a capture move? Yes")
+
+                self.is_castling.config(text="Is it castling? No")
+                if result.is_castling:
+                    self.is_castling.config(text="Is it castling? Yes")
+
+                self.is_en_passant.config(text="Is it an en passant? No")
+                if result.is_en_passant:
+                    self.is_en_passant.config(text="Is it an en passant? Yes")
+
+                self.is_promotion.config(text="Is it promotion? No")
+                if result.is_promotion:
+                    self.is_promotion.config(text="Is it promotion? Yes")
+
             except Exception as e:
                 self.status.config(text=f"Service error: {e}")
             finally:
