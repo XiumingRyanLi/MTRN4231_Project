@@ -42,7 +42,7 @@ class ChessMaster(Node):
 
             # Export SVG and convert to PNG
             svg = chess.svg.board(board=self.board, size=480)
-            output_path = os.path.expanduser("~/MTRN4231_Project/board.png")
+            # output_path = os.path.expanduser("~/MTRN4231_Project/board.png")
             png_bytes = cairosvg.svg2png(bytestring=svg.encode("utf-8"))
 
             # Publish PNG
@@ -61,7 +61,6 @@ class ChessMaster(Node):
 
     def service_callback(self, request, response):
         text = request.user_move
-        print(text)
         self.get_logger().info(f'Incoming request: {text}')
 
         with self.lock:
