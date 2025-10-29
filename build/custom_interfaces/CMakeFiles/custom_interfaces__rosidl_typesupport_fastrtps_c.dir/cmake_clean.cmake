@@ -1,10 +1,14 @@
 file(REMOVE_RECURSE
-  "CMakeFiles/custom_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/custom_interfaces/action/detail/pick_place__type_support_c.cpp.o"
-  "CMakeFiles/custom_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/custom_interfaces/action/detail/pick_place__type_support_c.cpp.o.d"
+  "CMakeFiles/custom_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/custom_interfaces/action/detail/gripper_command__type_support_c.cpp.o"
+  "CMakeFiles/custom_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/custom_interfaces/action/detail/gripper_command__type_support_c.cpp.o.d"
+  "CMakeFiles/custom_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/custom_interfaces/action/detail/move_tcp__type_support_c.cpp.o"
+  "CMakeFiles/custom_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/custom_interfaces/action/detail/move_tcp__type_support_c.cpp.o.d"
   "libcustom_interfaces__rosidl_typesupport_fastrtps_c.pdb"
   "libcustom_interfaces__rosidl_typesupport_fastrtps_c.so"
-  "rosidl_typesupport_fastrtps_c/custom_interfaces/action/detail/pick_place__rosidl_typesupport_fastrtps_c.h"
-  "rosidl_typesupport_fastrtps_c/custom_interfaces/action/detail/pick_place__type_support_c.cpp"
+  "rosidl_typesupport_fastrtps_c/custom_interfaces/action/detail/gripper_command__rosidl_typesupport_fastrtps_c.h"
+  "rosidl_typesupport_fastrtps_c/custom_interfaces/action/detail/gripper_command__type_support_c.cpp"
+  "rosidl_typesupport_fastrtps_c/custom_interfaces/action/detail/move_tcp__rosidl_typesupport_fastrtps_c.h"
+  "rosidl_typesupport_fastrtps_c/custom_interfaces/action/detail/move_tcp__type_support_c.cpp"
 )
 
 # Per-language clean rules from dependency scanning.

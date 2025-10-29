@@ -12,16 +12,17 @@ find_package(rclcpp_action REQUIRED)
 find_package(tf2_ros REQUIRED)
 find_package(tf2_geometry_msgs REQUIRED)
 find_package(moveit_ros_planning_interface REQUIRED)
-find_package(arm_interfaces REQUIRED)
+find_package(custom_interfaces REQUIRED)
 
 
 add_executable(arm_controller_node src/arm_controller_node.cpp)
 ament_target_dependencies(arm_controller_node
   rclcpp rclcpp_action tf2_ros tf2_geometry_msgs
-  moveit_ros_planning_interface arm_interfaces)
+  moveit_ros_planning_interface custom_interfaces)
 
 install(TARGETS arm_controller_node DESTINATION lib/${PROJECT_NAME})
-install(DIRECTORY launch config urdf srdf DESTINATION share/${PROJECT_NAME})
+install(DIRECTORY launch urdf srdf config rviz meshes
+  DESTINATION share/${PROJECT_NAME})
 
 
 

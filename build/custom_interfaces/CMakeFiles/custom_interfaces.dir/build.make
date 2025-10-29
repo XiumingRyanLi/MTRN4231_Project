@@ -66,7 +66,8 @@ include CMakeFiles/custom_interfaces.dir/compiler_depend.make
 # Include the progress variables for this target.
 include CMakeFiles/custom_interfaces.dir/progress.make
 
-CMakeFiles/custom_interfaces: /home/ryanl/4231/MTRN4231_Project/src/custom_interfaces/action/PickPlace.action
+CMakeFiles/custom_interfaces: /home/ryanl/4231/MTRN4231_Project/src/custom_interfaces/action/MoveTCP.action
+CMakeFiles/custom_interfaces: /home/ryanl/4231/MTRN4231_Project/src/custom_interfaces/action/GripperCommand.action
 CMakeFiles/custom_interfaces: /opt/ros/humble/share/geometry_msgs/msg/Accel.idl
 CMakeFiles/custom_interfaces: /opt/ros/humble/share/geometry_msgs/msg/AccelStamped.idl
 CMakeFiles/custom_interfaces: /opt/ros/humble/share/geometry_msgs/msg/AccelWithCovariance.idl

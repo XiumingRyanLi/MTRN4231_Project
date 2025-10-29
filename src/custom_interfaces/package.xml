@@ -1,12 +1,13 @@
 <?xml version="1.0"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
 <package format="3">
   <name>custom_interfaces</name>
-  <version>0.0.1</version>
-  <description>Actions for arm control</description>
-  <maintainer email="you@example.com">You</maintainer>
-  <license>BSD-3-Clause</license>
+  <version>0.0.0</version>
+  <description>TODO: Package description</description>
+  <maintainer email="z5422416@ad.unsw.edu.au">ryanl</maintainer>
+  <license>TODO: License declaration</license>
 
-  <buildtool_depend>ament_cmake</buildtool_depend>
+ <buildtool_depend>ament_cmake</buildtool_depend>
 
   <build_depend>rosidl_default_generators</build_depend>
   <build_depend>geometry_msgs</build_depend>
@@ -17,4 +18,8 @@
   <exec_depend>builtin_interfaces</exec_depend>
 
   <member_of_group>rosidl_interface_packages</member_of_group>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
 </package>

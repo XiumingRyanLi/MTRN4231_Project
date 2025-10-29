@@ -16,7 +16,7 @@ set(_custom_interfaces_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT custom_interfaces_FIND_QUIETLY)
-  message(STATUS "Found custom_interfaces: 0.0.1 (${custom_interfaces_DIR})")
+  message(STATUS "Found custom_interfaces: 0.0.0 (${custom_interfaces_DIR})")
 endif()
 
 # warn when using a deprecated package

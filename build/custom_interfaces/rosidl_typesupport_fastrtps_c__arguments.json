@@ -3,7 +3,8 @@
   "output_dir": "/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_typesupport_fastrtps_c/custom_interfaces",
   "template_dir": "/opt/ros/humble/share/rosidl_typesupport_fastrtps_c/resource",
   "idl_tuples": [
-    "/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_adapter/custom_interfaces:action/PickPlace.idl"
+    "/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_adapter/custom_interfaces:action/MoveTCP.idl",
+    "/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_adapter/custom_interfaces:action/GripperCommand.idl"
   ],
   "ros_interface_dependencies": [
     "geometry_msgs:/opt/ros/humble/share/geometry_msgs/msg/Accel.idl",
@@ -85,7 +86,8 @@
     "/opt/ros/humble/share/rosidl_typesupport_fastrtps_c/resource/msg__type_support_c.cpp.em",
     "/opt/ros/humble/share/rosidl_typesupport_fastrtps_c/resource/srv__rosidl_typesupport_fastrtps_c.h.em",
     "/opt/ros/humble/share/rosidl_typesupport_fastrtps_c/resource/srv__type_support_c.cpp.em",
-    "/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_adapter/custom_interfaces/action/PickPlace.idl",
+    "/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_adapter/custom_interfaces/action/MoveTCP.idl",
+    "/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_adapter/custom_interfaces/action/GripperCommand.idl",
     "/opt/ros/humble/share/geometry_msgs/msg/Accel.idl",
     "/opt/ros/humble/share/geometry_msgs/msg/AccelStamped.idl",
     "/opt/ros/humble/share/geometry_msgs/msg/AccelWithCovariance.idl",

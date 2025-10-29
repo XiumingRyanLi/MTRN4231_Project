@@ -3,8 +3,10 @@ file(REMOVE_RECURSE
   "../rosidl_generator_py/custom_interfaces/_custom_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c"
   "../rosidl_generator_py/custom_interfaces/_custom_interfaces_s.ep.rosidl_typesupport_introspection_c.c"
   "../rosidl_generator_py/custom_interfaces/action/__init__.py"
-  "../rosidl_generator_py/custom_interfaces/action/_pick_place.py"
-  "../rosidl_generator_py/custom_interfaces/action/_pick_place_s.c"
+  "../rosidl_generator_py/custom_interfaces/action/_gripper_command.py"
+  "../rosidl_generator_py/custom_interfaces/action/_gripper_command_s.c"
+  "../rosidl_generator_py/custom_interfaces/action/_move_tcp.py"
+  "../rosidl_generator_py/custom_interfaces/action/_move_tcp_s.c"
   "CMakeFiles/custom_interfaces__py"
 )
 

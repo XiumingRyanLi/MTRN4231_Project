@@ -1,2 +1,4 @@
-action/PickPlace.action
-action/PickPlace.idl
+action/GripperCommand.action
+action/GripperCommand.idl
+action/MoveTCP.action
+action/MoveTCP.idl

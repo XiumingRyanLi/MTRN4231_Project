@@ -1,0 +1,12 @@
+# Goal
+geometry_msgs/PoseStamped pick_pose
+
+---
+# Result
+bool   success
+string message
+
+---
+# Feedback
+float64 progress_percent
+string  stage

@@ -313,8 +313,8 @@ message(STATUS "Execute custom install script")
 # install("TARGETS" "arm_controller_node" "DESTINATION" "lib/arm_controller")
 include("/home/ryanl/4231/MTRN4231_Project/build/arm_controller/ament_cmake_symlink_install_targets_0_${CMAKE_INSTALL_CONFIG_NAME}.cmake")
 
-# install(DIRECTORY "launch" "config" "urdf" "srdf" "DESTINATION" "share/arm_controller")
-ament_cmake_symlink_install_directory("/home/ryanl/4231/MTRN4231_Project/src/arm_controller" DIRECTORY "launch" "config" "urdf" "srdf" "DESTINATION" "share/arm_controller")
+# install(DIRECTORY "launch" "urdf" "srdf" "config" "rviz" "meshes" "DESTINATION" "share/arm_controller")
+ament_cmake_symlink_install_directory("/home/ryanl/4231/MTRN4231_Project/src/arm_controller" DIRECTORY "launch" "urdf" "srdf" "config" "rviz" "meshes" "DESTINATION" "share/arm_controller")
 
 # install(FILES "/home/ryanl/4231/MTRN4231_Project/build/arm_controller/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/arm_controller" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 ament_cmake_symlink_install_files("/home/ryanl/4231/MTRN4231_Project/src/arm_controller" FILES "/home/ryanl/4231/MTRN4231_Project/build/arm_controller/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/arm_controller" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")

@@ -242,9 +242,9 @@ CMakeFiles/custom_interfaces__rosidl_typesupport_c__pyext.dir/rosidl_generator_p
   /opt/ros/humble/include/rosidl_typesupport_interface/rosidl_typesupport_interface/macros.h \
   /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/service_type_support_struct.h \
   /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/action_type_support_struct.h \
-  rosidl_generator_c/custom_interfaces/action/detail/pick_place__type_support.h \
+  rosidl_generator_c/custom_interfaces/action/detail/move_tcp__type_support.h \
   rosidl_generator_c/custom_interfaces/msg/rosidl_generator_c__visibility_control.h \
-  rosidl_generator_c/custom_interfaces/action/detail/pick_place__struct.h \
+  rosidl_generator_c/custom_interfaces/action/detail/move_tcp__struct.h \
   /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_stamped__struct.h \
   /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/header__struct.h \
   /opt/ros/humble/include/builtin_interfaces/builtin_interfaces/msg/detail/time__struct.h \
@@ -254,18 +254,25 @@ CMakeFiles/custom_interfaces__rosidl_typesupport_c__pyext.dir/rosidl_generator_p
   /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point__struct.h \
   /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion__struct.h \
   /opt/ros/humble/include/unique_identifier_msgs/unique_identifier_msgs/msg/detail/uuid__struct.h \
-  rosidl_generator_c/custom_interfaces/action/detail/pick_place__functions.h
+  rosidl_generator_c/custom_interfaces/action/detail/move_tcp__functions.h \
+  rosidl_generator_c/custom_interfaces/action/detail/gripper_command__type_support.h \
+  rosidl_generator_c/custom_interfaces/action/detail/gripper_command__struct.h \
+  rosidl_generator_c/custom_interfaces/action/detail/gripper_command__functions.h
 
 
-rosidl_generator_c/custom_interfaces/action/detail/pick_place__functions.h:
+rosidl_generator_c/custom_interfaces/action/detail/gripper_command__functions.h:
+
+rosidl_generator_c/custom_interfaces/action/detail/gripper_command__struct.h:
+
+rosidl_generator_c/custom_interfaces/action/detail/gripper_command__type_support.h:
+
+rosidl_generator_c/custom_interfaces/action/detail/move_tcp__functions.h:
 
 /opt/ros/humble/include/unique_identifier_msgs/unique_identifier_msgs/msg/detail/uuid__struct.h:
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point__struct.h:
 
 /opt/ros/humble/include/rosidl_runtime_c/rosidl_runtime_c/string.h:
-
-rosidl_generator_c/custom_interfaces/action/detail/pick_place__struct.h:
 
 /usr/include/python3.10/fileutils.h:
 
@@ -302,6 +309,8 @@ rosidl_generator_c/custom_interfaces/action/detail/pick_place__struct.h:
 /usr/include/x86_64-linux-gnu/bits/sched.h:
 
 /usr/include/sched.h:
+
+rosidl_generator_c/custom_interfaces/action/detail/move_tcp__struct.h:
 
 /usr/include/pthread.h:
 
@@ -539,6 +548,8 @@ rosidl_generator_py/custom_interfaces/_custom_interfaces_s.ep.rosidl_typesupport
 
 /usr/include/x86_64-linux-gnu/bits/types/struct_timeval.h:
 
+rosidl_generator_c/custom_interfaces/action/detail/move_tcp__type_support.h:
+
 /usr/include/python3.10/genobject.h:
 
 /usr/include/x86_64-linux-gnu/bits/long-double.h:
@@ -594,8 +605,6 @@ rosidl_generator_py/custom_interfaces/_custom_interfaces_s.ep.rosidl_typesupport
 /usr/include/x86_64-linux-gnu/bits/types/__fpos_t.h:
 
 /usr/include/x86_64-linux-gnu/bits/time64.h:
-
-rosidl_generator_c/custom_interfaces/action/detail/pick_place__type_support.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
 

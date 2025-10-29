@@ -69,126 +69,158 @@ include CMakeFiles/custom_interfaces__rosidl_generator_c.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/custom_interfaces__rosidl_generator_c.dir/flags.make
 
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/lib/rosidl_generator_c/rosidl_generator_c
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/local/lib/python3.10/dist-packages/rosidl_generator_c/__init__.py
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/rosidl_generator_c/resource/action__type_support.h.em
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/rosidl_generator_c/resource/idl.h.em
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/rosidl_generator_c/resource/idl__functions.c.em
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/rosidl_generator_c/resource/idl__functions.h.em
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/rosidl_generator_c/resource/idl__struct.h.em
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/rosidl_generator_c/resource/idl__type_support.h.em
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/rosidl_generator_c/resource/msg__functions.c.em
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/rosidl_generator_c/resource/msg__functions.h.em
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/rosidl_generator_c/resource/msg__struct.h.em
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/rosidl_generator_c/resource/msg__type_support.h.em
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/rosidl_generator_c/resource/srv__type_support.h.em
-rosidl_generator_c/custom_interfaces/action/pick_place.h: rosidl_adapter/custom_interfaces/action/PickPlace.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/geometry_msgs/msg/Accel.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/geometry_msgs/msg/AccelStamped.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/geometry_msgs/msg/AccelWithCovariance.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/geometry_msgs/msg/AccelWithCovarianceStamped.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/geometry_msgs/msg/Inertia.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/geometry_msgs/msg/InertiaStamped.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/geometry_msgs/msg/Point.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/geometry_msgs/msg/Point32.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/geometry_msgs/msg/PointStamped.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/geometry_msgs/msg/Polygon.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/geometry_msgs/msg/PolygonInstance.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/geometry_msgs/msg/PolygonInstanceStamped.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/geometry_msgs/msg/PolygonStamped.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/geometry_msgs/msg/Pose.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/geometry_msgs/msg/Pose2D.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/geometry_msgs/msg/PoseArray.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/geometry_msgs/msg/PoseStamped.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/geometry_msgs/msg/PoseWithCovariance.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/geometry_msgs/msg/PoseWithCovarianceStamped.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/geometry_msgs/msg/Quaternion.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/geometry_msgs/msg/QuaternionStamped.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/geometry_msgs/msg/Transform.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/geometry_msgs/msg/TransformStamped.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/geometry_msgs/msg/Twist.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/geometry_msgs/msg/TwistStamped.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/geometry_msgs/msg/TwistWithCovariance.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/geometry_msgs/msg/TwistWithCovarianceStamped.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/geometry_msgs/msg/Vector3.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/geometry_msgs/msg/Vector3Stamped.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/geometry_msgs/msg/VelocityStamped.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/geometry_msgs/msg/Wrench.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/geometry_msgs/msg/WrenchStamped.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/std_msgs/msg/Bool.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/std_msgs/msg/Byte.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/std_msgs/msg/ByteMultiArray.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/std_msgs/msg/Char.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/std_msgs/msg/ColorRGBA.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/std_msgs/msg/Empty.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/std_msgs/msg/Float32.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/std_msgs/msg/Float32MultiArray.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/std_msgs/msg/Float64.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/std_msgs/msg/Float64MultiArray.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/std_msgs/msg/Header.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/std_msgs/msg/Int16.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/std_msgs/msg/Int16MultiArray.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/std_msgs/msg/Int32.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/std_msgs/msg/Int32MultiArray.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/std_msgs/msg/Int64.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/std_msgs/msg/Int64MultiArray.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/std_msgs/msg/Int8.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/std_msgs/msg/Int8MultiArray.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/std_msgs/msg/MultiArrayDimension.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/std_msgs/msg/MultiArrayLayout.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/std_msgs/msg/String.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/std_msgs/msg/UInt16.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/std_msgs/msg/UInt16MultiArray.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/std_msgs/msg/UInt32.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/std_msgs/msg/UInt32MultiArray.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/std_msgs/msg/UInt64.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/std_msgs/msg/UInt64MultiArray.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/std_msgs/msg/UInt8.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/std_msgs/msg/UInt8MultiArray.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/builtin_interfaces/msg/Duration.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/builtin_interfaces/msg/Time.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/action_msgs/msg/GoalInfo.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/action_msgs/msg/GoalStatus.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/action_msgs/msg/GoalStatusArray.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/action_msgs/srv/CancelGoal.idl
-rosidl_generator_c/custom_interfaces/action/pick_place.h: /opt/ros/humble/share/unique_identifier_msgs/msg/UUID.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/lib/rosidl_generator_c/rosidl_generator_c
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/local/lib/python3.10/dist-packages/rosidl_generator_c/__init__.py
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/rosidl_generator_c/resource/action__type_support.h.em
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/rosidl_generator_c/resource/idl.h.em
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/rosidl_generator_c/resource/idl__functions.c.em
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/rosidl_generator_c/resource/idl__functions.h.em
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/rosidl_generator_c/resource/idl__struct.h.em
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/rosidl_generator_c/resource/idl__type_support.h.em
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/rosidl_generator_c/resource/msg__functions.c.em
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/rosidl_generator_c/resource/msg__functions.h.em
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/rosidl_generator_c/resource/msg__struct.h.em
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/rosidl_generator_c/resource/msg__type_support.h.em
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/rosidl_generator_c/resource/srv__type_support.h.em
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: rosidl_adapter/custom_interfaces/action/MoveTCP.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: rosidl_adapter/custom_interfaces/action/GripperCommand.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/geometry_msgs/msg/Accel.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/geometry_msgs/msg/AccelStamped.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/geometry_msgs/msg/AccelWithCovariance.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/geometry_msgs/msg/AccelWithCovarianceStamped.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/geometry_msgs/msg/Inertia.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/geometry_msgs/msg/InertiaStamped.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/geometry_msgs/msg/Point.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/geometry_msgs/msg/Point32.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/geometry_msgs/msg/PointStamped.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/geometry_msgs/msg/Polygon.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/geometry_msgs/msg/PolygonInstance.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/geometry_msgs/msg/PolygonInstanceStamped.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/geometry_msgs/msg/PolygonStamped.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/geometry_msgs/msg/Pose.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/geometry_msgs/msg/Pose2D.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/geometry_msgs/msg/PoseArray.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/geometry_msgs/msg/PoseStamped.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/geometry_msgs/msg/PoseWithCovariance.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/geometry_msgs/msg/PoseWithCovarianceStamped.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/geometry_msgs/msg/Quaternion.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/geometry_msgs/msg/QuaternionStamped.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/geometry_msgs/msg/Transform.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/geometry_msgs/msg/TransformStamped.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/geometry_msgs/msg/Twist.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/geometry_msgs/msg/TwistStamped.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/geometry_msgs/msg/TwistWithCovariance.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/geometry_msgs/msg/TwistWithCovarianceStamped.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/geometry_msgs/msg/Vector3.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/geometry_msgs/msg/Vector3Stamped.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/geometry_msgs/msg/VelocityStamped.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/geometry_msgs/msg/Wrench.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/geometry_msgs/msg/WrenchStamped.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/std_msgs/msg/Bool.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/std_msgs/msg/Byte.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/std_msgs/msg/ByteMultiArray.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/std_msgs/msg/Char.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/std_msgs/msg/ColorRGBA.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/std_msgs/msg/Empty.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/std_msgs/msg/Float32.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/std_msgs/msg/Float32MultiArray.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/std_msgs/msg/Float64.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/std_msgs/msg/Float64MultiArray.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/std_msgs/msg/Header.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/std_msgs/msg/Int16.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/std_msgs/msg/Int16MultiArray.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/std_msgs/msg/Int32.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/std_msgs/msg/Int32MultiArray.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/std_msgs/msg/Int64.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/std_msgs/msg/Int64MultiArray.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/std_msgs/msg/Int8.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/std_msgs/msg/Int8MultiArray.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/std_msgs/msg/MultiArrayDimension.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/std_msgs/msg/MultiArrayLayout.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/std_msgs/msg/String.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/std_msgs/msg/UInt16.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/std_msgs/msg/UInt16MultiArray.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/std_msgs/msg/UInt32.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/std_msgs/msg/UInt32MultiArray.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/std_msgs/msg/UInt64.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/std_msgs/msg/UInt64MultiArray.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/std_msgs/msg/UInt8.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/std_msgs/msg/UInt8MultiArray.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/builtin_interfaces/msg/Duration.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/builtin_interfaces/msg/Time.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/action_msgs/msg/GoalInfo.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/action_msgs/msg/GoalStatus.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/action_msgs/msg/GoalStatusArray.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/action_msgs/srv/CancelGoal.idl
+rosidl_generator_c/custom_interfaces/action/move_tcp.h: /opt/ros/humble/share/unique_identifier_msgs/msg/UUID.idl
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --blue --bold --progress-dir=/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Generating C code for ROS interfaces"
 	/usr/bin/python3 /opt/ros/humble/share/rosidl_generator_c/cmake/../../../lib/rosidl_generator_c/rosidl_generator_c --generator-arguments-file /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_c__arguments.json
 
-rosidl_generator_c/custom_interfaces/action/detail/pick_place__functions.h: rosidl_generator_c/custom_interfaces/action/pick_place.h
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/custom_interfaces/action/detail/pick_place__functions.h
+rosidl_generator_c/custom_interfaces/action/detail/move_tcp__functions.h: rosidl_generator_c/custom_interfaces/action/move_tcp.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/custom_interfaces/action/detail/move_tcp__functions.h
 
-rosidl_generator_c/custom_interfaces/action/detail/pick_place__struct.h: rosidl_generator_c/custom_interfaces/action/pick_place.h
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/custom_interfaces/action/detail/pick_place__struct.h
+rosidl_generator_c/custom_interfaces/action/detail/move_tcp__struct.h: rosidl_generator_c/custom_interfaces/action/move_tcp.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/custom_interfaces/action/detail/move_tcp__struct.h
 
-rosidl_generator_c/custom_interfaces/action/detail/pick_place__type_support.h: rosidl_generator_c/custom_interfaces/action/pick_place.h
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/custom_interfaces/action/detail/pick_place__type_support.h
+rosidl_generator_c/custom_interfaces/action/detail/move_tcp__type_support.h: rosidl_generator_c/custom_interfaces/action/move_tcp.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/custom_interfaces/action/detail/move_tcp__type_support.h
 
-rosidl_generator_c/custom_interfaces/action/detail/pick_place__functions.c: rosidl_generator_c/custom_interfaces/action/pick_place.h
-	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/custom_interfaces/action/detail/pick_place__functions.c
+rosidl_generator_c/custom_interfaces/action/gripper_command.h: rosidl_generator_c/custom_interfaces/action/move_tcp.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/custom_interfaces/action/gripper_command.h
 
-CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/pick_place__functions.c.o: CMakeFiles/custom_interfaces__rosidl_generator_c.dir/flags.make
-CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/pick_place__functions.c.o: rosidl_generator_c/custom_interfaces/action/detail/pick_place__functions.c
-CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/pick_place__functions.c.o: CMakeFiles/custom_interfaces__rosidl_generator_c.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/pick_place__functions.c.o"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/pick_place__functions.c.o -MF CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/pick_place__functions.c.o.d -o CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/pick_place__functions.c.o -c /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_c/custom_interfaces/action/detail/pick_place__functions.c
+rosidl_generator_c/custom_interfaces/action/detail/gripper_command__functions.h: rosidl_generator_c/custom_interfaces/action/move_tcp.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/custom_interfaces/action/detail/gripper_command__functions.h
 
-CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/pick_place__functions.c.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/pick_place__functions.c.i"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_c/custom_interfaces/action/detail/pick_place__functions.c > CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/pick_place__functions.c.i
+rosidl_generator_c/custom_interfaces/action/detail/gripper_command__struct.h: rosidl_generator_c/custom_interfaces/action/move_tcp.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/custom_interfaces/action/detail/gripper_command__struct.h
 
-CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/pick_place__functions.c.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/pick_place__functions.c.s"
-	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_c/custom_interfaces/action/detail/pick_place__functions.c -o CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/pick_place__functions.c.s
+rosidl_generator_c/custom_interfaces/action/detail/gripper_command__type_support.h: rosidl_generator_c/custom_interfaces/action/move_tcp.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/custom_interfaces/action/detail/gripper_command__type_support.h
+
+rosidl_generator_c/custom_interfaces/action/detail/move_tcp__functions.c: rosidl_generator_c/custom_interfaces/action/move_tcp.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/custom_interfaces/action/detail/move_tcp__functions.c
+
+rosidl_generator_c/custom_interfaces/action/detail/gripper_command__functions.c: rosidl_generator_c/custom_interfaces/action/move_tcp.h
+	@$(CMAKE_COMMAND) -E touch_nocreate rosidl_generator_c/custom_interfaces/action/detail/gripper_command__functions.c
+
+CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/move_tcp__functions.c.o: CMakeFiles/custom_interfaces__rosidl_generator_c.dir/flags.make
+CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/move_tcp__functions.c.o: rosidl_generator_c/custom_interfaces/action/detail/move_tcp__functions.c
+CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/move_tcp__functions.c.o: CMakeFiles/custom_interfaces__rosidl_generator_c.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/move_tcp__functions.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/move_tcp__functions.c.o -MF CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/move_tcp__functions.c.o.d -o CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/move_tcp__functions.c.o -c /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_c/custom_interfaces/action/detail/move_tcp__functions.c
+
+CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/move_tcp__functions.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/move_tcp__functions.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_c/custom_interfaces/action/detail/move_tcp__functions.c > CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/move_tcp__functions.c.i
+
+CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/move_tcp__functions.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/move_tcp__functions.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_c/custom_interfaces/action/detail/move_tcp__functions.c -o CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/move_tcp__functions.c.s
+
+CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/gripper_command__functions.c.o: CMakeFiles/custom_interfaces__rosidl_generator_c.dir/flags.make
+CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/gripper_command__functions.c.o: rosidl_generator_c/custom_interfaces/action/detail/gripper_command__functions.c
+CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/gripper_command__functions.c.o: CMakeFiles/custom_interfaces__rosidl_generator_c.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/gripper_command__functions.c.o"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/gripper_command__functions.c.o -MF CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/gripper_command__functions.c.o.d -o CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/gripper_command__functions.c.o -c /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_c/custom_interfaces/action/detail/gripper_command__functions.c
+
+CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/gripper_command__functions.c.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing C source to CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/gripper_command__functions.c.i"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_c/custom_interfaces/action/detail/gripper_command__functions.c > CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/gripper_command__functions.c.i
+
+CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/gripper_command__functions.c.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling C source to assembly CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/gripper_command__functions.c.s"
+	/usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_c/custom_interfaces/action/detail/gripper_command__functions.c -o CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/gripper_command__functions.c.s
 
 # Object files for target custom_interfaces__rosidl_generator_c
 custom_interfaces__rosidl_generator_c_OBJECTS = \
-"CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/pick_place__functions.c.o"
+"CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/move_tcp__functions.c.o" \
+"CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/gripper_command__functions.c.o"
 
 # External object files for target custom_interfaces__rosidl_generator_c
 custom_interfaces__rosidl_generator_c_EXTERNAL_OBJECTS =
 
-libcustom_interfaces__rosidl_generator_c.so: CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/pick_place__functions.c.o
+libcustom_interfaces__rosidl_generator_c.so: CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/move_tcp__functions.c.o
+libcustom_interfaces__rosidl_generator_c.so: CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/gripper_command__functions.c.o
 libcustom_interfaces__rosidl_generator_c.so: CMakeFiles/custom_interfaces__rosidl_generator_c.dir/build.make
 libcustom_interfaces__rosidl_generator_c.so: /opt/ros/humble/lib/libgeometry_msgs__rosidl_generator_c.so
 libcustom_interfaces__rosidl_generator_c.so: /opt/ros/humble/lib/libstd_msgs__rosidl_generator_c.so
@@ -198,7 +230,7 @@ libcustom_interfaces__rosidl_generator_c.so: /opt/ros/humble/lib/libbuiltin_inte
 libcustom_interfaces__rosidl_generator_c.so: /opt/ros/humble/lib/librosidl_runtime_c.so
 libcustom_interfaces__rosidl_generator_c.so: /opt/ros/humble/lib/librcutils.so
 libcustom_interfaces__rosidl_generator_c.so: CMakeFiles/custom_interfaces__rosidl_generator_c.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Linking C shared library libcustom_interfaces__rosidl_generator_c.so"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C shared library libcustom_interfaces__rosidl_generator_c.so"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/custom_interfaces__rosidl_generator_c.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -209,11 +241,16 @@ CMakeFiles/custom_interfaces__rosidl_generator_c.dir/clean:
 	$(CMAKE_COMMAND) -P CMakeFiles/custom_interfaces__rosidl_generator_c.dir/cmake_clean.cmake
 .PHONY : CMakeFiles/custom_interfaces__rosidl_generator_c.dir/clean
 
-CMakeFiles/custom_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/custom_interfaces/action/detail/pick_place__functions.c
-CMakeFiles/custom_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/custom_interfaces/action/detail/pick_place__functions.h
-CMakeFiles/custom_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/custom_interfaces/action/detail/pick_place__struct.h
-CMakeFiles/custom_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/custom_interfaces/action/detail/pick_place__type_support.h
-CMakeFiles/custom_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/custom_interfaces/action/pick_place.h
+CMakeFiles/custom_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/custom_interfaces/action/detail/gripper_command__functions.c
+CMakeFiles/custom_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/custom_interfaces/action/detail/gripper_command__functions.h
+CMakeFiles/custom_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/custom_interfaces/action/detail/gripper_command__struct.h
+CMakeFiles/custom_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/custom_interfaces/action/detail/gripper_command__type_support.h
+CMakeFiles/custom_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/custom_interfaces/action/detail/move_tcp__functions.c
+CMakeFiles/custom_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/custom_interfaces/action/detail/move_tcp__functions.h
+CMakeFiles/custom_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/custom_interfaces/action/detail/move_tcp__struct.h
+CMakeFiles/custom_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/custom_interfaces/action/detail/move_tcp__type_support.h
+CMakeFiles/custom_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/custom_interfaces/action/gripper_command.h
+CMakeFiles/custom_interfaces__rosidl_generator_c.dir/depend: rosidl_generator_c/custom_interfaces/action/move_tcp.h
 	cd /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ryanl/4231/MTRN4231_Project/src/custom_interfaces /home/ryanl/4231/MTRN4231_Project/src/custom_interfaces /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/CMakeFiles/custom_interfaces__rosidl_generator_c.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/custom_interfaces__rosidl_generator_c.dir/depend
 

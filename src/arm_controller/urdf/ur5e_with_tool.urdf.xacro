@@ -1,28 +1,55 @@
 <?xml version="1.0"?>
-<robot name="ur5e_with_tool" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="ur5e_with_tool">
 
+  <!-- Define PROPERTIES so the vendor xacro sees them BEFORE include -->
+  <xacro:property name="name"    value="ur5e"/>
+  <xacro:property name="ur_type" value="ur5e"/>
+
+  <!-- Other knobs as properties -->
+  <xacro:property name="prefix" value=""/>
+  <xacro:property name="use_fake_hardware" value="true"/>
+  <xacro:property name="robot_ip" value=""/>
+  <xacro:property name="kinematics_parameters_file" value=""/>
+  <xacro:property name="visual_parameters_file"     value=""/>
+
+  <!-- Include UR vendor macros (Humble supports $(find ...)) -->
   <xacro:include filename="$(find ur_description)/urdf/ur.urdf.xacro"/>
 
+  <!-- Instantiate the macro (NORMAL XML attributes; no ':=') -->
   <xacro:ur_robot
-      name="ur5e"
-      ur_type="ur5e"
-      prefix=""
-      joint_limited="false"
+      name="${name}"
+      ur_type="${ur_type}"
+      prefix="${prefix}"
+      use_fake_hardware="${use_fake_hardware}"
+      robot_ip="${robot_ip}"
       safety_limits="true"
       safety_pos_margin="0.15"
       safety_k_position="20"
-      use_fake_hardware="true"
-      kinematics_params_file="$(find ur_description)/config/ur5e/default_kinematics.yaml"
-      visual_parameters_config_file="$(find ur_description)/config/ur5e/visual_parameters.yaml">
+      kinematics_parameters_file="${kinematics_parameters_file}"
+      visual_parameters_file="${visual_parameters_file}">
 
-    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <!-- simple fixed box as the gripper attached to tool0 -->
+    <link name="simple_gripper_link">
+      <visual>
+        <geometry><box size="0.04 0.04 0.10"/></geometry>
+        <origin xyz="0 0 0.05" rpy="0 0 0"/>
+      </visual>
+      <collision>
+        <geometry><box size="0.04 0.04 0.10"/></geometry>
+        <origin xyz="0 0 0.05" rpy="0 0 0"/>
+      </collision>
+      <inertial>
+        <origin xyz="0 0 0.05" rpy="0 0 0"/>
+        <mass value="0.2"/>
+        <inertia ixx="1e-4" iyy="1e-4" izz="1e-4" ixy="0" ixz="0" iyz="0"/>
+      </inertial>
+    </link>
+
+    <joint name="tool0_to_gripper" type="fixed">
+      <parent link="${prefix}tool0"/>
+      <child  link="simple_gripper_link"/>
+      <origin xyz="0 0 0" rpy="0 0 0"/>
+    </joint>
+
   </xacro:ur_robot>
-
-  <!-- Your TCP -->
-  <link name="tool0"/>
-  <joint name="wrist_3_to_tool0" type="fixed">
-    <parent link="wrist_3_link"/>
-    <origin xyz="0.10 0 0" rpy="0 -1.57079632679 0"/>
-    <child link="tool0"/>
-  </joint>
 </robot>

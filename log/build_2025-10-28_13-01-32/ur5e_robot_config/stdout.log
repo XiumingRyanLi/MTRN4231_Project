@@ -1,5 +1,0 @@
--- Install configuration: ""
--- Execute custom install script
--- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/ur5e_robot_config/share/ur5e_robot_config/config/controllers.yaml
--- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/ur5e_robot_config/share/ur5e_robot_config/launch/bringup.launch.py
--- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/ur5e_robot_config/share/ur5e_robot_config/launch/fake_control_and_rsp.launch.py

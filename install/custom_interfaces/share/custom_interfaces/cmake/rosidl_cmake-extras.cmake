@@ -1,4 +1,1 @@
-# generated from rosidl_cmake/cmake/rosidl_cmake-extras.cmake.in
-
-set(custom_interfaces_IDL_FILES "action/PickPlace.idl")
-set(custom_interfaces_INTERFACE_FILES "action/PickPlace.action")
+/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_cmake/rosidl_cmake-extras.cmake

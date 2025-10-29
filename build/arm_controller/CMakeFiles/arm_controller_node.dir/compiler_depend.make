@@ -1437,23 +1437,28 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
   /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/planning_scene.hpp \
   /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/planning_scene__builder.hpp \
   /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/planning_scene__type_support.hpp \
-  /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/pick_place.hpp \
-  /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/detail/pick_place__struct.hpp \
-  /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/detail/pick_place__builder.hpp \
-  /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/detail/pick_place__traits.hpp \
-  /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/detail/pick_place__type_support.hpp \
-  /home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp
+  /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/action/move_tcp.hpp \
+  /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/action/detail/move_tcp__struct.hpp \
+  /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/action/detail/move_tcp__builder.hpp \
+  /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/action/detail/move_tcp__traits.hpp \
+  /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/action/detail/move_tcp__type_support.hpp \
+  /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp \
+  /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/action/gripper_command.hpp \
+  /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/action/detail/gripper_command__struct.hpp \
+  /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/action/detail/gripper_command__builder.hpp \
+  /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/action/detail/gripper_command__traits.hpp \
+  /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/action/detail/gripper_command__type_support.hpp
 
 
-/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp:
+/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/action/detail/gripper_command__builder.hpp:
 
-/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/detail/pick_place__type_support.hpp:
+/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/action/detail/gripper_command__struct.hpp:
 
-/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/detail/pick_place__traits.hpp:
+/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/action/gripper_command.hpp:
 
-/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/detail/pick_place__builder.hpp:
+/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp:
 
-/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/detail/pick_place__struct.hpp:
+/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/action/move_tcp.hpp:
 
 /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/planning_scene__type_support.hpp:
 
@@ -1474,8 +1479,6 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/object_color__type_support.hpp:
 
 /opt/ros/humble/include/moveit/planning_scene_interface/planning_scene_interface.h:
-
-/home/ryanl/4231/MTRN4231_Project/install/arm_interfaces/include/arm_interfaces/arm_interfaces/action/pick_place.hpp:
 
 /opt/ros/humble/include/moveit_msgs/moveit_msgs/action/detail/execute_trajectory__builder.hpp:
 
@@ -2723,6 +2726,8 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 
 /usr/include/unistd.h:
 
+/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/action/detail/move_tcp__traits.hpp:
+
 /opt/ros/humble/include/rcl/rcl/timer.h:
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/velocity_stamped__builder.hpp:
@@ -3019,6 +3024,8 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 
 /usr/include/asm-generic/errno.h:
 
+/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/action/detail/move_tcp__builder.hpp:
+
 /usr/include/c++/11/complex:
 
 /opt/ros/humble/include/rmw/rmw/subscription_options.h:
@@ -3196,6 +3203,8 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 /usr/include/sched.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h:
+
+/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/action/detail/gripper_command__traits.hpp:
 
 /usr/include/c++/11/bits/ptr_traits.h:
 
@@ -3512,6 +3521,8 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/describe_parameters__builder.hpp:
 
 /usr/include/boost/mpl/aux_/na.hpp:
+
+/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/action/detail/gripper_command__type_support.hpp:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/get_parameter_types.hpp:
 
@@ -3873,6 +3884,8 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist__struct.hpp:
 
+/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/action/detail/move_tcp__type_support.hpp:
+
 /usr/include/boost/random/detail/const_mod.hpp:
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/velocity_stamped__traits.hpp:
@@ -4032,6 +4045,8 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/planning_scene_world__struct.hpp:
 
 /usr/include/boost/config/platform/linux.hpp:
+
+/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/action/detail/move_tcp__struct.hpp:
 
 /opt/ros/humble/include/rclcpp/rclcpp/subscription.hpp:
 

@@ -1,0 +1,13 @@
+# Goal
+bool    close        # true=close, false=open
+float64 effort       # N (0.0 if not used)
+
+---
+# Result
+bool   success
+string message
+
+---
+# Feedback
+float64 progress_percent
+string  stage
