@@ -1,10 +1,14 @@
-/home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/launch/auxiliary.launch.py
 /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/launch/display.launch.py
+/home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/launch/display_ee.launch.py
 /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/rviz/default.rviz
+/home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/rviz/ee.rviz
 /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/rviz/end_effector_only.rviz
 /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/rviz/end_effector_withModel.rviz
+/home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/urdf/end_effector.urdf.xacro
+/home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/urdf/end_effector.xacro
+/home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/urdf/end_effector_standalone.urdf.xacro
 /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/urdf/end_effector_withDriverSupport.xacro
-/home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/etc/robot_calibration.yaml
+/home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/meshes/claw_assembly.stl
 /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/ament_index/resource_index/package_run_dependencies/end_effector_description
 /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/ament_index/resource_index/parent_prefix_path/end_effector_description
 /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/environment/ament_prefix_path.sh

@@ -310,8 +310,8 @@ message(STATUS "Execute custom install script")
 
 # begin of custom install code
 
-# install(DIRECTORY "launch" "rviz" "urdf" "etc" "DESTINATION" "share/end_effector_description")
-ament_cmake_symlink_install_directory("/home/ryanl/4231/MTRN4231_Project/src/end_effector_description" DIRECTORY "launch" "rviz" "urdf" "etc" "DESTINATION" "share/end_effector_description")
+# install(DIRECTORY "launch" "rviz" "urdf" "meshes" "DESTINATION" "share/end_effector_description")
+ament_cmake_symlink_install_directory("/home/ryanl/4231/MTRN4231_Project/src/end_effector_description" DIRECTORY "launch" "rviz" "urdf" "meshes" "DESTINATION" "share/end_effector_description")
 
 # install(FILES "/home/ryanl/4231/MTRN4231_Project/build/end_effector_description/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/end_effector_description" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")
 ament_cmake_symlink_install_files("/home/ryanl/4231/MTRN4231_Project/src/end_effector_description" FILES "/home/ryanl/4231/MTRN4231_Project/build/end_effector_description/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/end_effector_description" "DESTINATION" "share/ament_index/resource_index/package_run_dependencies")

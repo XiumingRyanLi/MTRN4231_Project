@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<!-- Standalone viewer for the end effector -->
+<robot name="end_effector_standalone" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- Include the macro file from THIS package (ROS 2 style include) -->
+  <xacro:include filename="$(find-pkg-share end_effector_description)/urdf/end_effector.urdf.xacro"/>
+
+  <!-- Dummy base so we can view the EE alone -->
+  <link name="ee_root_link"/>
+
+  <!-- Instantiate the EE macro exactly like your working example -->
+  <xacro:end_effector prefix="" parent="ee_root_link">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:end_effector>
+
+</robot>

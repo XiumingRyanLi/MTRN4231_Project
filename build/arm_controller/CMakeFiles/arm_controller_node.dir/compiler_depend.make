@@ -860,6 +860,9 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
   /opt/ros/humble/include/tf2/tf2/LinearMath/Vector3.hpp \
   /opt/ros/humble/include/tf2_ros/tf2_ros/buffer_interface.h \
   /opt/ros/humble/include/tf2_ros/tf2_ros/visibility_control.h \
+  /opt/ros/humble/include/tf2/tf2/LinearMath/Quaternion.h \
+  /opt/ros/humble/include/tf2/tf2/LinearMath/Matrix3x3.h \
+  /opt/ros/humble/include/tf2/tf2/LinearMath/Matrix3x3.hpp \
   /opt/ros/humble/include/tf2_ros/tf2_ros/transform_listener.h \
   /opt/ros/humble/include/tf2/tf2/buffer_core.hpp \
   /opt/ros/humble/include/tf2/tf2/LinearMath/Transform.hpp \
@@ -1437,28 +1440,22 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
   /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/planning_scene.hpp \
   /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/planning_scene__builder.hpp \
   /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/planning_scene__type_support.hpp \
+  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/orientation_constraint.hpp \
+  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/orientation_constraint__builder.hpp \
+  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/orientation_constraint__type_support.hpp \
   /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/action/move_tcp.hpp \
   /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/action/detail/move_tcp__struct.hpp \
   /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/action/detail/move_tcp__builder.hpp \
   /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/action/detail/move_tcp__traits.hpp \
   /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/action/detail/move_tcp__type_support.hpp \
-  /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp \
-  /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/action/gripper_command.hpp \
-  /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/action/detail/gripper_command__struct.hpp \
-  /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/action/detail/gripper_command__builder.hpp \
-  /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/action/detail/gripper_command__traits.hpp \
-  /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/action/detail/gripper_command__type_support.hpp
+  /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp
 
-
-/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/action/detail/gripper_command__builder.hpp:
-
-/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/action/detail/gripper_command__struct.hpp:
-
-/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/action/gripper_command.hpp:
 
 /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp:
 
 /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/action/move_tcp.hpp:
+
+/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/orientation_constraint.hpp:
 
 /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/planning_scene__type_support.hpp:
 
@@ -1603,6 +1600,8 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 /opt/ros/humble/include/trajectory_msgs/trajectory_msgs/msg/detail/multi_dof_joint_trajectory_point__struct.hpp:
 
 /opt/ros/humble/include/trajectory_msgs/trajectory_msgs/msg/detail/multi_dof_joint_trajectory__struct.hpp:
+
+/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/orientation_constraint__builder.hpp:
 
 /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/robot_trajectory__struct.hpp:
 
@@ -1819,6 +1818,8 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 /usr/include/eigen3/Eigen/src/plugins/ReshapedMethods.h:
 
 /usr/include/eigen3/Eigen/src/plugins/IndexedViewMethods.h:
+
+/usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h:
 
 /opt/ros/humble/include/libstatistics_collector/libstatistics_collector/topic_statistics_collector/constants.hpp:
 
@@ -2074,6 +2075,8 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 
 /opt/ros/humble/include/rcpputils/rcpputils/scope_exit.hpp:
 
+/opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/orientation_constraint__type_support.hpp:
+
 /opt/ros/humble/include/rcl/rcl/event.h:
 
 /opt/ros/humble/include/rosidl_runtime_cpp/rosidl_runtime_cpp/service_type_support_decl.hpp:
@@ -2249,8 +2252,6 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 /opt/ros/humble/include/rclcpp/rclcpp/create_generic_publisher.hpp:
 
 /opt/ros/humble/include/rmw/rmw/localhost.h:
-
-/opt/ros/humble/include/rmw/rmw/domain_id.h:
 
 /opt/ros/humble/include/rmw/rmw/init_options.h:
 
@@ -2445,6 +2446,10 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 /usr/include/boost/type_traits/is_unsigned.hpp:
 
 /usr/include/c++/11/bits/shared_ptr_base.h:
+
+/opt/ros/humble/include/rmw/rmw/domain_id.h:
+
+/opt/ros/humble/include/tf2/tf2/LinearMath/Matrix3x3.h:
 
 /usr/include/c++/11/bits/basic_string.h:
 
@@ -2984,6 +2989,10 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 
 /usr/include/c++/11/bits/std_thread.h:
 
+/usr/include/eigen3/Eigen/src/plugins/BlockMethods.h:
+
+/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp:
+
 /usr/include/x86_64-linux-gnu/bits/wordsize.h:
 
 /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/quaternion_stamped__traits.hpp:
@@ -3203,8 +3212,6 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 /usr/include/sched.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/sigevent_t.h:
-
-/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/action/detail/gripper_command__traits.hpp:
 
 /usr/include/c++/11/bits/ptr_traits.h:
 
@@ -3521,8 +3528,6 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/detail/describe_parameters__builder.hpp:
 
 /usr/include/boost/mpl/aux_/na.hpp:
-
-/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_cpp/custom_interfaces/action/detail/gripper_command__type_support.hpp:
 
 /opt/ros/humble/include/rcl_interfaces/rcl_interfaces/srv/get_parameter_types.hpp:
 
@@ -3970,6 +3975,8 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 
 /opt/ros/humble/include/tf2_ros/tf2_ros/visibility_control.h:
 
+/opt/ros/humble/include/tf2/tf2/LinearMath/Quaternion.h:
+
 /opt/ros/humble/include/tf2_ros/tf2_ros/transform_listener.h:
 
 /usr/include/eigen3/Eigen/src/Core/arch/SSE/Complex.h:
@@ -4302,8 +4309,6 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 
 /usr/include/eigen3/Eigen/src/Core/functors/BinaryFunctors.h:
 
-/usr/include/eigen3/Eigen/src/plugins/CommonCwiseUnaryOps.h:
-
 /usr/include/eigen3/Eigen/src/Core/products/SelfadjointMatrixVector.h:
 
 /usr/include/eigen3/Eigen/src/Core/functors/StlFunctors.h:
@@ -4319,7 +4324,3 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/42
 /usr/include/eigen3/Eigen/src/Core/ArithmeticSequence.h:
 
 /usr/include/eigen3/Eigen/src/Core/IO.h:
-
-/opt/ros/humble/include/rcl_interfaces/rcl_interfaces/msg/rosidl_generator_cpp__visibility_control.hpp:
-
-/usr/include/eigen3/Eigen/src/plugins/BlockMethods.h:

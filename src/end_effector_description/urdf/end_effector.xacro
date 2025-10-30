@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<robot name="end_effector_standalone" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- Humble: $(find ...) is OK -->
+  <xacro:include filename="$(find end_effector_description)/urdf/end_effector.urdf.xacro"/>
+
+  <!-- Dummy base to view it alone -->
+  <link name="ee_root_link"/>
+
+  <!-- Instantiate the macro (prefix is defined here!) -->
+  <xacro:end_effector prefix="" parent="ee_root_link">
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </xacro:end_effector>
+</robot>

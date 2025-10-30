@@ -1,0 +1,11 @@
+Visualization Manager:
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Enabled: true
+  Global Options:
+    Fixed Frame: ee_root_link
+  Displays:
+    - Class: rviz_default_plugins/RobotModel
+      Enabled: true
+      Description Source: Topic
+      Description Topic: /robot_description

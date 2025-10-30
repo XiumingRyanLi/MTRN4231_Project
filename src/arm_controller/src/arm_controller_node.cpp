@@ -1,23 +1,28 @@
 #include <memory>
 #include <thread>
 #include <string>
+#include <chrono>
 
 #include <rclcpp/rclcpp.hpp>
 #include <rclcpp_action/rclcpp_action.hpp>
 
 #include <geometry_msgs/msg/pose_stamped.hpp>
 #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
+#include <tf2/LinearMath/Quaternion.h>
+#include <tf2/LinearMath/Matrix3x3.h>
 #include <tf2_ros/transform_listener.h>
 #include <tf2_ros/buffer.h>
 
 #include <moveit/move_group_interface/move_group_interface.h>
 #include <moveit/planning_scene_interface/planning_scene_interface.h>
+#include <moveit_msgs/msg/constraints.hpp>
+#include <moveit_msgs/msg/orientation_constraint.hpp>
 
 #include "custom_interfaces/action/move_tcp.hpp"
-#include "custom_interfaces/action/gripper_command.hpp"
 
 using custom_interfaces::action::MoveTCP;
 namespace rca = rclcpp_action;
+using namespace std::chrono_literals;
 
 class ArmController : public rclcpp::Node {
 public:
@@ -26,7 +31,7 @@ public:
   ArmController()
   : rclcpp::Node("arm_controller")
   {
-    // ---- Parameters
+    // ---- Parameters (safe in ctor)
     planning_group_ = this->declare_parameter<std::string>("planning_group", "manipulator");
     base_frame_     = this->declare_parameter<std::string>("base_frame",     "base_link");
     tcp_link_       = this->declare_parameter<std::string>("tcp_link",       "tool0");
@@ -34,34 +39,54 @@ public:
     acc_scale_      = this->declare_parameter<double>("acc_scale",           0.2);
     approach_dz_    = this->declare_parameter<double>("approach_dz",         0.10);
     planner_id_     = this->declare_parameter<std::string>("planner_id",     "");
+    keep_yaw_       = this->declare_parameter<bool>("keep_yaw",              false);
+    use_path_constraint_ = this->declare_parameter<bool>("use_orientation_constraint", true);
+    tol_x_          = this->declare_parameter<double>("oc_tol_x",            0.15);
+    tol_y_          = this->declare_parameter<double>("oc_tol_y",            0.15);
+    tol_z_          = this->declare_parameter<double>("oc_tol_z",            0.50);
+    oc_weight_      = this->declare_parameter<double>("oc_weight",           1.0);
 
-    // ---- TF: construct AFTER node exists; use shared_ptrs
+    // ---- Defer everything that needs shared_from_this()
+    init_timer_ = this->create_wall_timer(
+      10ms, [this] {
+        if (initialized_) return;
+        initialized_ = true;
+        this->late_init();
+      });
+  }
+
+private:
+  void late_init() {
+    // We are now safely owned by a shared_ptr
+    auto node = this->shared_from_this();
+
+    // TF
     tf_buffer_   = std::make_shared<tf2_ros::Buffer>(this->get_clock());
     tf_listener_ = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
 
-    // ---- MoveIt interface
+    // MoveIt interface
     move_group_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(
-      shared_from_this(), planning_group_);
+      node, planning_group_ /*, std::shared_ptr<tf2_ros::Buffer>(), rclcpp::Duration(5,0)*/);
     move_group_->setPoseReferenceFrame(base_frame_);
     move_group_->setEndEffectorLink(tcp_link_);
     move_group_->setMaxVelocityScalingFactor(vel_scale_);
     move_group_->setMaxAccelerationScalingFactor(acc_scale_);
     if (!planner_id_.empty()) move_group_->setPlannerId(planner_id_);
 
-    // ---- Action server
+    // Action server
     action_server_ = rca::create_server<MoveTCP>(
-      this,
+      node,
       "arm/pick_place",
       std::bind(&ArmController::handle_goal,     this, std::placeholders::_1, std::placeholders::_2),
       std::bind(&ArmController::handle_cancel,   this, std::placeholders::_1),
       std::bind(&ArmController::handle_accepted, this, std::placeholders::_1)
     );
 
-    RCLCPP_INFO(get_logger(), "ArmController ready — action: /arm/pick_place, group=%s, tcp=%s, base=%s",
-                planning_group_.c_str(), tcp_link_.c_str(), base_frame_.c_str());
+    RCLCPP_INFO(this->get_logger(),
+      "ArmController ready — action /arm/pick_place, group=%s, tcp=%s, base=%s (Z-down enforced)",
+      planning_group_.c_str(), tcp_link_.c_str(), base_frame_.c_str());
   }
 
-private:
   // ===== Action callbacks =====
   rca::GoalResponse handle_goal(const rclcpp_action::GoalUUID&,
                                 std::shared_ptr<const MoveTCP::Goal> /*goal*/) {
@@ -69,7 +94,7 @@ private:
   }
 
   rca::CancelResponse handle_cancel(const std::shared_ptr<GoalHandle> /*gh*/) {
-    move_group_->stop();
+    if (move_group_) move_group_->stop();
     RCLCPP_WARN(get_logger(), "Goal cancelled; stopping MoveIt.");
     return rca::CancelResponse::ACCEPT;
   }
@@ -80,9 +105,12 @@ private:
 
   // ===== Execution =====
   void execute(std::shared_ptr<GoalHandle> gh) {
-    const auto goal = gh->get_goal();
     auto result = std::make_shared<MoveTCP::Result>();
+    if (!move_group_) { result->success=false; result->message="MoveGroup not ready"; gh->abort(result); return; }
 
+    const auto goal = gh->get_goal();
+
+    // Transform to base
     geometry_msgs::msg::PoseStamped pick_in_base;
     if (!transform_to_base(goal->pick_pose, pick_in_base)) {
       result->success = false;
@@ -91,18 +119,52 @@ private:
       return;
     }
 
+    // Force Z-down (optionally preserve yaw)
+    pick_in_base.pose.orientation = tf2::toMsg(make_down_quat(pick_in_base.pose.orientation, keep_yaw_));
+
+    // Optional path constraint
+    if (use_path_constraint_) move_group_->setPathConstraints(make_down_constraint());
+    else                      move_group_->clearPathConstraints();
+
+    // Approach → descend → lift
     geometry_msgs::msg::Pose approach = pick_in_base.pose;
     approach.position.z += approach_dz_;
 
-    if (!plan_and_execute(approach, "approach_pick", gh)) { fail(gh, result, "approach_pick"); return; }
-    if (!plan_and_execute(pick_in_base.pose, "grasp", gh)) { fail(gh, result, "grasp"); return; }
-
+    if (!plan_and_execute(approach, "approach_pick", gh)) { return fail(gh, result, "approach_pick"); }
+    if (!plan_and_execute(pick_in_base.pose, "grasp", gh)) { return fail(gh, result, "grasp"); }
     geometry_msgs::msg::Pose lift = approach;
-    if (!plan_and_execute(lift, "lift", gh)) { fail(gh, result, "lift"); return; }
+    if (!plan_and_execute(lift, "lift", gh)) { return fail(gh, result, "lift"); }
 
+    move_group_->clearPathConstraints();
     result->success = true;
-    result->message = "Reached pick pose (approach, descend, lift complete)";
+    result->message = "Reached pick pose with tool facing down (approach/descend/lift)";
     gh->succeed(result);
+  }
+
+  // ===== Helpers =====
+  tf2::Quaternion make_down_quat(const geometry_msgs::msg::Quaternion& src, bool keep_yaw) {
+    tf2::Quaternion q_down; q_down.setRPY(0.0, M_PI, 0.0); // tool Z along -Z(base)
+    if (!keep_yaw) return q_down;
+
+    tf2::Quaternion q_src(src.x, src.y, src.z, src.w);
+    double r, p, y; tf2::Matrix3x3(q_src).getRPY(r, p, y);
+    tf2::Quaternion q_yaw; q_yaw.setRPY(0.0, 0.0, y);
+    return q_yaw * q_down; // down then yaw
+  }
+
+  moveit_msgs::msg::Constraints make_down_constraint() {
+    moveit_msgs::msg::Constraints c;
+    moveit_msgs::msg::OrientationConstraint oc;
+    oc.header.frame_id = base_frame_;
+    oc.link_name = tcp_link_;
+    tf2::Quaternion q_down; q_down.setRPY(0.0, M_PI, 0.0);
+    oc.orientation = tf2::toMsg(q_down);
+    oc.absolute_x_axis_tolerance = tol_x_;
+    oc.absolute_y_axis_tolerance = tol_y_;
+    oc.absolute_z_axis_tolerance = tol_z_;
+    oc.weight = oc_weight_;
+    c.orientation_constraints.push_back(oc);
+    return c;
   }
 
   bool plan_and_execute(const geometry_msgs::msg::Pose& target_pose,
@@ -163,10 +225,14 @@ private:
   std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_;
   std::string planning_group_, base_frame_, tcp_link_, planner_id_;
   double vel_scale_{0.2}, acc_scale_{0.2}, approach_dz_{0.1};
+  bool keep_yaw_{false}, use_path_constraint_{true};
+  double tol_x_{0.15}, tol_y_{0.15}, tol_z_{0.50}, oc_weight_{1.0};
 
   rca::Server<MoveTCP>::SharedPtr action_server_;
   std::shared_ptr<tf2_ros::Buffer> tf_buffer_;
   std::shared_ptr<tf2_ros::TransformListener> tf_listener_;
+  rclcpp::TimerBase::SharedPtr init_timer_;
+  bool initialized_{false};
 };
 
 int main(int argc, char** argv) {
