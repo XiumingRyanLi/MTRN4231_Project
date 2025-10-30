@@ -3,6 +3,8 @@ from sensor_msgs.msg import CompressedImage
 from std_msgs.msg import Int32
 from array import array
 import threading
+import random
+import collections
 import rclpy
 from rclpy.node import Node
 import chess
@@ -27,6 +29,7 @@ class ChessMaster(Node):
         self.srv = self.create_service(
             ChessMove, 'chess_move', self.service_callback)
 
+        self.banter_recent = collections.deque(maxlen=5)
         self.status_pub = self.create_publisher(String, 'status', 10)
         self.pub = self.create_publisher(CompressedImage, 'board_state', 10)
 
@@ -34,7 +37,26 @@ class ChessMaster(Node):
         self.engine.configure({"Skill Level": self.current_skill})
         self.skill_sub = self.create_subscription(Int32, 'skill_level', self.skill_callback, 10)
 
-        self.timer = self.create_timer(0.1, self.pub_callback)
+        self.timer = self.create_timer(2, self.pub_callback)
+        
+        # Banter pool
+        self.BANTERS = [
+            "Good move… for a human.",
+            "I’ve seen better blunders on beginner night.",
+            "You sure you didn’t mean to play that next turn?",
+            "That move had potential… just not in this universe.",
+            "I respect your creativity. The board doesn’t.",
+            "I didn’t know we were speedrunning checkmate.",
+            "My evaluation bar just facepalmed.",
+            "Even a fish can play better than you.",
+            "If this were bullet, you’d still be losing… faster.",
+            "Checkmate is not a suggestion, it’s a schedule.",
+            "Even your pieces look disappointed.",
+            "Checkmate incoming. Say your goodbyes.",
+            "I hope you like the taste of defeat — I seasoned it well.",
+            "You played well… right up until your second move.",
+            "My CPU is overheating from how bad that move was."
+        ]
 
     def pub_callback(self):
         with self.lock:
@@ -74,6 +96,7 @@ class ChessMaster(Node):
                 self.board = chess.Board(text)
                 self.get_logger().info("Board updated to given FEN!")
                 response.robot_move = "Board set"
+                self.status_publish("Board set to given FEN")
                 return response
 
             # Board reset check
@@ -81,14 +104,13 @@ class ChessMaster(Node):
                 self.board.reset()
                 response.robot_move = "Board reset"
                 self.get_logger().info("Board reset.")
+                self.status_publish("Board reset")
                 return response
 
             # Promotion check (for white only)
             if len(text) < 4:
                 response.robot_move = "Error: Invalid move format (e.g. use 'e2e4' or 'e7e8q' for promotion)"
-                msg = String()
-                msg.data = "Invalid move format (e.g. use 'e2e4' or 'e7e8q' for promotion)"
-                self.status_pub.publish(msg)
+                self.status_publish("Invalid move format (e.g. use 'e2e4')")
                 return response
 
             if len(text) == 4:
@@ -103,37 +125,24 @@ class ChessMaster(Node):
                 move = chess.Move.from_uci(text)
             except ValueError:
                 response.robot_move = "Error: Invalid move format (e.g. use 'e2e4' or 'e7e8q' for promotion)"
-                msg = String()
-                msg.data = "Invalid move format (e.g. use 'e2e4' or 'e7e8q' for promotion)"
-                self.status_pub.publish(msg)
+                self.status_publish("Invalid move format (e.g. use 'e2e4')")
                 return response
 
             if move not in self.board.legal_moves:
                 response.robot_move = 'Error: Illegal move in current state'
-                msg = String()
-                msg.data = 'Error: Illegal move in current state'
-                self.status_pub.publish(msg)
+                self.status_publish("Illegal move in current state")
                 return response
 
             self.board.push(move)
 
-            # Check if game is over
+            # Check if user checkmated bot
             if self.board.is_game_over():
-                outcome = self.board.outcome()
-                if outcome:
-                    response.robot_move = f"Game over: {outcome.result()} ({outcome.termination.name.lower()})"
-                    msg = String()
-                    msg.data = f"Game over: {outcome.result()} ({outcome.termination.name.lower()})"
-                    self.status_pub.publish(msg)
-                else:
-                    response.robot_move = "Game over"
-                    msg = String()
-                    msg.data = "Game over"
-                    self.status_pub.publish(msg)
+                response.robot_move = "Game over"
+                self.status_publish("whatever GG you were cheating anyway")
                 return response
 
             # Engine play next move
-            result = self.engine.play(self.board, chess.engine.Limit(time=1))
+            result = self.engine.play(self.board, chess.engine.Limit(time=2))
             best_move = result.move
 
             response.robot_move = best_move.uci()
@@ -154,6 +163,15 @@ class ChessMaster(Node):
                 response.is_promotion = True
 
             self.board.push(best_move)
+            
+            # Check if game is over
+            if self.board.is_checkmate():
+                response.robot_move = "Game Over!"
+                self.status_publish("HAHAHAHAHAHAHA YOU LOST L")
+                return response
+            
+            line = self._banter_unique_choice(self.BANTERS)
+            self.status_publish(line)
 
         return response
 
@@ -174,7 +192,20 @@ class ChessMaster(Node):
         except Exception:
             pass
         super().destroy_node()
+        
+    def _banter_unique_choice(self, pool):
+        # avoid repeating the last few lines
+        choices = [s for s in pool if s not in self.banter_recent]
+        if not choices:
+            choices = pool
+        pick = random.choice(choices)
+        self.banter_recent.append(pick)
+        return pick
 
+    def status_publish(self, str):
+        msg = String()
+        msg.data = str
+        self.status_pub.publish(msg)
 
 def main():
     rclpy.init()
