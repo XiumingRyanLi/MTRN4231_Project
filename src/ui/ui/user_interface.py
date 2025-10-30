@@ -1,11 +1,13 @@
 from interfaces.srv import ChessMove
 from std_msgs.msg import String
+from std_msgs.msg import Int32
 from sensor_msgs.msg import CompressedImage
 from PIL import Image, ImageTk
 import io
 import rclpy
 from rclpy.node import Node
 import tkinter as tk
+from tkinter import ttk
 from rclpy.executors import SingleThreadedExecutor
 
 
@@ -23,6 +25,8 @@ class UserInterface(tk.Tk):
         self.move_entry = tk.Entry(self, width=20)
         self.move_entry.pack()
 
+        self.move_entry.bind("<Return>", lambda event: self.on_send())
+
         frame = tk.Frame(self)
         frame.pack(pady=8)
         self.send_btn = tk.Button(
@@ -32,20 +36,32 @@ class UserInterface(tk.Tk):
             frame, text="Reset Board", command=self.reset_press)
         self.reset_btn.pack(side="left", padx=5)
 
-        # self.status = tk.Label(self, text="Ready.")
-        # self.status.pack(pady=4)
+        self.status_label = tk.Label(self)
+        self.status_label.pack(pady=4)
 
-        # self.is_capture = tk.Label(self, text="Is it a capture move?")
-        # self.is_capture.pack(pady=4)
+        sep = ttk.Separator(self, orient='horizontal')
+        sep.pack(fill="x", pady=10)
 
-        # self.is_castling = tk.Label(self, text="Is it castling?")
-        # self.is_castling.pack(pady=4)
+        lvl_frame = tk.Frame(self)
+        lvl_frame.pack(pady=(4, 10))
 
-        # self.is_en_passant = tk.Label(self, text="Is it an en passant?")
-        # self.is_en_passant.pack(pady=4)
+        tk.Label(lvl_frame, text="Engine Skill Level (0–20):").pack(side="left", padx=(0, 8))
 
-        # self.is_promotion = tk.Label(self, text="Is it promotion?")
-        # self.is_promotion.pack(pady=4)
+        # Create a variable to store the selected value
+        self.skill_var = tk.StringVar(value="20")  # default value
+
+        # Create dropdown list (Combobox)
+        self.skill_combo = ttk.Combobox(
+            lvl_frame,
+            textvariable=self.skill_var,
+            values=[str(i) for i in range(21)],
+            state="readonly",
+            width=4
+        )
+        self.skill_combo.pack(side="left")
+
+        # When user selects a value, call this function
+        self.skill_combo.bind("<<ComboboxSelected>>", self.on_skill_changed)
 
         self.board_label = tk.Label(self)
         self.board_label.pack(pady=(12, 8), fill="both", expand=True)
@@ -56,13 +72,14 @@ class UserInterface(tk.Tk):
         self.executor = SingleThreadedExecutor()
         self.executor.add_node(self.node)
 
-        # create chess master client
-        # self.client = self.node.create_client(ChessMove, 'chess_move')
-        # self.future = None
-        # self.req = ChessMove.Request()
-
         # create move publisher to task coordinator
         self.move_pub = self.node.create_publisher(String, 'move_finish', 10)
+
+        # create skill level publisher
+        self.skill_pub = self.node.create_publisher(Int32, 'skill_level', 10)
+
+        # create status subscriber
+        self.status_sub = self.node.create_subscription(String, 'status', self.status_callback, 10)
 
         # create board state subscriber
         self.sub = self.node.create_subscription(
@@ -87,6 +104,10 @@ class UserInterface(tk.Tk):
         self.board_label.image = tk_image  # prevent garbage collection
         self.send_btn.config(state="normal")
 
+    def status_callback(self, msg):
+        self.status_label.config(text=msg.data)
+        self.send_btn.config(state="normal")
+
     def on_send(self):
         # validate move input
         move = self.move_entry.get().strip()
@@ -107,37 +128,19 @@ class UserInterface(tk.Tk):
         self.move_pub.publish(msg)
         self.move_entry.delete(0, tk.END)
 
-    # def _spin_once(self):
-    #     # let ROS process callbacks
-    #     self.executor.spin_once(timeout_sec=0.0)
-    #     # check if service completed
-    #     if self.future and self.future.done():
-    #         try:
-    #             result = self.future.result()
-    #             self.status.config(text=f"Output: {result.robot_move}")
-    #             self.is_capture.config(text="Is it a capture move? No")
-    #             if result.is_capture:
-    #                 self.is_capture.config(text="Is it a capture move? Yes")
+    def on_skill_changed(self, _event=None):
+        self.publish_skill_level()
 
-    #             self.is_castling.config(text="Is it castling? No")
-    #             if result.is_castling:
-    #                 self.is_castling.config(text="Is it castling? Yes")
+    def publish_skill_level(self):
+        try:
+            lvl = int(self.skill_var.get())
+        except ValueError:
+            lvl = 10
+            self.skill_var.set("10")
 
-    #             self.is_en_passant.config(text="Is it an en passant? No")
-    #             if result.is_en_passant:
-    #                 self.is_en_passant.config(text="Is it an en passant? Yes")
-
-    #             self.is_promotion.config(text="Is it promotion? No")
-    #             if result.is_promotion:
-    #                 self.is_promotion.config(text="Is it promotion? Yes")
-
-    #         except Exception as e:
-    #             self.status.config(text=f"Service error: {e}")
-    #         finally:
-    #             self.future = None
-    #             self.send_btn.config(state="normal")
-        # schedule next poll
-        # self.after(20, self._spin_once)
+        msg = Int32()
+        msg.data = lvl
+        self.skill_pub.publish(msg)
 
     def destroy(self):
         # clean shutdown
