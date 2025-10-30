@@ -1,7 +1,7 @@
 from interfaces.srv import ChessMove
 from sensor_msgs.msg import CompressedImage
+from std_msgs.msg import Int32
 from array import array
-import os
 import threading
 import rclpy
 from rclpy.node import Node
@@ -27,10 +27,14 @@ class ChessMaster(Node):
         self.srv = self.create_service(
             ChessMove, 'chess_move', self.service_callback)
 
-        # self.pub = self.create_publisher(String, 'board_state', 10)
+        self.status_pub = self.create_publisher(String, 'status', 10)
         self.pub = self.create_publisher(CompressedImage, 'board_state', 10)
 
-        self.timer = self.create_timer(1.0, self.pub_callback)
+        self.current_skill = 20
+        self.engine.configure({"Skill Level": self.current_skill})
+        self.skill_sub = self.create_subscription(Int32, 'skill_level', self.skill_callback, 10)
+
+        self.timer = self.create_timer(0.1, self.pub_callback)
 
     def pub_callback(self):
         with self.lock:
@@ -51,6 +55,7 @@ class ChessMaster(Node):
             # msg.data = png_bytes
             msg.data = array('B', png_bytes)
             self.pub.publish(msg)
+            
 
     def is_valid_fen(self, fen: str) -> bool:
         try:
@@ -81,6 +86,9 @@ class ChessMaster(Node):
             # Promotion check (for white only)
             if len(text) < 4:
                 response.robot_move = "Error: Invalid move format (e.g. use 'e2e4' or 'e7e8q' for promotion)"
+                msg = String()
+                msg.data = "Invalid move format (e.g. use 'e2e4' or 'e7e8q' for promotion)"
+                self.status_pub.publish(msg)
                 return response
 
             if len(text) == 4:
@@ -95,13 +103,34 @@ class ChessMaster(Node):
                 move = chess.Move.from_uci(text)
             except ValueError:
                 response.robot_move = "Error: Invalid move format (e.g. use 'e2e4' or 'e7e8q' for promotion)"
+                msg = String()
+                msg.data = "Invalid move format (e.g. use 'e2e4' or 'e7e8q' for promotion)"
+                self.status_pub.publish(msg)
                 return response
 
             if move not in self.board.legal_moves:
                 response.robot_move = 'Error: Illegal move in current state'
+                msg = String()
+                msg.data = 'Error: Illegal move in current state'
+                self.status_pub.publish(msg)
                 return response
 
             self.board.push(move)
+
+            # Check if game is over
+            if self.board.is_game_over():
+                outcome = self.board.outcome()
+                if outcome:
+                    response.robot_move = f"Game over: {outcome.result()} ({outcome.termination.name.lower()})"
+                    msg = String()
+                    msg.data = f"Game over: {outcome.result()} ({outcome.termination.name.lower()})"
+                    self.status_pub.publish(msg)
+                else:
+                    response.robot_move = "Game over"
+                    msg = String()
+                    msg.data = "Game over"
+                    self.status_pub.publish(msg)
+                return response
 
             # Engine play next move
             result = self.engine.play(self.board, chess.engine.Limit(time=1))
@@ -127,6 +156,16 @@ class ChessMaster(Node):
             self.board.push(best_move)
 
         return response
+
+    def skill_callback(self, msg):
+        lvl = max(0, min(20, int(msg.data)))  # clamp to [0, 20]
+        if lvl != self.current_skill:
+            self.current_skill = lvl
+            self.engine.configure({"Skill Level": lvl})
+            self.get_logger().info(f"Updated Stockfish Skill Level → {lvl}")
+            msg = String()
+            msg.data = f"Updated Stockfish Skill Level → {lvl}"
+            self.status_pub.publish(msg)
 
     def destroy_node(self):
         try:

@@ -1,0 +1,22 @@
+normal movement = x1,y1 -> grip -> x2,y2 -> ungrip
+
+capturing = x2,y2 -> grip -> discard pile -> ungrip -> normal movement
+
+castling = normal movement -> xrook1,yrook1 -> grip -> xrook2,yrook2 -> ungrip
+
+promotion = x1,y1 -> grip -> discard pile -> ungrip -> x(extra queen),y(extra queen) -> grip -> x2,y2 -> ungrip
+
+capturing + promotion = x2,y2 -> grip -> discard pile -> ungrip -> promotion steps
+
+en passant = normal movement -> (x2,y2 + one rank) -> grip -> discard pile -> ungrip
+
+
+
+function:
+
+normal_movement(x1,y1,x2,y2) = x1,y1 -> grip -> x2,y2 -> ungrip
+
+discard(x1,y1) = x1,y1 -> grip -> discard pile -> ungrip
+
+promote(x2,y2) = x(extra queen),y(extra queen) -> grip -> x2,y2 -> ungrip
+
