@@ -21,7 +21,7 @@ ament_target_dependencies(arm_controller_node
   moveit_ros_planning_interface custom_interfaces)
 
 install(TARGETS arm_controller_node DESTINATION lib/${PROJECT_NAME})
-install(DIRECTORY launch urdf srdf config rviz meshes
+install(DIRECTORY launch urdf srdf config rviz
   DESTINATION share/${PROJECT_NAME})
 
 
