@@ -1,27 +1,25 @@
-from setuptools import find_packages, setup
+from setuptools import setup
+
 package_name = 'gripper'
 
 setup(
     name=package_name,
-    version='0.0.0',
-    packages=find_packages(exclude=['test']),
+    version='0.1.0',
+    packages=[package_name],                   # <-- must match the Python package dir "gripper/"
     data_files=[
-        ('share/ament_index/resource_index/packages', ['resource/' + package_name]),
+        ('share/ament_index/resource_index/packages', ['resource/' + package_name]),  # <— critical
         ('share/' + package_name, ['package.xml']),
-        # 👇 add this line
-        ('share/' + package_name + '/launch', ['launch/gripper_bringup.launch.py']),
+        ('share/' + package_name + '/launch', ['launch/gripper_bridge.launch.py']),
     ],
-    install_requires=['setuptools'],
+    install_requires=['setuptools', 'pyserial'],
     zip_safe=True,
-    maintainer='ryanl',
-    maintainer_email='z5422416@ad.unsw.edu.au',
-    description='TODO: Package description',
-    license='TODO: License declaration',
-    tests_require=['pytest'],
+    maintainer='You',
+    maintainer_email='you@example.com',
+    description='Serial gripper action bridge',
+    license='BSD-3-Clause',
     entry_points={
         'console_scripts': [
-            'gripper_client = gripper.gripper_client:main',
-            'gripper_server = gripper.gripper_server:main',
+            'gripper_bridge_node = gripper.gripper_bridge_node:main',
         ],
     },
 )

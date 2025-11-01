@@ -1,9 +1,15 @@
 package.xml
 setup.cfg
 setup.py
+../../build/gripper/gripper.egg-info/PKG-INFO
+../../build/gripper/gripper.egg-info/SOURCES.txt
+../../build/gripper/gripper.egg-info/dependency_links.txt
+../../build/gripper/gripper.egg-info/entry_points.txt
+../../build/gripper/gripper.egg-info/requires.txt
+../../build/gripper/gripper.egg-info/top_level.txt
+../../build/gripper/gripper.egg-info/zip-safe
 gripper/__init__.py
-gripper/gripper_client.py
-gripper/gripper_server.py
+gripper/gripper_bridge_node.py
 gripper.egg-info/PKG-INFO
 gripper.egg-info/SOURCES.txt
 gripper.egg-info/dependency_links.txt
@@ -11,5 +17,5 @@ gripper.egg-info/entry_points.txt
 gripper.egg-info/requires.txt
 gripper.egg-info/top_level.txt
 gripper.egg-info/zip-safe
-launch/gripper_bringup.launch.py
+launch/gripper_bridge.launch.py
 resource/gripper

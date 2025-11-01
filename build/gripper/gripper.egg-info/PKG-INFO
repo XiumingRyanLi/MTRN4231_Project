@@ -1,11 +1,11 @@
 Metadata-Version: 2.1
 Name: gripper
-Version: 0.0.0
-Summary: TODO: Package description
+Version: 0.1.0
+Summary: Serial gripper action bridge
 Home-page: UNKNOWN
-Maintainer: ryanl
-Maintainer-email: z5422416@ad.unsw.edu.au
-License: TODO: License declaration
+Maintainer: You
+Maintainer-email: you@example.com
+License: BSD-3-Clause
 Platform: UNKNOWN
 
 UNKNOWN
