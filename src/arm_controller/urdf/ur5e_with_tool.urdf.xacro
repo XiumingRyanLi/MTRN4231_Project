@@ -1,28 +1,23 @@
 <?xml version="1.0"?>
 <robot name="ur5e" xmlns:xacro="http://www.ros.org/wiki/xacro">
 
-  <!-- args expected by ur_description -->
-  <xacro:arg name="name"                 default="ur5e"/>
-  <xacro:arg name="ur_type"              default="ur5e"/>
-  <xacro:arg name="use_fake_hardware"    default="true"/>
-  <xacro:arg name="prefix"               default=""/>
+  <!-- args -->
+  <xacro:arg name="name"              default="ur5e"/>
+  <xacro:arg name="use_fake_hardware" default="true"/>
+  <xacro:arg name="prefix"            default=""/>
   <xacro:arg name="visual_parameters_file"
              default="/opt/ros/humble/share/ur_description/config/ur5/visual_parameters.yaml"/>
 
-  <!-- bring in the official UR model -->
-  <xacro:include filename="$(find ur_description)/urdf/ur.urdf.xacro"/>
-  <xacro:ur_robot
+  <!-- Bring in UR5e-specific xacro and instantiate it (NO ur_type arg) -->
+  <xacro:include filename="$(find ur_description)/urdf/ur5e.urdf.xacro"/>
+  <xacro:ur5e_robot
       name="$(arg name)"
-      ur_type="$(arg ur_type)"
       prefix="$(arg prefix)"
-      kinematics_parameters_file=""
-      physical_parameters_file=""
       visual_parameters_file="$(arg visual_parameters_file)"
-      transmission_hw_interface="hardware_interface/PositionJointInterface"
       use_fake_hardware="$(arg use_fake_hardware)"
       safety_limits="false" safety_pos_margin="0.0" safety_k_position="0.0" />
 
-  <!-- === End-effector: simple block mounted on tool0 === -->
+  <!-- === Simple EE mounted at tool0 === -->
   <link name="${prefix}ee_adapter"/>
   <joint name="${prefix}tool0_to_ee_adapter" type="fixed">
     <parent link="${prefix}tool0"/>
@@ -53,7 +48,7 @@
     <origin xyz="0 0 0.0" rpy="0 0 0"/>
   </joint>
 
-  <!-- Optional TCP alias a bit below the block tip -->
+  <!-- TCP alias (tip) -->
   <link name="${prefix}tcp_link"/>
   <joint name="${prefix}gripper_to_tcp" type="fixed">
     <parent link="${prefix}gripper_base"/>

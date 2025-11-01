@@ -1,6 +1,12 @@
 The setup guide for MOVEIT packages
 
+colcon build --symlink-install --packages-select arm_controller
 
+ros2 launch arm_controller bringup_ur5e_full.launch.py use_fake_hardware:=true execute:=true
+
+ros2 launch arm_controller bringup_ur5e_full.launch.py \
+  use_fake_hardware:=false robot_ip:=192.168.0.100 execute:=true
+  
 ping 192.168.0.100
 
 ./setupReal
@@ -23,3 +29,8 @@ ros2 action send_goal /arm/pick_place custom_interfaces/action/MoveTCP \
 ros2 action send_goal /arm/pick_place custom_interfaces/action/MoveTCP \
 '{pick_pose:{header:{frame_id:base_link},pose:{position:{x:0.45,y:-0.15,z:0.30}}}}'
 
+
+ros2 action send_goal /arm/pick_place custom_interfaces/action/MoveTCP \
+"{pick_pose: {header: {frame_id: base_link}, pose: {position: {x: 0.35, y: 0.10, z: 0.30}, orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}}}}"
+
+ ros2 launch arm_controller arm_controller.launch.py execute:=true

@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<package format="3">
+  <name>move_to_marker</name>
+  <version>0.0.1</version>
+  <description>Plan/execute to a PoseStamped target and add safety geometry to the planning scene.</description>
+
+  <maintainer email="you@example.com">Your Name</maintainer>
+  <license>BSD-3-Clause</license>
+
+  <buildtool_depend>ament_cmake</buildtool_depend>
+
+  <!-- Core runtime/build deps -->
+  <depend>rclcpp</depend>
+  <depend>geometry_msgs</depend>
+  <depend>shape_msgs</depend>
+  <depend>moveit_ros_planning_interface</depend>
+  <depend>moveit_msgs</depend>
+
+  <export>
+    <build_type>ament_cmake</build_type>
+  </export>
+</package>
