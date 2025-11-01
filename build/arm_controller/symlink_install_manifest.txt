@@ -3,6 +3,7 @@
 /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/launch/bringup_fake_and_arm.launch.py
 /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/launch/bringup_moveit_ur5e.launch.py
 /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/launch/bringup_ur5e_full.launch.py
+/home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/launch/moveit_constrain_launch.py
 /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/urdf/ur5e_with_tool.urdf.xacro
 /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/srdf/ur5e_with_tool.srdf
 /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/config/controllers.yaml

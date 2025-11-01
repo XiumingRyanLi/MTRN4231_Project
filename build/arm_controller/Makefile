@@ -210,6 +210,19 @@ arm_controller_node/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/arm_controller_node.dir/build.make CMakeFiles/arm_controller_node.dir/build
 .PHONY : arm_controller_node/fast
 
+#=============================================================================
+# Target rules for targets named moveit_constrain_ur
+
+# Build rule for target.
+moveit_constrain_ur: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 moveit_constrain_ur
+.PHONY : moveit_constrain_ur
+
+# fast build rule for target.
+moveit_constrain_ur/fast:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/moveit_constrain_ur.dir/build.make CMakeFiles/moveit_constrain_ur.dir/build
+.PHONY : moveit_constrain_ur/fast
+
 src/arm_controller_node.o: src/arm_controller_node.cpp.o
 .PHONY : src/arm_controller_node.o
 
@@ -234,6 +247,30 @@ src/arm_controller_node.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/arm_controller_node.dir/build.make CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.s
 .PHONY : src/arm_controller_node.cpp.s
 
+src/moveit_constrain_ur.o: src/moveit_constrain_ur.cpp.o
+.PHONY : src/moveit_constrain_ur.o
+
+# target to build an object file
+src/moveit_constrain_ur.cpp.o:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/moveit_constrain_ur.dir/build.make CMakeFiles/moveit_constrain_ur.dir/src/moveit_constrain_ur.cpp.o
+.PHONY : src/moveit_constrain_ur.cpp.o
+
+src/moveit_constrain_ur.i: src/moveit_constrain_ur.cpp.i
+.PHONY : src/moveit_constrain_ur.i
+
+# target to preprocess a source file
+src/moveit_constrain_ur.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/moveit_constrain_ur.dir/build.make CMakeFiles/moveit_constrain_ur.dir/src/moveit_constrain_ur.cpp.i
+.PHONY : src/moveit_constrain_ur.cpp.i
+
+src/moveit_constrain_ur.s: src/moveit_constrain_ur.cpp.s
+.PHONY : src/moveit_constrain_ur.s
+
+# target to generate assembly for a file
+src/moveit_constrain_ur.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/moveit_constrain_ur.dir/build.make CMakeFiles/moveit_constrain_ur.dir/src/moveit_constrain_ur.cpp.s
+.PHONY : src/moveit_constrain_ur.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -250,9 +287,13 @@ help:
 	@echo "... arm_controller_uninstall"
 	@echo "... uninstall"
 	@echo "... arm_controller_node"
+	@echo "... moveit_constrain_ur"
 	@echo "... src/arm_controller_node.o"
 	@echo "... src/arm_controller_node.i"
 	@echo "... src/arm_controller_node.s"
+	@echo "... src/moveit_constrain_ur.o"
+	@echo "... src/moveit_constrain_ur.i"
+	@echo "... src/moveit_constrain_ur.s"
 .PHONY : help
 
 

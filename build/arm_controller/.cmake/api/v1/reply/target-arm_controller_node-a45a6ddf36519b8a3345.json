@@ -29,13 +29,13 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 18,
+				"line" : 20,
 				"parent" : 0
 			},
 			{
 				"command" : 2,
 				"file" : 0,
-				"line" : 19,
+				"line" : 21,
 				"parent" : 0
 			},
 			{
@@ -74,6 +74,10 @@
 				{
 					"backtrace" : 4,
 					"fragment" : "-Wpedantic"
+				},
+				{
+					"backtrace" : 3,
+					"fragment" : "-fPIC"
 				}
 			],
 			"defines" : 
@@ -133,6 +137,26 @@
 				{
 					"backtrace" : 3,
 					"define" : "FMT_SHARED"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "PLUGINLIB__DISABLE_BOOST_FUNCTIONS"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "QT_CORE_LIB"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "QT_GUI_LIB"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "QT_NO_DEBUG"
+				},
+				{
+					"backtrace" : 3,
+					"define" : "QT_WIDGETS_LIB"
 				},
 				{
 					"backtrace" : 3,
@@ -339,6 +363,16 @@
 				{
 					"backtrace" : 3,
 					"isSystem" : true,
+					"path" : "/opt/ros/humble/include/graph_msgs"
+				},
+				{
+					"backtrace" : 3,
+					"isSystem" : true,
+					"path" : "/usr/include/bullet"
+				},
+				{
+					"backtrace" : 3,
+					"isSystem" : true,
 					"path" : "/opt/ros/humble/include/urdf"
 				},
 				{
@@ -365,16 +399,6 @@
 					"backtrace" : 3,
 					"isSystem" : true,
 					"path" : "/opt/ros/humble/include/class_loader"
-				},
-				{
-					"backtrace" : 3,
-					"isSystem" : true,
-					"path" : "/opt/ros/humble/include/srdfdom"
-				},
-				{
-					"backtrace" : 3,
-					"isSystem" : true,
-					"path" : "/usr/include/bullet"
 				},
 				{
 					"backtrace" : 3,
@@ -439,6 +463,11 @@
 				{
 					"backtrace" : 3,
 					"isSystem" : true,
+					"path" : "/opt/ros/humble/include/srdfdom"
+				},
+				{
+					"backtrace" : 3,
+					"isSystem" : true,
 					"path" : "/opt/ros/humble/include/parameter_traits"
 				},
 				{
@@ -469,6 +498,86 @@
 				{
 					"backtrace" : 3,
 					"isSystem" : true,
+					"path" : "/opt/ros/humble/include/rclcpp_components"
+				},
+				{
+					"backtrace" : 3,
+					"isSystem" : true,
+					"path" : "/opt/ros/humble/include/composition_interfaces"
+				},
+				{
+					"backtrace" : 3,
+					"isSystem" : true,
+					"path" : "/opt/ros/humble/include/rviz_common"
+				},
+				{
+					"backtrace" : 3,
+					"isSystem" : true,
+					"path" : "/opt/ros/humble/opt/rviz_ogre_vendor/include/OGRE"
+				},
+				{
+					"backtrace" : 3,
+					"isSystem" : true,
+					"path" : "/usr/include/x86_64-linux-gnu/qt5"
+				},
+				{
+					"backtrace" : 3,
+					"isSystem" : true,
+					"path" : "/usr/include/x86_64-linux-gnu/qt5/QtWidgets"
+				},
+				{
+					"backtrace" : 3,
+					"isSystem" : true,
+					"path" : "/usr/include/x86_64-linux-gnu/qt5/QtGui"
+				},
+				{
+					"backtrace" : 3,
+					"isSystem" : true,
+					"path" : "/usr/include/x86_64-linux-gnu/qt5/QtCore"
+				},
+				{
+					"backtrace" : 3,
+					"isSystem" : true,
+					"path" : "/usr/lib/x86_64-linux-gnu/qt5/mkspecs/linux-g++"
+				},
+				{
+					"backtrace" : 3,
+					"isSystem" : true,
+					"path" : "/opt/ros/humble/include/rviz_rendering"
+				},
+				{
+					"backtrace" : 3,
+					"isSystem" : true,
+					"path" : "/opt/ros/humble/include/rviz_default_plugins"
+				},
+				{
+					"backtrace" : 3,
+					"isSystem" : true,
+					"path" : "/opt/ros/humble/include/image_transport"
+				},
+				{
+					"backtrace" : 3,
+					"isSystem" : true,
+					"path" : "/opt/ros/humble/include/interactive_markers"
+				},
+				{
+					"backtrace" : 3,
+					"isSystem" : true,
+					"path" : "/opt/ros/humble/include/laser_geometry"
+				},
+				{
+					"backtrace" : 3,
+					"isSystem" : true,
+					"path" : "/opt/ros/humble/include/map_msgs"
+				},
+				{
+					"backtrace" : 3,
+					"isSystem" : true,
+					"path" : "/opt/ros/humble/include/nav_msgs"
+				},
+				{
+					"backtrace" : 3,
+					"isSystem" : true,
 					"path" : "/opt/ros/humble/include/std_srvs"
 				}
 			],
@@ -489,7 +598,12 @@
 				"role" : "flags"
 			},
 			{
-				"fragment" : "-Wl,-rpath,/opt/ros/humble/lib:/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/lib:/opt/ros/humble/lib/x86_64-linux-gnu",
+				"fragment" : "-Wl,-rpath,/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib:/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "/opt/ros/humble/lib/libmoveit_visual_tools.so",
 				"role" : "libraries"
 			},
 			{
@@ -525,6 +639,246 @@
 			{
 				"backtrace" : 3,
 				"fragment" : "/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/lib/libcustom_interfaces__rosidl_generator_py.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libgraph_msgs__rosidl_typesupport_fastrtps_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libgraph_msgs__rosidl_typesupport_introspection_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libgraph_msgs__rosidl_typesupport_fastrtps_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libgraph_msgs__rosidl_typesupport_introspection_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libgraph_msgs__rosidl_typesupport_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libgraph_msgs__rosidl_generator_py.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libgraph_msgs__rosidl_typesupport_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libgraph_msgs__rosidl_generator_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/librviz_visual_tools_gui.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/librviz_default_plugins.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/librviz_common.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libyaml-cpp.so.0.7.0",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/librviz_rendering.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreOverlay.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreMain.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libfreetype.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libOpenGL.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libGLX.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libGLU.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libSM.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libICE.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libX11.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libXext.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libXt.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libXrandr.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libXaw.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/x86_64-linux-gnu/libimage_transport.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/liblaser_geometry.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libmap_msgs__rosidl_typesupport_fastrtps_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libmap_msgs__rosidl_typesupport_introspection_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libmap_msgs__rosidl_typesupport_fastrtps_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libmap_msgs__rosidl_typesupport_introspection_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libmap_msgs__rosidl_typesupport_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libmap_msgs__rosidl_generator_py.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libmap_msgs__rosidl_typesupport_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libmap_msgs__rosidl_generator_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libnav_msgs__rosidl_typesupport_fastrtps_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libnav_msgs__rosidl_typesupport_fastrtps_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libnav_msgs__rosidl_typesupport_introspection_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libnav_msgs__rosidl_typesupport_introspection_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libnav_msgs__rosidl_typesupport_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libnav_msgs__rosidl_generator_py.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libnav_msgs__rosidl_typesupport_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libnav_msgs__rosidl_generator_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libQt5Widgets.so.5.15.3",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libQt5Gui.so.5.15.3",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libQt5Core.so.5.15.3",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/librviz_visual_tools_imarker_simple.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/librviz_visual_tools.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/librviz_visual_tools_remote_control.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libcomponent_manager.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libcomposition_interfaces__rosidl_typesupport_fastrtps_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libcomposition_interfaces__rosidl_typesupport_introspection_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libcomposition_interfaces__rosidl_typesupport_fastrtps_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libcomposition_interfaces__rosidl_typesupport_introspection_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libcomposition_interfaces__rosidl_typesupport_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libcomposition_interfaces__rosidl_generator_py.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libcomposition_interfaces__rosidl_typesupport_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libcomposition_interfaces__rosidl_generator_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libinteractive_markers.so",
 				"role" : "libraries"
 			},
 			{
@@ -750,14 +1104,6 @@
 				"role" : "libraries"
 			},
 			{
-				"fragment" : "/opt/ros/humble/lib/x86_64-linux-gnu/liboctomap.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/x86_64-linux-gnu/liboctomath.so",
-				"role" : "libraries"
-			},
-			{
 				"fragment" : "/opt/ros/humble/lib/libmoveit_smoothing_base.so.2.5.9",
 				"role" : "libraries"
 			},
@@ -794,15 +1140,155 @@
 				"role" : "libraries"
 			},
 			{
-				"fragment" : "/opt/ros/humble/lib/liburdf.so",
-				"role" : "libraries"
-			},
-			{
 				"fragment" : "/opt/ros/humble/lib/x86_64-linux-gnu/libruckig.so",
 				"role" : "libraries"
 			},
 			{
 				"fragment" : "/opt/ros/humble/lib/libmoveit_transforms.so.2.5.9",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libmoveit_utils.so.2.5.9",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.74.0",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_iostreams.so.1.74.0",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_serialization.so.1.74.0",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libmoveit_msgs__rosidl_typesupport_fastrtps_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libtrajectory_msgs__rosidl_typesupport_fastrtps_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/liboctomap_msgs__rosidl_typesupport_fastrtps_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libobject_recognition_msgs__rosidl_typesupport_fastrtps_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libmoveit_msgs__rosidl_typesupport_introspection_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libtrajectory_msgs__rosidl_typesupport_introspection_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/liboctomap_msgs__rosidl_typesupport_introspection_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libobject_recognition_msgs__rosidl_typesupport_introspection_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libmoveit_msgs__rosidl_typesupport_fastrtps_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libtrajectory_msgs__rosidl_typesupport_fastrtps_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/liboctomap_msgs__rosidl_typesupport_fastrtps_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libobject_recognition_msgs__rosidl_typesupport_fastrtps_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libmoveit_msgs__rosidl_typesupport_introspection_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libtrajectory_msgs__rosidl_typesupport_introspection_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/liboctomap_msgs__rosidl_typesupport_introspection_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libobject_recognition_msgs__rosidl_typesupport_introspection_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libmoveit_msgs__rosidl_typesupport_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libtrajectory_msgs__rosidl_typesupport_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/liboctomap_msgs__rosidl_typesupport_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libobject_recognition_msgs__rosidl_typesupport_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libmoveit_msgs__rosidl_generator_py.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libtrajectory_msgs__rosidl_generator_py.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libmoveit_msgs__rosidl_typesupport_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libtrajectory_msgs__rosidl_typesupport_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libmoveit_msgs__rosidl_generator_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libtrajectory_msgs__rosidl_generator_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/liboctomap_msgs__rosidl_generator_py.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/liboctomap_msgs__rosidl_typesupport_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/liboctomap_msgs__rosidl_generator_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libobject_recognition_msgs__rosidl_generator_py.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libobject_recognition_msgs__rosidl_typesupport_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libobject_recognition_msgs__rosidl_generator_c.so",
 				"role" : "libraries"
 			},
 			{
@@ -814,7 +1300,15 @@
 				"role" : "libraries"
 			},
 			{
+				"fragment" : "/opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_fastrtps_c.so",
+				"role" : "libraries"
+			},
+			{
 				"fragment" : "/opt/ros/humble/lib/libvisualization_msgs__rosidl_typesupport_fastrtps_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_fastrtps_cpp.so",
 				"role" : "libraries"
 			},
 			{
@@ -822,11 +1316,23 @@
 				"role" : "libraries"
 			},
 			{
+				"fragment" : "/opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_introspection_c.so",
+				"role" : "libraries"
+			},
+			{
 				"fragment" : "/opt/ros/humble/lib/libvisualization_msgs__rosidl_typesupport_introspection_cpp.so",
 				"role" : "libraries"
 			},
 			{
+				"fragment" : "/opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_introspection_cpp.so",
+				"role" : "libraries"
+			},
+			{
 				"fragment" : "/opt/ros/humble/lib/libvisualization_msgs__rosidl_typesupport_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_cpp.so",
 				"role" : "libraries"
 			},
 			{
@@ -839,6 +1345,18 @@
 			},
 			{
 				"fragment" : "/opt/ros/humble/lib/libvisualization_msgs__rosidl_generator_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libsensor_msgs__rosidl_generator_py.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libsensor_msgs__rosidl_generator_c.so",
 				"role" : "libraries"
 			},
 			{
@@ -862,6 +1380,38 @@
 				"role" : "libraries"
 			},
 			{
+				"fragment" : "/opt/ros/humble/lib/libshape_msgs__rosidl_typesupport_fastrtps_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libshape_msgs__rosidl_typesupport_fastrtps_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libshape_msgs__rosidl_typesupport_introspection_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libshape_msgs__rosidl_typesupport_introspection_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libshape_msgs__rosidl_typesupport_cpp.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libshape_msgs__rosidl_generator_py.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libshape_msgs__rosidl_typesupport_c.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/libshape_msgs__rosidl_generator_c.so",
+				"role" : "libraries"
+			},
+			{
 				"fragment" : "/opt/ros/humble/lib/libresource_retriever.so",
 				"role" : "libraries"
 			},
@@ -871,6 +1421,38 @@
 			},
 			{
 				"fragment" : "/opt/ros/humble/lib/librandom_numbers.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libassimp.so.5.2.0",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libz.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libdraco.so.4.0.0",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "-lminizip",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/librt.a",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/x86_64-linux-gnu/liboctomap.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/x86_64-linux-gnu/liboctomath.so",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/opt/ros/humble/lib/liburdf.so",
 				"role" : "libraries"
 			},
 			{
@@ -894,222 +1476,6 @@
 				"role" : "libraries"
 			},
 			{
-				"fragment" : "/opt/ros/humble/lib/libmoveit_utils.so.2.5.9",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libmoveit_msgs__rosidl_typesupport_fastrtps_c.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libobject_recognition_msgs__rosidl_typesupport_fastrtps_c.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_fastrtps_c.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libshape_msgs__rosidl_typesupport_fastrtps_c.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/liboctomap_msgs__rosidl_typesupport_fastrtps_c.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libtrajectory_msgs__rosidl_typesupport_fastrtps_c.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libmoveit_msgs__rosidl_typesupport_introspection_c.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libobject_recognition_msgs__rosidl_typesupport_introspection_c.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_introspection_c.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libshape_msgs__rosidl_typesupport_introspection_c.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/liboctomap_msgs__rosidl_typesupport_introspection_c.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libtrajectory_msgs__rosidl_typesupport_introspection_c.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libmoveit_msgs__rosidl_typesupport_fastrtps_cpp.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libobject_recognition_msgs__rosidl_typesupport_fastrtps_cpp.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_fastrtps_cpp.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libshape_msgs__rosidl_typesupport_fastrtps_cpp.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/liboctomap_msgs__rosidl_typesupport_fastrtps_cpp.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libtrajectory_msgs__rosidl_typesupport_fastrtps_cpp.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libmoveit_msgs__rosidl_typesupport_introspection_cpp.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libobject_recognition_msgs__rosidl_typesupport_introspection_cpp.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_introspection_cpp.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libshape_msgs__rosidl_typesupport_introspection_cpp.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/liboctomap_msgs__rosidl_typesupport_introspection_cpp.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libtrajectory_msgs__rosidl_typesupport_introspection_cpp.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libmoveit_msgs__rosidl_typesupport_cpp.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libobject_recognition_msgs__rosidl_typesupport_cpp.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_cpp.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libshape_msgs__rosidl_typesupport_cpp.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/liboctomap_msgs__rosidl_typesupport_cpp.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libtrajectory_msgs__rosidl_typesupport_cpp.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libmoveit_msgs__rosidl_generator_py.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libmoveit_msgs__rosidl_typesupport_c.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libmoveit_msgs__rosidl_generator_c.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libobject_recognition_msgs__rosidl_generator_py.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libsensor_msgs__rosidl_generator_py.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libobject_recognition_msgs__rosidl_typesupport_c.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libsensor_msgs__rosidl_typesupport_c.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libobject_recognition_msgs__rosidl_generator_c.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libsensor_msgs__rosidl_generator_c.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libshape_msgs__rosidl_generator_py.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libshape_msgs__rosidl_typesupport_c.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libshape_msgs__rosidl_generator_c.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/liboctomap_msgs__rosidl_generator_py.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/liboctomap_msgs__rosidl_typesupport_c.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/liboctomap_msgs__rosidl_generator_c.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libtrajectory_msgs__rosidl_generator_py.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libtrajectory_msgs__rosidl_typesupport_c.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/opt/ros/humble/lib/libtrajectory_msgs__rosidl_generator_c.so",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.74.0",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_iostreams.so.1.74.0",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_serialization.so.1.74.0",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_thread.so.1.74.0",
-				"role" : "libraries"
-			},
-			{
-				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_atomic.so.1.74.0",
-				"role" : "libraries"
-			},
-			{
 				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_system.so.1.74.0",
 				"role" : "libraries"
 			},
@@ -1123,6 +1489,14 @@
 			},
 			{
 				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_program_options.so.1.74.0",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_thread.so.1.74.0",
+				"role" : "libraries"
+			},
+			{
+				"fragment" : "/usr/lib/x86_64-linux-gnu/libboost_atomic.so.1.74.0",
 				"role" : "libraries"
 			},
 			{

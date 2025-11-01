@@ -1,0 +1,42 @@
+[0.236s] Invoking command in '/home/ryanl/4231/MTRN4231_Project/build/arm_controller': CMAKE_PREFIX_PATH=/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces:/home/ryanl/4231/4231SuppliedCode/4231_demo_packages/install/demo_moveit_ur:/home/ryanl/4231/MTRN4231_Project/install/move_to_marker:/home/ryanl/4231/MTRN4231_Project/install/end_effector_description:/home/ryanl/4231/MTRN4231_Project/install/arm_controller:/opt/ros/humble /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/arm_controller -- -j16 -l16
+[0.348s] [35m[1mConsolidate compiler generated dependencies of target arm_controller_node[0m
+[0.389s] [ 50%] Built target moveit_constrain_ur
+[0.426s] [ 75%] [32mBuilding CXX object CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o[0m
+[26.177s] [100%] [32m[1mLinking CXX executable arm_controller_node[0m
+[27.870s] [100%] Built target arm_controller_node
+[27.901s] Invoked command in '/home/ryanl/4231/MTRN4231_Project/build/arm_controller' returned '0': CMAKE_PREFIX_PATH=/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces:/home/ryanl/4231/4231SuppliedCode/4231_demo_packages/install/demo_moveit_ur:/home/ryanl/4231/MTRN4231_Project/install/move_to_marker:/home/ryanl/4231/MTRN4231_Project/install/end_effector_description:/home/ryanl/4231/MTRN4231_Project/install/arm_controller:/opt/ros/humble /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/arm_controller -- -j16 -l16
+[27.906s] Invoking command in '/home/ryanl/4231/MTRN4231_Project/build/arm_controller': CMAKE_PREFIX_PATH=/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces:/home/ryanl/4231/4231SuppliedCode/4231_demo_packages/install/demo_moveit_ur:/home/ryanl/4231/MTRN4231_Project/install/move_to_marker:/home/ryanl/4231/MTRN4231_Project/install/end_effector_description:/home/ryanl/4231/MTRN4231_Project/install/arm_controller:/opt/ros/humble /usr/bin/cmake --install /home/ryanl/4231/MTRN4231_Project/build/arm_controller
+[27.921s] -- Install configuration: ""
+[27.921s] -- Execute custom install script
+[27.922s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/lib/arm_controller/arm_controller_node
+[27.923s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/launch/arm_controller.launch.py
+[27.923s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/launch/bringup_fake_and_arm.launch.py
+[27.923s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/launch/bringup_moveit_ur5e.launch.py
+[27.924s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/launch/bringup_ur5e_full.launch.py
+[27.924s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/launch/moveit_constrain_launch.py
+[27.925s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/urdf/ur5e_with_tool.urdf.xacro
+[27.925s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/srdf/ur5e_with_tool.srdf
+[27.926s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/config/controllers.yaml
+[27.926s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/config/end_effector_withDriverSupport.srdf
+[27.927s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/config/joint_limits.yaml
+[27.927s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/config/kinematics.yaml
+[27.927s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/config/moveit.rviz
+[27.927s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/config/moveit_controllers.yaml
+[27.928s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/config/params.yaml
+[27.928s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/config/pilz_cartesian_limits.yaml
+[27.928s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/ament_index/resource_index/package_run_dependencies/arm_controller
+[27.929s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/ament_index/resource_index/parent_prefix_path/arm_controller
+[27.929s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/environment/ament_prefix_path.sh
+[27.929s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/environment/ament_prefix_path.dsv
+[27.930s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/environment/path.sh
+[27.930s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/environment/path.dsv
+[27.931s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/local_setup.bash
+[27.931s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/local_setup.sh
+[27.932s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/local_setup.zsh
+[27.932s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/local_setup.dsv
+[27.933s] -- Symlinking: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/package.dsv
+[27.954s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/ament_index/resource_index/packages/arm_controller
+[27.955s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/cmake/arm_controllerConfig.cmake
+[27.955s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/cmake/arm_controllerConfig-version.cmake
+[27.955s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/package.xml
+[27.960s] Invoked command in '/home/ryanl/4231/MTRN4231_Project/build/arm_controller' returned '0': CMAKE_PREFIX_PATH=/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces:/home/ryanl/4231/4231SuppliedCode/4231_demo_packages/install/demo_moveit_ur:/home/ryanl/4231/MTRN4231_Project/install/move_to_marker:/home/ryanl/4231/MTRN4231_Project/install/end_effector_description:/home/ryanl/4231/MTRN4231_Project/install/arm_controller:/opt/ros/humble /usr/bin/cmake --install /home/ryanl/4231/MTRN4231_Project/build/arm_controller

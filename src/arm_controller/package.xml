@@ -19,6 +19,7 @@
   <depend>ros_ur_driver</depend>
   <depend>moveit_visual_tools</depend>
   <depend>geometry_msgs</depend>
+  <depend>rviz_visual_tools</depend>
 
   <exec_depend>xacro</exec_depend>
   <exec_depend>robot_state_publisher</exec_depend>
