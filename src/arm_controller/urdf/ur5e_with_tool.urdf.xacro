@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<robot name="ur5e" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <!-- args -->
+  <xacro:arg name="name"              default="ur5e"/>
+  <xacro:arg name="use_fake_hardware" default="true"/>
+  <xacro:arg name="prefix"            default=""/>
+  <xacro:arg name="visual_parameters_file"
+             default="/opt/ros/humble/share/ur_description/config/ur5/visual_parameters.yaml"/>
+
+  <!-- Bring in UR5e-specific xacro and instantiate it (NO ur_type arg) -->
+  <xacro:include filename="$(find ur_description)/urdf/ur5e.urdf.xacro"/>
+  <xacro:ur5e_robot
+      name="$(arg name)"
+      prefix="$(arg prefix)"
+      visual_parameters_file="$(arg visual_parameters_file)"
+      use_fake_hardware="$(arg use_fake_hardware)"
+      safety_limits="false" safety_pos_margin="0.0" safety_k_position="0.0" />
+
+  <!-- === Simple EE mounted at tool0 === -->
+  <link name="${prefix}ee_adapter"/>
+  <joint name="${prefix}tool0_to_ee_adapter" type="fixed">
+    <parent link="${prefix}tool0"/>
+    <child  link="${prefix}ee_adapter"/>
+    <origin xyz="0 0 0.0" rpy="0 0 0"/>
+  </joint>
+
+  <link name="${prefix}gripper_base">
+    <visual>
+      <origin xyz="0 0 0.08" rpy="0 0 0"/>
+      <geometry><box size="0.04 0.06 0.16"/></geometry>
+      <material name="gray"><color rgba="0.7 0.7 0.7 1.0"/></material>
+    </visual>
+    <collision>
+      <origin xyz="0 0 0.08" rpy="0 0 0"/>
+      <geometry><box size="0.04 0.06 0.16"/></geometry>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 0.08" rpy="0 0 0"/>
+      <mass value="0.5"/>
+      <inertia ixx="0.001" ixy="0" ixz="0" iyy="0.001" iyz="0" izz="0.001"/>
+    </inertial>
+  </link>
+
+  <joint name="${prefix}ee_adapter_to_gripper" type="fixed">
+    <parent link="${prefix}ee_adapter"/>
+    <child  link="${prefix}gripper_base"/>
+    <origin xyz="0 0 0.0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- TCP alias (tip) -->
+  <link name="${prefix}tcp_link"/>
+  <joint name="${prefix}gripper_to_tcp" type="fixed">
+    <parent link="${prefix}gripper_base"/>
+    <child  link="${prefix}tcp_link"/>
+    <origin xyz="0 0 0.18" rpy="0 0 0"/>
+  </joint>
+
+</robot>

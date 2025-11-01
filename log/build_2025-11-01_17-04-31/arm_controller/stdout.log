@@ -1,0 +1,85 @@
+-- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+-- Override CMake install command with custom implementation using symlinks instead of copying resources
+-- Found rclcpp: 16.0.14 (/opt/ros/humble/share/rclcpp/cmake)
+-- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+-- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+-- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+-- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+-- Using RMW implementation 'rmw_fastrtps_cpp' as default
+-- Found rclcpp_action: 16.0.15 (/opt/ros/humble/share/rclcpp_action/cmake)
+-- Found tf2_ros: 0.25.15 (/opt/ros/humble/share/tf2_ros/cmake)
+-- Found tf2_geometry_msgs: 0.25.15 (/opt/ros/humble/share/tf2_geometry_msgs/cmake)
+-- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+-- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+-- Found moveit_ros_planning_interface: 2.5.9 (/opt/ros/humble/share/moveit_ros_planning_interface/cmake)
+-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: date_time filesystem program_options system thread 
+-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: chrono date_time filesystem iostreams program_options regex serialization system thread 
+-- Found parameter_traits: 0.5.0 (/opt/ros/humble/share/parameter_traits/cmake)
+-- Found rclcpp_lifecycle: 16.0.14 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)
+-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: filesystem 
+-- library: /usr/lib/x86_64-linux-gnu/libcurl.so
+-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread chrono 
+-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: thread system filesystem regex date_time program_options 
+-- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread 
+-- Found custom_interfaces: 0.0.0 (/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/cmake)
+-- Found moveit_visual_tools: 4.1.2 (/opt/ros/humble/share/moveit_visual_tools/cmake)
+-- Setting assimp_DIR to: '/opt/ros/humble/share/rviz_assimp_vendor/cmake/../../../opt/rviz_assimp_vendor/lib/cmake/assimp-4.1'
+-- Setting OGRE_DIR to: '/opt/ros/humble/share/rviz_ogre_vendor/cmake/../../../opt/rviz_ogre_vendor/lib/OGRE/cmake'
+-- Found OGRE
+--   static     : OFF
+--   components : HLMS;MeshLodGenerator;Overlay;Paging;Property;RTShaderSystem;Terrain;Volume
+--   plugins    : Plugin_BSPSceneManager;Plugin_OctreeSceneManager;Plugin_PCZSceneManager;Plugin_ParticleFX;RenderSystem_GL;RenderSystem_GL3Plus;Codec_STBI
+--   media      : /opt/ros/humble/opt/rviz_ogre_vendor/share/OGRE/Media
+-- OGRE_LIBRARIES: OgreHLMS;OgreMeshLodGenerator;OgreOverlay;OgrePaging;OgreProperty;OgreRTShaderSystem;OgreTerrain;OgreVolume;OgreMain
+-- OGRE_LIBRARY_DIRS: /opt/ros/humble/opt/rviz_ogre_vendor/lib
+-- OGRE_PLUGINS: Plugin_BSPSceneManager;Plugin_OctreeSceneManager;Plugin_PCZSceneManager;Plugin_ParticleFX;RenderSystem_GL;RenderSystem_GL3Plus;Codec_STBI
+-- OGRE_PLUGIN_DIR: /opt/ros/humble/opt/rviz_ogre_vendor/lib/OGRE
+-- rviz_ogre_vendor::OgreOverlay for IMPORTED_LOCATION_RELEASE: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreOverlay.so
+-- rviz_ogre_vendor::OgreOverlay for IMPORTED_LOCATION_DEBUG: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreOverlay.so
+-- rviz_ogre_vendor::OgreMain for IMPORTED_LOCATION_RELEASE: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreMain.so
+-- rviz_ogre_vendor::OgreMain for IMPORTED_LOCATION_DEBUG: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreMain.so
+-- Could not find freeimage library
+-- Configuring done
+-- Generating done
+-- Build files have been written to: /home/ryanl/4231/MTRN4231_Project/build/arm_controller
+[35m[1mConsolidate compiler generated dependencies of target arm_controller_node[0m
+[ 25%] [32mBuilding CXX object CMakeFiles/moveit_constrain_ur.dir/src/moveit_constrain_ur.cpp.o[0m
+[ 75%] Built target arm_controller_node
+[100%] [32m[1mLinking CXX executable moveit_constrain_ur[0m
+[100%] Built target moveit_constrain_ur
+-- Install configuration: ""
+-- Execute custom install script
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/lib/arm_controller/arm_controller_node
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/launch/arm_controller.launch.py
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/launch/bringup_fake_and_arm.launch.py
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/launch/bringup_moveit_ur5e.launch.py
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/launch/bringup_ur5e_full.launch.py
+-- Symlinking: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/launch/moveit_constrain_launch.py
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/urdf/ur5e_with_tool.urdf.xacro
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/srdf/ur5e_with_tool.srdf
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/config/controllers.yaml
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/config/end_effector_withDriverSupport.srdf
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/config/joint_limits.yaml
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/config/kinematics.yaml
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/config/moveit.rviz
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/config/moveit_controllers.yaml
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/config/params.yaml
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/config/pilz_cartesian_limits.yaml
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/ament_index/resource_index/package_run_dependencies/arm_controller
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/ament_index/resource_index/parent_prefix_path/arm_controller
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/environment/path.sh
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/environment/path.dsv
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/local_setup.bash
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/local_setup.sh
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/local_setup.zsh
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/local_setup.dsv
+-- Symlinking: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/package.dsv
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/ament_index/resource_index/packages/arm_controller
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/cmake/arm_controllerConfig.cmake
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/cmake/arm_controllerConfig-version.cmake
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/package.xml

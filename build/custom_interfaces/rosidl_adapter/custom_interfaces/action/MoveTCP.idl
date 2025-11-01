@@ -1,0 +1,29 @@
+// generated from rosidl_adapter/resource/action.idl.em
+// with input from custom_interfaces/action/MoveTCP.action
+// generated code does not contain a copyright notice
+
+#include "geometry_msgs/msg/PoseStamped.idl"
+
+module custom_interfaces {
+  module action {
+    @verbatim (language="comment", text=
+      "Goal")
+    struct MoveTCP_Goal {
+      geometry_msgs::msg::PoseStamped pick_pose;
+    };
+    @verbatim (language="comment", text=
+      "Result")
+    struct MoveTCP_Result {
+      boolean success;
+
+      string message;
+    };
+    @verbatim (language="comment", text=
+      "Feedback")
+    struct MoveTCP_Feedback {
+      double progress_percent;
+
+      string stage;
+    };
+  };
+};

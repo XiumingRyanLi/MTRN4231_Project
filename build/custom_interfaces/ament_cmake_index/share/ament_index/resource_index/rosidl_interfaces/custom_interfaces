@@ -1,0 +1,4 @@
+action/GripperCommand.action
+action/GripperCommand.idl
+action/MoveTCP.action
+action/MoveTCP.idl

@@ -1,0 +1,87 @@
+[0.185s] Invoking command in '/home/ryanl/4231/MTRN4231_Project/build/arm_controller': CMAKE_PREFIX_PATH=/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces:/home/ryanl/4231/MTRN4231_Project/install/move_to_marker:/home/ryanl/4231/MTRN4231_Project/install/end_effector_description:/home/ryanl/4231/MTRN4231_Project/install/arm_controller:/opt/ros/humble /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/arm_controller -- -j16 -l16
+[0.236s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.433s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.446s] -- Found rclcpp: 16.0.14 (/opt/ros/humble/share/rclcpp/cmake)
+[0.729s] -- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.732s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.741s] -- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.756s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.774s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.821s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.823s] -- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[11.518s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[11.600s] -- Found rclcpp_action: 16.0.15 (/opt/ros/humble/share/rclcpp_action/cmake)
+[11.649s] -- Found tf2_ros: 0.25.15 (/opt/ros/humble/share/tf2_ros/cmake)
+[11.754s] -- Found tf2_geometry_msgs: 0.25.15 (/opt/ros/humble/share/tf2_geometry_msgs/cmake)
+[11.761s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[11.764s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[11.767s] -- Found moveit_ros_planning_interface: 2.5.9 (/opt/ros/humble/share/moveit_ros_planning_interface/cmake)
+[11.786s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: date_time filesystem program_options system thread 
+[12.015s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: chrono date_time filesystem iostreams program_options regex serialization system thread 
+[13.677s] -- Found parameter_traits: 0.5.0 (/opt/ros/humble/share/parameter_traits/cmake)
+[13.688s] -- Found rclcpp_lifecycle: 16.0.14 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)
+[13.732s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: filesystem 
+[16.860s] -- library: /usr/lib/x86_64-linux-gnu/libcurl.so
+[20.022s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread chrono 
+[20.080s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: thread system filesystem regex date_time program_options 
+[20.117s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread 
+[20.156s] -- Found custom_interfaces: 0.0.0 (/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/cmake)
+[20.180s] -- Found moveit_visual_tools: 4.1.2 (/opt/ros/humble/share/moveit_visual_tools/cmake)
+[20.407s] -- Setting assimp_DIR to: '/opt/ros/humble/share/rviz_assimp_vendor/cmake/../../../opt/rviz_assimp_vendor/lib/cmake/assimp-4.1'
+[20.414s] -- Setting OGRE_DIR to: '/opt/ros/humble/share/rviz_ogre_vendor/cmake/../../../opt/rviz_ogre_vendor/lib/OGRE/cmake'
+[20.416s] -- Found OGRE
+[20.417s] --   static     : OFF
+[20.417s] --   components : HLMS;MeshLodGenerator;Overlay;Paging;Property;RTShaderSystem;Terrain;Volume
+[20.417s] --   plugins    : Plugin_BSPSceneManager;Plugin_OctreeSceneManager;Plugin_PCZSceneManager;Plugin_ParticleFX;RenderSystem_GL;RenderSystem_GL3Plus;Codec_STBI
+[20.417s] --   media      : /opt/ros/humble/opt/rviz_ogre_vendor/share/OGRE/Media
+[20.417s] -- OGRE_LIBRARIES: OgreHLMS;OgreMeshLodGenerator;OgreOverlay;OgrePaging;OgreProperty;OgreRTShaderSystem;OgreTerrain;OgreVolume;OgreMain
+[20.418s] -- OGRE_LIBRARY_DIRS: /opt/ros/humble/opt/rviz_ogre_vendor/lib
+[20.418s] -- OGRE_PLUGINS: Plugin_BSPSceneManager;Plugin_OctreeSceneManager;Plugin_PCZSceneManager;Plugin_ParticleFX;RenderSystem_GL;RenderSystem_GL3Plus;Codec_STBI
+[20.418s] -- OGRE_PLUGIN_DIR: /opt/ros/humble/opt/rviz_ogre_vendor/lib/OGRE
+[20.418s] -- rviz_ogre_vendor::OgreOverlay for IMPORTED_LOCATION_RELEASE: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreOverlay.so
+[20.418s] -- rviz_ogre_vendor::OgreOverlay for IMPORTED_LOCATION_DEBUG: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreOverlay.so
+[20.418s] -- rviz_ogre_vendor::OgreMain for IMPORTED_LOCATION_RELEASE: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreMain.so
+[20.418s] -- rviz_ogre_vendor::OgreMain for IMPORTED_LOCATION_DEBUG: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreMain.so
+[20.506s] -- Could not find freeimage library
+[24.615s] -- Configuring done
+[24.692s] -- Generating done
+[24.708s] -- Build files have been written to: /home/ryanl/4231/MTRN4231_Project/build/arm_controller
+[24.780s] [35m[1mConsolidate compiler generated dependencies of target arm_controller_node[0m
+[24.859s] [ 50%] [32mBuilding CXX object CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o[0m
+[47.566s] [100%] [32m[1mLinking CXX executable arm_controller_node[0m
+[49.536s] [100%] Built target arm_controller_node
+[49.560s] Invoked command in '/home/ryanl/4231/MTRN4231_Project/build/arm_controller' returned '0': CMAKE_PREFIX_PATH=/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces:/home/ryanl/4231/MTRN4231_Project/install/move_to_marker:/home/ryanl/4231/MTRN4231_Project/install/end_effector_description:/home/ryanl/4231/MTRN4231_Project/install/arm_controller:/opt/ros/humble /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/arm_controller -- -j16 -l16
+[49.566s] Invoking command in '/home/ryanl/4231/MTRN4231_Project/build/arm_controller': CMAKE_PREFIX_PATH=/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces:/home/ryanl/4231/MTRN4231_Project/install/move_to_marker:/home/ryanl/4231/MTRN4231_Project/install/end_effector_description:/home/ryanl/4231/MTRN4231_Project/install/arm_controller:/opt/ros/humble /usr/bin/cmake --install /home/ryanl/4231/MTRN4231_Project/build/arm_controller
+[49.583s] -- Install configuration: ""
+[49.584s] -- Execute custom install script
+[49.585s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/lib/arm_controller/arm_controller_node
+[49.586s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/launch/arm_controller.launch.py
+[49.586s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/launch/bringup_fake_and_arm.launch.py
+[49.587s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/launch/bringup_moveit_ur5e.launch.py
+[49.587s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/launch/bringup_ur5e_full.launch.py
+[49.587s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/urdf/ur5e_with_tool.urdf.xacro
+[49.588s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/srdf/ur5e_with_tool.srdf
+[49.589s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/config/controllers.yaml
+[49.589s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/config/end_effector_withDriverSupport.srdf
+[49.589s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/config/joint_limits.yaml
+[49.590s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/config/kinematics.yaml
+[49.591s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/config/moveit.rviz
+[49.591s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/config/moveit_controllers.yaml
+[49.592s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/config/params.yaml
+[49.592s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/config/pilz_cartesian_limits.yaml
+[49.593s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/ament_index/resource_index/package_run_dependencies/arm_controller
+[49.594s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/ament_index/resource_index/parent_prefix_path/arm_controller
+[49.594s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/environment/ament_prefix_path.sh
+[49.594s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/environment/ament_prefix_path.dsv
+[49.595s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/environment/path.sh
+[49.595s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/environment/path.dsv
+[49.595s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/local_setup.bash
+[49.596s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/local_setup.sh
+[49.596s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/local_setup.zsh
+[49.596s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/local_setup.dsv
+[49.596s] -- Symlinking: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/package.dsv
+[49.619s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/ament_index/resource_index/packages/arm_controller
+[49.620s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/cmake/arm_controllerConfig.cmake
+[49.620s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/cmake/arm_controllerConfig-version.cmake
+[49.620s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/package.xml
+[49.625s] Invoked command in '/home/ryanl/4231/MTRN4231_Project/build/arm_controller' returned '0': CMAKE_PREFIX_PATH=/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces:/home/ryanl/4231/MTRN4231_Project/install/move_to_marker:/home/ryanl/4231/MTRN4231_Project/install/end_effector_description:/home/ryanl/4231/MTRN4231_Project/install/arm_controller:/opt/ros/humble /usr/bin/cmake --install /home/ryanl/4231/MTRN4231_Project/build/arm_controller

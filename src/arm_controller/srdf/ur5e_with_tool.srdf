@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot name="ur5e_with_tool">
+  <group name="arm">
+    <chain base_link="base_link" tip_link="tool0"/>
+  </group>
+  <group name="end_effector">
+    <link name="tool0"/>
+  </group>
+
+  <!-- Disable adjacent/self collisions as needed -->
+  <disable_collisions link1="base_link_inertia" link2="shoulder_link" reason="Adjacent"/>
+  <disable_collisions link1="forearm_link" link2="upper_arm_link" reason="Adjacent"/>
+  <disable_collisions link1="forearm_link" link2="wrist_1_link" reason="Adjacent"/>
+  <disable_collisions link1="shoulder_link" link2="upper_arm_link" reason="Adjacent"/>
+  <disable_collisions link1="wrist_1_link" link2="wrist_2_link" reason="Adjacent"/>
+  <disable_collisions link1="wrist_2_link" link2="wrist_3_link" reason="Adjacent"/>
+</robot>

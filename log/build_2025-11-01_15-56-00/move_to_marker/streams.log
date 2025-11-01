@@ -1,0 +1,24 @@
+[0.048s] Invoking command in '/home/ryanl/4231/MTRN4231_Project/build/move_to_marker': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/move_to_marker -- -j16 -l16
+[0.224s] [100%] Built target move_to_pose
+[0.284s] Invoked command in '/home/ryanl/4231/MTRN4231_Project/build/move_to_marker' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/move_to_marker -- -j16 -l16
+[0.287s] Invoking command in '/home/ryanl/4231/MTRN4231_Project/build/move_to_marker': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/ryanl/4231/MTRN4231_Project/build/move_to_marker
+[0.306s] -- Install configuration: ""
+[0.308s] -- Execute custom install script
+[0.308s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/move_to_marker/lib/move_to_marker/move_to_pose
+[0.309s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/launch/bringup_moveit_ur5e.launch.py
+[0.309s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/ament_index/resource_index/package_run_dependencies/move_to_marker
+[0.310s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/ament_index/resource_index/parent_prefix_path/move_to_marker
+[0.310s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/environment/ament_prefix_path.sh
+[0.311s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/environment/ament_prefix_path.dsv
+[0.311s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/environment/path.sh
+[0.311s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/environment/path.dsv
+[0.312s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/local_setup.bash
+[0.312s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/local_setup.sh
+[0.312s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/local_setup.zsh
+[0.312s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/local_setup.dsv
+[0.313s] -- Symlinking: /home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/package.dsv
+[0.334s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/ament_index/resource_index/packages/move_to_marker
+[0.336s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/cmake/move_to_markerConfig.cmake
+[0.336s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/cmake/move_to_markerConfig-version.cmake
+[0.336s] -- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/package.xml
+[0.343s] Invoked command in '/home/ryanl/4231/MTRN4231_Project/build/move_to_marker' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/ryanl/4231/MTRN4231_Project/build/move_to_marker
