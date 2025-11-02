@@ -65,7 +65,8 @@
         "thread": "cpp",
         "cinttypes": "cpp",
         "typeindex": "cpp",
-        "typeinfo": "cpp"
+        "typeinfo": "cpp",
+        "variant": "cpp"
     },
     "cmake.sourceDirectory": "/home/ryanl/4231/MTRN4231_Project/src/ur5e_robot_config"
 }
