@@ -1,0 +1,3 @@
+[console_scripts]
+gripper_bridge_node = gripper_bridge.gripper_bridge_node:main
+

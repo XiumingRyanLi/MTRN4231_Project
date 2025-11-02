@@ -1,0 +1,32 @@
+running develop
+Removing /home/ryanl/4231/MTRN4231_Project/install/gripper/lib/python3.10/site-packages/gripper.egg-link (link to .)
+running egg_info
+writing ../../build/gripper/gripper.egg-info/PKG-INFO
+writing dependency_links to ../../build/gripper/gripper.egg-info/dependency_links.txt
+writing entry points to ../../build/gripper/gripper.egg-info/entry_points.txt
+writing requirements to ../../build/gripper/gripper.egg-info/requires.txt
+writing top-level names to ../../build/gripper/gripper.egg-info/top_level.txt
+reading manifest file '../../build/gripper/gripper.egg-info/SOURCES.txt'
+writing manifest file '../../build/gripper/gripper.egg-info/SOURCES.txt'
+running build
+running build_py
+creating /home/ryanl/4231/MTRN4231_Project/build/gripper/build
+creating /home/ryanl/4231/MTRN4231_Project/build/gripper/build/lib
+creating /home/ryanl/4231/MTRN4231_Project/build/gripper/build/lib/gripper
+copying gripper/gripper_bridge_node.py -> /home/ryanl/4231/MTRN4231_Project/build/gripper/build/lib/gripper
+copying gripper/__init__.py -> /home/ryanl/4231/MTRN4231_Project/build/gripper/build/lib/gripper
+running install
+running install_lib
+creating /home/ryanl/4231/MTRN4231_Project/install/gripper/lib/python3.10/site-packages/gripper
+copying /home/ryanl/4231/MTRN4231_Project/build/gripper/build/lib/gripper/gripper_bridge_node.py -> /home/ryanl/4231/MTRN4231_Project/install/gripper/lib/python3.10/site-packages/gripper
+copying /home/ryanl/4231/MTRN4231_Project/build/gripper/build/lib/gripper/__init__.py -> /home/ryanl/4231/MTRN4231_Project/install/gripper/lib/python3.10/site-packages/gripper
+byte-compiling /home/ryanl/4231/MTRN4231_Project/install/gripper/lib/python3.10/site-packages/gripper/gripper_bridge_node.py to gripper_bridge_node.cpython-310.pyc
+byte-compiling /home/ryanl/4231/MTRN4231_Project/install/gripper/lib/python3.10/site-packages/gripper/__init__.py to __init__.cpython-310.pyc
+running install_data
+copying resource/gripper -> /home/ryanl/4231/MTRN4231_Project/install/gripper/share/ament_index/resource_index/packages
+copying package.xml -> /home/ryanl/4231/MTRN4231_Project/install/gripper/share/gripper
+running install_egg_info
+Copying ../../build/gripper/gripper.egg-info to /home/ryanl/4231/MTRN4231_Project/install/gripper/lib/python3.10/site-packages/gripper-0.1.0-py3.10.egg-info
+running install_scripts
+Installing gripper_bridge_node script to /home/ryanl/4231/MTRN4231_Project/install/gripper/lib/gripper_bridge
+writing list of installed files to '/home/ryanl/4231/MTRN4231_Project/build/gripper/install.log'

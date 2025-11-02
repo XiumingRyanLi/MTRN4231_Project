@@ -33,7 +33,7 @@ ament_target_dependencies(
 )
 
 install(TARGETS arm_controller_node DESTINATION lib/${PROJECT_NAME})
-install(DIRECTORY launch urdf srdf config rviz
+install(DIRECTORY launch urdf config rviz
   DESTINATION share/${PROJECT_NAME})
 
 

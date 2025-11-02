@@ -33,4 +33,6 @@ ros2 action send_goal /arm/pick_place custom_interfaces/action/MoveTCP \
 ros2 action send_goal /arm/pick_place custom_interfaces/action/MoveTCP \
 "{pick_pose: {header: {frame_id: base_link}, pose: {position: {x: 0.35, y: 0.10, z: 0.30}, orientation: {x: 0.0, y: 0.0, z: 0.0, w: 1.0}}}}"
 
- ros2 launch arm_controller arm_controller.launch.py execute:=true
+ros2 launch arm_controller arm_controller.launch.py execute:=true
+
+ros2 launch arm_controller view_combined.launch.py

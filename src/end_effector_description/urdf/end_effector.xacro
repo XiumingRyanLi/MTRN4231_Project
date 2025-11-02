@@ -1,14 +1,22 @@
 <?xml version="1.0"?>
-<robot name="end_effector_standalone" xmlns:xacro="http://www.ros.org/wiki/xacro">
+<robot name="end_effector" xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <!-- Humble: $(find ...) is OK -->
-  <xacro:include filename="$(find end_effector_description)/urdf/end_effector.urdf.xacro"/>
+  <!-- optional args if you want to tune offsets/scales -->
+  <xacro:arg name="mesh_scale" default="0.001 0.001 0.001"/>
+  <xacro:arg name="mount_to_mesh_xyz" default="0 0 0"/>
+  <xacro:arg name="mount_to_mesh_rpy" default="0 0 0"/>
 
-  <!-- Dummy base to view it alone -->
-  <link name="ee_root_link"/>
+  <xacro:macro name="end_effector" params="">
+    <link name="ee_mount">
+      <visual>
+        <origin xyz="${mount_to_mesh_xyz}" rpy="${mount_to_mesh_rpy}"/>
+        <geometry>
+          <mesh filename="package://end_effector_description/meshes/claw_assembly.stl"
+                scale="${mesh_scale}"/>
+        </geometry>
+      </visual>
+    </link>
+    <!-- add extra links/joints later if you split the mesh -->
+  </xacro:macro>
 
-  <!-- Instantiate the macro (prefix is defined here!) -->
-  <xacro:end_effector prefix="" parent="ee_root_link">
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-  </xacro:end_effector>
 </robot>
