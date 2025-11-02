@@ -1,0 +1,9 @@
+opencv-python
+numpy
+matplotlib
+pandas
+ultralytics
+reportlab
+svglib
+pillow
+python-chess
