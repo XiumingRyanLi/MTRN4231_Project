@@ -81,7 +81,9 @@ class ChessBoardDetectorNode(Node):
     def image_callback(self, msg):
         """Store the latest image without processing"""
         try:
-            self.latest_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
+            cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
+            # Crop to 1200x700 from top-left corner
+            self.latest_image = cv_image[0:700, 0:1200]
         except Exception as e:
             self.get_logger().error(f'Error converting image: {str(e)}')
 
