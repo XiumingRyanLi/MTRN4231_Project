@@ -1,1 +1,0 @@
-/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_c/custom_interfaces/action/move_tcp.h
