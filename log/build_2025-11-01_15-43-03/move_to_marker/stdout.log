@@ -1,0 +1,20 @@
+[100%] Built target move_to_pose
+-- Install configuration: ""
+-- Execute custom install script
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/move_to_marker/lib/move_to_marker/move_to_pose
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/launch/bringup_moveit_ur5e.launch.py
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/ament_index/resource_index/package_run_dependencies/move_to_marker
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/ament_index/resource_index/parent_prefix_path/move_to_marker
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/environment/ament_prefix_path.sh
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/environment/ament_prefix_path.dsv
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/environment/path.sh
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/environment/path.dsv
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/local_setup.bash
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/local_setup.sh
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/local_setup.zsh
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/local_setup.dsv
+-- Symlinking: /home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/package.dsv
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/ament_index/resource_index/packages/move_to_marker
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/cmake/move_to_markerConfig.cmake
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/cmake/move_to_markerConfig-version.cmake
+-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/package.xml

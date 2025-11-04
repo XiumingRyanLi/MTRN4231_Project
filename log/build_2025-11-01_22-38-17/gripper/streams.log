@@ -1,0 +1,19 @@
+[1.434s] Invoking command in '/home/ryanl/4231/MTRN4231_Project/build/gripper': PYTHONPATH=/home/ryanl/4231/MTRN4231_Project/build/gripper/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ryanl/4231/MTRN4231_Project/install/gripper/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/ryanl/4231/MTRN4231_Project/build/gripper/build --no-deps symlink_data --force
+[1.871s] running develop
+[2.143s] running egg_info
+[2.143s] writing gripper.egg-info/PKG-INFO
+[2.144s] writing dependency_links to gripper.egg-info/dependency_links.txt
+[2.144s] writing entry points to gripper.egg-info/entry_points.txt
+[2.144s] writing requirements to gripper.egg-info/requires.txt
+[2.144s] writing top-level names to gripper.egg-info/top_level.txt
+[2.149s] reading manifest file 'gripper.egg-info/SOURCES.txt'
+[2.151s] writing manifest file 'gripper.egg-info/SOURCES.txt'
+[2.153s] running build_ext
+[2.154s] Creating /home/ryanl/4231/MTRN4231_Project/install/gripper/lib/python3.10/site-packages/gripper.egg-link (link to .)
+[2.155s] Installing gripper_bridge_node script to /home/ryanl/4231/MTRN4231_Project/install/gripper/lib/gripper_bridge
+[2.156s] 
+[2.156s] Installed /home/ryanl/4231/MTRN4231_Project/build/gripper
+[2.156s] running symlink_data
+[2.158s] symbolically linking /home/ryanl/4231/MTRN4231_Project/build/gripper/resource/gripper -> /home/ryanl/4231/MTRN4231_Project/install/gripper/share/ament_index/resource_index/packages
+[2.160s] symbolically linking /home/ryanl/4231/MTRN4231_Project/build/gripper/package.xml -> /home/ryanl/4231/MTRN4231_Project/install/gripper/share/gripper
+[2.217s] Invoked command in '/home/ryanl/4231/MTRN4231_Project/build/gripper' returned '0': PYTHONPATH=/home/ryanl/4231/MTRN4231_Project/build/gripper/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ryanl/4231/MTRN4231_Project/install/gripper/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py develop --editable --build-directory /home/ryanl/4231/MTRN4231_Project/build/gripper/build --no-deps symlink_data --force

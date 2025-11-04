@@ -1,0 +1,113 @@
+[0.202s] Invoking command in '/home/ryanl/4231/MTRN4231_Project/build/arm_controller': CMAKE_PREFIX_PATH=/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces:/home/ryanl/4231/MTRN4231_Project/install/move_to_marker:/home/ryanl/4231/MTRN4231_Project/install/end_effector_description:/home/ryanl/4231/MTRN4231_Project/install/arm_controller:/opt/ros/humble /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/arm_controller -- -j16 -l16
+[0.256s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.465s] -- Override CMake install command with custom implementation using symlinks instead of copying resources
+[0.478s] -- Found rclcpp: 16.0.14 (/opt/ros/humble/share/rclcpp/cmake)
+[0.820s] -- Found rosidl_generator_c: 3.1.7 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.823s] -- Found rosidl_adapter: 3.1.7 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.832s] -- Found rosidl_generator_cpp: 3.1.7 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.846s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.864s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.912s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[0.914s] -- Found rmw_fastrtps_cpp: 6.2.8 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[13.186s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[13.265s] -- Found rclcpp_action: 16.0.15 (/opt/ros/humble/share/rclcpp_action/cmake)
+[13.325s] -- Found tf2_ros: 0.25.15 (/opt/ros/humble/share/tf2_ros/cmake)
+[13.436s] -- Found tf2_geometry_msgs: 0.25.15 (/opt/ros/humble/share/tf2_geometry_msgs/cmake)
+[13.443s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[13.446s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[13.447s] -- Found moveit_ros_planning_interface: 2.5.9 (/opt/ros/humble/share/moveit_ros_planning_interface/cmake)
+[13.466s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: date_time filesystem program_options system thread 
+[13.707s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: chrono date_time filesystem iostreams program_options regex serialization system thread 
+[15.520s] -- Found parameter_traits: 0.5.0 (/opt/ros/humble/share/parameter_traits/cmake)
+[15.530s] -- Found rclcpp_lifecycle: 16.0.14 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)
+[15.566s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: filesystem 
+[18.538s] -- library: /usr/lib/x86_64-linux-gnu/libcurl.so
+[21.476s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread chrono 
+[21.519s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: thread system filesystem regex date_time program_options 
+[21.549s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread 
+[21.592s] -- Found custom_interfaces: 0.0.0 (/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/cmake)
+[21.619s] -- Found moveit_visual_tools: 4.1.2 (/opt/ros/humble/share/moveit_visual_tools/cmake)
+[22.004s] -- Setting assimp_DIR to: '/opt/ros/humble/share/rviz_assimp_vendor/cmake/../../../opt/rviz_assimp_vendor/lib/cmake/assimp-4.1'
+[22.025s] -- Setting OGRE_DIR to: '/opt/ros/humble/share/rviz_ogre_vendor/cmake/../../../opt/rviz_ogre_vendor/lib/OGRE/cmake'
+[22.030s] -- Found OGRE
+[22.030s] --   static     : OFF
+[22.030s] --   components : HLMS;MeshLodGenerator;Overlay;Paging;Property;RTShaderSystem;Terrain;Volume
+[22.030s] --   plugins    : Plugin_BSPSceneManager;Plugin_OctreeSceneManager;Plugin_PCZSceneManager;Plugin_ParticleFX;RenderSystem_GL;RenderSystem_GL3Plus;Codec_STBI
+[22.030s] --   media      : /opt/ros/humble/opt/rviz_ogre_vendor/share/OGRE/Media
+[22.030s] -- OGRE_LIBRARIES: OgreHLMS;OgreMeshLodGenerator;OgreOverlay;OgrePaging;OgreProperty;OgreRTShaderSystem;OgreTerrain;OgreVolume;OgreMain
+[22.031s] -- OGRE_LIBRARY_DIRS: /opt/ros/humble/opt/rviz_ogre_vendor/lib
+[22.031s] -- OGRE_PLUGINS: Plugin_BSPSceneManager;Plugin_OctreeSceneManager;Plugin_PCZSceneManager;Plugin_ParticleFX;RenderSystem_GL;RenderSystem_GL3Plus;Codec_STBI
+[22.031s] -- OGRE_PLUGIN_DIR: /opt/ros/humble/opt/rviz_ogre_vendor/lib/OGRE
+[22.031s] -- rviz_ogre_vendor::OgreOverlay for IMPORTED_LOCATION_RELEASE: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreOverlay.so
+[22.031s] -- rviz_ogre_vendor::OgreOverlay for IMPORTED_LOCATION_DEBUG: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreOverlay.so
+[22.031s] -- rviz_ogre_vendor::OgreMain for IMPORTED_LOCATION_RELEASE: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreMain.so
+[22.032s] -- rviz_ogre_vendor::OgreMain for IMPORTED_LOCATION_DEBUG: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreMain.so
+[22.120s] -- Could not find freeimage library
+[25.545s] -- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.2.11") 
+[26.512s] -- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so   
+[33.473s] -- Found X11: /usr/include   
+[33.474s] -- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so
+[33.936s] -- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so - found
+[33.937s] -- Looking for gethostbyname
+[34.265s] -- Looking for gethostbyname - found
+[34.266s] -- Looking for connect
+[34.585s] -- Looking for connect - found
+[34.585s] -- Looking for remove
+[34.903s] -- Looking for remove - found
+[34.904s] -- Looking for shmat
+[35.215s] -- Looking for shmat - found
+[35.216s] -- Looking for IceConnectionNumber in ICE
+[35.523s] -- Looking for IceConnectionNumber in ICE - found
+[35.939s] -- Configuring done
+[36.048s] -- Generating done
+[36.066s] -- Build files have been written to: /home/ryanl/4231/MTRN4231_Project/build/arm_controller
+[36.139s] [35m[1mConsolidate compiler generated dependencies of target arm_controller_node[0m
+[36.196s] [ 50%] [32mBuilding CXX object CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o[0m
+[51.378s] [01m[K/home/ryanl/4231/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:[m[K In member function ‘[01m[Kvoid ArmController::prep_planning()[m[K’:
+[51.378s] [01m[K/home/ryanl/4231/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:222:18:[m[K [01;31m[Kerror: [m[K‘[01m[Kusing element_type = class moveit::planning_interface::MoveGroupInterface[m[K’ {aka ‘[01m[Kclass moveit::planning_interface::MoveGroupInterface[m[K’} has no member named ‘[01m[KsetStartStateToCurrent[m[K’; did you mean ‘[01m[KsetStartStateToCurrentState[m[K’?
+[51.378s]   222 |     move_group_->[01;31m[KsetStartStateToCurrent[m[K();
+[51.378s]       |                  [01;31m[K^~~~~~~~~~~~~~~~~~~~~~[m[K
+[51.378s]       |                  [32m[KsetStartStateToCurrentState[m[K
+[55.017s] In file included from [01m[K/usr/include/x86_64-linux-gnu/c++/11/bits/c++allocator.h:33[m[K,
+[55.017s]                  from [01m[K/usr/include/c++/11/bits/allocator.h:46[m[K,
+[55.017s]                  from [01m[K/usr/include/c++/11/memory:64[m[K,
+[55.018s]                  from [01m[K/home/ryanl/4231/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:1[m[K:
+[55.018s] /usr/include/c++/11/ext/new_allocator.h: In instantiation of ‘[01m[Kvoid __gnu_cxx::new_allocator<_Tp>::construct(_Up*, _Args&& ...) [with _Up = moveit_visual_tools::MoveItVisualTools; _Args = {ArmController*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, const std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, std::shared_ptr<const moveit::core::RobotModel>}; _Tp = moveit_visual_tools::MoveItVisualTools][m[K’:
+[55.018s] [01m[K/usr/include/c++/11/bits/alloc_traits.h:516:17:[m[K   required from ‘[01m[Kstatic void std::allocator_traits<std::allocator<_Tp1> >::construct(std::allocator_traits<std::allocator<_Tp1> >::allocator_type&, _Up*, _Args&& ...) [with _Up = moveit_visual_tools::MoveItVisualTools; _Args = {ArmController*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, const std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, std::shared_ptr<const moveit::core::RobotModel>}; _Tp = moveit_visual_tools::MoveItVisualTools; std::allocator_traits<std::allocator<_Tp1> >::allocator_type = std::allocator<moveit_visual_tools::MoveItVisualTools>][m[K’
+[55.018s] [01m[K/usr/include/c++/11/bits/shared_ptr_base.h:519:39:[m[K   required from ‘[01m[Kstd::_Sp_counted_ptr_inplace<_Tp, _Alloc, _Lp>::_Sp_counted_ptr_inplace(_Alloc, _Args&& ...) [with _Args = {ArmController*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, const std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, std::shared_ptr<const moveit::core::RobotModel>}; _Tp = moveit_visual_tools::MoveItVisualTools; _Alloc = std::allocator<moveit_visual_tools::MoveItVisualTools>; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic][m[K’
+[55.018s] [01m[K/usr/include/c++/11/bits/shared_ptr_base.h:650:16:[m[K   required from ‘[01m[Kstd::__shared_count<_Lp>::__shared_count(_Tp*&, std::_Sp_alloc_shared_tag<_Alloc>, _Args&& ...) [with _Tp = moveit_visual_tools::MoveItVisualTools; _Alloc = std::allocator<moveit_visual_tools::MoveItVisualTools>; _Args = {ArmController*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, const std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, std::shared_ptr<const moveit::core::RobotModel>}; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic][m[K’
+[55.018s] [01m[K/usr/include/c++/11/bits/shared_ptr_base.h:1342:14:[m[K   required from ‘[01m[Kstd::__shared_ptr<_Tp, _Lp>::__shared_ptr(std::_Sp_alloc_shared_tag<_Tp>, _Args&& ...) [with _Alloc = std::allocator<moveit_visual_tools::MoveItVisualTools>; _Args = {ArmController*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, const std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, std::shared_ptr<const moveit::core::RobotModel>}; _Tp = moveit_visual_tools::MoveItVisualTools; __gnu_cxx::_Lock_policy _Lp = __gnu_cxx::_S_atomic][m[K’
+[55.018s] [01m[K/usr/include/c++/11/bits/shared_ptr.h:409:59:[m[K   required from ‘[01m[Kstd::shared_ptr<_Tp>::shared_ptr(std::_Sp_alloc_shared_tag<_Tp>, _Args&& ...) [with _Alloc = std::allocator<moveit_visual_tools::MoveItVisualTools>; _Args = {ArmController*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, const std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, std::shared_ptr<const moveit::core::RobotModel>}; _Tp = moveit_visual_tools::MoveItVisualTools][m[K’
+[55.018s] [01m[K/usr/include/c++/11/bits/shared_ptr.h:862:14:[m[K   required from ‘[01m[Kstd::shared_ptr<_Tp> std::allocate_shared(const _Alloc&, _Args&& ...) [with _Tp = moveit_visual_tools::MoveItVisualTools; _Alloc = std::allocator<moveit_visual_tools::MoveItVisualTools>; _Args = {ArmController*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, const std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, std::shared_ptr<const moveit::core::RobotModel>}][m[K’
+[55.018s] [01m[K/usr/include/c++/11/bits/shared_ptr.h:878:39:[m[K   required from ‘[01m[Kstd::shared_ptr<_Tp> std::make_shared(_Args&& ...) [with _Tp = moveit_visual_tools::MoveItVisualTools; _Args = {ArmController*, std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, const std::__cxx11::basic_string<char, std::char_traits<char>, std::allocator<char> >&, std::shared_ptr<const moveit::core::RobotModel>}][m[K’
+[55.019s] [01m[K/home/ryanl/4231/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:107:86:[m[K   required from here
+[55.019s] [01m[K/usr/include/c++/11/ext/new_allocator.h:162:11:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kmoveit_visual_tools::MoveItVisualTools::MoveItVisualTools(ArmController*, std::__cxx11::basic_string<char>&, const std::__cxx11::basic_string<char>&, std::shared_ptr<const moveit::core::RobotModel>)[m[K’
+[55.019s]   162 |         { [01;31m[K::new((void *)__p) _Up(std::forward<_Args>(__args)...)[m[K; }
+[55.019s]       |           [01;31m[K^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[m[K
+[55.019s] In file included from [01m[K/home/ryanl/4231/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:29[m[K:
+[55.019s] [01m[K/opt/ros/humble/include/moveit_visual_tools/moveit_visual_tools.h:101:3:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kmoveit_visual_tools::MoveItVisualTools::MoveItVisualTools(const SharedPtr&, const string&, const string&, moveit::core::RobotModelConstPtr)[m[K’
+[55.019s]   101 |   [01;36m[KMoveItVisualTools[m[K(const rclcpp::Node::SharedPtr& node, const std::string& base_frame,
+[55.019s]       |   [01;36m[K^~~~~~~~~~~~~~~~~[m[K
+[55.019s] [01m[K/opt/ros/humble/include/moveit_visual_tools/moveit_visual_tools.h:101:52:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[KArmController*[m[K’ to ‘[01m[Kconst SharedPtr&[m[K’ {aka ‘[01m[Kconst std::shared_ptr<rclcpp::Node>&[m[K’}
+[55.019s]   101 |   MoveItVisualTools([01;36m[Kconst rclcpp::Node::SharedPtr& node[m[K, const std::string& base_frame,
+[55.019s]       |                     [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~[m[K
+[55.019s] [01m[K/opt/ros/humble/include/moveit_visual_tools/moveit_visual_tools.h:92:3:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kmoveit_visual_tools::MoveItVisualTools::MoveItVisualTools(const SharedPtr&, const string&, const string&, planning_scene_monitor::PlanningSceneMonitorPtr)[m[K’
+[55.019s]    92 |   [01;36m[KMoveItVisualTools[m[K(const rclcpp::Node::SharedPtr& node, const std::string& base_frame, const std::string& marker_topic,
+[55.020s]       |   [01;36m[K^~~~~~~~~~~~~~~~~[m[K
+[55.020s] [01m[K/opt/ros/humble/include/moveit_visual_tools/moveit_visual_tools.h:92:52:[m[K [01;36m[Knote: [m[K  no known conversion for argument 1 from ‘[01m[KArmController*[m[K’ to ‘[01m[Kconst SharedPtr&[m[K’ {aka ‘[01m[Kconst std::shared_ptr<rclcpp::Node>&[m[K’}
+[55.020s]    92 |   MoveItVisualTools([01;36m[Kconst rclcpp::Node::SharedPtr& node[m[K, const std::string& base_frame, const std::string& marker_topic,
+[55.020s]       |                     [01;36m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~[m[K
+[55.020s] [01m[K/opt/ros/humble/include/moveit_visual_tools/moveit_visual_tools.h:83:3:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kmoveit_visual_tools::MoveItVisualTools::MoveItVisualTools(const SharedPtr&)[m[K’
+[55.020s]    83 |   [01;36m[KMoveItVisualTools[m[K(const rclcpp::Node::SharedPtr& node);
+[55.020s]       |   [01;36m[K^~~~~~~~~~~~~~~~~[m[K
+[55.020s] [01m[K/opt/ros/humble/include/moveit_visual_tools/moveit_visual_tools.h:83:3:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 4 provided
+[55.020s] [01m[K/opt/ros/humble/include/moveit_visual_tools/moveit_visual_tools.h:74:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kmoveit_visual_tools::MoveItVisualTools::MoveItVisualTools(const moveit_visual_tools::MoveItVisualTools&)[m[K’
+[55.020s]    74 | class [01;36m[KMoveItVisualTools[m[K : public rviz_visual_tools::RvizVisualTools
+[55.020s]       |       [01;36m[K^~~~~~~~~~~~~~~~~[m[K
+[55.021s] [01m[K/opt/ros/humble/include/moveit_visual_tools/moveit_visual_tools.h:74:7:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 4 provided
+[55.021s] [01m[K/opt/ros/humble/include/moveit_visual_tools/moveit_visual_tools.h:74:7:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kmoveit_visual_tools::MoveItVisualTools::MoveItVisualTools(moveit_visual_tools::MoveItVisualTools&&)[m[K’
+[55.021s] [01m[K/opt/ros/humble/include/moveit_visual_tools/moveit_visual_tools.h:74:7:[m[K [01;36m[Knote: [m[K  candidate expects 1 argument, 4 provided
+[56.892s] gmake[2]: *** [CMakeFiles/arm_controller_node.dir/build.make:76: CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o] Error 1
+[56.893s] gmake[1]: *** [CMakeFiles/Makefile2:137: CMakeFiles/arm_controller_node.dir/all] Error 2
+[56.894s] gmake: *** [Makefile:146: all] Error 2
+[56.900s] Invoked command in '/home/ryanl/4231/MTRN4231_Project/build/arm_controller' returned '2': CMAKE_PREFIX_PATH=/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces:/home/ryanl/4231/MTRN4231_Project/install/move_to_marker:/home/ryanl/4231/MTRN4231_Project/install/end_effector_description:/home/ryanl/4231/MTRN4231_Project/install/arm_controller:/opt/ros/humble /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/arm_controller -- -j16 -l16
