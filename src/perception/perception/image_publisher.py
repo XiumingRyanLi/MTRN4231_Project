@@ -5,144 +5,72 @@ from rclpy.node import Node
 from sensor_msgs.msg import Image
 from cv_bridge import CvBridge
 import cv2
+import os
+from ament_index_python.packages import get_package_share_directory
 
-class CameraPublisherNode(Node):
+class ImagePublisherNode(Node):
     def __init__(self):
-        super().__init__('camera_publisher_node')
+        super().__init__('image_publisher_node')
         
         # Parameters
-        self.declare_parameter('camera_index', 0)  # 0 for default camera, 1, 2, etc. for others
-        self.declare_parameter('publish_rate', 30.0)  # Hz
-        self.declare_parameter('output_topic', '/camera/image_raw')
-        self.declare_parameter('frame_width', 640)
-        self.declare_parameter('frame_height', 480)
-        
-        # Get parameters
-        camera_index = self.get_parameter('camera_index').value
-        publish_rate = self.get_parameter('publish_rate').value
-        output_topic = self.get_parameter('output_topic').value
-        frame_width = self.get_parameter('frame_width').value
-        frame_height = self.get_parameter('frame_height').value
-        
-        # CV Bridge
-        self.bridge = CvBridge()
-        
-        # Open camera
-        self.get_logger().info(f'Opening camera {camera_index}...')
-        self.cap = cv2.VideoCapture(camera_index)
-        
-        if not self.cap.isOpened():
-            self.get_logger().error(f'Failed to open camera {camera_index}')
-            raise RuntimeError(f'Could not open camera {camera_index}')
-        
-        # Set camera properties
-        self.cap.set(cv2.CAP_PROP_FRAME_WIDTH, frame_width)
-        self.cap.set(cv2.CAP_PROP_FRAME_HEIGHT, frame_height)
-        
-        # Get actual camera properties (may differ from requested)
-        actual_width = int(self.cap.get(cv2.CAP_PROP_FRAME_WIDTH))
-        actual_height = int(self.cap.get(cv2.CAP_PROP_FRAME_HEIGHT))
-        actual_fps = self.cap.get(cv2.CAP_PROP_FPS)
-        
-        self.get_logger().info(f'Camera opened successfully')
-        self.get_logger().info(f'Resolution: {actual_width}x{actual_height}')
-        self.get_logger().info(f'Camera FPS: {actual_fps}')
-        
-        # Publisher
-        self.image_pub = self.create_publisher(Image, output_topic, 10)
-        
-        # Timer for publishing
-        timer_period = 1.0 / publish_rate
-        self.timer = self.create_timer(timer_period, self.timer_callback)
-        
-        self.frame_count = 0
-        self.get_logger().info(f'Publishing to: {output_topic} at {publish_rate} Hz')
-        
-    def timer_callback(self):
-        """Capture and publish camera frame"""
-        try:
-            # Capture frame
-            ret, frame = self.cap.read()
-            
-            if not ret or frame is None:
-                self.get_logger().warn('Failed to capture frame')
-                return
-            
-            # Convert OpenCV image to ROS Image message
-            ros_image = self.bridge.cv2_to_imgmsg(frame, encoding='bgr8')
-            
-            # Set timestamp
-            ros_image.header.stamp = self.get_clock().now().to_msg()
-            ros_image.header.frame_id = 'camera'
-            
-            # Publish
-            self.image_pub.publish(ros_image)
-            
-            self.frame_count += 1
-            if self.frame_count == 1 or self.frame_count % 100 == 0:
-                self.get_logger().info(f'Published frame #{self.frame_count}')
-                
-        except Exception as e:
-            self.get_logger().error(f'Error capturing/publishing frame: {str(e)}')
-    
-    def destroy_node(self):
-        """Clean up resources"""
-        if hasattr(self, 'cap') and self.cap.isOpened():
-            self.cap.release()
-            self.get_logger().info('Camera released')
-        super().destroy_node()
-
-
-class SnapshotPublisherNode(Node):
-    """Captures a single snapshot from camera and publishes it repeatedly"""
-    def __init__(self):
-        super().__init__('snapshot_publisher_node')
-        
-        # Parameters
-        self.declare_parameter('camera_index', 0)
+        self.declare_parameter('image_path', 'test-images/test_cam4.jpg')
         self.declare_parameter('publish_rate', 1.0)  # Hz
         self.declare_parameter('output_topic', '/camera/image_raw')
-        self.declare_parameter('frame_width', 640)
-        self.declare_parameter('frame_height', 480)
-        self.declare_parameter('loop', False)  # Keep publishing or publish once
+        self.declare_parameter('once', True)  # Keep publishing or publish once
+        self.declare_parameter('use_package_path', False)  # If true, look in package share directory
         
         # Get parameters
-        camera_index = self.get_parameter('camera_index').value
+        image_path_param = self.get_parameter('image_path').value
         publish_rate = self.get_parameter('publish_rate').value
         output_topic = self.get_parameter('output_topic').value
-        frame_width = self.get_parameter('frame_width').value
-        frame_height = self.get_parameter('frame_height').value
-        self.loop = self.get_parameter('loop').value
+        self.loop = self.get_parameter('once').value
+        use_package_path = self.get_parameter('use_package_path').value
+        
+        # Determine full image path
+        if use_package_path:
+            try:
+                package_dir = get_package_share_directory('chess_board_detector')
+                self.image_path = os.path.join(package_dir, image_path_param)
+            except Exception:
+                self.get_logger().warn('Could not find package directory, using relative path')
+                self.image_path = image_path_param
+        else:
+            # If path is relative, try to resolve it from current directory
+            if not os.path.isabs(image_path_param):
+                # Try current directory first
+                if os.path.exists(image_path_param):
+                    self.image_path = os.path.abspath(image_path_param)
+                # Try relative to home
+                elif os.path.exists(os.path.expanduser(f'~/{image_path_param}')):
+                    self.image_path = os.path.expanduser(f'~/{image_path_param}')
+                # Try relative to workspace src
+                elif os.path.exists(os.path.expanduser(f'~/MTRN4231_Project/src/perception/{image_path_param}')):
+                    self.image_path = os.path.expanduser(f'~/MTRN4231_Project/src/perception/{image_path_param}')
+                else:
+                    self.image_path = image_path_param
+            else:
+                self.image_path = image_path_param
+        
+        # Validate image path
+        if not os.path.exists(self.image_path):
+            self.get_logger().error(f'Image not found: {self.image_path}')
+            self.get_logger().error(f'Searched paths:')
+            self.get_logger().error(f'  - {os.path.abspath(image_path_param)}')
+            self.get_logger().error(f'  - {os.path.expanduser(f"~/{image_path_param}")}')
+            self.get_logger().error(f'  - {os.path.expanduser(f"~/ros2_ws/src/{image_path_param}")}')
+            raise FileNotFoundError(f'Image not found: {self.image_path}')
         
         # CV Bridge
         self.bridge = CvBridge()
         
-        # Open camera temporarily to capture snapshot
-        self.get_logger().info(f'Opening camera {camera_index} for snapshot...')
-        cap = cv2.VideoCapture(camera_index)
+        # Load image
+        self.cv_image = cv2.imread(self.image_path)
+        if self.cv_image is None:
+            self.get_logger().error(f'Failed to load image: {self.image_path}')
+            raise ValueError(f'Could not read image: {self.image_path}')
         
-        if not cap.isOpened():
-            self.get_logger().error(f'Failed to open camera {camera_index}')
-            raise RuntimeError(f'Could not open camera {camera_index}')
-        
-        # Set camera properties
-        cap.set(cv2.CAP_PROP_FRAME_WIDTH, frame_width)
-        cap.set(cv2.CAP_PROP_FRAME_HEIGHT, frame_height)
-        
-        # Warm up camera (capture a few frames)
-        self.get_logger().info('Warming up camera...')
-        for _ in range(5):
-            cap.read()
-        
-        # Capture snapshot
-        ret, self.snapshot = cap.read()
-        cap.release()
-        
-        if not ret or self.snapshot is None:
-            self.get_logger().error('Failed to capture snapshot')
-            raise RuntimeError('Could not capture snapshot from camera')
-        
-        self.get_logger().info(f'Snapshot captured: {self.snapshot.shape}')
+        self.get_logger().info(f'Successfully loaded image: {self.image_path}')
+        self.get_logger().info(f'Image shape: {self.cv_image.shape}')
         
         # Publisher
         self.image_pub = self.create_publisher(Image, output_topic, 10)
@@ -152,13 +80,13 @@ class SnapshotPublisherNode(Node):
         self.timer = self.create_timer(timer_period, self.timer_callback)
         
         self.publish_count = 0
-        self.get_logger().info(f'Publishing snapshot to: {output_topic} at {publish_rate} Hz')
+        self.get_logger().info(f'Publishing to: {output_topic} at {publish_rate} Hz')
         
     def timer_callback(self):
-        """Publish the snapshot"""
+        """Publish the image"""
         try:
             # Convert OpenCV image to ROS Image message
-            ros_image = self.bridge.cv2_to_imgmsg(self.snapshot, encoding='bgr8')
+            ros_image = self.bridge.cv2_to_imgmsg(self.cv_image, encoding='bgr8')
             
             # Set timestamp
             ros_image.header.stamp = self.get_clock().now().to_msg()
@@ -169,7 +97,7 @@ class SnapshotPublisherNode(Node):
             
             self.publish_count += 1
             if self.publish_count == 1 or self.publish_count % 10 == 0:
-                self.get_logger().info(f'Published snapshot #{self.publish_count}')
+                self.get_logger().info(f'Published image #{self.publish_count}')
             
             # Stop after one publish if loop is false
             if not self.loop and self.publish_count >= 1:
@@ -177,18 +105,118 @@ class SnapshotPublisherNode(Node):
                 self.timer.cancel()
                 
         except Exception as e:
-            self.get_logger().error(f'Error publishing snapshot: {str(e)}')
+            self.get_logger().error(f'Error publishing image: {str(e)}')
+
+
+class ImageDirectoryPublisherNode(Node):
+    """Publisher for cycling through multiple images in a directory"""
+    def __init__(self):
+        super().__init__('image_directory_publisher_node')
+        
+        # Parameters
+        self.declare_parameter('image_directory', 'test-images')
+        self.declare_parameter('publish_rate', 1.0)  # Hz
+        self.declare_parameter('output_topic', '/camera/image_raw')
+        self.declare_parameter('loop', True)
+        
+        # Get parameters
+        image_dir_param = self.get_parameter('image_directory').value
+        publish_rate = self.get_parameter('publish_rate').value
+        output_topic = self.get_parameter('output_topic').value
+        self.loop = self.get_parameter('loop').value
+        
+        # Resolve directory path
+        if not os.path.isabs(image_dir_param):
+            if os.path.exists(image_dir_param):
+                self.image_dir = os.path.abspath(image_dir_param)
+            elif os.path.exists(os.path.expanduser(f'~/{image_dir_param}')):
+                self.image_dir = os.path.expanduser(f'~/{image_dir_param}')
+            elif os.path.exists(os.path.expanduser(f'~/ros2_ws/src/{image_dir_param}')):
+                self.image_dir = os.path.expanduser(f'~/ros2_ws/src/{image_dir_param}')
+            else:
+                self.image_dir = image_dir_param
+        else:
+            self.image_dir = image_dir_param
+        
+        # Validate directory
+        if not os.path.exists(self.image_dir):
+            self.get_logger().error(f'Directory not found: {self.image_dir}')
+            raise FileNotFoundError(f'Directory not found: {self.image_dir}')
+        
+        # Get all image files
+        image_extensions = ['.jpg', '.jpeg', '.png', '.bmp']
+        self.image_files = []
+        for file in sorted(os.listdir(self.image_dir)):
+            if any(file.lower().endswith(ext) for ext in image_extensions):
+                self.image_files.append(os.path.join(self.image_dir, file))
+        
+        if not self.image_files:
+            self.get_logger().error(f'No images found in: {self.image_dir}')
+            raise ValueError(f'No images in directory: {self.image_dir}')
+        
+        self.get_logger().info(f'Found {len(self.image_files)} images in {self.image_dir}')
+        
+        # CV Bridge
+        self.bridge = CvBridge()
+        
+        # Publisher
+        self.image_pub = self.create_publisher(Image, output_topic, 10)
+        
+        # Timer for publishing
+        timer_period = 1.0 / publish_rate
+        self.timer = self.create_timer(timer_period, self.timer_callback)
+        
+        self.current_index = 0
+        self.get_logger().info(f'Publishing to: {output_topic} at {publish_rate} Hz')
+        
+    def timer_callback(self):
+        """Publish the next image in sequence"""
+        try:
+            # Load current image
+            image_path = self.image_files[self.current_index]
+            cv_image = cv2.imread(image_path)
+            
+            if cv_image is None:
+                self.get_logger().error(f'Failed to load: {image_path}')
+                self.current_index = (self.current_index + 1) % len(self.image_files)
+                return
+            
+            # Convert to ROS message
+            ros_image = self.bridge.cv2_to_imgmsg(cv_image, encoding='bgr8')
+            ros_image.header.stamp = self.get_clock().now().to_msg()
+            ros_image.header.frame_id = 'camera'
+            
+            # Publish
+            self.image_pub.publish(ros_image)
+            
+            self.get_logger().info(f'Published: {os.path.basename(image_path)} '
+                                  f'({self.current_index + 1}/{len(self.image_files)})')
+            
+            # Move to next image
+            self.current_index += 1
+            
+            # Handle looping
+            if self.current_index >= len(self.image_files):
+                if self.loop:
+                    self.current_index = 0
+                    self.get_logger().info('Looping back to first image')
+                else:
+                    self.get_logger().info('All images published. Shutting down...')
+                    self.timer.cancel()
+                    
+        except Exception as e:
+            self.get_logger().error(f'Error publishing image: {str(e)}')
 
 
 def main(args=None):
     rclpy.init(args=args)
     
-    # Check which mode is requested
+    # Check if directory mode is requested
     import sys
-    if '--snapshot' in sys.argv or '-s' in sys.argv:
-        node = SnapshotPublisherNode()
+    if '--directory' in sys.argv or '-d' in sys.argv:
+        node = ImageDirectoryPublisherNode()
     else:
-        node = CameraPublisherNode()
+        node = ImagePublisherNode()
     
     try:
         rclpy.spin(node)
