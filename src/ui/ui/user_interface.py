@@ -1,4 +1,4 @@
-from interfaces.srv import ChessMove
+from custom_interfaces.srv import ChessMove
 from std_msgs.msg import String
 from std_msgs.msg import Int32
 from sensor_msgs.msg import CompressedImage
@@ -45,7 +45,8 @@ class UserInterface(tk.Tk):
         lvl_frame = tk.Frame(self)
         lvl_frame.pack(pady=(4, 10))
 
-        tk.Label(lvl_frame, text="Engine Skill Level (0–20):").pack(side="left", padx=(0, 8))
+        tk.Label(lvl_frame, text="Engine Skill Level (0–20):").pack(
+            side="left", padx=(0, 8))
 
         # Create a variable to store the selected value
         self.skill_var = tk.StringVar(value="20")  # default value
@@ -79,10 +80,12 @@ class UserInterface(tk.Tk):
         self.skill_pub = self.node.create_publisher(Int32, 'skill_level', 10)
 
         # create take picture publisher for image detection
-        self.take_pic_pub = self.node.create_publisher(String, 'take_picture', 10)
+        self.take_pic_pub = self.node.create_publisher(
+            String, 'take_picture', 10)
 
         # create status subscriber
-        self.status_sub = self.node.create_subscription(String, 'status', self.status_callback, 10)
+        self.status_sub = self.node.create_subscription(
+            String, 'status', self.status_callback, 10)
 
         # create board state subscriber
         self.sub = self.node.create_subscription(

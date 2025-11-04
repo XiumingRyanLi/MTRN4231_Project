@@ -1,7 +1,7 @@
 import rclpy
 from rclpy.node import Node
 from std_msgs.msg import String
-from interfaces.srv import ChessMove
+from custom_interfaces.srv import ChessMove
 
 
 class TaskCoordinator(Node):
@@ -49,12 +49,12 @@ class TaskCoordinator(Node):
         robot_move = resp.robot_move
         if len(robot_move) < 4 or len(robot_move) > 5:
             return
-        
+
         sq1 = robot_move[0:2]
         sq2 = robot_move[2:4]
         x1, y1 = self.get_real_world_coords(sq1)
         x2, y2 = self.get_real_world_coords(sq2)
-        
+
         # case en passant
         if resp.is_en_passant:
             self.normal_move(x1, y1, x2, y2, sq1, sq2)
@@ -127,13 +127,13 @@ class TaskCoordinator(Node):
         self.get_logger().info(f"Grip")
         self.get_logger().info(f"Move to {x2}, {y2} ({sq2})")
         self.get_logger().info(f"Ungrip")
-        
+
     def discard_piece(self, x, y, sq):
         self.get_logger().info(f"Move to {x}, {y} ({sq})")
         self.get_logger().info(f"Grip")
         self.get_logger().info(f"Move to discard pile")
         self.get_logger().info(f"Ungrip")
-        
+
     def promote_piece(self, x, y, sq):
         self.get_logger().info(f"Move to extra queen")
         self.get_logger().info(f"Grip")

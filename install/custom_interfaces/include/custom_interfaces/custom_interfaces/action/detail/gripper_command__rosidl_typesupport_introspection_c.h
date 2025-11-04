@@ -1,1 +1,0 @@
-/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_typesupport_introspection_c/custom_interfaces/action/detail/gripper_command__rosidl_typesupport_introspection_c.h

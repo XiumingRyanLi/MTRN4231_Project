@@ -9,6 +9,7 @@ find_package(builtin_interfaces REQUIRED)
 rosidl_generate_interfaces(${PROJECT_NAME}
   "action/MoveTCP.action"
   "action/GripperCommand.action"
+  "srv/ChessMove.srv"
   DEPENDENCIES geometry_msgs builtin_interfaces
 )
 
