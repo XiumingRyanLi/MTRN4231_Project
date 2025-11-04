@@ -32,10 +32,12 @@ class ChessMaster(Node):
         self.banter_recent = collections.deque(maxlen=5)
         self.status_pub = self.create_publisher(String, 'status', 10)
         self.pub = self.create_publisher(CompressedImage, 'board_state', 10)
+        
 
         self.current_skill = 20
         self.engine.configure({"Skill Level": self.current_skill})
         self.skill_sub = self.create_subscription(Int32, 'skill_level', self.skill_callback, 10)
+        # self.player_move_pub = self.create_subscription(String, '/player_move', self.player_move_callback, 10)
 
         self.timer = self.create_timer(2, self.pub_callback)
         
@@ -174,6 +176,9 @@ class ChessMaster(Node):
             self.status_publish(line)
 
         return response
+
+    # def player_move_callback(self, msg):
+    #     self.service_callback(msg)
 
     def skill_callback(self, msg):
         lvl = max(0, min(20, int(msg.data)))  # clamp to [0, 20]

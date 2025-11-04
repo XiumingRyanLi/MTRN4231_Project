@@ -78,6 +78,9 @@ class UserInterface(tk.Tk):
         # create skill level publisher
         self.skill_pub = self.node.create_publisher(Int32, 'skill_level', 10)
 
+        # create take picture publisher for image detection
+        self.take_pic_pub = self.node.create_publisher(String, 'take_picture', 10)
+
         # create status subscriber
         self.status_sub = self.node.create_subscription(String, 'status', self.status_callback, 10)
 
@@ -120,6 +123,7 @@ class UserInterface(tk.Tk):
         msg.data = move
         self.move_pub.publish(msg)
         self.move_entry.delete(0, tk.END)
+        self.take_pic_pub.publish(msg)
 
     def reset_press(self):
         # reset board

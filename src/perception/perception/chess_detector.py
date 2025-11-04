@@ -3,7 +3,7 @@
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Image
-from std_msgs.msg import String
+from std_msgs.msg import String, Empty
 from cv_bridge import CvBridge
 import cv2
 import numpy as np
@@ -15,7 +15,7 @@ class ChessBoardDetectorNode(Node):
         super().__init__('chess_board_detector_node')
         
         # Parameters
-        self.declare_parameter('image_topic', '/camera/image_raw')
+        self.declare_parameter('image_topic', '/camera/camera/color/image_raw')
         self.declare_parameter('publish_debug_images', True)
         self.declare_parameter('square_threshold', 35)
         
@@ -27,11 +27,24 @@ class ChessBoardDetectorNode(Node):
         # CV Bridge
         self.bridge = CvBridge()
         
+        # State variables
+        self.latest_image = None
+        self.coord_dict = None
+        self.M_inv = None
+        self.previous_occupancy = None
+        
         # Subscribers
         self.image_sub = self.create_subscription(
             Image,
             image_topic,
             self.image_callback,
+            10
+        )
+        
+        self.trigger_sub = self.create_subscription(
+            Empty,
+            '/take_picture',
+            self.trigger_callback,
             10
         )
         
@@ -61,19 +74,30 @@ class ChessBoardDetectorNode(Node):
                 10
             )
         
-        # State variables
-        self.coord_dict = None
-        self.M_inv = None
-        self.previous_occupancy = None
-        
         self.get_logger().info('Chess Board Detector Node initialized')
         self.get_logger().info(f'Listening to: {image_topic}')
+        self.get_logger().info('Waiting for trigger on /take_picture')
 
     def image_callback(self, msg):
-        """Main callback for processing images"""
+        """Store the latest image without processing"""
         try:
-            # Convert ROS Image to OpenCV
-            cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
+            self.latest_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
+        except Exception as e:
+            self.get_logger().error(f'Error converting image: {str(e)}')
+
+    def trigger_callback(self, msg):
+        """Process the latest image when triggered"""
+        if self.latest_image is None:
+            self.get_logger().warn('Trigger received but no image available yet')
+            return
+        
+        self.get_logger().info('Processing triggered image...')
+        self.process_latest_image()
+
+    def process_latest_image(self):
+        """Process the stored latest image"""
+        try:
+            cv_image = self.latest_image
             
             # Process the image
             success, coord_dict, warped_image, debug_image, M_inv = self.process_chessboard(cv_image)
