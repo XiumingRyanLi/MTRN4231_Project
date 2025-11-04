@@ -1,4 +1,0 @@
-[console_scripts]
-gripper_client = gripper.gripper_client:main
-gripper_server = gripper.gripper_server:main
-
