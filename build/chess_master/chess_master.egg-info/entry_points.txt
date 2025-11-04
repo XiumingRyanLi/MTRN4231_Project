@@ -1,0 +1,3 @@
+[console_scripts]
+master = chess_master.move_service:main
+

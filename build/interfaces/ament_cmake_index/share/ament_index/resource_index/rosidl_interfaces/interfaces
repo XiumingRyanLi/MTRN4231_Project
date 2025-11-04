@@ -1,0 +1,4 @@
+srv/ChessMove.idl
+srv/ChessMove.srv
+srv/ChessMove_Request.msg
+srv/ChessMove_Response.msg

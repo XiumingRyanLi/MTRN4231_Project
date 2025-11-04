@@ -202,7 +202,7 @@ def get_robot_description():
         "ur_type:=", "ur5e", " ",
         "name:=", ROBOT_NAME, " ",
         "prefix:=", '""', " ",
-        "robot_ip:=", "172.17.0.2", " ",
+        "robot_ip:=", "192.168.0.100", " ",
         "joint_limit_params:=", joint_limit_params, " ",
         "kinematics_params:=",  kinematics_params,  " ",
         "physical_params:=",    physical_params,    " ",

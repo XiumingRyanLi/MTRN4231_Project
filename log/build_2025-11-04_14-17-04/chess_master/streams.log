@@ -1,0 +1,38 @@
+[1.756s] Invoking command in '/home/ryanl/4231/MTRN4231_Project/src/chess_master': AMENT_PREFIX_PATH=/home/ryanl/4231/MTRN4231_Project/install/interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ryanl/4231/MTRN4231_Project/install/interfaces:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/ryanl/4231/MTRN4231_Project/install/interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ryanl/4231/MTRN4231_Project/build/chess_master/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ryanl/4231/MTRN4231_Project/install/chess_master/lib/python3.10/site-packages:/home/ryanl/4231/MTRN4231_Project/install/interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/chess_master build --build-base /home/ryanl/4231/MTRN4231_Project/build/chess_master/build install --record /home/ryanl/4231/MTRN4231_Project/build/chess_master/install.log --single-version-externally-managed install_data
+[2.193s] running egg_info
+[2.194s] creating ../../build/chess_master/chess_master.egg-info
+[2.196s] writing ../../build/chess_master/chess_master.egg-info/PKG-INFO
+[2.196s] writing dependency_links to ../../build/chess_master/chess_master.egg-info/dependency_links.txt
+[2.196s] writing entry points to ../../build/chess_master/chess_master.egg-info/entry_points.txt
+[2.197s] writing requirements to ../../build/chess_master/chess_master.egg-info/requires.txt
+[2.197s] writing top-level names to ../../build/chess_master/chess_master.egg-info/top_level.txt
+[2.197s] writing manifest file '../../build/chess_master/chess_master.egg-info/SOURCES.txt'
+[2.201s] reading manifest file '../../build/chess_master/chess_master.egg-info/SOURCES.txt'
+[2.201s] adding license file 'LICENSE'
+[2.202s] writing manifest file '../../build/chess_master/chess_master.egg-info/SOURCES.txt'
+[2.202s] running build
+[2.203s] running build_py
+[2.203s] creating /home/ryanl/4231/MTRN4231_Project/build/chess_master/build
+[2.204s] creating /home/ryanl/4231/MTRN4231_Project/build/chess_master/build/lib
+[2.204s] creating /home/ryanl/4231/MTRN4231_Project/build/chess_master/build/lib/chess_master
+[2.205s] copying chess_master/__init__.py -> /home/ryanl/4231/MTRN4231_Project/build/chess_master/build/lib/chess_master
+[2.205s] copying chess_master/move_service.py -> /home/ryanl/4231/MTRN4231_Project/build/chess_master/build/lib/chess_master
+[2.249s] running install
+[2.249s] running install_lib
+[2.250s] creating /home/ryanl/4231/MTRN4231_Project/install/chess_master/lib/python3.10/site-packages/chess_master
+[2.252s] copying /home/ryanl/4231/MTRN4231_Project/build/chess_master/build/lib/chess_master/__init__.py -> /home/ryanl/4231/MTRN4231_Project/install/chess_master/lib/python3.10/site-packages/chess_master
+[2.252s] copying /home/ryanl/4231/MTRN4231_Project/build/chess_master/build/lib/chess_master/move_service.py -> /home/ryanl/4231/MTRN4231_Project/install/chess_master/lib/python3.10/site-packages/chess_master
+[2.253s] byte-compiling /home/ryanl/4231/MTRN4231_Project/install/chess_master/lib/python3.10/site-packages/chess_master/__init__.py to __init__.cpython-310.pyc
+[2.254s] byte-compiling /home/ryanl/4231/MTRN4231_Project/install/chess_master/lib/python3.10/site-packages/chess_master/move_service.py to move_service.cpython-310.pyc
+[2.257s] running install_data
+[2.258s] creating /home/ryanl/4231/MTRN4231_Project/install/chess_master/share/ament_index
+[2.259s] creating /home/ryanl/4231/MTRN4231_Project/install/chess_master/share/ament_index/resource_index
+[2.260s] creating /home/ryanl/4231/MTRN4231_Project/install/chess_master/share/ament_index/resource_index/packages
+[2.260s] copying resource/chess_master -> /home/ryanl/4231/MTRN4231_Project/install/chess_master/share/ament_index/resource_index/packages
+[2.261s] copying package.xml -> /home/ryanl/4231/MTRN4231_Project/install/chess_master/share/chess_master
+[2.261s] running install_egg_info
+[2.265s] Copying ../../build/chess_master/chess_master.egg-info to /home/ryanl/4231/MTRN4231_Project/install/chess_master/lib/python3.10/site-packages/chess_master-0.0.0-py3.10.egg-info
+[2.268s] running install_scripts
+[2.302s] Installing master script to /home/ryanl/4231/MTRN4231_Project/install/chess_master/lib/chess_master
+[2.303s] writing list of installed files to '/home/ryanl/4231/MTRN4231_Project/build/chess_master/install.log'
+[2.345s] Invoked command in '/home/ryanl/4231/MTRN4231_Project/src/chess_master' returned '0': AMENT_PREFIX_PATH=/home/ryanl/4231/MTRN4231_Project/install/interfaces:${AMENT_PREFIX_PATH} CMAKE_PREFIX_PATH=/home/ryanl/4231/MTRN4231_Project/install/interfaces:${CMAKE_PREFIX_PATH} LD_LIBRARY_PATH=/home/ryanl/4231/MTRN4231_Project/install/interfaces/lib:${LD_LIBRARY_PATH} PYTHONPATH=/home/ryanl/4231/MTRN4231_Project/build/chess_master/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ryanl/4231/MTRN4231_Project/install/chess_master/lib/python3.10/site-packages:/home/ryanl/4231/MTRN4231_Project/install/interfaces/local/lib/python3.10/dist-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/chess_master build --build-base /home/ryanl/4231/MTRN4231_Project/build/chess_master/build install --record /home/ryanl/4231/MTRN4231_Project/build/chess_master/install.log --single-version-externally-managed install_data

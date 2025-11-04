@@ -1,0 +1,642 @@
+[0.606s] [34mcolcon[0m [1;30mDEBUG[0m [32mCommand line arguments: ['/usr/bin/colcon', 'build'][0m
+[0.606s] [34mcolcon[0m [1;30mDEBUG[0m [32mParsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=16, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x705082b32290>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x705082c3f130>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x705082c3f130>>, mixin_verb=('build',))[0m
+[1.307s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(colcon_meta) check parameters
+[1.308s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(recursive) check parameters
+[1.308s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(ignore) check parameters
+[1.308s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(path) check parameters
+[1.308s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(colcon_meta) discover
+[1.308s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(recursive) discover
+[1.308s] [34mcolcon.colcon_core.package_discovery[0m [1;30mINFO[0m Crawling recursively for packages in '/home/ryanl/4231/MTRN4231_Project'
+[1.308s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['ignore', 'ignore_ament_install']
+[1.309s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'ignore'
+[1.309s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'ignore_ament_install'
+[1.309s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['colcon_pkg']
+[1.309s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'colcon_pkg'
+[1.309s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['colcon_meta']
+[1.309s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'colcon_meta'
+[1.309s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['ros']
+[1.309s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'ros'
+[1.364s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['cmake', 'python']
+[1.364s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'cmake'
+[1.364s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'python'
+[1.364s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extensions ['python_setup_py']
+[1.364s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(.) by extension 'python_setup_py'
+[1.366s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(build) by extensions ['ignore', 'ignore_ament_install']
+[1.366s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(build) by extension 'ignore'
+[1.366s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(build) ignored
+[1.367s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(install) by extensions ['ignore', 'ignore_ament_install']
+[1.367s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(install) by extension 'ignore'
+[1.368s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(install) ignored
+[1.368s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(log) by extensions ['ignore', 'ignore_ament_install']
+[1.368s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(log) by extension 'ignore'
+[1.368s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(log) ignored
+[1.368s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extensions ['ignore', 'ignore_ament_install']
+[1.368s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'ignore'
+[1.369s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'ignore_ament_install'
+[1.369s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extensions ['colcon_pkg']
+[1.369s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'colcon_pkg'
+[1.369s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extensions ['colcon_meta']
+[1.369s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'colcon_meta'
+[1.369s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extensions ['ros']
+[1.369s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'ros'
+[1.369s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extensions ['cmake', 'python']
+[1.369s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'cmake'
+[1.369s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'python'
+[1.369s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extensions ['python_setup_py']
+[1.369s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src) by extension 'python_setup_py'
+[1.370s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/arm_controller) by extensions ['ignore', 'ignore_ament_install']
+[1.370s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/arm_controller) by extension 'ignore'
+[1.370s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/arm_controller) by extension 'ignore_ament_install'
+[1.370s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/arm_controller) by extensions ['colcon_pkg']
+[1.370s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/arm_controller) by extension 'colcon_pkg'
+[1.370s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/arm_controller) by extensions ['colcon_meta']
+[1.370s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/arm_controller) by extension 'colcon_meta'
+[1.371s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/arm_controller) by extensions ['ros']
+[1.371s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/arm_controller) by extension 'ros'
+[1.377s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/arm_controller' with type 'ros.ament_cmake' and name 'arm_controller'[0m
+[1.378s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/brain) by extensions ['ignore', 'ignore_ament_install']
+[1.379s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/brain) by extension 'ignore'
+[1.379s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/brain) by extension 'ignore_ament_install'
+[1.379s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/brain) by extensions ['colcon_pkg']
+[1.379s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/brain) by extension 'colcon_pkg'
+[1.379s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/brain) by extensions ['colcon_meta']
+[1.379s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/brain) by extension 'colcon_meta'
+[1.379s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/brain) by extensions ['ros']
+[1.379s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/brain) by extension 'ros'
+[1.381s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/brain' with type 'ros.ament_python' and name 'brain'[0m
+[1.382s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/chess_master) by extensions ['ignore', 'ignore_ament_install']
+[1.382s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/chess_master) by extension 'ignore'
+[1.383s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/chess_master) by extension 'ignore_ament_install'
+[1.383s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/chess_master) by extensions ['colcon_pkg']
+[1.383s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/chess_master) by extension 'colcon_pkg'
+[1.383s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/chess_master) by extensions ['colcon_meta']
+[1.383s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/chess_master) by extension 'colcon_meta'
+[1.383s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/chess_master) by extensions ['ros']
+[1.383s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/chess_master) by extension 'ros'
+[1.385s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/chess_master' with type 'ros.ament_python' and name 'chess_master'[0m
+[1.386s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/custom_interfaces) by extensions ['ignore', 'ignore_ament_install']
+[1.386s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/custom_interfaces) by extension 'ignore'
+[1.386s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/custom_interfaces) by extension 'ignore_ament_install'
+[1.386s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/custom_interfaces) by extensions ['colcon_pkg']
+[1.386s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/custom_interfaces) by extension 'colcon_pkg'
+[1.386s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/custom_interfaces) by extensions ['colcon_meta']
+[1.386s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/custom_interfaces) by extension 'colcon_meta'
+[1.386s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/custom_interfaces) by extensions ['ros']
+[1.387s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/custom_interfaces) by extension 'ros'
+[1.388s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/custom_interfaces' with type 'ros.ament_cmake' and name 'custom_interfaces'[0m
+[1.389s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/end_effector_description) by extensions ['ignore', 'ignore_ament_install']
+[1.389s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/end_effector_description) by extension 'ignore'
+[1.389s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/end_effector_description) by extension 'ignore_ament_install'
+[1.389s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/end_effector_description) by extensions ['colcon_pkg']
+[1.389s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/end_effector_description) by extension 'colcon_pkg'
+[1.389s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/end_effector_description) by extensions ['colcon_meta']
+[1.389s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/end_effector_description) by extension 'colcon_meta'
+[1.389s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/end_effector_description) by extensions ['ros']
+[1.389s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/end_effector_description) by extension 'ros'
+[1.390s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/end_effector_description' with type 'ros.ament_cmake' and name 'end_effector_description'[0m
+[1.390s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/gripper) by extensions ['ignore', 'ignore_ament_install']
+[1.390s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/gripper) by extension 'ignore'
+[1.391s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/gripper) by extension 'ignore_ament_install'
+[1.391s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/gripper) by extensions ['colcon_pkg']
+[1.391s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/gripper) by extension 'colcon_pkg'
+[1.391s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/gripper) by extensions ['colcon_meta']
+[1.391s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/gripper) by extension 'colcon_meta'
+[1.391s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/gripper) by extensions ['ros']
+[1.391s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/gripper) by extension 'ros'
+[1.392s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/gripper' with type 'ros.ament_python' and name 'gripper'[0m
+[1.393s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/interfaces) by extensions ['ignore', 'ignore_ament_install']
+[1.393s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/interfaces) by extension 'ignore'
+[1.393s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/interfaces) by extension 'ignore_ament_install'
+[1.393s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/interfaces) by extensions ['colcon_pkg']
+[1.393s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/interfaces) by extension 'colcon_pkg'
+[1.393s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/interfaces) by extensions ['colcon_meta']
+[1.394s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/interfaces) by extension 'colcon_meta'
+[1.394s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/interfaces) by extensions ['ros']
+[1.394s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/interfaces) by extension 'ros'
+[1.395s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/interfaces' with type 'ros.ament_cmake' and name 'interfaces'[0m
+[1.395s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/move_to_marker) by extensions ['ignore', 'ignore_ament_install']
+[1.396s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/move_to_marker) by extension 'ignore'
+[1.396s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/move_to_marker) by extension 'ignore_ament_install'
+[1.396s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/move_to_marker) by extensions ['colcon_pkg']
+[1.396s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/move_to_marker) by extension 'colcon_pkg'
+[1.396s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/move_to_marker) by extensions ['colcon_meta']
+[1.396s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/move_to_marker) by extension 'colcon_meta'
+[1.396s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/move_to_marker) by extensions ['ros']
+[1.396s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/move_to_marker) by extension 'ros'
+[1.398s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/move_to_marker' with type 'ros.ament_cmake' and name 'move_to_marker'[0m
+[1.398s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/ui) by extensions ['ignore', 'ignore_ament_install']
+[1.399s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/ui) by extension 'ignore'
+[1.399s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/ui) by extension 'ignore_ament_install'
+[1.399s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/ui) by extensions ['colcon_pkg']
+[1.399s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/ui) by extension 'colcon_pkg'
+[1.399s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/ui) by extensions ['colcon_meta']
+[1.399s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/ui) by extension 'colcon_meta'
+[1.399s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/ui) by extensions ['ros']
+[1.399s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(src/ui) by extension 'ros'
+[1.400s] [34mcolcon.colcon_core.package_identification[0m [1;30mDEBUG[0m [32mPackage 'src/ui' with type 'ros.ament_python' and name 'ui'[0m
+[1.401s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish) by extensions ['ignore', 'ignore_ament_install']
+[1.401s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish) by extension 'ignore'
+[1.401s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish) by extension 'ignore_ament_install'
+[1.401s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish) by extensions ['colcon_pkg']
+[1.401s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish) by extension 'colcon_pkg'
+[1.401s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish) by extensions ['colcon_meta']
+[1.401s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish) by extension 'colcon_meta'
+[1.401s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish) by extensions ['ros']
+[1.401s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish) by extension 'ros'
+[1.401s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish) by extensions ['cmake', 'python']
+[1.401s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish) by extension 'cmake'
+[1.401s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish) by extension 'python'
+[1.401s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish) by extensions ['python_setup_py']
+[1.401s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish) by extension 'python_setup_py'
+[1.402s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/scripts) by extensions ['ignore', 'ignore_ament_install']
+[1.402s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/scripts) by extension 'ignore'
+[1.402s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/scripts) by extension 'ignore_ament_install'
+[1.402s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/scripts) by extensions ['colcon_pkg']
+[1.402s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/scripts) by extension 'colcon_pkg'
+[1.402s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/scripts) by extensions ['colcon_meta']
+[1.402s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/scripts) by extension 'colcon_meta'
+[1.402s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/scripts) by extensions ['ros']
+[1.402s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/scripts) by extension 'ros'
+[1.402s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/scripts) by extensions ['cmake', 'python']
+[1.402s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/scripts) by extension 'cmake'
+[1.402s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/scripts) by extension 'python'
+[1.402s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/scripts) by extensions ['python_setup_py']
+[1.402s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/scripts) by extension 'python_setup_py'
+[1.403s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src) by extensions ['ignore', 'ignore_ament_install']
+[1.403s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src) by extension 'ignore'
+[1.403s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src) by extension 'ignore_ament_install'
+[1.404s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src) by extensions ['colcon_pkg']
+[1.404s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src) by extension 'colcon_pkg'
+[1.404s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src) by extensions ['colcon_meta']
+[1.404s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src) by extension 'colcon_meta'
+[1.404s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src) by extensions ['ros']
+[1.404s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src) by extension 'ros'
+[1.404s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src) by extensions ['cmake', 'python']
+[1.404s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src) by extension 'cmake'
+[1.404s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src) by extension 'python'
+[1.404s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src) by extensions ['python_setup_py']
+[1.404s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src) by extension 'python_setup_py'
+[1.404s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/incbin) by extensions ['ignore', 'ignore_ament_install']
+[1.404s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/incbin) by extension 'ignore'
+[1.405s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/incbin) by extension 'ignore_ament_install'
+[1.405s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/incbin) by extensions ['colcon_pkg']
+[1.405s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/incbin) by extension 'colcon_pkg'
+[1.405s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/incbin) by extensions ['colcon_meta']
+[1.405s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/incbin) by extension 'colcon_meta'
+[1.405s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/incbin) by extensions ['ros']
+[1.405s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/incbin) by extension 'ros'
+[1.405s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/incbin) by extensions ['cmake', 'python']
+[1.405s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/incbin) by extension 'cmake'
+[1.405s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/incbin) by extension 'python'
+[1.405s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/incbin) by extensions ['python_setup_py']
+[1.405s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/incbin) by extension 'python_setup_py'
+[1.406s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue) by extensions ['ignore', 'ignore_ament_install']
+[1.406s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue) by extension 'ignore'
+[1.406s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue) by extension 'ignore_ament_install'
+[1.406s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue) by extensions ['colcon_pkg']
+[1.406s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue) by extension 'colcon_pkg'
+[1.406s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue) by extensions ['colcon_meta']
+[1.406s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue) by extension 'colcon_meta'
+[1.406s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue) by extensions ['ros']
+[1.406s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue) by extension 'ros'
+[1.407s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue) by extensions ['cmake', 'python']
+[1.407s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue) by extension 'cmake'
+[1.407s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue) by extension 'python'
+[1.407s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue) by extensions ['python_setup_py']
+[1.407s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue) by extension 'python_setup_py'
+[1.407s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue/features) by extensions ['ignore', 'ignore_ament_install']
+[1.407s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue/features) by extension 'ignore'
+[1.407s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue/features) by extension 'ignore_ament_install'
+[1.407s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue/features) by extensions ['colcon_pkg']
+[1.407s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue/features) by extension 'colcon_pkg'
+[1.407s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue/features) by extensions ['colcon_meta']
+[1.407s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue/features) by extension 'colcon_meta'
+[1.407s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue/features) by extensions ['ros']
+[1.408s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue/features) by extension 'ros'
+[1.408s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue/features) by extensions ['cmake', 'python']
+[1.408s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue/features) by extension 'cmake'
+[1.408s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue/features) by extension 'python'
+[1.408s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue/features) by extensions ['python_setup_py']
+[1.408s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue/features) by extension 'python_setup_py'
+[1.408s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue/layers) by extensions ['ignore', 'ignore_ament_install']
+[1.408s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue/layers) by extension 'ignore'
+[1.408s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue/layers) by extension 'ignore_ament_install'
+[1.408s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue/layers) by extensions ['colcon_pkg']
+[1.408s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue/layers) by extension 'colcon_pkg'
+[1.408s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue/layers) by extensions ['colcon_meta']
+[1.408s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue/layers) by extension 'colcon_meta'
+[1.408s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue/layers) by extensions ['ros']
+[1.408s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue/layers) by extension 'ros'
+[1.409s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue/layers) by extensions ['cmake', 'python']
+[1.409s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue/layers) by extension 'cmake'
+[1.409s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue/layers) by extension 'python'
+[1.409s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue/layers) by extensions ['python_setup_py']
+[1.409s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/nnue/layers) by extension 'python_setup_py'
+[1.409s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/syzygy) by extensions ['ignore', 'ignore_ament_install']
+[1.409s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/syzygy) by extension 'ignore'
+[1.409s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/syzygy) by extension 'ignore_ament_install'
+[1.409s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/syzygy) by extensions ['colcon_pkg']
+[1.409s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/syzygy) by extension 'colcon_pkg'
+[1.409s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/syzygy) by extensions ['colcon_meta']
+[1.409s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/syzygy) by extension 'colcon_meta'
+[1.409s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/syzygy) by extensions ['ros']
+[1.410s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/syzygy) by extension 'ros'
+[1.410s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/syzygy) by extensions ['cmake', 'python']
+[1.410s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/syzygy) by extension 'cmake'
+[1.410s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/syzygy) by extension 'python'
+[1.410s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/syzygy) by extensions ['python_setup_py']
+[1.410s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/src/syzygy) by extension 'python_setup_py'
+[1.410s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/wiki) by extensions ['ignore', 'ignore_ament_install']
+[1.410s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/wiki) by extension 'ignore'
+[1.410s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/wiki) by extension 'ignore_ament_install'
+[1.411s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/wiki) by extensions ['colcon_pkg']
+[1.411s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/wiki) by extension 'colcon_pkg'
+[1.411s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/wiki) by extensions ['colcon_meta']
+[1.411s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/wiki) by extension 'colcon_meta'
+[1.411s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/wiki) by extensions ['ros']
+[1.411s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/wiki) by extension 'ros'
+[1.411s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/wiki) by extensions ['cmake', 'python']
+[1.411s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/wiki) by extension 'cmake'
+[1.411s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/wiki) by extension 'python'
+[1.411s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/wiki) by extensions ['python_setup_py']
+[1.412s] [34mcolcon.colcon_core.package_identification[0m [1;30mLevel 1[0m _identify(stockfish/wiki) by extension 'python_setup_py'
+[1.412s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(recursive) using defaults
+[1.412s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(ignore) discover
+[1.412s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(ignore) using defaults
+[1.412s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(path) discover
+[1.412s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(path) using defaults
+[1.457s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(prefix_path) check parameters
+[1.458s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(prefix_path) discover
+[1.467s] [34mcolcon.colcon_installed_package_information.package_discovery[0m [1;30mDEBUG[0m [32mFound 9 installed packages in /home/ryanl/4231/MTRN4231_Project/install[0m
+[1.472s] [34mcolcon.colcon_installed_package_information.package_discovery[0m [1;30mDEBUG[0m [32mFound 392 installed packages in /opt/ros/humble[0m
+[1.476s] [34mcolcon.colcon_core.package_discovery[0m [1;30mLevel 1[0m discover_packages(prefix_path) using defaults
+[1.648s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'brain' build argument 'cmake_args' from command line to 'None'
+[1.648s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'brain' build argument 'cmake_target' from command line to 'None'
+[1.648s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'brain' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.648s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'brain' build argument 'cmake_clean_cache' from command line to 'False'
+[1.648s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'brain' build argument 'cmake_clean_first' from command line to 'False'
+[1.648s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'brain' build argument 'cmake_force_configure' from command line to 'False'
+[1.648s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'brain' build argument 'ament_cmake_args' from command line to 'None'
+[1.648s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'brain' build argument 'catkin_cmake_args' from command line to 'None'
+[1.648s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'brain' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.648s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'brain' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/ryanl/4231/MTRN4231_Project/build/brain', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/ryanl/4231/MTRN4231_Project/install/brain', 'merge_install': False, 'path': '/home/ryanl/4231/MTRN4231_Project/src/brain', 'symlink_install': False, 'test_result_base': None}[0m
+[1.648s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'custom_interfaces' build argument 'cmake_args' from command line to 'None'
+[1.648s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'custom_interfaces' build argument 'cmake_target' from command line to 'None'
+[1.648s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'custom_interfaces' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.649s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'custom_interfaces' build argument 'cmake_clean_cache' from command line to 'False'
+[1.649s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'custom_interfaces' build argument 'cmake_clean_first' from command line to 'False'
+[1.649s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'custom_interfaces' build argument 'cmake_force_configure' from command line to 'False'
+[1.649s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'custom_interfaces' build argument 'ament_cmake_args' from command line to 'None'
+[1.649s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'custom_interfaces' build argument 'catkin_cmake_args' from command line to 'None'
+[1.649s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'custom_interfaces' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.649s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'custom_interfaces' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces', 'merge_install': False, 'path': '/home/ryanl/4231/MTRN4231_Project/src/custom_interfaces', 'symlink_install': False, 'test_result_base': None}[0m
+[1.649s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'end_effector_description' build argument 'cmake_args' from command line to 'None'
+[1.649s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'end_effector_description' build argument 'cmake_target' from command line to 'None'
+[1.649s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'end_effector_description' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.649s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'end_effector_description' build argument 'cmake_clean_cache' from command line to 'False'
+[1.649s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'end_effector_description' build argument 'cmake_clean_first' from command line to 'False'
+[1.649s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'end_effector_description' build argument 'cmake_force_configure' from command line to 'False'
+[1.650s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'end_effector_description' build argument 'ament_cmake_args' from command line to 'None'
+[1.650s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'end_effector_description' build argument 'catkin_cmake_args' from command line to 'None'
+[1.650s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'end_effector_description' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.650s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'end_effector_description' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/ryanl/4231/MTRN4231_Project/build/end_effector_description', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/ryanl/4231/MTRN4231_Project/install/end_effector_description', 'merge_install': False, 'path': '/home/ryanl/4231/MTRN4231_Project/src/end_effector_description', 'symlink_install': False, 'test_result_base': None}[0m
+[1.650s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'interfaces' build argument 'cmake_args' from command line to 'None'
+[1.650s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'interfaces' build argument 'cmake_target' from command line to 'None'
+[1.650s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'interfaces' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.650s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'interfaces' build argument 'cmake_clean_cache' from command line to 'False'
+[1.650s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'interfaces' build argument 'cmake_clean_first' from command line to 'False'
+[1.650s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'interfaces' build argument 'cmake_force_configure' from command line to 'False'
+[1.650s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'interfaces' build argument 'ament_cmake_args' from command line to 'None'
+[1.650s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'interfaces' build argument 'catkin_cmake_args' from command line to 'None'
+[1.651s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'interfaces' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.651s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'interfaces' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/ryanl/4231/MTRN4231_Project/build/interfaces', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/ryanl/4231/MTRN4231_Project/install/interfaces', 'merge_install': False, 'path': '/home/ryanl/4231/MTRN4231_Project/src/interfaces', 'symlink_install': False, 'test_result_base': None}[0m
+[1.651s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'move_to_marker' build argument 'cmake_args' from command line to 'None'
+[1.651s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'move_to_marker' build argument 'cmake_target' from command line to 'None'
+[1.651s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'move_to_marker' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.651s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'move_to_marker' build argument 'cmake_clean_cache' from command line to 'False'
+[1.651s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'move_to_marker' build argument 'cmake_clean_first' from command line to 'False'
+[1.651s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'move_to_marker' build argument 'cmake_force_configure' from command line to 'False'
+[1.651s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'move_to_marker' build argument 'ament_cmake_args' from command line to 'None'
+[1.651s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'move_to_marker' build argument 'catkin_cmake_args' from command line to 'None'
+[1.651s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'move_to_marker' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.651s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'move_to_marker' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/ryanl/4231/MTRN4231_Project/build/move_to_marker', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/ryanl/4231/MTRN4231_Project/install/move_to_marker', 'merge_install': False, 'path': '/home/ryanl/4231/MTRN4231_Project/src/move_to_marker', 'symlink_install': False, 'test_result_base': None}[0m
+[1.652s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'arm_controller' build argument 'cmake_args' from command line to 'None'
+[1.652s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'arm_controller' build argument 'cmake_target' from command line to 'None'
+[1.652s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'arm_controller' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.652s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'arm_controller' build argument 'cmake_clean_cache' from command line to 'False'
+[1.652s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'arm_controller' build argument 'cmake_clean_first' from command line to 'False'
+[1.652s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'arm_controller' build argument 'cmake_force_configure' from command line to 'False'
+[1.652s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'arm_controller' build argument 'ament_cmake_args' from command line to 'None'
+[1.652s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'arm_controller' build argument 'catkin_cmake_args' from command line to 'None'
+[1.652s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'arm_controller' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.652s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'arm_controller' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/ryanl/4231/MTRN4231_Project/build/arm_controller', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/ryanl/4231/MTRN4231_Project/install/arm_controller', 'merge_install': False, 'path': '/home/ryanl/4231/MTRN4231_Project/src/arm_controller', 'symlink_install': False, 'test_result_base': None}[0m
+[1.652s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'chess_master' build argument 'cmake_args' from command line to 'None'
+[1.652s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'chess_master' build argument 'cmake_target' from command line to 'None'
+[1.652s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'chess_master' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.652s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'chess_master' build argument 'cmake_clean_cache' from command line to 'False'
+[1.652s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'chess_master' build argument 'cmake_clean_first' from command line to 'False'
+[1.652s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'chess_master' build argument 'cmake_force_configure' from command line to 'False'
+[1.652s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'chess_master' build argument 'ament_cmake_args' from command line to 'None'
+[1.652s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'chess_master' build argument 'catkin_cmake_args' from command line to 'None'
+[1.653s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'chess_master' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.653s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'chess_master' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/ryanl/4231/MTRN4231_Project/build/chess_master', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/ryanl/4231/MTRN4231_Project/install/chess_master', 'merge_install': False, 'path': '/home/ryanl/4231/MTRN4231_Project/src/chess_master', 'symlink_install': False, 'test_result_base': None}[0m
+[1.653s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'gripper' build argument 'cmake_args' from command line to 'None'
+[1.653s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'gripper' build argument 'cmake_target' from command line to 'None'
+[1.653s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'gripper' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.653s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'gripper' build argument 'cmake_clean_cache' from command line to 'False'
+[1.653s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'gripper' build argument 'cmake_clean_first' from command line to 'False'
+[1.653s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'gripper' build argument 'cmake_force_configure' from command line to 'False'
+[1.653s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'gripper' build argument 'ament_cmake_args' from command line to 'None'
+[1.653s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'gripper' build argument 'catkin_cmake_args' from command line to 'None'
+[1.653s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'gripper' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.653s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'gripper' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/ryanl/4231/MTRN4231_Project/build/gripper', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/ryanl/4231/MTRN4231_Project/install/gripper', 'merge_install': False, 'path': '/home/ryanl/4231/MTRN4231_Project/src/gripper', 'symlink_install': False, 'test_result_base': None}[0m
+[1.654s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'ui' build argument 'cmake_args' from command line to 'None'
+[1.654s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'ui' build argument 'cmake_target' from command line to 'None'
+[1.654s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'ui' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[1.654s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'ui' build argument 'cmake_clean_cache' from command line to 'False'
+[1.654s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'ui' build argument 'cmake_clean_first' from command line to 'False'
+[1.654s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'ui' build argument 'cmake_force_configure' from command line to 'False'
+[1.654s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'ui' build argument 'ament_cmake_args' from command line to 'None'
+[1.654s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'ui' build argument 'catkin_cmake_args' from command line to 'None'
+[1.654s] [34mcolcon.colcon_core.verb[0m [1;30mLevel 5[0m set package 'ui' build argument 'catkin_skip_building_tests' from command line to 'False'
+[1.654s] [34mcolcon.colcon_core.verb[0m [1;30mDEBUG[0m [32mBuilding package 'ui' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/ryanl/4231/MTRN4231_Project/build/ui', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/ryanl/4231/MTRN4231_Project/install/ui', 'merge_install': False, 'path': '/home/ryanl/4231/MTRN4231_Project/src/ui', 'symlink_install': False, 'test_result_base': None}[0m
+[1.654s] [34mcolcon.colcon_core.executor[0m [1;30mINFO[0m Executing jobs using 'parallel' executor
+[1.656s] [34mcolcon.colcon_parallel_executor.executor.parallel[0m [1;30mDEBUG[0m [32mrun_until_complete[0m
+[1.656s] [34mcolcon.colcon_ros.task.ament_cmake.build[0m [1;30mINFO[0m Building ROS package in '/home/ryanl/4231/MTRN4231_Project/src/custom_interfaces' with build type 'ament_cmake'
+[1.656s] [34mcolcon.colcon_cmake.task.cmake.build[0m [1;30mINFO[0m Building CMake package in '/home/ryanl/4231/MTRN4231_Project/src/custom_interfaces'
+[1.664s] [34mcolcon.colcon_core.plugin_system[0m [1;30mINFO[0m Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[1.664s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.664s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[1.676s] [34mcolcon.colcon_ros.task.ament_cmake.build[0m [1;30mINFO[0m Building ROS package in '/home/ryanl/4231/MTRN4231_Project/src/interfaces' with build type 'ament_cmake'
+[1.677s] [34mcolcon.colcon_cmake.task.cmake.build[0m [1;30mINFO[0m Building CMake package in '/home/ryanl/4231/MTRN4231_Project/src/interfaces'
+[1.678s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.678s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[1.688s] [34mcolcon.colcon_ros.task.ament_python.build[0m [1;30mINFO[0m Building ROS package in '/home/ryanl/4231/MTRN4231_Project/src/brain' with build type 'ament_python'
+[1.688s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('brain', 'ament_prefix_path')
+[1.689s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ryanl/4231/MTRN4231_Project/install/brain/share/brain/hook/ament_prefix_path.ps1'
+[1.690s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ryanl/4231/MTRN4231_Project/install/brain/share/brain/hook/ament_prefix_path.dsv'
+[1.692s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ryanl/4231/MTRN4231_Project/install/brain/share/brain/hook/ament_prefix_path.sh'
+[1.694s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.694s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[1.725s] [34mcolcon.colcon_ros.task.ament_cmake.build[0m [1;30mINFO[0m Building ROS package in '/home/ryanl/4231/MTRN4231_Project/src/end_effector_description' with build type 'ament_cmake'
+[1.725s] [34mcolcon.colcon_cmake.task.cmake.build[0m [1;30mINFO[0m Building CMake package in '/home/ryanl/4231/MTRN4231_Project/src/end_effector_description'
+[1.726s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.726s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[1.739s] [34mcolcon.colcon_ros.task.ament_cmake.build[0m [1;30mINFO[0m Building ROS package in '/home/ryanl/4231/MTRN4231_Project/src/move_to_marker' with build type 'ament_cmake'
+[1.740s] [34mcolcon.colcon_cmake.task.cmake.build[0m [1;30mINFO[0m Building CMake package in '/home/ryanl/4231/MTRN4231_Project/src/move_to_marker'
+[1.740s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.741s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[1.782s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ryanl/4231/MTRN4231_Project/install/ui:/home/ryanl/4231/MTRN4231_Project/install/chess_master:/home/ryanl/4231/MTRN4231_Project/install/gripper:/home/ryanl/4231/MTRN4231_Project/install/brain:/opt/ros/humble /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces -- -j16 -l16[0m
+[1.797s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/ryanl/4231/MTRN4231_Project/build/interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ryanl/4231/MTRN4231_Project/install/ui:/home/ryanl/4231/MTRN4231_Project/install/chess_master:/home/ryanl/4231/MTRN4231_Project/install/gripper:/home/ryanl/4231/MTRN4231_Project/install/brain:/opt/ros/humble /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/interfaces -- -j16 -l16[0m
+[2.317s] [34mcolcon.colcon_core.task.python.build[0m [1;30mINFO[0m Building Python package in '/home/ryanl/4231/MTRN4231_Project/src/brain'
+[2.317s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.317s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[2.334s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/ryanl/4231/MTRN4231_Project/build/end_effector_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ryanl/4231/MTRN4231_Project/install/ui:/home/ryanl/4231/MTRN4231_Project/install/chess_master:/home/ryanl/4231/MTRN4231_Project/install/gripper:/home/ryanl/4231/MTRN4231_Project/install/brain:/opt/ros/humble /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/end_effector_description -- -j16 -l16[0m
+[2.351s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/ryanl/4231/MTRN4231_Project/build/move_to_marker': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ryanl/4231/MTRN4231_Project/install/ui:/home/ryanl/4231/MTRN4231_Project/install/chess_master:/home/ryanl/4231/MTRN4231_Project/install/gripper:/home/ryanl/4231/MTRN4231_Project/install/brain:/opt/ros/humble /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/move_to_marker -- -j16 -l16[0m
+[2.403s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/ryanl/4231/MTRN4231_Project/build/end_effector_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ryanl/4231/MTRN4231_Project/install/ui:/home/ryanl/4231/MTRN4231_Project/install/chess_master:/home/ryanl/4231/MTRN4231_Project/install/gripper:/home/ryanl/4231/MTRN4231_Project/install/brain:/opt/ros/humble /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/end_effector_description -- -j16 -l16[0m
+[2.425s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/ryanl/4231/MTRN4231_Project/build/end_effector_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ryanl/4231/MTRN4231_Project/install/ui:/home/ryanl/4231/MTRN4231_Project/install/chess_master:/home/ryanl/4231/MTRN4231_Project/install/gripper:/home/ryanl/4231/MTRN4231_Project/install/brain:/opt/ros/humble /usr/bin/cmake --install /home/ryanl/4231/MTRN4231_Project/build/end_effector_description[0m
+[2.477s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(end_effector_description)
+[2.478s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/ryanl/4231/MTRN4231_Project/build/end_effector_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ryanl/4231/MTRN4231_Project/install/ui:/home/ryanl/4231/MTRN4231_Project/install/chess_master:/home/ryanl/4231/MTRN4231_Project/install/gripper:/home/ryanl/4231/MTRN4231_Project/install/brain:/opt/ros/humble /usr/bin/cmake --install /home/ryanl/4231/MTRN4231_Project/build/end_effector_description[0m
+[2.487s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/end_effector_description' for CMake module files
+[2.488s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/end_effector_description' for CMake config files
+[2.489s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('end_effector_description', 'cmake_prefix_path')
+[2.489s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/hook/cmake_prefix_path.ps1'
+[2.490s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/hook/cmake_prefix_path.dsv'
+[2.491s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/hook/cmake_prefix_path.sh'
+[2.494s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/end_effector_description/bin'
+[2.495s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/end_effector_description/lib/pkgconfig/end_effector_description.pc'
+[2.495s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/end_effector_description/lib/python3.10/site-packages'
+[2.496s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/end_effector_description/bin'
+[2.496s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/package.ps1'
+[2.498s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/package.dsv'
+[2.500s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/package.sh'
+[2.501s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/package.bash'
+[2.503s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/package.zsh'
+[2.504s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/colcon-core/packages/end_effector_description)
+[2.505s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(end_effector_description)
+[2.505s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/end_effector_description' for CMake module files
+[2.507s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/end_effector_description' for CMake config files
+[2.507s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('end_effector_description', 'cmake_prefix_path')
+[2.508s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/hook/cmake_prefix_path.ps1'
+[2.510s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/hook/cmake_prefix_path.dsv'
+[2.510s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/hook/cmake_prefix_path.sh'
+[2.511s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/end_effector_description/bin'
+[2.511s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/end_effector_description/lib/pkgconfig/end_effector_description.pc'
+[2.512s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/end_effector_description/lib/python3.10/site-packages'
+[2.512s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/end_effector_description/bin'
+[2.513s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/package.ps1'
+[2.516s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/package.dsv'
+[2.517s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/package.sh'
+[2.518s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/package.bash'
+[2.519s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/package.zsh'
+[2.520s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/colcon-core/packages/end_effector_description)
+[2.536s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/ryanl/4231/MTRN4231_Project/build/move_to_marker' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ryanl/4231/MTRN4231_Project/install/ui:/home/ryanl/4231/MTRN4231_Project/install/chess_master:/home/ryanl/4231/MTRN4231_Project/install/gripper:/home/ryanl/4231/MTRN4231_Project/install/brain:/opt/ros/humble /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/move_to_marker -- -j16 -l16[0m
+[2.541s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/ryanl/4231/MTRN4231_Project/build/move_to_marker': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ryanl/4231/MTRN4231_Project/install/ui:/home/ryanl/4231/MTRN4231_Project/install/chess_master:/home/ryanl/4231/MTRN4231_Project/install/gripper:/home/ryanl/4231/MTRN4231_Project/install/brain:/opt/ros/humble /usr/bin/cmake --install /home/ryanl/4231/MTRN4231_Project/build/move_to_marker[0m
+[2.593s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(move_to_marker)
+[2.594s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/move_to_marker' for CMake module files
+[2.595s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/ryanl/4231/MTRN4231_Project/build/move_to_marker' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ryanl/4231/MTRN4231_Project/install/ui:/home/ryanl/4231/MTRN4231_Project/install/chess_master:/home/ryanl/4231/MTRN4231_Project/install/gripper:/home/ryanl/4231/MTRN4231_Project/install/brain:/opt/ros/humble /usr/bin/cmake --install /home/ryanl/4231/MTRN4231_Project/build/move_to_marker[0m
+[2.596s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/move_to_marker' for CMake config files
+[2.600s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('move_to_marker', 'cmake_prefix_path')
+[2.601s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/hook/cmake_prefix_path.ps1'
+[2.602s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/hook/cmake_prefix_path.dsv'
+[2.603s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/hook/cmake_prefix_path.sh'
+[2.604s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/move_to_marker/lib'
+[2.604s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/move_to_marker/bin'
+[2.604s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/move_to_marker/lib/pkgconfig/move_to_marker.pc'
+[2.604s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/move_to_marker/lib/python3.10/site-packages'
+[2.605s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/move_to_marker/bin'
+[2.605s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/package.ps1'
+[2.606s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/package.dsv'
+[2.606s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/package.sh'
+[2.607s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/package.bash'
+[2.608s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/package.zsh'
+[2.608s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/colcon-core/packages/move_to_marker)
+[2.609s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(move_to_marker)
+[2.609s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/move_to_marker' for CMake module files
+[2.610s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/move_to_marker' for CMake config files
+[2.611s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('move_to_marker', 'cmake_prefix_path')
+[2.611s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/hook/cmake_prefix_path.ps1'
+[2.612s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/hook/cmake_prefix_path.dsv'
+[2.612s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/hook/cmake_prefix_path.sh'
+[2.613s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/move_to_marker/lib'
+[2.613s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/move_to_marker/bin'
+[2.613s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/move_to_marker/lib/pkgconfig/move_to_marker.pc'
+[2.614s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/move_to_marker/lib/python3.10/site-packages'
+[2.614s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/move_to_marker/bin'
+[2.614s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/package.ps1'
+[2.615s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/package.dsv'
+[2.616s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/package.sh'
+[2.616s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/package.bash'
+[2.617s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/move_to_marker/package.zsh'
+[2.617s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/ryanl/4231/MTRN4231_Project/install/move_to_marker/share/colcon-core/packages/move_to_marker)
+[2.621s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/ryanl/4231/MTRN4231_Project/build/interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ryanl/4231/MTRN4231_Project/install/ui:/home/ryanl/4231/MTRN4231_Project/install/chess_master:/home/ryanl/4231/MTRN4231_Project/install/gripper:/home/ryanl/4231/MTRN4231_Project/install/brain:/opt/ros/humble /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/interfaces -- -j16 -l16[0m
+[2.625s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/ryanl/4231/MTRN4231_Project/build/interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ryanl/4231/MTRN4231_Project/install/ui:/home/ryanl/4231/MTRN4231_Project/install/chess_master:/home/ryanl/4231/MTRN4231_Project/install/gripper:/home/ryanl/4231/MTRN4231_Project/install/brain:/opt/ros/humble /usr/bin/cmake --install /home/ryanl/4231/MTRN4231_Project/build/interfaces[0m
+[2.625s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ryanl/4231/MTRN4231_Project/install/ui:/home/ryanl/4231/MTRN4231_Project/install/chess_master:/home/ryanl/4231/MTRN4231_Project/install/gripper:/home/ryanl/4231/MTRN4231_Project/install/brain:/opt/ros/humble /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces -- -j16 -l16[0m
+[2.629s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ryanl/4231/MTRN4231_Project/install/ui:/home/ryanl/4231/MTRN4231_Project/install/chess_master:/home/ryanl/4231/MTRN4231_Project/install/gripper:/home/ryanl/4231/MTRN4231_Project/install/brain:/opt/ros/humble /usr/bin/cmake --install /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces[0m
+[2.760s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(interfaces)
+[2.761s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/interfaces' for CMake module files
+[2.762s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/ryanl/4231/MTRN4231_Project/build/interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ryanl/4231/MTRN4231_Project/install/ui:/home/ryanl/4231/MTRN4231_Project/install/chess_master:/home/ryanl/4231/MTRN4231_Project/install/gripper:/home/ryanl/4231/MTRN4231_Project/install/brain:/opt/ros/humble /usr/bin/cmake --install /home/ryanl/4231/MTRN4231_Project/build/interfaces[0m
+[2.763s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/interfaces' for CMake config files
+[2.767s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('interfaces', 'cmake_prefix_path')
+[2.768s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ryanl/4231/MTRN4231_Project/install/interfaces/share/interfaces/hook/cmake_prefix_path.ps1'
+[2.769s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ryanl/4231/MTRN4231_Project/install/interfaces/share/interfaces/hook/cmake_prefix_path.dsv'
+[2.770s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ryanl/4231/MTRN4231_Project/install/interfaces/share/interfaces/hook/cmake_prefix_path.sh'
+[2.771s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/interfaces/lib'
+[2.771s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('interfaces', 'ld_library_path_lib')
+[2.771s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ryanl/4231/MTRN4231_Project/install/interfaces/share/interfaces/hook/ld_library_path_lib.ps1'
+[2.772s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ryanl/4231/MTRN4231_Project/install/interfaces/share/interfaces/hook/ld_library_path_lib.dsv'
+[2.772s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ryanl/4231/MTRN4231_Project/install/interfaces/share/interfaces/hook/ld_library_path_lib.sh'
+[2.773s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/interfaces/bin'
+[2.773s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/interfaces/lib/pkgconfig/interfaces.pc'
+[2.774s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/interfaces/lib/python3.10/site-packages'
+[2.774s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/interfaces/bin'
+[2.775s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ryanl/4231/MTRN4231_Project/install/interfaces/share/interfaces/package.ps1'
+[2.776s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/ryanl/4231/MTRN4231_Project/install/interfaces/share/interfaces/package.dsv'
+[2.777s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ryanl/4231/MTRN4231_Project/install/interfaces/share/interfaces/package.sh'
+[2.779s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ryanl/4231/MTRN4231_Project/install/interfaces/share/interfaces/package.bash'
+[2.785s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ryanl/4231/MTRN4231_Project/install/interfaces/share/interfaces/package.zsh'
+[2.787s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/ryanl/4231/MTRN4231_Project/install/interfaces/share/colcon-core/packages/interfaces)
+[2.788s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(interfaces)
+[2.789s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/interfaces' for CMake module files
+[2.790s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/interfaces' for CMake config files
+[2.791s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('interfaces', 'cmake_prefix_path')
+[2.791s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ryanl/4231/MTRN4231_Project/install/interfaces/share/interfaces/hook/cmake_prefix_path.ps1'
+[2.792s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ryanl/4231/MTRN4231_Project/install/interfaces/share/interfaces/hook/cmake_prefix_path.dsv'
+[2.792s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ryanl/4231/MTRN4231_Project/install/interfaces/share/interfaces/hook/cmake_prefix_path.sh'
+[2.794s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/interfaces/lib'
+[2.794s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('interfaces', 'ld_library_path_lib')
+[2.794s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ryanl/4231/MTRN4231_Project/install/interfaces/share/interfaces/hook/ld_library_path_lib.ps1'
+[2.795s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ryanl/4231/MTRN4231_Project/install/interfaces/share/interfaces/hook/ld_library_path_lib.dsv'
+[2.796s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ryanl/4231/MTRN4231_Project/install/interfaces/share/interfaces/hook/ld_library_path_lib.sh'
+[2.796s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/interfaces/bin'
+[2.796s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/interfaces/lib/pkgconfig/interfaces.pc'
+[2.797s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/interfaces/lib/python3.10/site-packages'
+[2.797s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/interfaces/bin'
+[2.797s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ryanl/4231/MTRN4231_Project/install/interfaces/share/interfaces/package.ps1'
+[2.798s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/ryanl/4231/MTRN4231_Project/install/interfaces/share/interfaces/package.dsv'
+[2.799s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ryanl/4231/MTRN4231_Project/install/interfaces/share/interfaces/package.sh'
+[2.799s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ryanl/4231/MTRN4231_Project/install/interfaces/share/interfaces/package.bash'
+[2.800s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ryanl/4231/MTRN4231_Project/install/interfaces/share/interfaces/package.zsh'
+[2.801s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/ryanl/4231/MTRN4231_Project/install/interfaces/share/colcon-core/packages/interfaces)
+[2.802s] [34mcolcon.colcon_ros.task.ament_python.build[0m [1;30mINFO[0m Building ROS package in '/home/ryanl/4231/MTRN4231_Project/src/chess_master' with build type 'ament_python'
+[2.802s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('chess_master', 'ament_prefix_path')
+[2.802s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ryanl/4231/MTRN4231_Project/install/chess_master/share/chess_master/hook/ament_prefix_path.ps1'
+[2.803s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ryanl/4231/MTRN4231_Project/install/chess_master/share/chess_master/hook/ament_prefix_path.dsv'
+[2.804s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ryanl/4231/MTRN4231_Project/install/chess_master/share/chess_master/hook/ament_prefix_path.sh'
+[2.805s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.805s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[2.812s] [34mcolcon.colcon_ros.task.ament_python.build[0m [1;30mINFO[0m Building ROS package in '/home/ryanl/4231/MTRN4231_Project/src/ui' with build type 'ament_python'
+[2.813s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('ui', 'ament_prefix_path')
+[2.813s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ryanl/4231/MTRN4231_Project/install/ui/share/ui/hook/ament_prefix_path.ps1'
+[2.815s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ryanl/4231/MTRN4231_Project/install/ui/share/ui/hook/ament_prefix_path.dsv'
+[2.815s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ryanl/4231/MTRN4231_Project/install/ui/share/ui/hook/ament_prefix_path.sh'
+[2.816s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.817s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[2.827s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(custom_interfaces)
+[2.829s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces' for CMake module files
+[2.829s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/ryanl/4231/MTRN4231_Project/install/ui:/home/ryanl/4231/MTRN4231_Project/install/chess_master:/home/ryanl/4231/MTRN4231_Project/install/gripper:/home/ryanl/4231/MTRN4231_Project/install/brain:/opt/ros/humble /usr/bin/cmake --install /home/ryanl/4231/MTRN4231_Project/build/custom_interfaces[0m
+[2.832s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces' for CMake config files
+[2.837s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('custom_interfaces', 'cmake_prefix_path')
+[2.838s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/hook/cmake_prefix_path.ps1'
+[2.839s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/hook/cmake_prefix_path.dsv'
+[2.839s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/hook/cmake_prefix_path.sh'
+[2.841s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/lib'
+[2.841s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('custom_interfaces', 'ld_library_path_lib')
+[2.841s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/hook/ld_library_path_lib.ps1'
+[2.842s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/hook/ld_library_path_lib.dsv'
+[2.843s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/hook/ld_library_path_lib.sh'
+[2.844s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/bin'
+[2.844s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/lib/pkgconfig/custom_interfaces.pc'
+[2.844s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/lib/python3.10/site-packages'
+[2.845s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/bin'
+[2.845s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/package.ps1'
+[2.846s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/package.dsv'
+[2.847s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/package.sh'
+[2.849s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/package.bash'
+[2.850s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/package.zsh'
+[2.851s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/share/colcon-core/packages/custom_interfaces)
+[2.852s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(custom_interfaces)
+[2.853s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces' for CMake module files
+[2.854s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces' for CMake config files
+[2.855s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('custom_interfaces', 'cmake_prefix_path')
+[2.855s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/hook/cmake_prefix_path.ps1'
+[2.856s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/hook/cmake_prefix_path.dsv'
+[2.857s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/hook/cmake_prefix_path.sh'
+[2.857s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/lib'
+[2.858s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('custom_interfaces', 'ld_library_path_lib')
+[2.858s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/hook/ld_library_path_lib.ps1'
+[2.859s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/hook/ld_library_path_lib.dsv'
+[2.860s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/hook/ld_library_path_lib.sh'
+[2.860s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/bin'
+[2.860s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/lib/pkgconfig/custom_interfaces.pc'
+[2.861s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/lib/python3.10/site-packages'
+[2.861s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/bin'
+[2.861s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/package.ps1'
+[2.862s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/package.dsv'
+[2.863s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/package.sh'
+[2.864s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/package.bash'
+[2.864s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/package.zsh'
+[2.865s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/share/colcon-core/packages/custom_interfaces)
+[2.866s] [34mcolcon.colcon_ros.task.ament_cmake.build[0m [1;30mINFO[0m Building ROS package in '/home/ryanl/4231/MTRN4231_Project/src/arm_controller' with build type 'ament_cmake'
+[2.867s] [34mcolcon.colcon_cmake.task.cmake.build[0m [1;30mINFO[0m Building CMake package in '/home/ryanl/4231/MTRN4231_Project/src/arm_controller'
+[2.867s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.867s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[2.877s] [34mcolcon.colcon_ros.task.ament_python.build[0m [1;30mINFO[0m Building ROS package in '/home/ryanl/4231/MTRN4231_Project/src/gripper' with build type 'ament_python'
+[2.878s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('gripper', 'ament_prefix_path')
+[2.878s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ryanl/4231/MTRN4231_Project/install/gripper/share/gripper/hook/ament_prefix_path.ps1'
+[2.880s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ryanl/4231/MTRN4231_Project/install/gripper/share/gripper/hook/ament_prefix_path.dsv'
+[2.880s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ryanl/4231/MTRN4231_Project/install/gripper/share/gripper/hook/ament_prefix_path.sh'
+[2.881s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[2.882s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[3.416s] [34mcolcon.colcon_core.task.python.build[0m [1;30mINFO[0m Building Python package in '/home/ryanl/4231/MTRN4231_Project/src/chess_master'
+[3.416s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[3.416s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[3.891s] [34mcolcon.colcon_core.task.python.build[0m [1;30mINFO[0m Building Python package in '/home/ryanl/4231/MTRN4231_Project/src/ui'
+[3.892s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[3.892s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[3.907s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/ryanl/4231/MTRN4231_Project/build/arm_controller': CMAKE_PREFIX_PATH=/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces:/home/ryanl/4231/MTRN4231_Project/install/interfaces:/home/ryanl/4231/MTRN4231_Project/install/move_to_marker:/home/ryanl/4231/MTRN4231_Project/install/end_effector_description:/home/ryanl/4231/MTRN4231_Project/install/arm_controller:/home/ryanl/4231/MTRN4231_Project/install/ui:/home/ryanl/4231/MTRN4231_Project/install/chess_master:/home/ryanl/4231/MTRN4231_Project/install/gripper:/home/ryanl/4231/MTRN4231_Project/install/brain:/opt/ros/humble LD_LIBRARY_PATH=/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/lib:/home/ryanl/4231/MTRN4231_Project/install/interfaces/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/arm_controller -- -j16 -l16[0m
+[4.377s] [34mcolcon.colcon_core.task.python.build[0m [1;30mINFO[0m Building Python package in '/home/ryanl/4231/MTRN4231_Project/src/gripper'
+[4.378s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[4.378s] [34mcolcon.colcon_core.shell[0m [1;30mDEBUG[0m [32mSkip shell extension 'dsv' for command environment[0m
+[4.394s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/ryanl/4231/MTRN4231_Project/src/brain': PYTHONPATH=/home/ryanl/4231/MTRN4231_Project/build/brain/prefix_override:/usr/lib/python3/dist-packages/colcon_core/task/python/colcon_distutils_commands:/home/ryanl/4231/MTRN4231_Project/install/brain/lib/python3.10/site-packages:${PYTHONPATH} /usr/bin/python3 -W ignore:setup.py install is deprecated -W ignore:easy_install command is deprecated setup.py egg_info --egg-base ../../build/brain build --build-base /home/ryanl/4231/MTRN4231_Project/build/brain/build install --record /home/ryanl/4231/MTRN4231_Project/build/brain/install.log --single-version-externally-managed install_data[0m
+[4.396s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/ryanl/4231/MTRN4231_Project/build/arm_controller' returned '0': CMAKE_PREFIX_PATH=/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces:/home/ryanl/4231/MTRN4231_Project/install/interfaces:/home/ryanl/4231/MTRN4231_Project/install/move_to_marker:/home/ryanl/4231/MTRN4231_Project/install/end_effector_description:/home/ryanl/4231/MTRN4231_Project/install/arm_controller:/home/ryanl/4231/MTRN4231_Project/install/ui:/home/ryanl/4231/MTRN4231_Project/install/chess_master:/home/ryanl/4231/MTRN4231_Project/install/gripper:/home/ryanl/4231/MTRN4231_Project/install/brain:/opt/ros/humble LD_LIBRARY_PATH=/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/lib:/home/ryanl/4231/MTRN4231_Project/install/interfaces/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/arm_controller -- -j16 -l16[0m
+[4.399s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoking command in '/home/ryanl/4231/MTRN4231_Project/build/arm_controller': CMAKE_PREFIX_PATH=/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces:/home/ryanl/4231/MTRN4231_Project/install/interfaces:/home/ryanl/4231/MTRN4231_Project/install/move_to_marker:/home/ryanl/4231/MTRN4231_Project/install/end_effector_description:/home/ryanl/4231/MTRN4231_Project/install/arm_controller:/home/ryanl/4231/MTRN4231_Project/install/ui:/home/ryanl/4231/MTRN4231_Project/install/chess_master:/home/ryanl/4231/MTRN4231_Project/install/gripper:/home/ryanl/4231/MTRN4231_Project/install/brain:/opt/ros/humble LD_LIBRARY_PATH=/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/lib:/home/ryanl/4231/MTRN4231_Project/install/interfaces/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/ryanl/4231/MTRN4231_Project/build/arm_controller[0m
+[4.435s] [34mcolcon.colcon_core.event_handler.log_command[0m [1;30mDEBUG[0m [32mInvoked command in '/home/ryanl/4231/MTRN4231_Project/build/arm_controller' returned '1': CMAKE_PREFIX_PATH=/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces:/home/ryanl/4231/MTRN4231_Project/install/interfaces:/home/ryanl/4231/MTRN4231_Project/install/move_to_marker:/home/ryanl/4231/MTRN4231_Project/install/end_effector_description:/home/ryanl/4231/MTRN4231_Project/install/arm_controller:/home/ryanl/4231/MTRN4231_Project/install/ui:/home/ryanl/4231/MTRN4231_Project/install/chess_master:/home/ryanl/4231/MTRN4231_Project/install/gripper:/home/ryanl/4231/MTRN4231_Project/install/brain:/opt/ros/humble LD_LIBRARY_PATH=/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/lib:/home/ryanl/4231/MTRN4231_Project/install/interfaces/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib /usr/bin/cmake --install /home/ryanl/4231/MTRN4231_Project/build/arm_controller[0m
+[4.437s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_environment_scripts_only(arm_controller)
+[4.437s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/arm_controller' for CMake module files
+[4.442s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/arm_controller' for CMake config files
+[4.443s] [34mcolcon.colcon_core.shell[0m [1;30mLevel 1[0m create_environment_hook('arm_controller', 'cmake_prefix_path')
+[4.443s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/hook/cmake_prefix_path.ps1'
+[4.444s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment descriptor '/home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/hook/cmake_prefix_path.dsv'
+[4.445s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating environment hook '/home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/hook/cmake_prefix_path.sh'
+[4.446s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/arm_controller/lib'
+[4.446s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/arm_controller/bin'
+[4.446s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/arm_controller/lib/pkgconfig/arm_controller.pc'
+[4.447s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/arm_controller/lib/python3.10/site-packages'
+[4.447s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m checking '/home/ryanl/4231/MTRN4231_Project/install/arm_controller/bin'
+[4.448s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/package.ps1'
+[4.450s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package descriptor '/home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/package.dsv'
+[4.451s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/package.sh'
+[4.452s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/package.bash'
+[4.454s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating package script '/home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/package.zsh'
+[4.454s] [34mcolcon.colcon_core.environment[0m [1;30mLevel 1[0m create_file_with_runtime_dependencies(/home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/colcon-core/packages/arm_controller)
+[5.126s] [34mcolcon.colcon_parallel_executor.executor.parallel[0m [1;30mDEBUG[0m [32mclosing loop[0m
+[5.126s] [34mcolcon.colcon_parallel_executor.executor.parallel[0m [1;30mDEBUG[0m [32mloop closed[0m
+[5.126s] [34mcolcon.colcon_parallel_executor.executor.parallel[0m [1;30mDEBUG[0m [32mrun_until_complete finished with '1'[0m
+[5.127s] [34mcolcon.colcon_core.event_reactor[0m [1;30mDEBUG[0m [32mjoining thread[0m
+[5.219s] [34mcolcon.colcon_core.plugin_system[0m [1;30mINFO[0m Skipping extension 'colcon_notification.desktop_notification.notify_send': Could not find 'notify-send'
+[5.219s] [34mcolcon.colcon_core.plugin_system[0m [1;30mINFO[0m Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[5.219s] [34mcolcon.colcon_core.plugin_system[0m [1;30mINFO[0m Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[5.220s] [34mcolcon.colcon_notification.desktop_notification[0m [1;30mINFO[0m Sending desktop notification using 'notify2'
+[5.220s] [34mcolcon.colcon_notification.desktop_notification.notify2[0m [1;30mDEBUG[0m [32mFailed to initialize notify2: org.freedesktop.DBus.Error.FileNotFound: Failed to connect to socket /run/user/1000/bus: No such file or directory[0m
+[5.220s] [34mcolcon.colcon_core.event_reactor[0m [1;30mDEBUG[0m [32mjoined thread[0m
+[5.221s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix script '/home/ryanl/4231/MTRN4231_Project/install/local_setup.ps1'
+[5.222s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix util module '/home/ryanl/4231/MTRN4231_Project/install/_local_setup_util_ps1.py'
+[5.224s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix chain script '/home/ryanl/4231/MTRN4231_Project/install/setup.ps1'
+[5.226s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix script '/home/ryanl/4231/MTRN4231_Project/install/local_setup.sh'
+[5.228s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix util module '/home/ryanl/4231/MTRN4231_Project/install/_local_setup_util_sh.py'
+[5.228s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix chain script '/home/ryanl/4231/MTRN4231_Project/install/setup.sh'
+[5.231s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix script '/home/ryanl/4231/MTRN4231_Project/install/local_setup.bash'
+[5.231s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix chain script '/home/ryanl/4231/MTRN4231_Project/install/setup.bash'
+[5.234s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix script '/home/ryanl/4231/MTRN4231_Project/install/local_setup.zsh'
+[5.235s] [34mcolcon.colcon_core.shell[0m [1;30mINFO[0m Creating prefix chain script '/home/ryanl/4231/MTRN4231_Project/install/setup.zsh'
