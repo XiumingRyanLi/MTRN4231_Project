@@ -1,0 +1,25 @@
+[ 25%] [32mBuilding CXX object CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o[0m
+[ 75%] Built target moveit_constrain_ur
+[01m[K/home/ryanl/4231/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:[m[K In member function ‘[01m[Kvoid ArmController::lateInit()[m[K’:
+[01m[K/home/ryanl/4231/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:77:19:[m[K [01;31m[Kerror: [m[K‘[01m[KRobotModelLoader[m[K’ is not a member of ‘[01m[Kmoveit::core[m[K’; did you mean ‘[01m[KRobotModelWeakPtr[m[K’?
+   77 |     moveit::core::[01;31m[KRobotModelLoader[m[K rml(node, "robot_description");
+      |                   [01;31m[K^~~~~~~~~~~~~~~~[m[K
+      |                   [32m[KRobotModelWeakPtr[m[K
+[01m[K/home/ryanl/4231/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:78:18:[m[K [01;31m[Kerror: [m[K‘[01m[Krml[m[K’ was not declared in this scope; did you mean ‘[01m[Krmw[m[K’?
+   78 |     auto model = [01;31m[Krml[m[K.getModel();
+      |                  [01;31m[K^~~[m[K
+      |                  [32m[Krmw[m[K
+[01m[K/home/ryanl/4231/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:[m[K In member function ‘[01m[Kstd::string ArmController::pickValidGroup(const RobotModelPtr&, const string&)[m[K’:
+[01m[K/home/ryanl/4231/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:123:35:[m[K [01;31m[Kerror: [m[Kno matching function for call to ‘[01m[Kmoveit::core::RobotModel::getJointModelGroupNames(std::vector<std::__cxx11::basic_string<char> >&)[m[K’
+  123 |     [01;31m[Kmodel->getJointModelGroupNames(groups)[m[K;
+      |     [01;31m[K~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~[m[K
+In file included from [01m[K/opt/ros/humble/include/moveit/robot_state/robot_state.h:40[m[K,
+                 from [01m[K/opt/ros/humble/include/moveit/move_group_interface/move_group_interface.h:41[m[K,
+                 from [01m[K/home/ryanl/4231/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:19[m[K:
+[01m[K/opt/ros/humble/include/moveit/robot_model/robot_model.h:399:35:[m[K [01;36m[Knote: [m[Kcandidate: ‘[01m[Kconst std::vector<std::__cxx11::basic_string<char> >& moveit::core::RobotModel::getJointModelGroupNames() const[m[K’
+  399 |   const std::vector<std::string>& [01;36m[KgetJointModelGroupNames[m[K() const
+      |                                   [01;36m[K^~~~~~~~~~~~~~~~~~~~~~~[m[K
+[01m[K/opt/ros/humble/include/moveit/robot_model/robot_model.h:399:35:[m[K [01;36m[Knote: [m[K  candidate expects 0 arguments, 1 provided
+gmake[2]: *** [CMakeFiles/arm_controller_node.dir/build.make:76: CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o] Error 1
+gmake[1]: *** [CMakeFiles/Makefile2:139: CMakeFiles/arm_controller_node.dir/all] Error 2
+gmake: *** [Makefile:146: all] Error 2

@@ -1,0 +1,224 @@
+[0.000000] (-) TimerEvent: {}
+[0.002092] (-) JobUnselected: {'identifier': 'custom_interfaces'}
+[0.002633] (-) JobUnselected: {'identifier': 'end_effector_description'}
+[0.002732] (-) JobUnselected: {'identifier': 'move_to_marker'}
+[0.002797] (-) JobUnselected: {'identifier': 'ur5e_custom_description'}
+[0.002861] (arm_controller) JobQueued: {'identifier': 'arm_controller', 'dependencies': OrderedDict([('custom_interfaces', '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces')])}
+[0.002933] (arm_controller) JobStarted: {'identifier': 'arm_controller'}
+[0.099178] (-) TimerEvent: {}
+[0.190983] (arm_controller) JobProgress: {'identifier': 'arm_controller', 'progress': 'cmake'}
+[0.192500] (arm_controller) JobProgress: {'identifier': 'arm_controller', 'progress': 'build'}
+[0.193740] (arm_controller) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/ryanl/4231/MTRN4231_Project/build/arm_controller', '--', '-j16', '-l16'], 'cwd': '/home/ryanl/4231/MTRN4231_Project/build/arm_controller', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'ryanl'), ('GIT_ASKPASS', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/lib:/home/ryanl/4231/MTRN4231_Project/install/interfaces/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/ryanl'), ('TERM_PROGRAM_VERSION', '1.105.1'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-e66e07c6-50ee-4c3a-8d34-b4e6100b170e.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/node'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/ryanl/4231/MTRN4231_Project/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'ryanl'), ('NAME', 'Code'), ('WSL_INTEROP', '/run/WSL/483_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/bin/remote-cli:/home/ryanl/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/WindowsApps/MicrosoftCorporationII.WindowsSubsystemForLinux_2.6.1.0_x64__8wekyb3d8bbwe:/mnt/c/MCC:/mnt/c/Program Files/Eclipse Adoptium/jdk-11.0.20.101-hotspot/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/150/DTS/Binn/:/mnt/c/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit/:/mnt/c/Program Files/MATLAB/R2024b/bin:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/:/mnt/c/Gradle/bin:/mnt/c/Program Files (x86)/STMicroelectronics/STM32 ST-LINK Utility/ST-LINK Utility:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files (x86)/IVI Foundation/VISA/WinNT/Bin/:/mnt/c/Program Files/IVI Foundation/VISA/Win64/Bin/:/mnt/c/Program Files (x86)/IVI Foundation/VISA/WinNT/Bin:/mnt/c/Program Files/usbipd-win/:/mnt/c/Program Files/Tailscale/:/mnt/c/Program Files/Netbird:/mnt/c/Program Files/Git/cmd:/mnt/c/Users/ryanl/AppData/Local/Programs/Python/Python311/Scripts/:/mnt/c/Users/ryanl/AppData/Local/Programs/Python/Python311/:/mnt/c/Users/ryanl/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/ryanl/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/ryanl/AppData/Roaming/npm:/mnt/c/opencv/build/x64/vc16/bin:/mnt/c/Users/ryanl/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/ryanl/AppData/Local/Programs/MiKTeX/miktex/bin/x64/:/mnt/c/Users/ryanl/.dotnet/tools:/snap/bin:/home/ryanl/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-14419cdd9e.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/ryanl/4231/MTRN4231_Project/install/ur5e_custom_description:/home/ryanl/4231/MTRN4231_Project/install/ui:/home/ryanl/4231/MTRN4231_Project/install/move_to_marker:/home/ryanl/4231/MTRN4231_Project/install/chess_master:/home/ryanl/4231/MTRN4231_Project/install/interfaces:/home/ryanl/4231/MTRN4231_Project/install/end_effector_description:/home/ryanl/4231/MTRN4231_Project/install/arm_controller:/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces:/home/ryanl/4231/MTRN4231_Project/install/brain:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/ryanl/4231/MTRN4231_Project/build/arm_controller'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/ryanl/4231/MTRN4231_Project/install/ui/lib/python3.10/site-packages:/home/ryanl/4231/MTRN4231_Project/install/chess_master/lib/python3.10/site-packages:/home/ryanl/4231/MTRN4231_Project/install/interfaces/local/lib/python3.10/dist-packages:/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/local/lib/python3.10/dist-packages:/home/ryanl/4231/MTRN4231_Project/install/brain/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('CMAKE_PREFIX_PATH', '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces:/home/ryanl/4231/MTRN4231_Project/install/ur5e_custom_description:/home/ryanl/4231/MTRN4231_Project/install/move_to_marker:/home/ryanl/4231/MTRN4231_Project/install/interfaces:/home/ryanl/4231/MTRN4231_Project/install/end_effector_description:/home/ryanl/4231/MTRN4231_Project/install/arm_controller:/home/ryanl/4231/MTRN4231_Project/install/ui:/home/ryanl/4231/MTRN4231_Project/install/chess_master:/home/ryanl/4231/MTRN4231_Project/install/brain:/opt/ros/humble'), ('WSLENV', 'ELECTRON_RUN_AS_NODE/w:')]), 'shell': False}
+[0.199180] (-) TimerEvent: {}
+[0.292245] (arm_controller) StdoutLine: {'line': b'\x1b[35m\x1b[1mConsolidate compiler generated dependencies of target arm_controller_node\x1b[0m\n'}
+[0.299304] (-) TimerEvent: {}
+[0.334570] (arm_controller) StdoutLine: {'line': b'[ 50%] Built target moveit_constrain_ur\n'}
+[0.364598] (arm_controller) StdoutLine: {'line': b'[ 75%] \x1b[32mBuilding CXX object CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o\x1b[0m\n'}
+[0.399490] (-) TimerEvent: {}
+[0.499993] (-) TimerEvent: {}
+[0.600390] (-) TimerEvent: {}
+[0.701021] (-) TimerEvent: {}
+[0.801594] (-) TimerEvent: {}
+[0.902182] (-) TimerEvent: {}
+[1.002722] (-) TimerEvent: {}
+[1.103093] (-) TimerEvent: {}
+[1.203469] (-) TimerEvent: {}
+[1.303865] (-) TimerEvent: {}
+[1.404389] (-) TimerEvent: {}
+[1.504978] (-) TimerEvent: {}
+[1.605783] (-) TimerEvent: {}
+[1.706315] (-) TimerEvent: {}
+[1.806796] (-) TimerEvent: {}
+[1.907300] (-) TimerEvent: {}
+[2.007754] (-) TimerEvent: {}
+[2.108298] (-) TimerEvent: {}
+[2.208997] (-) TimerEvent: {}
+[2.309660] (-) TimerEvent: {}
+[2.410249] (-) TimerEvent: {}
+[2.510724] (-) TimerEvent: {}
+[2.611201] (-) TimerEvent: {}
+[2.711758] (-) TimerEvent: {}
+[2.812282] (-) TimerEvent: {}
+[2.912778] (-) TimerEvent: {}
+[3.013294] (-) TimerEvent: {}
+[3.113910] (-) TimerEvent: {}
+[3.214538] (-) TimerEvent: {}
+[3.315038] (-) TimerEvent: {}
+[3.415523] (-) TimerEvent: {}
+[3.516098] (-) TimerEvent: {}
+[3.616722] (-) TimerEvent: {}
+[3.717231] (-) TimerEvent: {}
+[3.817916] (-) TimerEvent: {}
+[3.918418] (-) TimerEvent: {}
+[4.018793] (-) TimerEvent: {}
+[4.119286] (-) TimerEvent: {}
+[4.219779] (-) TimerEvent: {}
+[4.320242] (-) TimerEvent: {}
+[4.420861] (-) TimerEvent: {}
+[4.521605] (-) TimerEvent: {}
+[4.622466] (-) TimerEvent: {}
+[4.723053] (-) TimerEvent: {}
+[4.823511] (-) TimerEvent: {}
+[4.924020] (-) TimerEvent: {}
+[5.024644] (-) TimerEvent: {}
+[5.125314] (-) TimerEvent: {}
+[5.226414] (-) TimerEvent: {}
+[5.327204] (-) TimerEvent: {}
+[5.427816] (-) TimerEvent: {}
+[5.528549] (-) TimerEvent: {}
+[5.629257] (-) TimerEvent: {}
+[5.729865] (-) TimerEvent: {}
+[5.830413] (-) TimerEvent: {}
+[5.930833] (-) TimerEvent: {}
+[6.031379] (-) TimerEvent: {}
+[6.131829] (-) TimerEvent: {}
+[6.232369] (-) TimerEvent: {}
+[6.333069] (-) TimerEvent: {}
+[6.433980] (-) TimerEvent: {}
+[6.534615] (-) TimerEvent: {}
+[6.635319] (-) TimerEvent: {}
+[6.735789] (-) TimerEvent: {}
+[6.836401] (-) TimerEvent: {}
+[6.936856] (-) TimerEvent: {}
+[7.037463] (-) TimerEvent: {}
+[7.137953] (-) TimerEvent: {}
+[7.238415] (-) TimerEvent: {}
+[7.338964] (-) TimerEvent: {}
+[7.439444] (-) TimerEvent: {}
+[7.539895] (-) TimerEvent: {}
+[7.640557] (-) TimerEvent: {}
+[7.741244] (-) TimerEvent: {}
+[7.841874] (-) TimerEvent: {}
+[7.942536] (-) TimerEvent: {}
+[8.043117] (-) TimerEvent: {}
+[8.143610] (-) TimerEvent: {}
+[8.244180] (-) TimerEvent: {}
+[8.344743] (-) TimerEvent: {}
+[8.445495] (-) TimerEvent: {}
+[8.546067] (-) TimerEvent: {}
+[8.646468] (-) TimerEvent: {}
+[8.746904] (-) TimerEvent: {}
+[8.847578] (-) TimerEvent: {}
+[8.948143] (-) TimerEvent: {}
+[9.048652] (-) TimerEvent: {}
+[9.149297] (-) TimerEvent: {}
+[9.249915] (-) TimerEvent: {}
+[9.350436] (-) TimerEvent: {}
+[9.450922] (-) TimerEvent: {}
+[9.551457] (-) TimerEvent: {}
+[9.652177] (-) TimerEvent: {}
+[9.752960] (-) TimerEvent: {}
+[9.853709] (-) TimerEvent: {}
+[9.954374] (-) TimerEvent: {}
+[10.054921] (-) TimerEvent: {}
+[10.155555] (-) TimerEvent: {}
+[10.256659] (-) TimerEvent: {}
+[10.357423] (-) TimerEvent: {}
+[10.458067] (-) TimerEvent: {}
+[10.558612] (-) TimerEvent: {}
+[10.659320] (-) TimerEvent: {}
+[10.760495] (-) TimerEvent: {}
+[10.861767] (-) TimerEvent: {}
+[10.962486] (-) TimerEvent: {}
+[11.063197] (-) TimerEvent: {}
+[11.163832] (-) TimerEvent: {}
+[11.264468] (-) TimerEvent: {}
+[11.365497] (-) TimerEvent: {}
+[11.466085] (-) TimerEvent: {}
+[11.566554] (-) TimerEvent: {}
+[11.667067] (-) TimerEvent: {}
+[11.767566] (-) TimerEvent: {}
+[11.868349] (-) TimerEvent: {}
+[11.968984] (-) TimerEvent: {}
+[12.069630] (-) TimerEvent: {}
+[12.170379] (-) TimerEvent: {}
+[12.271185] (-) TimerEvent: {}
+[12.371828] (-) TimerEvent: {}
+[12.472309] (-) TimerEvent: {}
+[12.572803] (-) TimerEvent: {}
+[12.673460] (-) TimerEvent: {}
+[12.773959] (-) TimerEvent: {}
+[12.874422] (-) TimerEvent: {}
+[12.974987] (-) TimerEvent: {}
+[13.075486] (-) TimerEvent: {}
+[13.176047] (-) TimerEvent: {}
+[13.276548] (-) TimerEvent: {}
+[13.377024] (-) TimerEvent: {}
+[13.477577] (-) TimerEvent: {}
+[13.578067] (-) TimerEvent: {}
+[13.678708] (-) TimerEvent: {}
+[13.693305] (arm_controller) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ryanl/4231/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:\x1b[m\x1b[K In constructor \xe2\x80\x98\x1b[01m\x1b[KArmController::ArmController()\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[13.693858] (arm_controller) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ryanl/4231/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:62:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Keef_step_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[13.694010] (arm_controller) StderrLine: {'line': b'   62 |     \x1b[01;31m\x1b[Keef_step_\x1b[m\x1b[K    = declare_parameter<double>("eef_step", 0.005);   // 5 mm\n'}
+[13.694102] (arm_controller) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^~~~~~~~~\x1b[m\x1b[K\n'}
+[13.709816] (arm_controller) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ryanl/4231/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:63:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kjump_thresh_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[13.710101] (arm_controller) StderrLine: {'line': b'   63 |     \x1b[01;31m\x1b[Kjump_thresh_\x1b[m\x1b[K = declare_parameter<double>("jump_threshold", 0.0);\n'}
+[13.710192] (arm_controller) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[13.725360] (arm_controller) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ryanl/4231/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:64:5:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kcart_retries_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kretries_\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[13.725746] (arm_controller) StderrLine: {'line': b'   64 |     \x1b[01;31m\x1b[Kcart_retries_\x1b[m\x1b[K = declare_parameter<int>("cartesian_retries", 3);\n'}
+[13.725927] (arm_controller) StderrLine: {'line': b'      |     \x1b[01;31m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[13.726080] (arm_controller) StderrLine: {'line': b'      |     \x1b[32m\x1b[Kretries_\x1b[m\x1b[K\n'}
+[13.778865] (-) TimerEvent: {}
+[13.819108] (arm_controller) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ryanl/4231/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:\x1b[m\x1b[K In member function \xe2\x80\x98\x1b[01m\x1b[Kbool ArmController::plan_with_fallbacks(const Pose&, const string&, const std::shared_ptr<rclcpp_action::ServerGoalHandle<custom_interfaces::action::MoveTCP> >&)\x1b[m\x1b[K\xe2\x80\x99:\n'}
+[13.819830] (arm_controller) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ryanl/4231/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:351:37:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kcart_retries_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope; did you mean \xe2\x80\x98\x1b[01m\x1b[Kretries_\x1b[m\x1b[K\xe2\x80\x99?\n'}
+[13.820078] (arm_controller) StderrLine: {'line': b'  351 |     for (int i = 0; i < std::max(1, \x1b[01;31m\x1b[Kcart_retries_\x1b[m\x1b[K); ++i) {\n'}
+[13.820220] (arm_controller) StderrLine: {'line': b'      |                                     \x1b[01;31m\x1b[K^~~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[13.820328] (arm_controller) StderrLine: {'line': b'      |                                     \x1b[32m\x1b[Kretries_\x1b[m\x1b[K\n'}
+[13.834080] (arm_controller) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ryanl/4231/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:354:22:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Keef_step_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[13.834671] (arm_controller) StderrLine: {'line': b'  354 |           waypoints, \x1b[01;31m\x1b[Keef_step_\x1b[m\x1b[K, jump_thresh_, traj,\n'}
+[13.834793] (arm_controller) StderrLine: {'line': b'      |                      \x1b[01;31m\x1b[K^~~~~~~~~\x1b[m\x1b[K\n'}
+[13.851538] (arm_controller) StderrLine: {'line': b'\x1b[01m\x1b[K/home/ryanl/4231/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:354:33:\x1b[m\x1b[K \x1b[01;31m\x1b[Kerror: \x1b[m\x1b[K\xe2\x80\x98\x1b[01m\x1b[Kjump_thresh_\x1b[m\x1b[K\xe2\x80\x99 was not declared in this scope\n'}
+[13.851910] (arm_controller) StderrLine: {'line': b'  354 |           waypoints, eef_step_, \x1b[01;31m\x1b[Kjump_thresh_\x1b[m\x1b[K, traj,\n'}
+[13.852057] (arm_controller) StderrLine: {'line': b'      |                                 \x1b[01;31m\x1b[K^~~~~~~~~~~~\x1b[m\x1b[K\n'}
+[13.879116] (-) TimerEvent: {}
+[13.979683] (-) TimerEvent: {}
+[14.080195] (-) TimerEvent: {}
+[14.180623] (-) TimerEvent: {}
+[14.281092] (-) TimerEvent: {}
+[14.381865] (-) TimerEvent: {}
+[14.482892] (-) TimerEvent: {}
+[14.583427] (-) TimerEvent: {}
+[14.684235] (-) TimerEvent: {}
+[14.784881] (-) TimerEvent: {}
+[14.885648] (-) TimerEvent: {}
+[14.986265] (-) TimerEvent: {}
+[15.086937] (-) TimerEvent: {}
+[15.187500] (-) TimerEvent: {}
+[15.288064] (-) TimerEvent: {}
+[15.388735] (-) TimerEvent: {}
+[15.489512] (-) TimerEvent: {}
+[15.590156] (-) TimerEvent: {}
+[15.690639] (-) TimerEvent: {}
+[15.791195] (-) TimerEvent: {}
+[15.891723] (-) TimerEvent: {}
+[15.992311] (-) TimerEvent: {}
+[16.093026] (-) TimerEvent: {}
+[16.193790] (-) TimerEvent: {}
+[16.294464] (-) TimerEvent: {}
+[16.395041] (-) TimerEvent: {}
+[16.495635] (-) TimerEvent: {}
+[16.596166] (-) TimerEvent: {}
+[16.696725] (-) TimerEvent: {}
+[16.797334] (-) TimerEvent: {}
+[16.897882] (-) TimerEvent: {}
+[16.998437] (-) TimerEvent: {}
+[17.099084] (-) TimerEvent: {}
+[17.199583] (-) TimerEvent: {}
+[17.300163] (-) TimerEvent: {}
+[17.400857] (-) TimerEvent: {}
+[17.501600] (-) TimerEvent: {}
+[17.602320] (-) TimerEvent: {}
+[17.702994] (-) TimerEvent: {}
+[17.803429] (-) TimerEvent: {}
+[17.903962] (-) TimerEvent: {}
+[18.004619] (-) TimerEvent: {}
+[18.105066] (-) TimerEvent: {}
+[18.205605] (-) TimerEvent: {}
+[18.306096] (-) TimerEvent: {}
+[18.406633] (-) TimerEvent: {}
+[18.474585] (arm_controller) StderrLine: {'line': b'gmake[2]: *** [CMakeFiles/arm_controller_node.dir/build.make:76: CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o] Error 1\n'}
+[18.475441] (arm_controller) StderrLine: {'line': b'gmake[1]: *** [CMakeFiles/Makefile2:139: CMakeFiles/arm_controller_node.dir/all] Error 2\n'}
+[18.476024] (arm_controller) StderrLine: {'line': b'gmake: *** [Makefile:146: all] Error 2\n'}
+[18.481515] (arm_controller) CommandEnded: {'returncode': 2}
+[18.501510] (arm_controller) JobEnded: {'identifier': 'arm_controller', 'rc': 2}
+[18.503397] (-) EventReactorShutdown: {}

@@ -1,0 +1,4 @@
+[01m[K/home/ryanl/4231/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:[m[K In member function ‘[01m[Kvoid ArmController::execute(const std::shared_ptr<rclcpp_action::ServerGoalHandle<custom_interfaces::action::MoveTCP> >&)[m[K’:
+[01m[K/home/ryanl/4231/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:241:30:[m[K [01;35m[Kwarning: [m[Kvariable ‘[01m[Kretreat[m[K’ set but not used [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wunused-but-set-variable-Wunused-but-set-variable]8;;[m[K]
+  241 |     geometry_msgs::msg::Pose [01;35m[Kretreat[m[K = pick_in_base.pose;
+      |                              [01;35m[K^~~~~~~[m[K

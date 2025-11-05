@@ -1,0 +1,322 @@
+[0.000000] (-) TimerEvent: {}
+[0.001011] (-) JobUnselected: {'identifier': 'custom_interfaces'}
+[0.001100] (-) JobUnselected: {'identifier': 'end_effector_description'}
+[0.001383] (-) JobUnselected: {'identifier': 'move_to_marker'}
+[0.001435] (-) JobUnselected: {'identifier': 'ur5e_custom_description'}
+[0.001482] (arm_controller) JobQueued: {'identifier': 'arm_controller', 'dependencies': OrderedDict([('custom_interfaces', '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces')])}
+[0.001539] (arm_controller) JobStarted: {'identifier': 'arm_controller'}
+[0.099295] (-) TimerEvent: {}
+[0.199860] (-) TimerEvent: {}
+[0.230563] (arm_controller) JobProgress: {'identifier': 'arm_controller', 'progress': 'cmake'}
+[0.232304] (arm_controller) JobProgress: {'identifier': 'arm_controller', 'progress': 'build'}
+[0.233945] (arm_controller) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/ryanl/4231/MTRN4231_Project/build/arm_controller', '--', '-j16', '-l16'], 'cwd': '/home/ryanl/4231/MTRN4231_Project/build/arm_controller', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'ryanl'), ('GIT_ASKPASS', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/lib:/home/ryanl/4231/MTRN4231_Project/install/interfaces/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('MOTD_SHOWN', 'update-motd'), ('HOME', '/home/ryanl'), ('TERM_PROGRAM_VERSION', '1.105.1'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-5be71c29-9758-498a-9d74-c38e6b5bd59e.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/node'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/ryanl/4231/MTRN4231_Project/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'ryanl'), ('NAME', 'Code'), ('WSL_INTEROP', '/run/WSL/525_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/bin/remote-cli:/home/ryanl/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/WindowsApps/MicrosoftCorporationII.WindowsSubsystemForLinux_2.6.1.0_x64__8wekyb3d8bbwe:/mnt/c/MCC:/mnt/c/Program Files/Eclipse Adoptium/jdk-11.0.20.101-hotspot/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/150/DTS/Binn/:/mnt/c/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit/:/mnt/c/Program Files/MATLAB/R2024b/bin:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/:/mnt/c/Gradle/bin:/mnt/c/Program Files (x86)/STMicroelectronics/STM32 ST-LINK Utility/ST-LINK Utility:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files (x86)/IVI Foundation/VISA/WinNT/Bin/:/mnt/c/Program Files/IVI Foundation/VISA/Win64/Bin/:/mnt/c/Program Files (x86)/IVI Foundation/VISA/WinNT/Bin:/mnt/c/Program Files/usbipd-win/:/mnt/c/Program Files/Tailscale/:/mnt/c/Program Files/Netbird:/mnt/c/Program Files/Git/cmd:/mnt/c/Users/ryanl/AppData/Local/Programs/Python/Python311/Scripts/:/mnt/c/Users/ryanl/AppData/Local/Programs/Python/Python311/:/mnt/c/Users/ryanl/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/ryanl/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/ryanl/AppData/Roaming/npm:/mnt/c/opencv/build/x64/vc16/bin:/mnt/c/Users/ryanl/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/ryanl/AppData/Local/Programs/MiKTeX/miktex/bin/x64/:/mnt/c/Users/ryanl/.dotnet/tools:/snap/bin:/home/ryanl/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-14419cdd9e.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/ryanl/4231/MTRN4231_Project/install/ur5e_custom_description:/home/ryanl/4231/MTRN4231_Project/install/ui:/home/ryanl/4231/MTRN4231_Project/install/move_to_marker:/home/ryanl/4231/MTRN4231_Project/install/chess_master:/home/ryanl/4231/MTRN4231_Project/install/interfaces:/home/ryanl/4231/MTRN4231_Project/install/end_effector_description:/home/ryanl/4231/MTRN4231_Project/install/arm_controller:/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces:/home/ryanl/4231/MTRN4231_Project/install/brain:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/ryanl/4231/MTRN4231_Project/build/arm_controller'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/ryanl/4231/MTRN4231_Project/install/ui/lib/python3.10/site-packages:/home/ryanl/4231/MTRN4231_Project/install/chess_master/lib/python3.10/site-packages:/home/ryanl/4231/MTRN4231_Project/install/interfaces/local/lib/python3.10/dist-packages:/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/local/lib/python3.10/dist-packages:/home/ryanl/4231/MTRN4231_Project/install/brain/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('CMAKE_PREFIX_PATH', '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces:/home/ryanl/4231/MTRN4231_Project/install/ur5e_custom_description:/home/ryanl/4231/MTRN4231_Project/install/move_to_marker:/home/ryanl/4231/MTRN4231_Project/install/interfaces:/home/ryanl/4231/MTRN4231_Project/install/end_effector_description:/home/ryanl/4231/MTRN4231_Project/install/arm_controller:/home/ryanl/4231/MTRN4231_Project/install/ui:/home/ryanl/4231/MTRN4231_Project/install/chess_master:/home/ryanl/4231/MTRN4231_Project/install/brain:/opt/ros/humble'), ('WSLENV', 'ELECTRON_RUN_AS_NODE/w:')]), 'shell': False}
+[0.300075] (-) TimerEvent: {}
+[0.379517] (arm_controller) StdoutLine: {'line': b'[ 25%] \x1b[32mBuilding CXX object CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o\x1b[0m\n'}
+[0.390224] (arm_controller) StdoutLine: {'line': b'[ 75%] Built target moveit_constrain_ur\n'}
+[0.400202] (-) TimerEvent: {}
+[0.500767] (-) TimerEvent: {}
+[0.601341] (-) TimerEvent: {}
+[0.702055] (-) TimerEvent: {}
+[0.802602] (-) TimerEvent: {}
+[0.903111] (-) TimerEvent: {}
+[1.003673] (-) TimerEvent: {}
+[1.104431] (-) TimerEvent: {}
+[1.205069] (-) TimerEvent: {}
+[1.305550] (-) TimerEvent: {}
+[1.406235] (-) TimerEvent: {}
+[1.506822] (-) TimerEvent: {}
+[1.607489] (-) TimerEvent: {}
+[1.708135] (-) TimerEvent: {}
+[1.808743] (-) TimerEvent: {}
+[1.909211] (-) TimerEvent: {}
+[2.009819] (-) TimerEvent: {}
+[2.110441] (-) TimerEvent: {}
+[2.210920] (-) TimerEvent: {}
+[2.311397] (-) TimerEvent: {}
+[2.412058] (-) TimerEvent: {}
+[2.512660] (-) TimerEvent: {}
+[2.613206] (-) TimerEvent: {}
+[2.713861] (-) TimerEvent: {}
+[2.814611] (-) TimerEvent: {}
+[2.915059] (-) TimerEvent: {}
+[3.015615] (-) TimerEvent: {}
+[3.116121] (-) TimerEvent: {}
+[3.216876] (-) TimerEvent: {}
+[3.317630] (-) TimerEvent: {}
+[3.418328] (-) TimerEvent: {}
+[3.518828] (-) TimerEvent: {}
+[3.619233] (-) TimerEvent: {}
+[3.719746] (-) TimerEvent: {}
+[3.820282] (-) TimerEvent: {}
+[3.921050] (-) TimerEvent: {}
+[4.021604] (-) TimerEvent: {}
+[4.122240] (-) TimerEvent: {}
+[4.222765] (-) TimerEvent: {}
+[4.323349] (-) TimerEvent: {}
+[4.423807] (-) TimerEvent: {}
+[4.524350] (-) TimerEvent: {}
+[4.625081] (-) TimerEvent: {}
+[4.725689] (-) TimerEvent: {}
+[4.826312] (-) TimerEvent: {}
+[4.927003] (-) TimerEvent: {}
+[5.027696] (-) TimerEvent: {}
+[5.128202] (-) TimerEvent: {}
+[5.228724] (-) TimerEvent: {}
+[5.371641] (-) TimerEvent: {}
+[5.472458] (-) TimerEvent: {}
+[5.573003] (-) TimerEvent: {}
+[5.673565] (-) TimerEvent: {}
+[5.774218] (-) TimerEvent: {}
+[5.874731] (-) TimerEvent: {}
+[5.975228] (-) TimerEvent: {}
+[6.075730] (-) TimerEvent: {}
+[6.176387] (-) TimerEvent: {}
+[6.276962] (-) TimerEvent: {}
+[6.377699] (-) TimerEvent: {}
+[6.478280] (-) TimerEvent: {}
+[6.578943] (-) TimerEvent: {}
+[6.679506] (-) TimerEvent: {}
+[6.780013] (-) TimerEvent: {}
+[6.880602] (-) TimerEvent: {}
+[6.981105] (-) TimerEvent: {}
+[7.081687] (-) TimerEvent: {}
+[7.182364] (-) TimerEvent: {}
+[7.282974] (-) TimerEvent: {}
+[7.383489] (-) TimerEvent: {}
+[7.483974] (-) TimerEvent: {}
+[7.584511] (-) TimerEvent: {}
+[7.684972] (-) TimerEvent: {}
+[7.785708] (-) TimerEvent: {}
+[7.886253] (-) TimerEvent: {}
+[7.986850] (-) TimerEvent: {}
+[8.087358] (-) TimerEvent: {}
+[8.187861] (-) TimerEvent: {}
+[8.288363] (-) TimerEvent: {}
+[8.389026] (-) TimerEvent: {}
+[8.489761] (-) TimerEvent: {}
+[8.590536] (-) TimerEvent: {}
+[8.691110] (-) TimerEvent: {}
+[8.791518] (-) TimerEvent: {}
+[8.892003] (-) TimerEvent: {}
+[8.993065] (-) TimerEvent: {}
+[9.093561] (-) TimerEvent: {}
+[9.194154] (-) TimerEvent: {}
+[9.294775] (-) TimerEvent: {}
+[9.395301] (-) TimerEvent: {}
+[9.495752] (-) TimerEvent: {}
+[9.596336] (-) TimerEvent: {}
+[9.696882] (-) TimerEvent: {}
+[9.797349] (-) TimerEvent: {}
+[9.897968] (-) TimerEvent: {}
+[9.998659] (-) TimerEvent: {}
+[10.099236] (-) TimerEvent: {}
+[10.199697] (-) TimerEvent: {}
+[10.300213] (-) TimerEvent: {}
+[10.401038] (-) TimerEvent: {}
+[10.501694] (-) TimerEvent: {}
+[10.602315] (-) TimerEvent: {}
+[10.703172] (-) TimerEvent: {}
+[10.803765] (-) TimerEvent: {}
+[10.904277] (-) TimerEvent: {}
+[11.004796] (-) TimerEvent: {}
+[11.105433] (-) TimerEvent: {}
+[11.205977] (-) TimerEvent: {}
+[11.306543] (-) TimerEvent: {}
+[11.407234] (-) TimerEvent: {}
+[11.507863] (-) TimerEvent: {}
+[11.608967] (-) TimerEvent: {}
+[11.709527] (-) TimerEvent: {}
+[11.810293] (-) TimerEvent: {}
+[11.910858] (-) TimerEvent: {}
+[12.011409] (-) TimerEvent: {}
+[12.112054] (-) TimerEvent: {}
+[12.212527] (-) TimerEvent: {}
+[12.313033] (-) TimerEvent: {}
+[12.413767] (-) TimerEvent: {}
+[12.514644] (-) TimerEvent: {}
+[12.615260] (-) TimerEvent: {}
+[12.715795] (-) TimerEvent: {}
+[12.816365] (-) TimerEvent: {}
+[12.916959] (-) TimerEvent: {}
+[13.017465] (-) TimerEvent: {}
+[13.118052] (-) TimerEvent: {}
+[13.218664] (-) TimerEvent: {}
+[13.319225] (-) TimerEvent: {}
+[13.419790] (-) TimerEvent: {}
+[13.520403] (-) TimerEvent: {}
+[13.620971] (-) TimerEvent: {}
+[13.721421] (-) TimerEvent: {}
+[13.821954] (-) TimerEvent: {}
+[13.922521] (-) TimerEvent: {}
+[14.023155] (-) TimerEvent: {}
+[14.123700] (-) TimerEvent: {}
+[14.224348] (-) TimerEvent: {}
+[14.324893] (-) TimerEvent: {}
+[14.425453] (-) TimerEvent: {}
+[14.526021] (-) TimerEvent: {}
+[14.626592] (-) TimerEvent: {}
+[14.727311] (-) TimerEvent: {}
+[14.827912] (-) TimerEvent: {}
+[14.928593] (-) TimerEvent: {}
+[15.029149] (-) TimerEvent: {}
+[15.129882] (-) TimerEvent: {}
+[15.230614] (-) TimerEvent: {}
+[15.346278] (-) TimerEvent: {}
+[15.446766] (-) TimerEvent: {}
+[15.547298] (-) TimerEvent: {}
+[15.647980] (-) TimerEvent: {}
+[15.748479] (-) TimerEvent: {}
+[15.849041] (-) TimerEvent: {}
+[15.949732] (-) TimerEvent: {}
+[16.050531] (-) TimerEvent: {}
+[16.151145] (-) TimerEvent: {}
+[16.251704] (-) TimerEvent: {}
+[16.352345] (-) TimerEvent: {}
+[16.452788] (-) TimerEvent: {}
+[16.553463] (-) TimerEvent: {}
+[16.653992] (-) TimerEvent: {}
+[16.754621] (-) TimerEvent: {}
+[16.855290] (-) TimerEvent: {}
+[16.955709] (-) TimerEvent: {}
+[17.056214] (-) TimerEvent: {}
+[17.156836] (-) TimerEvent: {}
+[17.257534] (-) TimerEvent: {}
+[17.358136] (-) TimerEvent: {}
+[17.458779] (-) TimerEvent: {}
+[17.559397] (-) TimerEvent: {}
+[17.659901] (-) TimerEvent: {}
+[17.760661] (-) TimerEvent: {}
+[17.861256] (-) TimerEvent: {}
+[17.962749] (-) TimerEvent: {}
+[18.063264] (-) TimerEvent: {}
+[18.163675] (-) TimerEvent: {}
+[18.264361] (-) TimerEvent: {}
+[18.365101] (-) TimerEvent: {}
+[18.465618] (-) TimerEvent: {}
+[18.566297] (-) TimerEvent: {}
+[18.666921] (-) TimerEvent: {}
+[18.767349] (-) TimerEvent: {}
+[18.867925] (-) TimerEvent: {}
+[18.968378] (-) TimerEvent: {}
+[19.068904] (-) TimerEvent: {}
+[19.169509] (-) TimerEvent: {}
+[19.270157] (-) TimerEvent: {}
+[19.370674] (-) TimerEvent: {}
+[19.471157] (-) TimerEvent: {}
+[19.571572] (-) TimerEvent: {}
+[19.672139] (-) TimerEvent: {}
+[19.772726] (-) TimerEvent: {}
+[19.873261] (-) TimerEvent: {}
+[19.973735] (-) TimerEvent: {}
+[20.074447] (-) TimerEvent: {}
+[20.174940] (-) TimerEvent: {}
+[20.275416] (-) TimerEvent: {}
+[20.375939] (-) TimerEvent: {}
+[20.476553] (-) TimerEvent: {}
+[20.577036] (-) TimerEvent: {}
+[20.677521] (-) TimerEvent: {}
+[20.777922] (-) TimerEvent: {}
+[20.878567] (-) TimerEvent: {}
+[20.979082] (-) TimerEvent: {}
+[21.079574] (-) TimerEvent: {}
+[21.180041] (-) TimerEvent: {}
+[21.280649] (-) TimerEvent: {}
+[21.381240] (-) TimerEvent: {}
+[21.481851] (-) TimerEvent: {}
+[21.582443] (-) TimerEvent: {}
+[21.682874] (-) TimerEvent: {}
+[21.783307] (-) TimerEvent: {}
+[21.883772] (-) TimerEvent: {}
+[21.984481] (-) TimerEvent: {}
+[22.085259] (-) TimerEvent: {}
+[22.185955] (-) TimerEvent: {}
+[22.286400] (-) TimerEvent: {}
+[22.386918] (-) TimerEvent: {}
+[22.487385] (-) TimerEvent: {}
+[22.587911] (-) TimerEvent: {}
+[22.688468] (-) TimerEvent: {}
+[22.789109] (-) TimerEvent: {}
+[22.889687] (-) TimerEvent: {}
+[22.990234] (-) TimerEvent: {}
+[23.090790] (-) TimerEvent: {}
+[23.191528] (-) TimerEvent: {}
+[23.292168] (-) TimerEvent: {}
+[23.392699] (-) TimerEvent: {}
+[23.493160] (-) TimerEvent: {}
+[23.593752] (-) TimerEvent: {}
+[23.694319] (-) TimerEvent: {}
+[23.794764] (-) TimerEvent: {}
+[23.895296] (-) TimerEvent: {}
+[23.995960] (-) TimerEvent: {}
+[24.096493] (-) TimerEvent: {}
+[24.197051] (-) TimerEvent: {}
+[24.297705] (-) TimerEvent: {}
+[24.398583] (-) TimerEvent: {}
+[24.499078] (-) TimerEvent: {}
+[24.599631] (-) TimerEvent: {}
+[24.700326] (-) TimerEvent: {}
+[24.800779] (-) TimerEvent: {}
+[24.901366] (-) TimerEvent: {}
+[25.002069] (-) TimerEvent: {}
+[25.102809] (-) TimerEvent: {}
+[25.203314] (-) TimerEvent: {}
+[25.303820] (-) TimerEvent: {}
+[25.404393] (-) TimerEvent: {}
+[25.504981] (-) TimerEvent: {}
+[25.543816] (arm_controller) StdoutLine: {'line': b'[100%] \x1b[32m\x1b[1mLinking CXX executable arm_controller_node\x1b[0m\n'}
+[25.605100] (-) TimerEvent: {}
+[25.705832] (-) TimerEvent: {}
+[25.806869] (-) TimerEvent: {}
+[25.907578] (-) TimerEvent: {}
+[26.008594] (-) TimerEvent: {}
+[26.109289] (-) TimerEvent: {}
+[26.210026] (-) TimerEvent: {}
+[26.310645] (-) TimerEvent: {}
+[26.411096] (-) TimerEvent: {}
+[26.511677] (-) TimerEvent: {}
+[26.612287] (-) TimerEvent: {}
+[26.712805] (-) TimerEvent: {}
+[26.813260] (-) TimerEvent: {}
+[26.913779] (-) TimerEvent: {}
+[27.014607] (-) TimerEvent: {}
+[27.115113] (-) TimerEvent: {}
+[27.215570] (-) TimerEvent: {}
+[27.316183] (-) TimerEvent: {}
+[27.329122] (arm_controller) StdoutLine: {'line': b'[100%] Built target arm_controller_node\n'}
+[27.383168] (arm_controller) CommandEnded: {'returncode': 0}
+[27.384260] (arm_controller) JobProgress: {'identifier': 'arm_controller', 'progress': 'install'}
+[27.402320] (arm_controller) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/ryanl/4231/MTRN4231_Project/build/arm_controller'], 'cwd': '/home/ryanl/4231/MTRN4231_Project/build/arm_controller', 'env': OrderedDict([('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'ryanl'), ('GIT_ASKPASS', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/lib:/home/ryanl/4231/MTRN4231_Project/install/interfaces/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('MOTD_SHOWN', 'update-motd'), ('HOME', '/home/ryanl'), ('TERM_PROGRAM_VERSION', '1.105.1'), ('VSCODE_IPC_HOOK_CLI', '/run/user/1000/vscode-ipc-5be71c29-9758-498a-9d74-c38e6b5bd59e.sock'), ('ROS_PYTHON_VERSION', '3'), ('VSCODE_GIT_ASKPASS_MAIN', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/extensions/git/dist/askpass-main.js'), ('VSCODE_GIT_ASKPASS_NODE', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/node'), ('VSCODE_PYTHON_AUTOACTIVATE_GUARD', '1'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('WSL_DISTRO_NAME', 'Ubuntu-22.04'), ('WAYLAND_DISPLAY', 'wayland-0'), ('COLCON_PREFIX_PATH', '/home/ryanl/4231/MTRN4231_Project/install'), ('ROS_DISTRO', 'humble'), ('LOGNAME', 'ryanl'), ('NAME', 'Code'), ('WSL_INTEROP', '/run/WSL/525_interop'), ('PULSE_SERVER', 'unix:/mnt/wslg/PulseServer'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('TERM', 'xterm-256color'), ('ROS_LOCALHOST_ONLY', '0'), ('PATH', '/home/ryanl/.vscode-server/bin/7d842fb85a0275a4a8e4d7e040d2625abbf7f084/bin/remote-cli:/home/ryanl/.local/bin:/opt/ros/humble/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/usr/lib/wsl/lib:/mnt/c/Program Files/WindowsApps/MicrosoftCorporationII.WindowsSubsystemForLinux_2.6.1.0_x64__8wekyb3d8bbwe:/mnt/c/MCC:/mnt/c/Program Files/Eclipse Adoptium/jdk-11.0.20.101-hotspot/bin:/mnt/c/WINDOWS/system32:/mnt/c/WINDOWS:/mnt/c/WINDOWS/System32/Wbem:/mnt/c/WINDOWS/System32/WindowsPowerShell/v1.0/:/mnt/c/WINDOWS/System32/OpenSSH/:/mnt/c/Program Files/nodejs/:/mnt/c/Program Files/Microsoft SQL Server/Client SDK/ODBC/170/Tools/Binn/:/mnt/c/Program Files (x86)/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/150/Tools/Binn/:/mnt/c/Program Files/Microsoft SQL Server/150/DTS/Binn/:/mnt/c/Program Files (x86)/Windows Kits/8.1/Windows Performance Toolkit/:/mnt/c/Program Files/MATLAB/R2024b/bin:/mnt/c/Program Files/dotnet/:/mnt/c/Program Files (x86)/Windows Kits/10/Windows Performance Toolkit/:/mnt/c/Gradle/bin:/mnt/c/Program Files (x86)/STMicroelectronics/STM32 ST-LINK Utility/ST-LINK Utility:/mnt/c/Program Files/PuTTY/:/mnt/c/Program Files (x86)/IVI Foundation/VISA/WinNT/Bin/:/mnt/c/Program Files/IVI Foundation/VISA/Win64/Bin/:/mnt/c/Program Files (x86)/IVI Foundation/VISA/WinNT/Bin:/mnt/c/Program Files/usbipd-win/:/mnt/c/Program Files/Tailscale/:/mnt/c/Program Files/Netbird:/mnt/c/Program Files/Git/cmd:/mnt/c/Users/ryanl/AppData/Local/Programs/Python/Python311/Scripts/:/mnt/c/Users/ryanl/AppData/Local/Programs/Python/Python311/:/mnt/c/Users/ryanl/AppData/Local/Microsoft/WindowsApps:/mnt/c/Users/ryanl/AppData/Local/Programs/Microsoft VS Code/bin:/mnt/c/Users/ryanl/AppData/Roaming/npm:/mnt/c/opencv/build/x64/vc16/bin:/mnt/c/Users/ryanl/AppData/Local/GitHubDesktop/bin:/mnt/c/Users/ryanl/AppData/Local/Programs/MiKTeX/miktex/bin/x64/:/mnt/c/Users/ryanl/.dotnet/tools:/snap/bin:/home/ryanl/.vscode-server/data/User/globalStorage/github.copilot-chat/debugCommand'), ('XDG_RUNTIME_DIR', '/run/user/1000/'), ('DISPLAY', ':0'), ('LANG', 'C.UTF-8'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-14419cdd9e.sock'), ('TERM_PROGRAM', 'vscode'), ('AMENT_PREFIX_PATH', '/home/ryanl/4231/MTRN4231_Project/install/ur5e_custom_description:/home/ryanl/4231/MTRN4231_Project/install/ui:/home/ryanl/4231/MTRN4231_Project/install/move_to_marker:/home/ryanl/4231/MTRN4231_Project/install/chess_master:/home/ryanl/4231/MTRN4231_Project/install/interfaces:/home/ryanl/4231/MTRN4231_Project/install/end_effector_description:/home/ryanl/4231/MTRN4231_Project/install/arm_controller:/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces:/home/ryanl/4231/MTRN4231_Project/install/brain:/opt/ros/humble'), ('SHELL', '/bin/bash'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('PWD', '/home/ryanl/4231/MTRN4231_Project/build/arm_controller'), ('XDG_DATA_DIRS', '/usr/local/share:/usr/share:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/ryanl/4231/MTRN4231_Project/install/ui/lib/python3.10/site-packages:/home/ryanl/4231/MTRN4231_Project/install/chess_master/lib/python3.10/site-packages:/home/ryanl/4231/MTRN4231_Project/install/interfaces/local/lib/python3.10/dist-packages:/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/local/lib/python3.10/dist-packages:/home/ryanl/4231/MTRN4231_Project/install/brain/lib/python3.10/site-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('COLCON', '1'), ('WSL2_GUI_APPS_ENABLED', '1'), ('HOSTTYPE', 'x86_64'), ('CMAKE_PREFIX_PATH', '/home/ryanl/4231/MTRN4231_Project/install/custom_interfaces:/home/ryanl/4231/MTRN4231_Project/install/ur5e_custom_description:/home/ryanl/4231/MTRN4231_Project/install/move_to_marker:/home/ryanl/4231/MTRN4231_Project/install/interfaces:/home/ryanl/4231/MTRN4231_Project/install/end_effector_description:/home/ryanl/4231/MTRN4231_Project/install/arm_controller:/home/ryanl/4231/MTRN4231_Project/install/ui:/home/ryanl/4231/MTRN4231_Project/install/chess_master:/home/ryanl/4231/MTRN4231_Project/install/brain:/opt/ros/humble'), ('WSLENV', 'ELECTRON_RUN_AS_NODE/w:')]), 'shell': False}
+[27.416380] (-) TimerEvent: {}
+[27.417988] (arm_controller) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[27.419466] (arm_controller) StdoutLine: {'line': b'-- Execute custom install script\n'}
+[27.420199] (arm_controller) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/lib/arm_controller/arm_controller_node\n'}
+[27.421045] (arm_controller) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/launch/arm_controller.launch.py\n'}
+[27.421296] (arm_controller) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/launch/view_combined.launch.py\n'}
+[27.421832] (arm_controller) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/urdf/ur5e_with_tool.urdf.xacro\n'}
+[27.422469] (arm_controller) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/config/controllers.yaml\n'}
+[27.422800] (arm_controller) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/config/end_effector_withDriverSupport.srdf\n'}
+[27.423164] (arm_controller) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/config/joint_limits.yaml\n'}
+[27.423503] (arm_controller) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/config/kinematics.yaml\n'}
+[27.423905] (arm_controller) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/config/moveit.rviz\n'}
+[27.424444] (arm_controller) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/config/moveit_controllers.yaml\n'}
+[27.424618] (arm_controller) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/config/params.yaml\n'}
+[27.424889] (arm_controller) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/config/pilz_cartesian_limits.yaml\n'}
+[27.425345] (arm_controller) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/rviz/display.rviz\n'}
+[27.425910] (arm_controller) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/ament_index/resource_index/package_run_dependencies/arm_controller\n'}
+[27.426518] (arm_controller) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/ament_index/resource_index/parent_prefix_path/arm_controller\n'}
+[27.427127] (arm_controller) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/environment/ament_prefix_path.sh\n'}
+[27.427648] (arm_controller) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/environment/ament_prefix_path.dsv\n'}
+[27.428057] (arm_controller) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/environment/path.sh\n'}
+[27.428440] (arm_controller) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/environment/path.dsv\n'}
+[27.429101] (arm_controller) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/local_setup.bash\n'}
+[27.429464] (arm_controller) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/local_setup.sh\n'}
+[27.429831] (arm_controller) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/local_setup.zsh\n'}
+[27.430340] (arm_controller) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/local_setup.dsv\n'}
+[27.430632] (arm_controller) StdoutLine: {'line': b'-- Symlinking: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/package.dsv\n'}
+[27.453519] (arm_controller) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/ament_index/resource_index/packages/arm_controller\n'}
+[27.454018] (arm_controller) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/cmake/arm_controllerConfig.cmake\n'}
+[27.454483] (arm_controller) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/cmake/arm_controllerConfig-version.cmake\n'}
+[27.454736] (arm_controller) StdoutLine: {'line': b'-- Up-to-date symlink: /home/ryanl/4231/MTRN4231_Project/install/arm_controller/share/arm_controller/package.xml\n'}
+[27.459814] (arm_controller) CommandEnded: {'returncode': 0}
+[27.486381] (arm_controller) JobEnded: {'identifier': 'arm_controller', 'rc': 0}
+[27.488277] (-) EventReactorShutdown: {}
