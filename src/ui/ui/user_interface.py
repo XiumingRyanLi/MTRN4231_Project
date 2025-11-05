@@ -133,11 +133,7 @@ class UserInterface(tk.Tk):
         # msg.data = move
         # self.move_pub.publish(msg)
         self.move_entry.delete(0, tk.END)
-<<<<<<< Updated upstream
-        self.take_pic_pub.publish(msg)
-=======
         self.take_pic_pub.publish(Empty())
->>>>>>> Stashed changes
 
     def reset_press(self):
         # reset board
