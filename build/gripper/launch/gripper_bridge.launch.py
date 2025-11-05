@@ -1,1 +1,0 @@
-/home/ryanl/4231/MTRN4231_Project/src/gripper/launch/gripper_bridge.launch.py

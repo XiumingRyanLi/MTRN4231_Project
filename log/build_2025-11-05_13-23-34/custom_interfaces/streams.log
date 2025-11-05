@@ -1,0 +1,293 @@
+[0.011s] Invoking command in '/home/mtrn/MTRN4231_project/build/custom_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /home/mtrn/.local/bin/cmake /home/mtrn/MTRN4231_project/src/custom_interfaces -DCMAKE_INSTALL_PREFIX=/home/mtrn/MTRN4231_project/install/custom_interfaces
+[0.123s] -- The C compiler identification is GNU 11.4.0
+[0.221s] -- The CXX compiler identification is GNU 11.4.0
+[0.258s] -- Detecting C compiler ABI info
+[0.368s] -- Detecting C compiler ABI info - done
+[0.380s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.381s] -- Detecting C compile features
+[0.381s] -- Detecting C compile features - done
+[0.393s] -- Detecting CXX compiler ABI info
+[0.509s] -- Detecting CXX compiler ABI info - done
+[0.531s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.532s] -- Detecting CXX compile features
+[0.532s] -- Detecting CXX compile features - done
+[0.536s] -- Found ament_cmake: 1.3.10 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.727s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.865s] -- Found rosidl_default_generators: 1.2.0 (/opt/ros/humble/share/rosidl_default_generators/cmake)
+[0.870s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.880s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.953s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[0.998s] -- Found geometry_msgs: 4.2.4 (/opt/ros/humble/share/geometry_msgs/cmake)
+[1.883s] -- Found ament_cmake_ros: 0.10.0 (/opt/ros/humble/share/ament_cmake_ros/cmake)
+[2.646s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[3.701s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[3.704s] [33mCMake Warning (dev) at /opt/ros/humble/share/rosidl_generator_py/cmake/rosidl_generator_py_generate_interfaces.cmake:20 (find_package):
+[3.705s]   Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+[3.705s]   are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+[3.705s]   the cmake_policy command to set the policy and suppress this warning.
+[3.705s] 
+[3.705s] Call Stack (most recent call first):
+[3.706s]   /opt/ros/humble/share/ament_cmake_core/cmake/core/ament_execute_extensions.cmake:48 (include)
+[3.706s]   /opt/ros/humble/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:286 (ament_execute_extensions)
+[3.706s]   CMakeLists.txt:9 (rosidl_generate_interfaces)
+[3.706s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[3.706s] [0m
+[3.751s] -- Found PythonInterp: /usr/bin/python3 (found suitable version "3.10.12", minimum required is "3.6") 
+[3.755s] -- Found python_cmake_module: 0.10.0 (/opt/ros/humble/share/python_cmake_module/cmake)
+[3.755s] [33mCMake Warning (dev) at /opt/ros/humble/share/python_cmake_module/cmake/Modules/FindPythonExtra.cmake:52 (find_package):
+[3.755s]   Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+[3.755s]   are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+[3.755s]   the cmake_policy command to set the policy and suppress this warning.
+[3.755s] 
+[3.755s] Call Stack (most recent call first):
+[3.755s]   /opt/ros/humble/share/rosidl_generator_py/cmake/rosidl_generator_py_generate_interfaces.cmake:23 (find_package)
+[3.755s]   /opt/ros/humble/share/ament_cmake_core/cmake/core/ament_execute_extensions.cmake:48 (include)
+[3.755s]   /opt/ros/humble/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:286 (ament_execute_extensions)
+[3.755s]   CMakeLists.txt:9 (rosidl_generate_interfaces)
+[3.756s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[3.756s] [0m
+[3.782s] [33mCMake Warning (dev) at /opt/ros/humble/share/python_cmake_module/cmake/Modules/FindPythonExtra.cmake:140 (find_package):
+[3.782s]   Policy CMP0148 is not set: The FindPythonInterp and FindPythonLibs modules
+[3.782s]   are removed.  Run "cmake --help-policy CMP0148" for policy details.  Use
+[3.782s]   the cmake_policy command to set the policy and suppress this warning.
+[3.782s] 
+[3.782s] Call Stack (most recent call first):
+[3.782s]   /opt/ros/humble/share/rosidl_generator_py/cmake/rosidl_generator_py_generate_interfaces.cmake:23 (find_package)
+[3.783s]   /opt/ros/humble/share/ament_cmake_core/cmake/core/ament_execute_extensions.cmake:48 (include)
+[3.783s]   /opt/ros/humble/share/rosidl_cmake/cmake/rosidl_generate_interfaces.cmake:286 (ament_execute_extensions)
+[3.783s]   CMakeLists.txt:9 (rosidl_generate_interfaces)
+[3.783s] This warning is for project developers.  Use -Wno-dev to suppress it.
+[3.783s] [0m
+[3.791s] -- Found PythonLibs: /usr/lib/x86_64-linux-gnu/libpython3.10.so (found suitable version "3.10.12", minimum required is "3.5") 
+[3.792s] -- Using PYTHON_EXECUTABLE: /usr/bin/python3
+[3.792s] -- Using PYTHON_INCLUDE_DIRS: /usr/include/python3.10
+[3.792s] -- Using PYTHON_LIBRARIES: /usr/lib/x86_64-linux-gnu/libpython3.10.so
+[3.822s] -- Found PythonExtra: .so  
+[3.983s] -- Configuring done (3.9s)
+[4.053s] -- Generating done (0.1s)
+[4.062s] -- Build files have been written to: /home/mtrn/MTRN4231_project/build/custom_interfaces
+[4.081s] Invoked command in '/home/mtrn/MTRN4231_project/build/custom_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /home/mtrn/.local/bin/cmake /home/mtrn/MTRN4231_project/src/custom_interfaces -DCMAKE_INSTALL_PREFIX=/home/mtrn/MTRN4231_project/install/custom_interfaces
+[4.085s] Invoking command in '/home/mtrn/MTRN4231_project/build/custom_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /home/mtrn/.local/bin/cmake --build /home/mtrn/MTRN4231_project/build/custom_interfaces -- -j12 -l12
+[4.172s] [  2%] [34m[1mGenerating C code for ROS interfaces[0m
+[4.180s] [  5%] [34m[1mGenerating C++ code for ROS interfaces[0m
+[4.183s] [  5%] Built target ament_cmake_python_copy_custom_interfaces
+[4.512s] running egg_info
+[4.513s] creating custom_interfaces.egg-info
+[4.543s] writing custom_interfaces.egg-info/PKG-INFO
+[4.543s] writing dependency_links to custom_interfaces.egg-info/dependency_links.txt
+[4.543s] writing top-level names to custom_interfaces.egg-info/top_level.txt
+[4.544s] writing manifest file 'custom_interfaces.egg-info/SOURCES.txt'
+[4.618s] reading manifest file 'custom_interfaces.egg-info/SOURCES.txt'
+[4.621s] writing manifest file 'custom_interfaces.egg-info/SOURCES.txt'
+[4.662s] [  5%] Built target ament_cmake_python_build_custom_interfaces_egg
+[5.287s] [  7%] [32mBuilding C object CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/gripper_command__functions.c.o[0m
+[5.288s] [ 10%] [32mBuilding C object CMakeFiles/custom_interfaces__rosidl_generator_c.dir/rosidl_generator_c/custom_interfaces/action/detail/move_tcp__functions.c.o[0m
+[5.331s] [ 10%] Built target custom_interfaces__cpp
+[5.342s] [ 12%] [34m[1mGenerating C++ type support for eProsima Fast-RTPS[0m
+[5.344s] [ 15%] [34m[1mGenerating C++ type support dispatch for ROS interfaces[0m
+[5.350s] [ 17%] [34m[1mGenerating C++ introspection for ROS interfaces[0m
+[5.474s] [ 20%] [32m[1mLinking C shared library libcustom_interfaces__rosidl_generator_c.so[0m
+[5.514s] [ 20%] Built target custom_interfaces__rosidl_generator_c
+[5.523s] [ 23%] [34m[1mGenerating C type support for eProsima Fast-RTPS[0m
+[5.528s] [ 28%] [34m[1mGenerating C type support dispatch for ROS interfaces[0m
+[5.528s] [ 28%] [34m[1mGenerating C introspection for ROS interfaces[0m
+[6.071s] [ 30%] [32mBuilding CXX object CMakeFiles/custom_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/custom_interfaces/action/move_tcp__type_support.cpp.o[0m
+[6.071s] [ 33%] [32mBuilding CXX object CMakeFiles/custom_interfaces__rosidl_typesupport_cpp.dir/rosidl_typesupport_cpp/custom_interfaces/action/gripper_command__type_support.cpp.o[0m
+[6.245s] [ 35%] [32mBuilding CXX object CMakeFiles/custom_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/custom_interfaces/action/gripper_command__type_support.cpp.o[0m
+[6.245s] [ 38%] [32mBuilding CXX object CMakeFiles/custom_interfaces__rosidl_typesupport_c.dir/rosidl_typesupport_c/custom_interfaces/action/move_tcp__type_support.cpp.o[0m
+[6.320s] [ 43%] [32mBuilding CXX object CMakeFiles/custom_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/custom_interfaces/action/detail/gripper_command__type_support.cpp.o[0m
+[6.324s] [ 43%] [32mBuilding CXX object CMakeFiles/custom_interfaces__rosidl_typesupport_introspection_cpp.dir/rosidl_typesupport_introspection_cpp/custom_interfaces/action/detail/move_tcp__type_support.cpp.o[0m
+[6.352s] [ 46%] [32m[1mLinking CXX shared library libcustom_interfaces__rosidl_typesupport_c.so[0m
+[6.407s] [ 46%] Built target custom_interfaces__rosidl_typesupport_c
+[6.543s] [ 48%] [32mBuilding CXX object CMakeFiles/custom_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/custom_interfaces/action/detail/dds_fastrtps/gripper_command__type_support.cpp.o[0m
+[6.546s] [ 51%] [32mBuilding CXX object CMakeFiles/custom_interfaces__rosidl_typesupport_fastrtps_cpp.dir/rosidl_typesupport_fastrtps_cpp/custom_interfaces/action/detail/dds_fastrtps/move_tcp__type_support.cpp.o[0m
+[6.674s] [ 53%] [32mBuilding C object CMakeFiles/custom_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/custom_interfaces/action/detail/move_tcp__type_support.c.o[0m
+[6.676s] [ 56%] [32mBuilding C object CMakeFiles/custom_interfaces__rosidl_typesupport_introspection_c.dir/rosidl_typesupport_introspection_c/custom_interfaces/action/detail/gripper_command__type_support.c.o[0m
+[6.695s] [ 58%] [32mBuilding CXX object CMakeFiles/custom_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/custom_interfaces/action/detail/move_tcp__type_support_c.cpp.o[0m
+[6.699s] [ 61%] [32mBuilding CXX object CMakeFiles/custom_interfaces__rosidl_typesupport_fastrtps_c.dir/rosidl_typesupport_fastrtps_c/custom_interfaces/action/detail/gripper_command__type_support_c.cpp.o[0m
+[6.842s] [ 64%] [32m[1mLinking C shared library libcustom_interfaces__rosidl_typesupport_introspection_c.so[0m
+[6.882s] [ 64%] Built target custom_interfaces__rosidl_typesupport_introspection_c
+[6.927s] [ 66%] [32m[1mLinking CXX shared library libcustom_interfaces__rosidl_typesupport_cpp.so[0m
+[6.979s] [ 66%] Built target custom_interfaces__rosidl_typesupport_cpp
+[7.442s] [ 69%] [32m[1mLinking CXX shared library libcustom_interfaces__rosidl_typesupport_introspection_cpp.so[0m
+[7.468s] [ 71%] [32m[1mLinking CXX shared library libcustom_interfaces__rosidl_typesupport_fastrtps_c.so[0m
+[7.594s] [ 71%] Built target custom_interfaces__rosidl_typesupport_introspection_cpp
+[7.611s] [ 71%] Built target custom_interfaces__rosidl_typesupport_fastrtps_c
+[7.616s] [ 74%] [32m[1mLinking CXX shared library libcustom_interfaces__rosidl_typesupport_fastrtps_cpp.so[0m
+[7.730s] [ 74%] Built target custom_interfaces__rosidl_typesupport_fastrtps_cpp
+[7.762s] [ 74%] Built target custom_interfaces
+[7.780s] [ 76%] [34m[1mGenerating Python code for ROS interfaces[0m
+[9.739s] [ 76%] Built target custom_interfaces__py
+[9.766s] [ 79%] [32mBuilding C object CMakeFiles/custom_interfaces__rosidl_generator_py.dir/rosidl_generator_py/custom_interfaces/action/_move_tcp_s.c.o[0m
+[9.770s] [ 82%] [32mBuilding C object CMakeFiles/custom_interfaces__rosidl_generator_py.dir/rosidl_generator_py/custom_interfaces/action/_gripper_command_s.c.o[0m
+[9.985s] [ 84%] [32m[1mLinking C shared library rosidl_generator_py/custom_interfaces/libcustom_interfaces__rosidl_generator_py.so[0m
+[10.027s] [ 84%] Built target custom_interfaces__rosidl_generator_py
+[10.046s] [ 87%] [32mBuilding C object CMakeFiles/custom_interfaces__rosidl_typesupport_introspection_c__pyext.dir/rosidl_generator_py/custom_interfaces/_custom_interfaces_s.ep.rosidl_typesupport_introspection_c.c.o[0m
+[10.056s] [ 89%] [32mBuilding C object CMakeFiles/custom_interfaces__rosidl_typesupport_fastrtps_c__pyext.dir/rosidl_generator_py/custom_interfaces/_custom_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c.o[0m
+[10.063s] [ 92%] [32mBuilding C object CMakeFiles/custom_interfaces__rosidl_typesupport_c__pyext.dir/rosidl_generator_py/custom_interfaces/_custom_interfaces_s.ep.rosidl_typesupport_c.c.o[0m
+[10.251s] [ 94%] [32m[1mLinking C shared library rosidl_generator_py/custom_interfaces/custom_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so[0m
+[10.255s] [ 97%] [32m[1mLinking C shared library rosidl_generator_py/custom_interfaces/custom_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so[0m
+[10.270s] [100%] [32m[1mLinking C shared library rosidl_generator_py/custom_interfaces/custom_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so[0m
+[10.304s] [100%] Built target custom_interfaces__rosidl_typesupport_c__pyext
+[10.306s] [100%] Built target custom_interfaces__rosidl_typesupport_introspection_c__pyext
+[10.320s] [100%] Built target custom_interfaces__rosidl_typesupport_fastrtps_c__pyext
+[10.333s] Invoked command in '/home/mtrn/MTRN4231_project/build/custom_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /home/mtrn/.local/bin/cmake --build /home/mtrn/MTRN4231_project/build/custom_interfaces -- -j12 -l12
+[10.561s] Invoking command in '/home/mtrn/MTRN4231_project/build/custom_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /home/mtrn/.local/bin/cmake --install /home/mtrn/MTRN4231_project/build/custom_interfaces
+[10.596s] -- Install configuration: ""
+[10.597s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/ament_index/resource_index/rosidl_interfaces/custom_interfaces
+[10.597s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces
+[10.597s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/msg
+[10.597s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/msg/rosidl_generator_c__visibility_control.h
+[10.597s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action
+[10.597s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail
+[10.597s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail/gripper_command__functions.h
+[10.597s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail/move_tcp__struct.h
+[10.598s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail/gripper_command__type_support.h
+[10.598s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail/gripper_command__functions.c
+[10.598s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail/move_tcp__functions.c
+[10.598s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail/move_tcp__type_support.h
+[10.598s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail/gripper_command__struct.h
+[10.598s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail/move_tcp__functions.h
+[10.598s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/gripper_command.h
+[10.599s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/move_tcp.h
+[10.599s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/environment/library_path.sh
+[10.599s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/environment/library_path.dsv
+[10.599s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/lib/libcustom_interfaces__rosidl_generator_c.so
+[10.600s] -- Set runtime path of "/home/mtrn/MTRN4231_project/install/custom_interfaces/lib/libcustom_interfaces__rosidl_generator_c.so" to ""
+[10.600s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces
+[10.600s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/msg
+[10.600s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/msg/rosidl_typesupport_fastrtps_c__visibility_control.h
+[10.600s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action
+[10.600s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail
+[10.601s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail/move_tcp__rosidl_typesupport_fastrtps_c.h
+[10.601s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail/gripper_command__rosidl_typesupport_fastrtps_c.h
+[10.601s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/lib/libcustom_interfaces__rosidl_typesupport_fastrtps_c.so
+[10.601s] -- Set runtime path of "/home/mtrn/MTRN4231_project/install/custom_interfaces/lib/libcustom_interfaces__rosidl_typesupport_fastrtps_c.so" to ""
+[10.601s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces
+[10.601s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/msg
+[10.602s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/msg/rosidl_typesupport_introspection_c__visibility_control.h
+[10.602s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action
+[10.602s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail
+[10.602s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail/move_tcp__rosidl_typesupport_introspection_c.h
+[10.602s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail/gripper_command__type_support.c
+[10.602s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail/gripper_command__rosidl_typesupport_introspection_c.h
+[10.602s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail/move_tcp__type_support.c
+[10.602s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/lib/libcustom_interfaces__rosidl_typesupport_introspection_c.so
+[10.603s] -- Set runtime path of "/home/mtrn/MTRN4231_project/install/custom_interfaces/lib/libcustom_interfaces__rosidl_typesupport_introspection_c.so" to ""
+[10.603s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/lib/libcustom_interfaces__rosidl_typesupport_c.so
+[10.604s] -- Set runtime path of "/home/mtrn/MTRN4231_project/install/custom_interfaces/lib/libcustom_interfaces__rosidl_typesupport_c.so" to ""
+[10.604s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces
+[10.604s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action
+[10.604s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/move_tcp.hpp
+[10.604s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail
+[10.604s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail/move_tcp__traits.hpp
+[10.605s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail/gripper_command__builder.hpp
+[10.605s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail/move_tcp__builder.hpp
+[10.605s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail/move_tcp__struct.hpp
+[10.605s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail/gripper_command__traits.hpp
+[10.605s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail/gripper_command__struct.hpp
+[10.605s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/gripper_command.hpp
+[10.606s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces
+[10.606s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/msg
+[10.606s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/msg/rosidl_typesupport_fastrtps_cpp__visibility_control.h
+[10.606s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action
+[10.606s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail
+[10.606s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail/gripper_command__rosidl_typesupport_fastrtps_cpp.hpp
+[10.606s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail/move_tcp__rosidl_typesupport_fastrtps_cpp.hpp
+[10.606s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail/dds_fastrtps
+[10.606s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/lib/libcustom_interfaces__rosidl_typesupport_fastrtps_cpp.so
+[10.607s] -- Set runtime path of "/home/mtrn/MTRN4231_project/install/custom_interfaces/lib/libcustom_interfaces__rosidl_typesupport_fastrtps_cpp.so" to ""
+[10.607s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces
+[10.607s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action
+[10.607s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail
+[10.608s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail/gripper_command__rosidl_typesupport_introspection_cpp.hpp
+[10.608s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail/move_tcp__type_support.cpp
+[10.608s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail/gripper_command__type_support.cpp
+[10.608s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail/move_tcp__rosidl_typesupport_introspection_cpp.hpp
+[10.608s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/lib/libcustom_interfaces__rosidl_typesupport_introspection_cpp.so
+[10.609s] -- Set runtime path of "/home/mtrn/MTRN4231_project/install/custom_interfaces/lib/libcustom_interfaces__rosidl_typesupport_introspection_cpp.so" to ""
+[10.609s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/lib/libcustom_interfaces__rosidl_typesupport_cpp.so
+[10.609s] -- Set runtime path of "/home/mtrn/MTRN4231_project/install/custom_interfaces/lib/libcustom_interfaces__rosidl_typesupport_cpp.so" to ""
+[10.609s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/environment/pythonpath.sh
+[10.609s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/environment/pythonpath.dsv
+[10.610s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/local/lib/python3.10/dist-packages/custom_interfaces-0.0.0-py3.10.egg-info
+[10.610s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/local/lib/python3.10/dist-packages/custom_interfaces-0.0.0-py3.10.egg-info/PKG-INFO
+[10.610s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/local/lib/python3.10/dist-packages/custom_interfaces-0.0.0-py3.10.egg-info/SOURCES.txt
+[10.610s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/local/lib/python3.10/dist-packages/custom_interfaces-0.0.0-py3.10.egg-info/dependency_links.txt
+[10.610s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/local/lib/python3.10/dist-packages/custom_interfaces-0.0.0-py3.10.egg-info/top_level.txt
+[10.610s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/local/lib/python3.10/dist-packages/custom_interfaces
+[10.611s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/local/lib/python3.10/dist-packages/custom_interfaces/__init__.py
+[10.611s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/local/lib/python3.10/dist-packages/custom_interfaces/libcustom_interfaces__rosidl_generator_py.so
+[10.611s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/local/lib/python3.10/dist-packages/custom_interfaces/action
+[10.611s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/local/lib/python3.10/dist-packages/custom_interfaces/action/__init__.py
+[10.611s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/local/lib/python3.10/dist-packages/custom_interfaces/action/_gripper_command_s.c
+[10.611s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/local/lib/python3.10/dist-packages/custom_interfaces/action/_move_tcp_s.c
+[10.612s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/local/lib/python3.10/dist-packages/custom_interfaces/action/_gripper_command.py
+[10.612s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/local/lib/python3.10/dist-packages/custom_interfaces/action/_move_tcp.py
+[10.612s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/local/lib/python3.10/dist-packages/custom_interfaces/_custom_interfaces_s.ep.rosidl_typesupport_introspection_c.c
+[10.612s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/local/lib/python3.10/dist-packages/custom_interfaces/custom_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[10.612s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/local/lib/python3.10/dist-packages/custom_interfaces/custom_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[10.612s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/local/lib/python3.10/dist-packages/custom_interfaces/custom_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[10.613s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/local/lib/python3.10/dist-packages/custom_interfaces/_custom_interfaces_s.ep.rosidl_typesupport_fastrtps_c.c
+[10.613s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/local/lib/python3.10/dist-packages/custom_interfaces/_custom_interfaces_s.ep.rosidl_typesupport_c.c
+[10.679s] Listing '/home/mtrn/MTRN4231_project/install/custom_interfaces/local/lib/python3.10/dist-packages/custom_interfaces'...
+[10.679s] Compiling '/home/mtrn/MTRN4231_project/install/custom_interfaces/local/lib/python3.10/dist-packages/custom_interfaces/__init__.py'...
+[10.679s] Listing '/home/mtrn/MTRN4231_project/install/custom_interfaces/local/lib/python3.10/dist-packages/custom_interfaces/action'...
+[10.679s] Compiling '/home/mtrn/MTRN4231_project/install/custom_interfaces/local/lib/python3.10/dist-packages/custom_interfaces/action/__init__.py'...
+[10.679s] Compiling '/home/mtrn/MTRN4231_project/install/custom_interfaces/local/lib/python3.10/dist-packages/custom_interfaces/action/_gripper_command.py'...
+[10.679s] Compiling '/home/mtrn/MTRN4231_project/install/custom_interfaces/local/lib/python3.10/dist-packages/custom_interfaces/action/_move_tcp.py'...
+[10.688s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/local/lib/python3.10/dist-packages/custom_interfaces/custom_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so
+[10.688s] -- Set runtime path of "/home/mtrn/MTRN4231_project/install/custom_interfaces/local/lib/python3.10/dist-packages/custom_interfaces/custom_interfaces_s__rosidl_typesupport_fastrtps_c.cpython-310-x86_64-linux-gnu.so" to ""
+[10.690s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/local/lib/python3.10/dist-packages/custom_interfaces/custom_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so
+[10.691s] -- Set runtime path of "/home/mtrn/MTRN4231_project/install/custom_interfaces/local/lib/python3.10/dist-packages/custom_interfaces/custom_interfaces_s__rosidl_typesupport_introspection_c.cpython-310-x86_64-linux-gnu.so" to ""
+[10.691s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/local/lib/python3.10/dist-packages/custom_interfaces/custom_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so
+[10.691s] -- Set runtime path of "/home/mtrn/MTRN4231_project/install/custom_interfaces/local/lib/python3.10/dist-packages/custom_interfaces/custom_interfaces_s__rosidl_typesupport_c.cpython-310-x86_64-linux-gnu.so" to ""
+[10.691s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/lib/libcustom_interfaces__rosidl_generator_py.so
+[10.692s] -- Set runtime path of "/home/mtrn/MTRN4231_project/install/custom_interfaces/lib/libcustom_interfaces__rosidl_generator_py.so" to ""
+[10.693s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/action/MoveTCP.idl
+[10.693s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/action/GripperCommand.idl
+[10.693s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/action/MoveTCP.action
+[10.694s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/action/GripperCommand.action
+[10.694s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/action
+[10.694s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/action/GripperCommand.action
+[10.695s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/action/MoveTCP.action
+[10.695s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/ament_index/resource_index/package_run_dependencies/custom_interfaces
+[10.696s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/ament_index/resource_index/parent_prefix_path/custom_interfaces
+[10.696s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/environment/ament_prefix_path.sh
+[10.696s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/environment/ament_prefix_path.dsv
+[10.697s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/environment/path.sh
+[10.698s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/environment/path.dsv
+[10.698s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/local_setup.bash
+[10.698s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/local_setup.sh
+[10.698s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/local_setup.zsh
+[10.698s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/local_setup.dsv
+[10.698s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/package.dsv
+[10.699s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/ament_index/resource_index/packages/custom_interfaces
+[10.699s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/cmake/export_custom_interfaces__rosidl_generator_cExport.cmake
+[10.699s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/cmake/export_custom_interfaces__rosidl_generator_cExport-noconfig.cmake
+[10.699s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/cmake/export_custom_interfaces__rosidl_typesupport_fastrtps_cExport.cmake
+[10.699s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/cmake/export_custom_interfaces__rosidl_typesupport_fastrtps_cExport-noconfig.cmake
+[10.700s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/cmake/custom_interfaces__rosidl_typesupport_introspection_cExport.cmake
+[10.700s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/cmake/custom_interfaces__rosidl_typesupport_introspection_cExport-noconfig.cmake
+[10.700s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/cmake/custom_interfaces__rosidl_typesupport_cExport.cmake
+[10.700s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/cmake/custom_interfaces__rosidl_typesupport_cExport-noconfig.cmake
+[10.701s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/cmake/export_custom_interfaces__rosidl_generator_cppExport.cmake
+[10.701s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/cmake/export_custom_interfaces__rosidl_typesupport_fastrtps_cppExport.cmake
+[10.701s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/cmake/export_custom_interfaces__rosidl_typesupport_fastrtps_cppExport-noconfig.cmake
+[10.701s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/cmake/custom_interfaces__rosidl_typesupport_introspection_cppExport.cmake
+[10.702s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/cmake/custom_interfaces__rosidl_typesupport_introspection_cppExport-noconfig.cmake
+[10.703s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/cmake/custom_interfaces__rosidl_typesupport_cppExport.cmake
+[10.703s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/cmake/custom_interfaces__rosidl_typesupport_cppExport-noconfig.cmake
+[10.703s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/cmake/export_custom_interfaces__rosidl_generator_pyExport.cmake
+[10.704s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/cmake/export_custom_interfaces__rosidl_generator_pyExport-noconfig.cmake
+[10.704s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/cmake/rosidl_cmake-extras.cmake
+[10.704s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/cmake/ament_cmake_export_dependencies-extras.cmake
+[10.704s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/cmake/ament_cmake_export_include_directories-extras.cmake
+[10.704s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/cmake/ament_cmake_export_libraries-extras.cmake
+[10.705s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/cmake/ament_cmake_export_targets-extras.cmake
+[10.705s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/cmake/rosidl_cmake_export_typesupport_targets-extras.cmake
+[10.705s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/cmake/rosidl_cmake_export_typesupport_libraries-extras.cmake
+[10.705s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/cmake/custom_interfacesConfig.cmake
+[10.705s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/cmake/custom_interfacesConfig-version.cmake
+[10.705s] -- Installing: /home/mtrn/MTRN4231_project/install/custom_interfaces/share/custom_interfaces/package.xml
+[10.713s] Invoked command in '/home/mtrn/MTRN4231_project/build/custom_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /home/mtrn/.local/bin/cmake --install /home/mtrn/MTRN4231_project/build/custom_interfaces

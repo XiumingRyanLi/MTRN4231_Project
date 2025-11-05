@@ -1,3 +1,0 @@
-[console_scripts]
-task_coordinator = brain.coordinator:main
-

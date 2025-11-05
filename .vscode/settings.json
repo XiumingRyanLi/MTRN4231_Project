@@ -68,5 +68,21 @@
         "typeinfo": "cpp",
         "variant": "cpp"
     },
-    "cmake.sourceDirectory": "/home/ryanl/4231/MTRN4231_Project/src/ur5e_robot_config"
+    "cmake.sourceDirectory": "/home/ryanl/4231/MTRN4231_Project/src/ur5e_robot_config",
+    "python.autoComplete.extraPaths": [
+        "/home/mtrn/MTRN4231_project/install/ui/lib/python3.10/site-packages",
+        "/home/mtrn/MTRN4231_project/install/chess_master/lib/python3.10/site-packages",
+        "/home/mtrn/MTRN4231_project/install/interfaces/local/lib/python3.10/dist-packages",
+        "/home/mtrn/MTRN4231_project/install/brain/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ],
+    "python.analysis.extraPaths": [
+        "/home/mtrn/MTRN4231_project/install/ui/lib/python3.10/site-packages",
+        "/home/mtrn/MTRN4231_project/install/chess_master/lib/python3.10/site-packages",
+        "/home/mtrn/MTRN4231_project/install/interfaces/local/lib/python3.10/dist-packages",
+        "/home/mtrn/MTRN4231_project/install/brain/lib/python3.10/site-packages",
+        "/opt/ros/humble/lib/python3.10/site-packages",
+        "/opt/ros/humble/local/lib/python3.10/dist-packages"
+    ]
 }

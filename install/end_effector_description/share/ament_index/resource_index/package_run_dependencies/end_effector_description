@@ -1,1 +1,1 @@
-/home/ryanl/4231/MTRN4231_Project/build/end_effector_description/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/end_effector_description
+xacro;robot_state_publisher;joint_state_publisher_gui;rviz2;ament_index_python

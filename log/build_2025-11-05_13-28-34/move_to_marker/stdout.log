@@ -1,0 +1,21 @@
+[100%] Built target move_to_pose
+-- Install configuration: ""
+-- Installing: /home/mtrn/MTRN4231_project/install/move_to_marker/lib/move_to_marker/move_to_pose
+-- Set runtime path of "/home/mtrn/MTRN4231_project/install/move_to_marker/lib/move_to_marker/move_to_pose" to ""
+-- Installing: /home/mtrn/MTRN4231_project/install/move_to_marker/share/move_to_marker/launch
+-- Installing: /home/mtrn/MTRN4231_project/install/move_to_marker/share/move_to_marker/launch/bringup_moveit_ur5e.launch.py
+-- Installing: /home/mtrn/MTRN4231_project/install/move_to_marker/share/ament_index/resource_index/package_run_dependencies/move_to_marker
+-- Installing: /home/mtrn/MTRN4231_project/install/move_to_marker/share/ament_index/resource_index/parent_prefix_path/move_to_marker
+-- Installing: /home/mtrn/MTRN4231_project/install/move_to_marker/share/move_to_marker/environment/ament_prefix_path.sh
+-- Installing: /home/mtrn/MTRN4231_project/install/move_to_marker/share/move_to_marker/environment/ament_prefix_path.dsv
+-- Installing: /home/mtrn/MTRN4231_project/install/move_to_marker/share/move_to_marker/environment/path.sh
+-- Installing: /home/mtrn/MTRN4231_project/install/move_to_marker/share/move_to_marker/environment/path.dsv
+-- Installing: /home/mtrn/MTRN4231_project/install/move_to_marker/share/move_to_marker/local_setup.bash
+-- Installing: /home/mtrn/MTRN4231_project/install/move_to_marker/share/move_to_marker/local_setup.sh
+-- Installing: /home/mtrn/MTRN4231_project/install/move_to_marker/share/move_to_marker/local_setup.zsh
+-- Installing: /home/mtrn/MTRN4231_project/install/move_to_marker/share/move_to_marker/local_setup.dsv
+-- Installing: /home/mtrn/MTRN4231_project/install/move_to_marker/share/move_to_marker/package.dsv
+-- Installing: /home/mtrn/MTRN4231_project/install/move_to_marker/share/ament_index/resource_index/packages/move_to_marker
+-- Installing: /home/mtrn/MTRN4231_project/install/move_to_marker/share/move_to_marker/cmake/move_to_markerConfig.cmake
+-- Installing: /home/mtrn/MTRN4231_project/install/move_to_marker/share/move_to_marker/cmake/move_to_markerConfig-version.cmake
+-- Installing: /home/mtrn/MTRN4231_project/install/move_to_marker/share/move_to_marker/package.xml

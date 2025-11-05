@@ -1,1 +1,2 @@
-/home/ryanl/4231/MTRN4231_Project/build/move_to_marker/ament_cmake_environment_hooks/local_setup.dsv
+source;share/move_to_marker/environment/ament_prefix_path.sh
+source;share/move_to_marker/environment/path.sh

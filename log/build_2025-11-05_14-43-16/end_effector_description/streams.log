@@ -1,0 +1,29 @@
+[0.033s] Invoking command in '/home/mtrn/MTRN4231_project/build/end_effector_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /home/mtrn/.local/bin/cmake --build /home/mtrn/MTRN4231_project/build/end_effector_description -- -j12 -l12
+[0.110s] Invoked command in '/home/mtrn/MTRN4231_project/build/end_effector_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /home/mtrn/.local/bin/cmake --build /home/mtrn/MTRN4231_project/build/end_effector_description -- -j12 -l12
+[0.236s] Invoking command in '/home/mtrn/MTRN4231_project/build/end_effector_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /home/mtrn/.local/bin/cmake --install /home/mtrn/MTRN4231_project/build/end_effector_description
+[0.273s] -- Install configuration: ""
+[0.273s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/end_effector_description/share/end_effector_description/launch
+[0.274s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/end_effector_description/share/end_effector_description/launch/display_ee.launch.py
+[0.274s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/end_effector_description/share/end_effector_description/rviz
+[0.274s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/end_effector_description/share/end_effector_description/rviz/ee.rviz
+[0.274s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/end_effector_description/share/end_effector_description/urdf
+[0.274s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/end_effector_description/share/end_effector_description/urdf/end_effector.xacro
+[0.274s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/end_effector_description/share/end_effector_description/urdf/end_effector.urdf
+[0.275s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/end_effector_description/share/end_effector_description/meshes
+[0.275s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/end_effector_description/share/end_effector_description/meshes/claw_assembly.stl
+[0.275s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/end_effector_description/share/ament_index/resource_index/package_run_dependencies/end_effector_description
+[0.275s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/end_effector_description/share/ament_index/resource_index/parent_prefix_path/end_effector_description
+[0.276s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/end_effector_description/share/end_effector_description/environment/ament_prefix_path.sh
+[0.276s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/end_effector_description/share/end_effector_description/environment/ament_prefix_path.dsv
+[0.276s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/end_effector_description/share/end_effector_description/environment/path.sh
+[0.276s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/end_effector_description/share/end_effector_description/environment/path.dsv
+[0.276s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/end_effector_description/share/end_effector_description/local_setup.bash
+[0.276s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/end_effector_description/share/end_effector_description/local_setup.sh
+[0.276s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/end_effector_description/share/end_effector_description/local_setup.zsh
+[0.276s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/end_effector_description/share/end_effector_description/local_setup.dsv
+[0.277s] -- Installing: /home/mtrn/MTRN4231_project/install/end_effector_description/share/end_effector_description/package.dsv
+[0.277s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/end_effector_description/share/ament_index/resource_index/packages/end_effector_description
+[0.277s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/end_effector_description/share/end_effector_description/cmake/end_effector_descriptionConfig.cmake
+[0.277s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/end_effector_description/share/end_effector_description/cmake/end_effector_descriptionConfig-version.cmake
+[0.278s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/end_effector_description/share/end_effector_description/package.xml
+[0.287s] Invoked command in '/home/mtrn/MTRN4231_project/build/end_effector_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /home/mtrn/.local/bin/cmake --install /home/mtrn/MTRN4231_project/build/end_effector_description

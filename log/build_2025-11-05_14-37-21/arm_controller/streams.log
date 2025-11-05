@@ -1,0 +1,42 @@
+[0.016s] Invoking command in '/home/mtrn/MTRN4231_project/build/arm_controller': CMAKE_PREFIX_PATH=/home/mtrn/MTRN4231_project/install/custom_interfaces:/home/mtrn/MTRN4231_project/install/ur5e_custom_description:/home/mtrn/MTRN4231_project/install/move_to_marker:/home/mtrn/MTRN4231_project/install/end_effector_description:/home/mtrn/MTRN4231_project/install/arm_controller:/opt/ros/humble /home/mtrn/.local/bin/cmake --build /home/mtrn/MTRN4231_project/build/arm_controller -- -j12 -l12
+[0.148s] [ 50%] Built target moveit_constrain_ur
+[0.161s] [ 75%] [32mBuilding CXX object CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o[0m
+[14.994s] [100%] [32m[1mLinking CXX executable arm_controller_node[0m
+[16.024s] [100%] Built target arm_controller_node
+[16.040s] Invoked command in '/home/mtrn/MTRN4231_project/build/arm_controller' returned '0': CMAKE_PREFIX_PATH=/home/mtrn/MTRN4231_project/install/custom_interfaces:/home/mtrn/MTRN4231_project/install/ur5e_custom_description:/home/mtrn/MTRN4231_project/install/move_to_marker:/home/mtrn/MTRN4231_project/install/end_effector_description:/home/mtrn/MTRN4231_project/install/arm_controller:/opt/ros/humble /home/mtrn/.local/bin/cmake --build /home/mtrn/MTRN4231_project/build/arm_controller -- -j12 -l12
+[16.137s] Invoking command in '/home/mtrn/MTRN4231_project/build/arm_controller': CMAKE_PREFIX_PATH=/home/mtrn/MTRN4231_project/install/custom_interfaces:/home/mtrn/MTRN4231_project/install/ur5e_custom_description:/home/mtrn/MTRN4231_project/install/move_to_marker:/home/mtrn/MTRN4231_project/install/end_effector_description:/home/mtrn/MTRN4231_project/install/arm_controller:/opt/ros/humble /home/mtrn/.local/bin/cmake --install /home/mtrn/MTRN4231_project/build/arm_controller
+[16.175s] -- Install configuration: ""
+[16.175s] -- Installing: /home/mtrn/MTRN4231_project/install/arm_controller/lib/arm_controller/arm_controller_node
+[16.177s] -- Set runtime path of "/home/mtrn/MTRN4231_project/install/arm_controller/lib/arm_controller/arm_controller_node" to ""
+[16.177s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/arm_controller/share/arm_controller/launch
+[16.178s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/arm_controller/share/arm_controller/launch/arm_controller.launch.py
+[16.178s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/arm_controller/share/arm_controller/launch/view_combined.launch.py
+[16.178s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/arm_controller/share/arm_controller/urdf
+[16.178s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/arm_controller/share/arm_controller/urdf/ur5e_with_tool.urdf.xacro
+[16.178s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/arm_controller/share/arm_controller/config
+[16.178s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/arm_controller/share/arm_controller/config/joint_limits.yaml
+[16.178s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/arm_controller/share/arm_controller/config/pilz_cartesian_limits.yaml
+[16.179s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/arm_controller/share/arm_controller/config/moveit_controllers.yaml
+[16.179s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/arm_controller/share/arm_controller/config/params.yaml
+[16.179s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/arm_controller/share/arm_controller/config/kinematics.yaml
+[16.179s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/arm_controller/share/arm_controller/config/moveit.rviz
+[16.179s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/arm_controller/share/arm_controller/config/controllers.yaml
+[16.179s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/arm_controller/share/arm_controller/config/end_effector_withDriverSupport.srdf
+[16.179s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/arm_controller/share/arm_controller/rviz
+[16.179s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/arm_controller/share/arm_controller/rviz/display.rviz
+[16.179s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/arm_controller/share/ament_index/resource_index/package_run_dependencies/arm_controller
+[16.179s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/arm_controller/share/ament_index/resource_index/parent_prefix_path/arm_controller
+[16.180s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/arm_controller/share/arm_controller/environment/ament_prefix_path.sh
+[16.180s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/arm_controller/share/arm_controller/environment/ament_prefix_path.dsv
+[16.180s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/arm_controller/share/arm_controller/environment/path.sh
+[16.180s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/arm_controller/share/arm_controller/environment/path.dsv
+[16.180s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/arm_controller/share/arm_controller/local_setup.bash
+[16.180s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/arm_controller/share/arm_controller/local_setup.sh
+[16.180s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/arm_controller/share/arm_controller/local_setup.zsh
+[16.180s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/arm_controller/share/arm_controller/local_setup.dsv
+[16.180s] -- Installing: /home/mtrn/MTRN4231_project/install/arm_controller/share/arm_controller/package.dsv
+[16.180s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/arm_controller/share/ament_index/resource_index/packages/arm_controller
+[16.180s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/arm_controller/share/arm_controller/cmake/arm_controllerConfig.cmake
+[16.181s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/arm_controller/share/arm_controller/cmake/arm_controllerConfig-version.cmake
+[16.181s] -- Up-to-date: /home/mtrn/MTRN4231_project/install/arm_controller/share/arm_controller/package.xml
+[16.189s] Invoked command in '/home/mtrn/MTRN4231_project/build/arm_controller' returned '0': CMAKE_PREFIX_PATH=/home/mtrn/MTRN4231_project/install/custom_interfaces:/home/mtrn/MTRN4231_project/install/ur5e_custom_description:/home/mtrn/MTRN4231_project/install/move_to_marker:/home/mtrn/MTRN4231_project/install/end_effector_description:/home/mtrn/MTRN4231_project/install/arm_controller:/opt/ros/humble /home/mtrn/.local/bin/cmake --install /home/mtrn/MTRN4231_project/build/arm_controller

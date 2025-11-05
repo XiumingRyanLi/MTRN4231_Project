@@ -1,8 +1,8 @@
-# Install script for directory: /home/ryanl/4231/MTRN4231_Project/src/end_effector_description
+# Install script for directory: /home/mtrn/MTRN4231_project/src/end_effector_description
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/ryanl/4231/MTRN4231_Project/install/end_effector_description")
+  set(CMAKE_INSTALL_PREFIX "/home/mtrn/MTRN4231_project/install/end_effector_description")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -42,8 +42,72 @@ if(NOT DEFINED CMAKE_OBJDUMP)
   set(CMAKE_OBJDUMP "/usr/bin/objdump")
 endif()
 
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  include("/home/ryanl/4231/MTRN4231_Project/build/end_effector_description/ament_cmake_symlink_install/ament_cmake_symlink_install.cmake")
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/end_effector_description" TYPE DIRECTORY FILES
+    "/home/mtrn/MTRN4231_project/src/end_effector_description/launch"
+    "/home/mtrn/MTRN4231_project/src/end_effector_description/rviz"
+    "/home/mtrn/MTRN4231_project/src/end_effector_description/urdf"
+    "/home/mtrn/MTRN4231_project/src/end_effector_description/meshes"
+    )
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/home/mtrn/MTRN4231_project/build/end_effector_description/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/end_effector_description")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/parent_prefix_path" TYPE FILE FILES "/home/mtrn/MTRN4231_project/build/end_effector_description/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/end_effector_description")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/end_effector_description/environment" TYPE FILE FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/ament_prefix_path.sh")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/end_effector_description/environment" TYPE FILE FILES "/home/mtrn/MTRN4231_project/build/end_effector_description/ament_cmake_environment_hooks/ament_prefix_path.dsv")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/end_effector_description/environment" TYPE FILE FILES "/opt/ros/humble/share/ament_cmake_core/cmake/environment_hooks/environment/path.sh")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/end_effector_description/environment" TYPE FILE FILES "/home/mtrn/MTRN4231_project/build/end_effector_description/ament_cmake_environment_hooks/path.dsv")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/end_effector_description" TYPE FILE FILES "/home/mtrn/MTRN4231_project/build/end_effector_description/ament_cmake_environment_hooks/local_setup.bash")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/end_effector_description" TYPE FILE FILES "/home/mtrn/MTRN4231_project/build/end_effector_description/ament_cmake_environment_hooks/local_setup.sh")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/end_effector_description" TYPE FILE FILES "/home/mtrn/MTRN4231_project/build/end_effector_description/ament_cmake_environment_hooks/local_setup.zsh")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/end_effector_description" TYPE FILE FILES "/home/mtrn/MTRN4231_project/build/end_effector_description/ament_cmake_environment_hooks/local_setup.dsv")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/end_effector_description" TYPE FILE FILES "/home/mtrn/MTRN4231_project/build/end_effector_description/ament_cmake_environment_hooks/package.dsv")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/packages" TYPE FILE FILES "/home/mtrn/MTRN4231_project/build/end_effector_description/ament_cmake_index/share/ament_index/resource_index/packages/end_effector_description")
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/end_effector_description/cmake" TYPE FILE FILES
+    "/home/mtrn/MTRN4231_project/build/end_effector_description/ament_cmake_core/end_effector_descriptionConfig.cmake"
+    "/home/mtrn/MTRN4231_project/build/end_effector_description/ament_cmake_core/end_effector_descriptionConfig-version.cmake"
+    )
+endif()
+
+if(CMAKE_INSTALL_COMPONENT STREQUAL "Unspecified" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/end_effector_description" TYPE FILE FILES "/home/mtrn/MTRN4231_project/src/end_effector_description/package.xml")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -54,5 +118,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/ryanl/4231/MTRN4231_Project/build/end_effector_description/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/mtrn/MTRN4231_project/build/end_effector_description/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

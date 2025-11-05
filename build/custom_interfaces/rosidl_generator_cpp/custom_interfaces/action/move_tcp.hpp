@@ -7,6 +7,5 @@
 #include "custom_interfaces/action/detail/move_tcp__struct.hpp"
 #include "custom_interfaces/action/detail/move_tcp__builder.hpp"
 #include "custom_interfaces/action/detail/move_tcp__traits.hpp"
-#include "custom_interfaces/action/detail/move_tcp__type_support.hpp"
 
 #endif  // CUSTOM_INTERFACES__ACTION__MOVE_TCP_HPP_

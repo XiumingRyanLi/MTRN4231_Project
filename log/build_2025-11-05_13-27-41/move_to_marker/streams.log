@@ -1,0 +1,51 @@
+[0.038s] Invoking command in '/home/mtrn/MTRN4231_project/build/move_to_marker': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /home/mtrn/.local/bin/cmake /home/mtrn/MTRN4231_project/src/move_to_marker -DCMAKE_INSTALL_PREFIX=/home/mtrn/MTRN4231_project/install/move_to_marker
+[0.173s] -- The C compiler identification is GNU 11.4.0
+[0.266s] -- The CXX compiler identification is GNU 11.4.0
+[0.293s] -- Detecting C compiler ABI info
+[0.393s] -- Detecting C compiler ABI info - done
+[0.414s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.415s] -- Detecting C compile features
+[0.415s] -- Detecting C compile features - done
+[0.429s] -- Detecting CXX compiler ABI info
+[0.544s] -- Detecting CXX compiler ABI info - done
+[0.566s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.566s] -- Detecting CXX compile features
+[0.568s] -- Detecting CXX compile features - done
+[0.571s] -- Found ament_cmake: 1.3.10 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.767s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.910s] -- Found rclcpp: 16.0.10 (/opt/ros/humble/share/rclcpp/cmake)
+[0.989s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.999s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[1.017s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[1.036s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[1.072s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.163s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[1.168s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[1.303s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[1.355s] -- Found FastRTPS: /opt/ros/humble/include  
+[1.431s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.444s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.541s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[1.544s] -- Found Threads: TRUE  
+[1.673s] -- Found geometry_msgs: 4.2.4 (/opt/ros/humble/share/geometry_msgs/cmake)
+[1.701s] -- Found shape_msgs: 4.2.4 (/opt/ros/humble/share/shape_msgs/cmake)
+[1.733s] -- Found moveit_ros_planning_interface: 2.5.5 (/opt/ros/humble/share/moveit_ros_planning_interface/cmake)
+[1.769s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: date_time filesystem program_options system thread 
+[2.087s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: chrono date_time filesystem iostreams program_options regex serialization system thread 
+[2.105s] -- Found parameter_traits: 0.3.8 (/opt/ros/humble/share/parameter_traits/cmake)
+[2.132s] -- Found rclcpp_lifecycle: 16.0.10 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)
+[2.182s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: filesystem 
+[2.335s] -- library: /usr/lib/x86_64-linux-gnu/libcurl.so
+[2.420s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[2.421s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[2.730s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread chrono 
+[2.793s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: thread system filesystem regex date_time program_options 
+[2.844s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread 
+[2.992s] -- Configuring done (2.9s)
+[3.046s] -- Generating done (0.0s)
+[3.050s] -- Build files have been written to: /home/mtrn/MTRN4231_project/build/move_to_marker
+[3.098s] Invoked command in '/home/mtrn/MTRN4231_project/build/move_to_marker' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /home/mtrn/.local/bin/cmake /home/mtrn/MTRN4231_project/src/move_to_marker -DCMAKE_INSTALL_PREFIX=/home/mtrn/MTRN4231_project/install/move_to_marker
+[3.099s] Invoking command in '/home/mtrn/MTRN4231_project/build/move_to_marker': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /home/mtrn/.local/bin/cmake --build /home/mtrn/MTRN4231_project/build/move_to_marker -- -j12 -l12
+[3.187s] [ 50%] [32mBuilding CXX object CMakeFiles/move_to_pose.dir/src/move_to_pose.cpp.o[0m
+[18.140s] [100%] [32m[1mLinking CXX executable move_to_pose[0m
+[19.040s] [100%] Built target move_to_pose

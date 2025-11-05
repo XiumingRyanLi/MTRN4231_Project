@@ -172,7 +172,7 @@ private:
     const std::string frame_id = move_group_->getPlanningFrame();
 
     // your requested objects:
-    auto collision_object     = generateCollisionObject(0.08f, 0.6f, 0.57f, 0.5f, 0.2f, 0.2f, frame_id, "box");
+    // auto collision_object     = generateCollisionObject(0.08f, 0.6f, 0.57f, 0.5f, 0.2f, 0.2f, frame_id, "box");
     auto col_object_table     = generateCollisionObject(2.4f, 1.2f, 0.04f, 0.85f, 0.25f, -0.03f, frame_id, "table");
     auto col_object_backWall  = generateCollisionObject(2.4f, 0.04f, 1.0f, 0.85f, -0.45f, 0.5f, frame_id, "backWall");
     auto col_object_sideWall  = generateCollisionObject(0.04f, 1.2f, 1.0f, -0.45f, 0.25f, 0.5f, frame_id, "sideWall");
@@ -223,13 +223,13 @@ private:
       move_group_->clearPathConstraints();
     }
     if (use_orientation_constraint_) {
-      // auto c = create_path_constraints();
-      // // merge (box constraint may already be set)
-      // auto existing = move_group_->getPathConstraints();
-      // existing.orientation_constraints.insert(existing.orientation_constraints.end(),
-      //                                         c.orientation_constraints.begin(),
-      //                                         c.orientation_constraints.end());
-      // move_group_->setPathConstraints(existing);
+      auto c = create_path_constraints();
+      // merge (box constraint may already be set)
+      auto existing = move_group_->getPathConstraints();
+      existing.orientation_constraints.insert(existing.orientation_constraints.end(),
+                                              c.orientation_constraints.begin(),
+                                              c.orientation_constraints.end());
+      move_group_->setPathConstraints(existing);
     }
 
     // Stages: approach -> descend -> retreat
@@ -339,15 +339,15 @@ private:
 
     geometry_msgs::msg::Pose target = normalizeQ(target_in);
 
-    geometry_msgs::msg::Pose mid = start;
-    mid.position.z = target.position.z;     // vertical leg first
+    // geometry_msgs::msg::Pose mid = start;
+    // mid.position.z = target.position.z;     // vertical leg first
 
     // If start.z already equals target.z (within 0.5 mm), skip the mid waypoint.
     std::vector<geometry_msgs::msg::Pose> waypoints;
     waypoints.reserve(3);
     waypoints.push_back(start);
-    if (std::fabs(start.position.z - target.position.z) > 5e-4)
-      waypoints.push_back(mid);
+    // if (std::fabs(start.position.z - target.position.z) > 5e-4)
+    //   waypoints.push_back(mid);
     waypoints.push_back(target);
 
     moveit_msgs::msg::RobotTrajectory traj;
@@ -358,7 +358,7 @@ private:
           waypoints, eef_step_, jump_thresh_, traj,
           /*avoid_collisions=*/true);
 
-      if (fraction >= 0.98) {
+      if (fraction >= 0.5) {
         // Execute (or dry-run if execute_==false)
         if (!execute_) {
           RCLCPP_INFO(get_logger(), "[%s] Cartesian planned (execute:=false).", stage.c_str());

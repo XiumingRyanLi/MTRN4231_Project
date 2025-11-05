@@ -1,9 +1,0 @@
-[01m[K/home/ryanl/4231/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:312:8:[m[K [01;31m[Kerror: [m[K‘[01m[Kvoid ArmController::prep_planning()[m[K’ cannot be overloaded with ‘[01m[Kvoid ArmController::prep_planning()[m[K’
-  312 |   void [01;31m[Kprep_planning[m[K() {
-      |        [01;31m[K^~~~~~~~~~~~~[m[K
-[01m[K/home/ryanl/4231/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:195:8:[m[K [01;36m[Knote: [m[Kprevious declaration ‘[01m[Kvoid ArmController::prep_planning()[m[K’
-  195 |   void [01;36m[Kprep_planning[m[K() {
-      |        [01;36m[K^~~~~~~~~~~~~[m[K
-gmake[2]: *** [CMakeFiles/arm_controller_node.dir/build.make:76: CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o] Error 1
-gmake[1]: *** [CMakeFiles/Makefile2:139: CMakeFiles/arm_controller_node.dir/all] Error 2
-gmake: *** [Makefile:146: all] Error 2

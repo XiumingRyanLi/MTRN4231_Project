@@ -1,0 +1,4 @@
+Invoking command in '/home/mtrn/MTRN4231_project/build/move_to_marker': CMAKE_PREFIX_PATH=/opt/ros/humble /home/mtrn/.local/bin/cmake --build /home/mtrn/MTRN4231_project/build/move_to_marker -- -j12 -l12
+Invoked command in '/home/mtrn/MTRN4231_project/build/move_to_marker' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/mtrn/.local/bin/cmake --build /home/mtrn/MTRN4231_project/build/move_to_marker -- -j12 -l12
+Invoking command in '/home/mtrn/MTRN4231_project/build/move_to_marker': CMAKE_PREFIX_PATH=/opt/ros/humble /home/mtrn/.local/bin/cmake --install /home/mtrn/MTRN4231_project/build/move_to_marker
+Invoked command in '/home/mtrn/MTRN4231_project/build/move_to_marker' returned '0': CMAKE_PREFIX_PATH=/opt/ros/humble /home/mtrn/.local/bin/cmake --install /home/mtrn/MTRN4231_project/build/move_to_marker
