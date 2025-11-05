@@ -176,9 +176,6 @@ class ChessMaster(Node):
 
         return response
 
-    # def player_move_callback(self, msg):
-    #     self.service_callback(msg)
-
     def skill_callback(self, msg):
         lvl = max(0, min(20, int(msg.data)))  # clamp to [0, 20]
         if lvl != self.current_skill:

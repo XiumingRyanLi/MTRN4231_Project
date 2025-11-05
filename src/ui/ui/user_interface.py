@@ -1,6 +1,7 @@
 from custom_interfaces.srv import ChessMove
 from std_msgs.msg import String
 from std_msgs.msg import Int32
+from std_msgs.msg import Empty
 from sensor_msgs.msg import CompressedImage
 from PIL import Image, ImageTk
 import io
@@ -87,6 +88,12 @@ class UserInterface(tk.Tk):
         self.status_sub = self.node.create_subscription(
             String, 'status', self.status_callback, 10)
 
+        # create take picture publisher
+        self.take_pic_pub = self.node.create_publisher(Empty, 'take_picture', 10)
+
+        # create player move subscriber
+        # self.move_sub = self.node.create_subscription(String, 'player_move', self.move_callback, 10)
+
         # create board state subscriber
         self.sub = self.node.create_subscription(
             CompressedImage, 'board_state', self.listener_callback, 10)
@@ -101,7 +108,7 @@ class UserInterface(tk.Tk):
             self.executor.spin_once(timeout_sec=0.0)
         except Exception as e:
             print("Executor error:", e)
-        self.after(10, self._spin_ros)  # every 10 ms (~100 Hz pump)
+        self.after(10, self._spin_ros)  # every 10 ms (~100 Hz pump)        
 
     def listener_callback(self, msg):
         image = Image.open(io.BytesIO(msg.data))
@@ -122,11 +129,11 @@ class UserInterface(tk.Tk):
             return
 
         self.send_btn.config(state="disabled")
-        msg = String()
-        msg.data = move
-        self.move_pub.publish(msg)
+        # msg = String()
+        # msg.data = move
+        # self.move_pub.publish(msg)
         self.move_entry.delete(0, tk.END)
-        self.take_pic_pub.publish(msg)
+        self.take_pic_pub.publish(Empty())
 
     def reset_press(self):
         # reset board
