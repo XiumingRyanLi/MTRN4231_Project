@@ -33,8 +33,11 @@ class UserInterface(tk.Tk):
         self.send_btn = tk.Button(
             frame, text="Move!", command=self.on_send)
         self.send_btn.pack(side="left", padx=5)
+        self.take_pic_btn = tk.Button(
+            frame, text="Take Picture!", command=self.take_picture)
+        self.take_pic_btn.pack(side="left", padx=5)
         self.reset_btn = tk.Button(
-            frame, text="Reset Board", command=self.reset_press)
+            frame, text="Reset", command=self.reset_press)
         self.reset_btn.pack(side="left", padx=5)
 
         self.status_label = tk.Label(self)
@@ -80,16 +83,13 @@ class UserInterface(tk.Tk):
         # create skill level publisher
         self.skill_pub = self.node.create_publisher(Int32, 'skill_level', 10)
 
-        # create take picture publisher for image detection
-        self.take_pic_pub = self.node.create_publisher(
-            String, 'take_picture', 10)
-
         # create status subscriber
         self.status_sub = self.node.create_subscription(
             String, 'status', self.status_callback, 10)
 
         # create take picture publisher
-        self.take_pic_pub = self.node.create_publisher(Empty, 'take_picture', 10)
+        self.take_pic_pub = self.node.create_publisher(
+            Empty, 'take_picture', 10)
 
         # create player move subscriber
         # self.move_sub = self.node.create_subscription(String, 'player_move', self.move_callback, 10)
@@ -108,7 +108,7 @@ class UserInterface(tk.Tk):
             self.executor.spin_once(timeout_sec=0.0)
         except Exception as e:
             print("Executor error:", e)
-        self.after(10, self._spin_ros)  # every 10 ms (~100 Hz pump)        
+        self.after(10, self._spin_ros)  # every 10 ms (~100 Hz pump)
 
     def listener_callback(self, msg):
         image = Image.open(io.BytesIO(msg.data))
@@ -116,10 +116,12 @@ class UserInterface(tk.Tk):
         self.board_label.config(image=tk_image)
         self.board_label.image = tk_image  # prevent garbage collection
         self.send_btn.config(state="normal")
+        self.take_pic_btn.config(state="normal")
 
     def status_callback(self, msg):
         self.status_label.config(text=msg.data)
         self.send_btn.config(state="normal")
+        self.take_pic_btn.config(state="normal")
 
     def on_send(self):
         # validate move input
@@ -129,11 +131,14 @@ class UserInterface(tk.Tk):
             return
 
         self.send_btn.config(state="disabled")
-        # msg = String()
-        # msg.data = move
-        # self.move_pub.publish(msg)
+        msg = String()
+        msg.data = move
+        self.move_pub.publish(msg)
         self.move_entry.delete(0, tk.END)
+
+    def take_picture(self):
         self.take_pic_pub.publish(Empty())
+        self.take_pic_btn.config(state="disabled")
 
     def reset_press(self):
         # reset board

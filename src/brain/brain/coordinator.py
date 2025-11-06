@@ -13,8 +13,9 @@ class TaskCoordinator(Node):
         self.move_sub_ = self.create_subscription(
             String, 'move_finish', self.listener_callback, 10)
 
-        # subscribes to player_move
-        self.player_move_sub = self.create_subscription(String, 'player_move', self.move_callback, 10)
+        # subscribes to /player_move
+        self.player_move_sub = self.create_subscription(
+            String, 'player_move', self.move_callback, 10)
 
         # create chess master client
         self.client = self.create_client(ChessMove, 'chess_move')
@@ -39,7 +40,6 @@ class TaskCoordinator(Node):
         req.user_move = move
         future = self.client.call_async(req)
         future.add_done_callback(self._on_response)
-
 
     def _on_response(self, future: rclpy.task.Future):
         try:
