@@ -1,0 +1,48 @@
+[0.053s] Invoking command in '/home/ryanl/4231/MTRN4231_Project/build/end_effector_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/ryanl/4231/MTRN4231_Project/src/end_effector_description -DCMAKE_INSTALL_PREFIX=/home/ryanl/4231/MTRN4231_Project/install/end_effector_description
+[0.458s] -- The C compiler identification is GNU 11.4.0
+[1.476s] -- The CXX compiler identification is GNU 11.4.0
+[2.153s] -- Detecting C compiler ABI info
+[2.402s] -- Detecting C compiler ABI info - done
+[2.418s] -- Check for working C compiler: /usr/bin/cc - skipped
+[2.474s] -- Detecting C compile features
+[2.475s] -- Detecting C compile features - done
+[2.481s] -- Detecting CXX compiler ABI info
+[2.749s] -- Detecting CXX compiler ABI info - done
+[2.759s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[2.760s] -- Detecting CXX compile features
+[2.761s] -- Detecting CXX compile features - done
+[2.787s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[3.089s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[3.384s] -- Configuring done
+[3.398s] -- Generating done
+[3.403s] -- Build files have been written to: /home/ryanl/4231/MTRN4231_Project/build/end_effector_description
+[3.413s] Invoked command in '/home/ryanl/4231/MTRN4231_Project/build/end_effector_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/ryanl/4231/MTRN4231_Project/src/end_effector_description -DCMAKE_INSTALL_PREFIX=/home/ryanl/4231/MTRN4231_Project/install/end_effector_description
+[3.417s] Invoking command in '/home/ryanl/4231/MTRN4231_Project/build/end_effector_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/end_effector_description -- -j16 -l16
+[3.489s] Invoked command in '/home/ryanl/4231/MTRN4231_Project/build/end_effector_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/end_effector_description -- -j16 -l16
+[3.507s] Invoking command in '/home/ryanl/4231/MTRN4231_Project/build/end_effector_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/ryanl/4231/MTRN4231_Project/build/end_effector_description
+[3.521s] -- Install configuration: ""
+[3.521s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/launch
+[3.523s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/launch/display_ee.launch.py
+[3.524s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/rviz
+[3.525s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/rviz/ee.rviz
+[3.526s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/urdf
+[3.526s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/urdf/end_effector.urdf
+[3.528s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/urdf/end_effector.xacro
+[3.529s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/meshes
+[3.530s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/meshes/claw_assembly.stl
+[3.538s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/ament_index/resource_index/package_run_dependencies/end_effector_description
+[3.539s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/ament_index/resource_index/parent_prefix_path/end_effector_description
+[3.540s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/environment/ament_prefix_path.sh
+[3.540s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/environment/ament_prefix_path.dsv
+[3.540s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/environment/path.sh
+[3.541s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/environment/path.dsv
+[3.541s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/local_setup.bash
+[3.541s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/local_setup.sh
+[3.542s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/local_setup.zsh
+[3.542s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/local_setup.dsv
+[3.543s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/package.dsv
+[3.544s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/ament_index/resource_index/packages/end_effector_description
+[3.545s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/cmake/end_effector_descriptionConfig.cmake
+[3.546s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/cmake/end_effector_descriptionConfig-version.cmake
+[3.546s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/end_effector_description/share/end_effector_description/package.xml
+[3.551s] Invoked command in '/home/ryanl/4231/MTRN4231_Project/build/end_effector_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/ryanl/4231/MTRN4231_Project/build/end_effector_description

@@ -1,0 +1,73 @@
+[0.056s] Invoking command in '/home/ryanl/4231/MTRN4231_Project/build/ur5e_moveit_config_custom': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/ryanl/4231/MTRN4231_Project/src/ur5e_moveit_config_custom -DCMAKE_INSTALL_PREFIX=/home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom
+[0.448s] -- The C compiler identification is GNU 11.4.0
+[1.466s] -- The CXX compiler identification is GNU 11.4.0
+[2.143s] -- Detecting C compiler ABI info
+[2.390s] -- Detecting C compiler ABI info - done
+[2.405s] -- Check for working C compiler: /usr/bin/cc - skipped
+[2.463s] -- Detecting C compile features
+[2.464s] -- Detecting C compile features - done
+[2.471s] -- Detecting CXX compiler ABI info
+[2.737s] -- Detecting CXX compiler ABI info - done
+[2.753s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[2.753s] -- Detecting CXX compile features
+[2.754s] -- Detecting CXX compile features - done
+[2.776s] -- Found ament_cmake: 1.3.12 (/opt/ros/humble/share/ament_cmake/cmake)
+[3.083s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[3.510s] -- Configuring done
+[3.527s] -- Generating done
+[3.533s] -- Build files have been written to: /home/ryanl/4231/MTRN4231_Project/build/ur5e_moveit_config_custom
+[3.578s] Invoked command in '/home/ryanl/4231/MTRN4231_Project/build/ur5e_moveit_config_custom' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake /home/ryanl/4231/MTRN4231_Project/src/ur5e_moveit_config_custom -DCMAKE_INSTALL_PREFIX=/home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom
+[3.581s] Invoking command in '/home/ryanl/4231/MTRN4231_Project/build/ur5e_moveit_config_custom': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/ur5e_moveit_config_custom -- -j16 -l16
+[3.681s] Built target ament_cmake_python_copy_ur5e_moveit_config_custom
+[4.112s] running egg_info
+[4.113s] creating ur5e_moveit_config_custom.egg-info
+[4.115s] writing ur5e_moveit_config_custom.egg-info/PKG-INFO
+[4.115s] writing dependency_links to ur5e_moveit_config_custom.egg-info/dependency_links.txt
+[4.115s] writing top-level names to ur5e_moveit_config_custom.egg-info/top_level.txt
+[4.116s] writing manifest file 'ur5e_moveit_config_custom.egg-info/SOURCES.txt'
+[4.120s] reading manifest file 'ur5e_moveit_config_custom.egg-info/SOURCES.txt'
+[4.120s] writing manifest file 'ur5e_moveit_config_custom.egg-info/SOURCES.txt'
+[4.171s] Built target ament_cmake_python_build_ur5e_moveit_config_custom_egg
+[4.191s] Invoked command in '/home/ryanl/4231/MTRN4231_Project/build/ur5e_moveit_config_custom' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --build /home/ryanl/4231/MTRN4231_Project/build/ur5e_moveit_config_custom -- -j16 -l16
+[4.194s] Invoking command in '/home/ryanl/4231/MTRN4231_Project/build/ur5e_moveit_config_custom': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/ryanl/4231/MTRN4231_Project/build/ur5e_moveit_config_custom
+[4.212s] -- Install configuration: ""
+[4.212s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/config
+[4.216s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/config/ur_servo.yaml
+[4.223s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/config/kinematics.yaml
+[4.225s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/config/ompl_planning.yaml
+[4.226s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/config/controllers.yaml
+[4.227s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/launch
+[4.228s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/launch/ur_moveit.launch.py
+[4.229s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/rviz
+[4.230s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/rviz/view_robot.rviz
+[4.232s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/environment/pythonpath.sh
+[4.232s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/environment/pythonpath.dsv
+[4.233s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/local/lib/python3.10/dist-packages/ur5e_moveit_config_custom-0.0.1-py3.10.egg-info
+[4.237s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/local/lib/python3.10/dist-packages/ur5e_moveit_config_custom-0.0.1-py3.10.egg-info/top_level.txt
+[4.238s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/local/lib/python3.10/dist-packages/ur5e_moveit_config_custom-0.0.1-py3.10.egg-info/SOURCES.txt
+[4.238s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/local/lib/python3.10/dist-packages/ur5e_moveit_config_custom-0.0.1-py3.10.egg-info/dependency_links.txt
+[4.239s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/local/lib/python3.10/dist-packages/ur5e_moveit_config_custom-0.0.1-py3.10.egg-info/PKG-INFO
+[4.239s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/local/lib/python3.10/dist-packages/ur5e_moveit_config_custom
+[4.240s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/local/lib/python3.10/dist-packages/ur5e_moveit_config_custom/__init__.py
+[4.241s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/local/lib/python3.10/dist-packages/ur5e_moveit_config_custom/launch_common.py
+[4.300s] Listing '/home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/local/lib/python3.10/dist-packages/ur5e_moveit_config_custom'...
+[4.300s] Compiling '/home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/local/lib/python3.10/dist-packages/ur5e_moveit_config_custom/__init__.py'...
+[4.300s] Compiling '/home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/local/lib/python3.10/dist-packages/ur5e_moveit_config_custom/launch_common.py'...
+[4.309s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/local/lib/python3.10/dist-packages/launch_common.py
+[4.365s] Compiling '/home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/local/lib/python3.10/dist-packages/launch_common.py'...
+[4.377s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ament_index/resource_index/package_run_dependencies/ur5e_moveit_config_custom
+[4.378s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ament_index/resource_index/parent_prefix_path/ur5e_moveit_config_custom
+[4.379s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/environment/ament_prefix_path.sh
+[4.379s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/environment/ament_prefix_path.dsv
+[4.380s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/environment/path.sh
+[4.380s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/environment/path.dsv
+[4.381s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/local_setup.bash
+[4.381s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/local_setup.sh
+[4.382s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/local_setup.zsh
+[4.382s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/local_setup.dsv
+[4.382s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/package.dsv
+[4.384s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ament_index/resource_index/packages/ur5e_moveit_config_custom
+[4.385s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/cmake/ur5e_moveit_config_customConfig.cmake
+[4.386s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/cmake/ur5e_moveit_config_customConfig-version.cmake
+[4.386s] -- Installing: /home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/package.xml
+[4.391s] Invoked command in '/home/ryanl/4231/MTRN4231_Project/build/ur5e_moveit_config_custom' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /usr/bin/cmake --install /home/ryanl/4231/MTRN4231_Project/build/ur5e_moveit_config_custom

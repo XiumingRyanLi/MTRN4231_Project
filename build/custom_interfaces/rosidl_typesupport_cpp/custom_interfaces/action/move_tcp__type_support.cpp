@@ -660,6 +660,21 @@ get_service_type_support_handle<custom_interfaces::action::MoveTCP_SendGoal>()
 
 }  // namespace rosidl_typesupport_cpp
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+ROSIDL_TYPESUPPORT_CPP_PUBLIC
+const rosidl_service_type_support_t *
+ROSIDL_TYPESUPPORT_INTERFACE__SERVICE_SYMBOL_NAME(rosidl_typesupport_cpp, custom_interfaces, action, MoveTCP_SendGoal)() {
+  return ::rosidl_typesupport_cpp::get_service_type_support_handle<custom_interfaces::action::MoveTCP_SendGoal>();
+}
+
+#ifdef __cplusplus
+}
+#endif
+
 // already included above
 // #include "cstddef"
 // already included above
@@ -988,6 +1003,21 @@ get_service_type_support_handle<custom_interfaces::action::MoveTCP_GetResult>()
 
 }  // namespace rosidl_typesupport_cpp
 
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+ROSIDL_TYPESUPPORT_CPP_PUBLIC
+const rosidl_service_type_support_t *
+ROSIDL_TYPESUPPORT_INTERFACE__SERVICE_SYMBOL_NAME(rosidl_typesupport_cpp, custom_interfaces, action, MoveTCP_GetResult)() {
+  return ::rosidl_typesupport_cpp::get_service_type_support_handle<custom_interfaces::action::MoveTCP_GetResult>();
+}
+
+#ifdef __cplusplus
+}
+#endif
+
 // already included above
 // #include "cstddef"
 // already included above
@@ -1152,3 +1182,18 @@ get_action_type_support_handle<custom_interfaces::action::MoveTCP>()
 }
 
 }  // namespace rosidl_typesupport_cpp
+
+#ifdef __cplusplus
+extern "C"
+{
+#endif
+
+ROSIDL_TYPESUPPORT_CPP_PUBLIC
+const rosidl_action_type_support_t *
+ROSIDL_TYPESUPPORT_INTERFACE__ACTION_SYMBOL_NAME(rosidl_typesupport_cpp, custom_interfaces, action, MoveTCP)() {
+  return ::rosidl_typesupport_cpp::get_action_type_support_handle<custom_interfaces::action::MoveTCP>();
+}
+
+#ifdef __cplusplus
+}
+#endif
