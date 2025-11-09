@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ryanl/4231/MTRN4231_Project/src/arm_controller
+CMAKE_SOURCE_DIR = /home/dev/Desktop/MTRN4231_Project/src/arm_controller
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ryanl/4231/MTRN4231_Project/build/arm_controller
+CMAKE_BINARY_DIR = /home/dev/Desktop/MTRN4231_Project/build/arm_controller
 
 # Include any dependencies generated for this target.
 include CMakeFiles/arm_controller_node.dir/depend.make
@@ -70,18 +70,18 @@ include CMakeFiles/arm_controller_node.dir/progress.make
 include CMakeFiles/arm_controller_node.dir/flags.make
 
 CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: CMakeFiles/arm_controller_node.dir/flags.make
-CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/ryanl/4231/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp
+CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: /home/dev/Desktop/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp
 CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: CMakeFiles/arm_controller_node.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ryanl/4231/MTRN4231_Project/build/arm_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o -MF CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o.d -o CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o -c /home/ryanl/4231/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dev/Desktop/MTRN4231_Project/build/arm_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o -MF CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o.d -o CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o -c /home/dev/Desktop/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp
 
 CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ryanl/4231/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp > CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dev/Desktop/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp > CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.i
 
 CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ryanl/4231/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp -o CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dev/Desktop/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp -o CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.s
 
 # Object files for target arm_controller_node
 arm_controller_node_OBJECTS = \
@@ -94,12 +94,12 @@ arm_controller_node: CMakeFiles/arm_controller_node.dir/src/arm_controller_node.
 arm_controller_node: CMakeFiles/arm_controller_node.dir/build.make
 arm_controller_node: /opt/ros/humble/lib/libmoveit_visual_tools.so
 arm_controller_node: /opt/ros/humble/lib/libmoveit_move_group_interface.so.2.5.9
-arm_controller_node: /home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/lib/libcustom_interfaces__rosidl_typesupport_fastrtps_c.so
-arm_controller_node: /home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/lib/libcustom_interfaces__rosidl_typesupport_introspection_c.so
-arm_controller_node: /home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/lib/libcustom_interfaces__rosidl_typesupport_fastrtps_cpp.so
-arm_controller_node: /home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/lib/libcustom_interfaces__rosidl_typesupport_introspection_cpp.so
-arm_controller_node: /home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/lib/libcustom_interfaces__rosidl_typesupport_cpp.so
-arm_controller_node: /home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/lib/libcustom_interfaces__rosidl_generator_py.so
+arm_controller_node: /home/dev/Desktop/MTRN4231_Project/install/custom_interfaces/lib/libcustom_interfaces__rosidl_typesupport_fastrtps_c.so
+arm_controller_node: /home/dev/Desktop/MTRN4231_Project/install/custom_interfaces/lib/libcustom_interfaces__rosidl_typesupport_introspection_c.so
+arm_controller_node: /home/dev/Desktop/MTRN4231_Project/install/custom_interfaces/lib/libcustom_interfaces__rosidl_typesupport_fastrtps_cpp.so
+arm_controller_node: /home/dev/Desktop/MTRN4231_Project/install/custom_interfaces/lib/libcustom_interfaces__rosidl_typesupport_introspection_cpp.so
+arm_controller_node: /home/dev/Desktop/MTRN4231_Project/install/custom_interfaces/lib/libcustom_interfaces__rosidl_typesupport_cpp.so
+arm_controller_node: /home/dev/Desktop/MTRN4231_Project/install/custom_interfaces/lib/libcustom_interfaces__rosidl_generator_py.so
 arm_controller_node: /opt/ros/humble/lib/libgraph_msgs__rosidl_typesupport_fastrtps_c.so
 arm_controller_node: /opt/ros/humble/lib/libgraph_msgs__rosidl_typesupport_introspection_c.so
 arm_controller_node: /opt/ros/humble/lib/libgraph_msgs__rosidl_typesupport_fastrtps_cpp.so
@@ -115,6 +115,7 @@ arm_controller_node: /usr/lib/x86_64-linux-gnu/libyaml-cpp.so.0.7.0
 arm_controller_node: /opt/ros/humble/lib/librviz_rendering.so
 arm_controller_node: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreOverlay.so
 arm_controller_node: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreMain.so
+arm_controller_node: /usr/lib/x86_64-linux-gnu/libfreeimage.so
 arm_controller_node: /usr/lib/x86_64-linux-gnu/libfreetype.so
 arm_controller_node: /usr/lib/x86_64-linux-gnu/libOpenGL.so
 arm_controller_node: /usr/lib/x86_64-linux-gnu/libGLX.so
@@ -401,8 +402,8 @@ arm_controller_node: /opt/ros/humble/lib/libstd_msgs__rosidl_typesupport_cpp.so
 arm_controller_node: /opt/ros/humble/lib/libbuiltin_interfaces__rosidl_typesupport_cpp.so
 arm_controller_node: /opt/ros/humble/lib/libunique_identifier_msgs__rosidl_typesupport_cpp.so
 arm_controller_node: /opt/ros/humble/lib/librosidl_typesupport_cpp.so
-arm_controller_node: /home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/lib/libcustom_interfaces__rosidl_typesupport_c.so
-arm_controller_node: /home/ryanl/4231/MTRN4231_Project/install/custom_interfaces/lib/libcustom_interfaces__rosidl_generator_c.so
+arm_controller_node: /home/dev/Desktop/MTRN4231_Project/install/custom_interfaces/lib/libcustom_interfaces__rosidl_typesupport_c.so
+arm_controller_node: /home/dev/Desktop/MTRN4231_Project/install/custom_interfaces/lib/libcustom_interfaces__rosidl_generator_c.so
 arm_controller_node: /opt/ros/humble/lib/libaction_msgs__rosidl_generator_py.so
 arm_controller_node: /opt/ros/humble/lib/libaction_msgs__rosidl_typesupport_c.so
 arm_controller_node: /opt/ros/humble/lib/libaction_msgs__rosidl_generator_c.so
@@ -424,7 +425,7 @@ arm_controller_node: /opt/ros/humble/lib/librosidl_runtime_c.so
 arm_controller_node: /opt/ros/humble/lib/librcutils.so
 arm_controller_node: /usr/lib/x86_64-linux-gnu/libpython3.10.so
 arm_controller_node: CMakeFiles/arm_controller_node.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ryanl/4231/MTRN4231_Project/build/arm_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable arm_controller_node"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/dev/Desktop/MTRN4231_Project/build/arm_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable arm_controller_node"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/arm_controller_node.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -436,6 +437,6 @@ CMakeFiles/arm_controller_node.dir/clean:
 .PHONY : CMakeFiles/arm_controller_node.dir/clean
 
 CMakeFiles/arm_controller_node.dir/depend:
-	cd /home/ryanl/4231/MTRN4231_Project/build/arm_controller && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ryanl/4231/MTRN4231_Project/src/arm_controller /home/ryanl/4231/MTRN4231_Project/src/arm_controller /home/ryanl/4231/MTRN4231_Project/build/arm_controller /home/ryanl/4231/MTRN4231_Project/build/arm_controller /home/ryanl/4231/MTRN4231_Project/build/arm_controller/CMakeFiles/arm_controller_node.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/dev/Desktop/MTRN4231_Project/build/arm_controller && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/dev/Desktop/MTRN4231_Project/src/arm_controller /home/dev/Desktop/MTRN4231_Project/src/arm_controller /home/dev/Desktop/MTRN4231_Project/build/arm_controller /home/dev/Desktop/MTRN4231_Project/build/arm_controller /home/dev/Desktop/MTRN4231_Project/build/arm_controller/CMakeFiles/arm_controller_node.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/arm_controller_node.dir/depend
 

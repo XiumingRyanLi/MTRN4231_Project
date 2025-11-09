@@ -1,0 +1,18 @@
+[ 50%] [32mBuilding CXX object CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o[0m
+[ 75%] Built target moveit_constrain_ur
+[100%] [32m[1mLinking CXX executable arm_controller_node[0m
+[100%] Built target arm_controller_node
+-- Install configuration: ""
+-- Installing: /home/dev/Desktop/MTRN4231_Project/install/arm_controller/lib/arm_controller/arm_controller_node
+-- Set runtime path of "/home/dev/Desktop/MTRN4231_Project/install/arm_controller/lib/arm_controller/arm_controller_node" to ""
+-- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/arm_controller/share/arm_controller/launch
+-- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/arm_controller/share/arm_controller/launch/arm_controller.launch.py
+-- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/arm_controller/share/arm_controller/launch/view_combined.launch.py
+-- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/arm_controller/share/arm_controller/urdf
+-- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/arm_controller/share/arm_controller/urdf/ur5e_with_tool.urdf.xacro
+[31mCMake Error at cmake_install.cmake:66 (file):
+  file INSTALL cannot find
+  "/home/dev/Desktop/MTRN4231_Project/src/arm_controller/config": No such
+  file or directory.
+
+[0m

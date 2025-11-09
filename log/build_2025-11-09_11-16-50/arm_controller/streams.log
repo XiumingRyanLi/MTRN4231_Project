@@ -1,0 +1,22 @@
+[0.023s] Invoking command in '/home/dev/Desktop/MTRN4231_Project/build/arm_controller': CMAKE_PREFIX_PATH=/home/dev/Desktop/MTRN4231_Project/install/custom_interfaces:/home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom:/home/dev/Desktop/MTRN4231_Project/install/ur5e_custom_description:/home/dev/Desktop/MTRN4231_Project/install/end_effector_description:/home/dev/Desktop/MTRN4231_Project/install/arm_controller:/opt/ros/humble /usr/bin/cmake --build /home/dev/Desktop/MTRN4231_Project/build/arm_controller -- -j12 -l12
+[0.106s] [ 50%] [32mBuilding CXX object CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o[0m
+[0.106s] [ 75%] Built target moveit_constrain_ur
+[11.981s] [100%] [32m[1mLinking CXX executable arm_controller_node[0m
+[12.704s] [100%] Built target arm_controller_node
+[12.718s] Invoked command in '/home/dev/Desktop/MTRN4231_Project/build/arm_controller' returned '0': CMAKE_PREFIX_PATH=/home/dev/Desktop/MTRN4231_Project/install/custom_interfaces:/home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom:/home/dev/Desktop/MTRN4231_Project/install/ur5e_custom_description:/home/dev/Desktop/MTRN4231_Project/install/end_effector_description:/home/dev/Desktop/MTRN4231_Project/install/arm_controller:/opt/ros/humble /usr/bin/cmake --build /home/dev/Desktop/MTRN4231_Project/build/arm_controller -- -j12 -l12
+[12.719s] Invoking command in '/home/dev/Desktop/MTRN4231_Project/build/arm_controller': CMAKE_PREFIX_PATH=/home/dev/Desktop/MTRN4231_Project/install/custom_interfaces:/home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom:/home/dev/Desktop/MTRN4231_Project/install/ur5e_custom_description:/home/dev/Desktop/MTRN4231_Project/install/end_effector_description:/home/dev/Desktop/MTRN4231_Project/install/arm_controller:/opt/ros/humble /usr/bin/cmake --install /home/dev/Desktop/MTRN4231_Project/build/arm_controller
+[12.727s] -- Install configuration: ""
+[12.727s] -- Installing: /home/dev/Desktop/MTRN4231_Project/install/arm_controller/lib/arm_controller/arm_controller_node
+[12.729s] -- Set runtime path of "/home/dev/Desktop/MTRN4231_Project/install/arm_controller/lib/arm_controller/arm_controller_node" to ""
+[12.729s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/arm_controller/share/arm_controller/launch
+[12.729s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/arm_controller/share/arm_controller/launch/arm_controller.launch.py
+[12.729s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/arm_controller/share/arm_controller/launch/view_combined.launch.py
+[12.729s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/arm_controller/share/arm_controller/urdf
+[12.730s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/arm_controller/share/arm_controller/urdf/ur5e_with_tool.urdf.xacro
+[12.730s] [31mCMake Error at cmake_install.cmake:66 (file):
+[12.730s]   file INSTALL cannot find
+[12.730s]   "/home/dev/Desktop/MTRN4231_Project/src/arm_controller/config": No such
+[12.730s]   file or directory.
+[12.730s] 
+[12.730s] [0m
+[12.731s] Invoked command in '/home/dev/Desktop/MTRN4231_Project/build/arm_controller' returned '1': CMAKE_PREFIX_PATH=/home/dev/Desktop/MTRN4231_Project/install/custom_interfaces:/home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom:/home/dev/Desktop/MTRN4231_Project/install/ur5e_custom_description:/home/dev/Desktop/MTRN4231_Project/install/end_effector_description:/home/dev/Desktop/MTRN4231_Project/install/arm_controller:/opt/ros/humble /usr/bin/cmake --install /home/dev/Desktop/MTRN4231_Project/build/arm_controller

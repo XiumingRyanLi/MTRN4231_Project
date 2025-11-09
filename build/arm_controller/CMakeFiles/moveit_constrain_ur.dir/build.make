@@ -53,10 +53,10 @@ RM = /usr/bin/cmake -E rm -f
 EQUALS = =
 
 # The top-level source directory on which CMake was run.
-CMAKE_SOURCE_DIR = /home/ryanl/4231/MTRN4231_Project/src/arm_controller
+CMAKE_SOURCE_DIR = /home/dev/Desktop/MTRN4231_Project/src/arm_controller
 
 # The top-level build directory on which CMake was run.
-CMAKE_BINARY_DIR = /home/ryanl/4231/MTRN4231_Project/build/arm_controller
+CMAKE_BINARY_DIR = /home/dev/Desktop/MTRN4231_Project/build/arm_controller
 
 # Include any dependencies generated for this target.
 include CMakeFiles/moveit_constrain_ur.dir/depend.make
@@ -70,18 +70,18 @@ include CMakeFiles/moveit_constrain_ur.dir/progress.make
 include CMakeFiles/moveit_constrain_ur.dir/flags.make
 
 CMakeFiles/moveit_constrain_ur.dir/src/moveit_constrain_ur.cpp.o: CMakeFiles/moveit_constrain_ur.dir/flags.make
-CMakeFiles/moveit_constrain_ur.dir/src/moveit_constrain_ur.cpp.o: /home/ryanl/4231/MTRN4231_Project/src/arm_controller/src/moveit_constrain_ur.cpp
+CMakeFiles/moveit_constrain_ur.dir/src/moveit_constrain_ur.cpp.o: /home/dev/Desktop/MTRN4231_Project/src/arm_controller/src/moveit_constrain_ur.cpp
 CMakeFiles/moveit_constrain_ur.dir/src/moveit_constrain_ur.cpp.o: CMakeFiles/moveit_constrain_ur.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/ryanl/4231/MTRN4231_Project/build/arm_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/moveit_constrain_ur.dir/src/moveit_constrain_ur.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moveit_constrain_ur.dir/src/moveit_constrain_ur.cpp.o -MF CMakeFiles/moveit_constrain_ur.dir/src/moveit_constrain_ur.cpp.o.d -o CMakeFiles/moveit_constrain_ur.dir/src/moveit_constrain_ur.cpp.o -c /home/ryanl/4231/MTRN4231_Project/src/arm_controller/src/moveit_constrain_ur.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/dev/Desktop/MTRN4231_Project/build/arm_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/moveit_constrain_ur.dir/src/moveit_constrain_ur.cpp.o"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/moveit_constrain_ur.dir/src/moveit_constrain_ur.cpp.o -MF CMakeFiles/moveit_constrain_ur.dir/src/moveit_constrain_ur.cpp.o.d -o CMakeFiles/moveit_constrain_ur.dir/src/moveit_constrain_ur.cpp.o -c /home/dev/Desktop/MTRN4231_Project/src/arm_controller/src/moveit_constrain_ur.cpp
 
 CMakeFiles/moveit_constrain_ur.dir/src/moveit_constrain_ur.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/moveit_constrain_ur.dir/src/moveit_constrain_ur.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/ryanl/4231/MTRN4231_Project/src/arm_controller/src/moveit_constrain_ur.cpp > CMakeFiles/moveit_constrain_ur.dir/src/moveit_constrain_ur.cpp.i
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/dev/Desktop/MTRN4231_Project/src/arm_controller/src/moveit_constrain_ur.cpp > CMakeFiles/moveit_constrain_ur.dir/src/moveit_constrain_ur.cpp.i
 
 CMakeFiles/moveit_constrain_ur.dir/src/moveit_constrain_ur.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/moveit_constrain_ur.dir/src/moveit_constrain_ur.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/ryanl/4231/MTRN4231_Project/src/arm_controller/src/moveit_constrain_ur.cpp -o CMakeFiles/moveit_constrain_ur.dir/src/moveit_constrain_ur.cpp.s
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/dev/Desktop/MTRN4231_Project/src/arm_controller/src/moveit_constrain_ur.cpp -o CMakeFiles/moveit_constrain_ur.dir/src/moveit_constrain_ur.cpp.s
 
 # Object files for target moveit_constrain_ur
 moveit_constrain_ur_OBJECTS = \
@@ -229,6 +229,7 @@ moveit_constrain_ur: /opt/ros/humble/lib/libresource_retriever.so
 moveit_constrain_ur: /usr/lib/x86_64-linux-gnu/libcurl.so
 moveit_constrain_ur: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreOverlay.so
 moveit_constrain_ur: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreMain.so
+moveit_constrain_ur: /usr/lib/x86_64-linux-gnu/libfreeimage.so
 moveit_constrain_ur: /usr/lib/x86_64-linux-gnu/libfreetype.so
 moveit_constrain_ur: /usr/lib/x86_64-linux-gnu/libz.so
 moveit_constrain_ur: /usr/lib/x86_64-linux-gnu/libOpenGL.so
@@ -416,7 +417,7 @@ moveit_constrain_ur: /usr/lib/x86_64-linux-gnu/libboost_date_time.so.1.74.0
 moveit_constrain_ur: /usr/lib/x86_64-linux-gnu/libboost_program_options.so.1.74.0
 moveit_constrain_ur: /usr/lib/x86_64-linux-gnu/libboost_chrono.so.1.74.0
 moveit_constrain_ur: CMakeFiles/moveit_constrain_ur.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/ryanl/4231/MTRN4231_Project/build/arm_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable moveit_constrain_ur"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/dev/Desktop/MTRN4231_Project/build/arm_controller/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable moveit_constrain_ur"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/moveit_constrain_ur.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -428,6 +429,6 @@ CMakeFiles/moveit_constrain_ur.dir/clean:
 .PHONY : CMakeFiles/moveit_constrain_ur.dir/clean
 
 CMakeFiles/moveit_constrain_ur.dir/depend:
-	cd /home/ryanl/4231/MTRN4231_Project/build/arm_controller && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/ryanl/4231/MTRN4231_Project/src/arm_controller /home/ryanl/4231/MTRN4231_Project/src/arm_controller /home/ryanl/4231/MTRN4231_Project/build/arm_controller /home/ryanl/4231/MTRN4231_Project/build/arm_controller /home/ryanl/4231/MTRN4231_Project/build/arm_controller/CMakeFiles/moveit_constrain_ur.dir/DependInfo.cmake --color=$(COLOR)
+	cd /home/dev/Desktop/MTRN4231_Project/build/arm_controller && $(CMAKE_COMMAND) -E cmake_depends "Unix Makefiles" /home/dev/Desktop/MTRN4231_Project/src/arm_controller /home/dev/Desktop/MTRN4231_Project/src/arm_controller /home/dev/Desktop/MTRN4231_Project/build/arm_controller /home/dev/Desktop/MTRN4231_Project/build/arm_controller /home/dev/Desktop/MTRN4231_Project/build/arm_controller/CMakeFiles/moveit_constrain_ur.dir/DependInfo.cmake --color=$(COLOR)
 .PHONY : CMakeFiles/moveit_constrain_ur.dir/depend
 

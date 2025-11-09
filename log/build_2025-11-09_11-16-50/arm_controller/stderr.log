@@ -1,0 +1,6 @@
+[31mCMake Error at cmake_install.cmake:66 (file):
+  file INSTALL cannot find
+  "/home/dev/Desktop/MTRN4231_Project/src/arm_controller/config": No such
+  file or directory.
+
+[0m

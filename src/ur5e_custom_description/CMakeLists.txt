@@ -21,7 +21,7 @@ find_package(geometry_msgs REQUIRED)
 
 
 install(
-  DIRECTORY urdf meshes launch rviz
+  DIRECTORY urdf launch rviz
   DESTINATION share/${PROJECT_NAME}
 )
 

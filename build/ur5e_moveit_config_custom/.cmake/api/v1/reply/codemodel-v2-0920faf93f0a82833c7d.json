@@ -1,0 +1,88 @@
+{
+	"configurations" : 
+	[
+		{
+			"directories" : 
+			[
+				{
+					"build" : ".",
+					"hasInstallRule" : true,
+					"jsonFile" : "directory-.-20f6c928d747c6846ffc.json",
+					"minimumCMakeVersion" : 
+					{
+						"string" : "3.12"
+					},
+					"projectIndex" : 0,
+					"source" : ".",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"name" : "",
+			"projects" : 
+			[
+				{
+					"directoryIndexes" : 
+					[
+						0
+					],
+					"name" : "ur5e_moveit_config_custom",
+					"targetIndexes" : 
+					[
+						0,
+						1,
+						2,
+						3
+					]
+				}
+			],
+			"targets" : 
+			[
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_build_ur5e_moveit_config_custom_egg::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_build_ur5e_moveit_config_custom_egg-626c47de2becd74a0ebb.json",
+					"name" : "ament_cmake_python_build_ur5e_moveit_config_custom_egg",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ament_cmake_python_copy_ur5e_moveit_config_custom::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ament_cmake_python_copy_ur5e_moveit_config_custom-6a376f53fff3e132d5ff.json",
+					"name" : "ament_cmake_python_copy_ur5e_moveit_config_custom",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-uninstall-7eb45f23a8327a43e244.json",
+					"name" : "uninstall",
+					"projectIndex" : 0
+				},
+				{
+					"directoryIndex" : 0,
+					"id" : "ur5e_moveit_config_custom_uninstall::@6890427a1f51a3e7e1df",
+					"jsonFile" : "target-ur5e_moveit_config_custom_uninstall-2496603aa6df249b5aed.json",
+					"name" : "ur5e_moveit_config_custom_uninstall",
+					"projectIndex" : 0
+				}
+			]
+		}
+	],
+	"kind" : "codemodel",
+	"paths" : 
+	{
+		"build" : "/home/dev/Desktop/MTRN4231_Project/build/ur5e_moveit_config_custom",
+		"source" : "/home/dev/Desktop/MTRN4231_Project/src/ur5e_moveit_config_custom"
+	},
+	"version" : 
+	{
+		"major" : 2,
+		"minor" : 3
+	}
+}

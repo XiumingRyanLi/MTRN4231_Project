@@ -1,8 +1,8 @@
-# Install script for directory: /home/ryanl/4231/MTRN4231_Project/src/ur5e_moveit_config_custom
+# Install script for directory: /home/dev/Desktop/MTRN4231_Project/src/ur5e_moveit_config_custom
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
-  set(CMAKE_INSTALL_PREFIX "/home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom")
+  set(CMAKE_INSTALL_PREFIX "/home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom")
 endif()
 string(REGEX REPLACE "/$" "" CMAKE_INSTALL_PREFIX "${CMAKE_INSTALL_PREFIX}")
 
@@ -44,54 +44,54 @@ endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur5e_moveit_config_custom" TYPE DIRECTORY FILES
-    "/home/ryanl/4231/MTRN4231_Project/src/ur5e_moveit_config_custom/config"
-    "/home/ryanl/4231/MTRN4231_Project/src/ur5e_moveit_config_custom/launch"
-    "/home/ryanl/4231/MTRN4231_Project/src/ur5e_moveit_config_custom/rviz"
+    "/home/dev/Desktop/MTRN4231_Project/src/ur5e_moveit_config_custom/config"
+    "/home/dev/Desktop/MTRN4231_Project/src/ur5e_moveit_config_custom/launch"
+    "/home/dev/Desktop/MTRN4231_Project/src/ur5e_moveit_config_custom/rviz"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur5e_moveit_config_custom/environment" TYPE FILE FILES "/home/ryanl/4231/MTRN4231_Project/build/ur5e_moveit_config_custom/ament_cmake_environment_hooks/pythonpath.sh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur5e_moveit_config_custom/environment" TYPE FILE FILES "/home/dev/Desktop/MTRN4231_Project/build/ur5e_moveit_config_custom/ament_cmake_environment_hooks/pythonpath.sh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur5e_moveit_config_custom/environment" TYPE FILE FILES "/home/ryanl/4231/MTRN4231_Project/build/ur5e_moveit_config_custom/ament_cmake_environment_hooks/pythonpath.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur5e_moveit_config_custom/environment" TYPE FILE FILES "/home/dev/Desktop/MTRN4231_Project/build/ur5e_moveit_config_custom/ament_cmake_environment_hooks/pythonpath.dsv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/local/lib/python3.10/dist-packages/ur5e_moveit_config_custom-0.0.1-py3.10.egg-info" TYPE DIRECTORY FILES "/home/ryanl/4231/MTRN4231_Project/build/ur5e_moveit_config_custom/ament_cmake_python/ur5e_moveit_config_custom/ur5e_moveit_config_custom.egg-info/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/local/lib/python3.10/dist-packages/ur5e_moveit_config_custom-0.0.1-py3.10.egg-info" TYPE DIRECTORY FILES "/home/dev/Desktop/MTRN4231_Project/build/ur5e_moveit_config_custom/ament_cmake_python/ur5e_moveit_config_custom/ur5e_moveit_config_custom.egg-info/")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/local/lib/python3.10/dist-packages/ur5e_moveit_config_custom" TYPE DIRECTORY FILES "/home/ryanl/4231/MTRN4231_Project/src/ur5e_moveit_config_custom/ur5e_moveit_config_custom/" REGEX "/[^/]*\\.pyc$" EXCLUDE REGEX "/\\_\\_pycache\\_\\_$" EXCLUDE)
-endif()
-
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  execute_process(
-        COMMAND
-        "/usr/bin/python3" "-m" "compileall"
-        "/home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/local/lib/python3.10/dist-packages/ur5e_moveit_config_custom"
-      )
-endif()
-
-if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/local/lib/python3.10/dist-packages" TYPE FILE FILES "/home/ryanl/4231/MTRN4231_Project/src/ur5e_moveit_config_custom/ur5e_moveit_config_custom/launch_common.py")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/local/lib/python3.10/dist-packages/ur5e_moveit_config_custom" TYPE DIRECTORY FILES "/home/dev/Desktop/MTRN4231_Project/src/ur5e_moveit_config_custom/ur5e_moveit_config_custom/" REGEX "/[^/]*\\.pyc$" EXCLUDE REGEX "/\\_\\_pycache\\_\\_$" EXCLUDE)
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   execute_process(
         COMMAND
         "/usr/bin/python3" "-m" "compileall"
-        "/home/ryanl/4231/MTRN4231_Project/install/ur5e_moveit_config_custom/local/lib/python3.10/dist-packages/launch_common.py"
+        "/home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom/local/lib/python3.10/dist-packages/ur5e_moveit_config_custom"
       )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/home/ryanl/4231/MTRN4231_Project/build/ur5e_moveit_config_custom/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/ur5e_moveit_config_custom")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/local/lib/python3.10/dist-packages" TYPE FILE FILES "/home/dev/Desktop/MTRN4231_Project/src/ur5e_moveit_config_custom/ur5e_moveit_config_custom/launch_common.py")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/parent_prefix_path" TYPE FILE FILES "/home/ryanl/4231/MTRN4231_Project/build/ur5e_moveit_config_custom/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/ur5e_moveit_config_custom")
+  execute_process(
+        COMMAND
+        "/usr/bin/python3" "-m" "compileall"
+        "/home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom/local/lib/python3.10/dist-packages/launch_common.py"
+      )
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/package_run_dependencies" TYPE FILE FILES "/home/dev/Desktop/MTRN4231_Project/build/ur5e_moveit_config_custom/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/ur5e_moveit_config_custom")
+endif()
+
+if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/parent_prefix_path" TYPE FILE FILES "/home/dev/Desktop/MTRN4231_Project/build/ur5e_moveit_config_custom/ament_cmake_index/share/ament_index/resource_index/parent_prefix_path/ur5e_moveit_config_custom")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -99,7 +99,7 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur5e_moveit_config_custom/environment" TYPE FILE FILES "/home/ryanl/4231/MTRN4231_Project/build/ur5e_moveit_config_custom/ament_cmake_environment_hooks/ament_prefix_path.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur5e_moveit_config_custom/environment" TYPE FILE FILES "/home/dev/Desktop/MTRN4231_Project/build/ur5e_moveit_config_custom/ament_cmake_environment_hooks/ament_prefix_path.dsv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
@@ -107,42 +107,42 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur5e_moveit_config_custom/environment" TYPE FILE FILES "/home/ryanl/4231/MTRN4231_Project/build/ur5e_moveit_config_custom/ament_cmake_environment_hooks/path.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur5e_moveit_config_custom/environment" TYPE FILE FILES "/home/dev/Desktop/MTRN4231_Project/build/ur5e_moveit_config_custom/ament_cmake_environment_hooks/path.dsv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur5e_moveit_config_custom" TYPE FILE FILES "/home/ryanl/4231/MTRN4231_Project/build/ur5e_moveit_config_custom/ament_cmake_environment_hooks/local_setup.bash")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur5e_moveit_config_custom" TYPE FILE FILES "/home/dev/Desktop/MTRN4231_Project/build/ur5e_moveit_config_custom/ament_cmake_environment_hooks/local_setup.bash")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur5e_moveit_config_custom" TYPE FILE FILES "/home/ryanl/4231/MTRN4231_Project/build/ur5e_moveit_config_custom/ament_cmake_environment_hooks/local_setup.sh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur5e_moveit_config_custom" TYPE FILE FILES "/home/dev/Desktop/MTRN4231_Project/build/ur5e_moveit_config_custom/ament_cmake_environment_hooks/local_setup.sh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur5e_moveit_config_custom" TYPE FILE FILES "/home/ryanl/4231/MTRN4231_Project/build/ur5e_moveit_config_custom/ament_cmake_environment_hooks/local_setup.zsh")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur5e_moveit_config_custom" TYPE FILE FILES "/home/dev/Desktop/MTRN4231_Project/build/ur5e_moveit_config_custom/ament_cmake_environment_hooks/local_setup.zsh")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur5e_moveit_config_custom" TYPE FILE FILES "/home/ryanl/4231/MTRN4231_Project/build/ur5e_moveit_config_custom/ament_cmake_environment_hooks/local_setup.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur5e_moveit_config_custom" TYPE FILE FILES "/home/dev/Desktop/MTRN4231_Project/build/ur5e_moveit_config_custom/ament_cmake_environment_hooks/local_setup.dsv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur5e_moveit_config_custom" TYPE FILE FILES "/home/ryanl/4231/MTRN4231_Project/build/ur5e_moveit_config_custom/ament_cmake_environment_hooks/package.dsv")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur5e_moveit_config_custom" TYPE FILE FILES "/home/dev/Desktop/MTRN4231_Project/build/ur5e_moveit_config_custom/ament_cmake_environment_hooks/package.dsv")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/packages" TYPE FILE FILES "/home/ryanl/4231/MTRN4231_Project/build/ur5e_moveit_config_custom/ament_cmake_index/share/ament_index/resource_index/packages/ur5e_moveit_config_custom")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ament_index/resource_index/packages" TYPE FILE FILES "/home/dev/Desktop/MTRN4231_Project/build/ur5e_moveit_config_custom/ament_cmake_index/share/ament_index/resource_index/packages/ur5e_moveit_config_custom")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur5e_moveit_config_custom/cmake" TYPE FILE FILES
-    "/home/ryanl/4231/MTRN4231_Project/build/ur5e_moveit_config_custom/ament_cmake_core/ur5e_moveit_config_customConfig.cmake"
-    "/home/ryanl/4231/MTRN4231_Project/build/ur5e_moveit_config_custom/ament_cmake_core/ur5e_moveit_config_customConfig-version.cmake"
+    "/home/dev/Desktop/MTRN4231_Project/build/ur5e_moveit_config_custom/ament_cmake_core/ur5e_moveit_config_customConfig.cmake"
+    "/home/dev/Desktop/MTRN4231_Project/build/ur5e_moveit_config_custom/ament_cmake_core/ur5e_moveit_config_customConfig-version.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur5e_moveit_config_custom" TYPE FILE FILES "/home/ryanl/4231/MTRN4231_Project/src/ur5e_moveit_config_custom/package.xml")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/share/ur5e_moveit_config_custom" TYPE FILE FILES "/home/dev/Desktop/MTRN4231_Project/src/ur5e_moveit_config_custom/package.xml")
 endif()
 
 if(CMAKE_INSTALL_COMPONENT)
@@ -153,5 +153,5 @@ endif()
 
 string(REPLACE ";" "\n" CMAKE_INSTALL_MANIFEST_CONTENT
        "${CMAKE_INSTALL_MANIFEST_FILES}")
-file(WRITE "/home/ryanl/4231/MTRN4231_Project/build/ur5e_moveit_config_custom/${CMAKE_INSTALL_MANIFEST}"
+file(WRITE "/home/dev/Desktop/MTRN4231_Project/build/ur5e_moveit_config_custom/${CMAKE_INSTALL_MANIFEST}"
      "${CMAKE_INSTALL_MANIFEST_CONTENT}")

@@ -54,7 +54,7 @@ public:
 
     vel_scale_      = declare_parameter<double>("vel_scale",           0.20);
     acc_scale_      = declare_parameter<double>("acc_scale",           0.20);
-    planning_time_  = declare_parameter<double>("planning_time",       10.0);
+    planning_time_  = declare_parameter<double>("planning_time",       8.0);
     planner_id_     = declare_parameter<std::string>("planner_id",     "CartezianPath");
 
     approach_dz_    = declare_parameter<double>("approach_dz",         0.08);
@@ -69,11 +69,11 @@ public:
 
 
     // Orientation path constraint (Z-down)
-    // use_orientation_constraint_ = declare_parameter<bool>("use_orientation_constraint", true);
-    // oc_tol_x_     = declare_parameter<double>("oc_tol_x",   1.0);
-    // oc_tol_y_     = declare_parameter<double>("oc_tol_y",   1.0);
-    // oc_tol_z_     = declare_parameter<double>("oc_tol_z",   1.0);
-    // oc_weight_    = declare_parameter<double>("oc_weight",  0.1);
+    use_orientation_constraint_ = declare_parameter<bool>("use_orientation_constraint", true);
+    oc_tol_x_     = declare_parameter<double>("oc_tol_x",   1.0);
+    oc_tol_y_     = declare_parameter<double>("oc_tol_y",   1.0);
+    oc_tol_z_     = declare_parameter<double>("oc_tol_z",   10);
+    oc_weight_    = declare_parameter<double>("oc_weight",  0.1);
 
     // Box position constraint + visual
     enable_box_constraint_ = declare_parameter<bool>("enable_box_constraint", true);
@@ -236,8 +236,8 @@ private:
     geometry_msgs::msg::Pose approach = pick_in_base.pose;
     approach.position.z += approach_dz_;
 
-    if (!plan_with_fallbacks(approach, "approach_pick", gh)) { return fail(gh, result, "approach_pick"); }
-    // if (!plan_with_fallbacks(pick_in_base.pose, "descend_to_pick", gh)) { return fail(gh, result, "descend_to_pick"); }
+    if (!plan_with_fallbacks(approach, "approach_action", gh)) { return fail(gh, result, "approach_action"); }
+    // if (!plan_with_fallbacks(pick_in_base.pose, "descend_action", gh)) { return fail(gh, result, "descend_action"); }
 
     // geometry_msgs::msg::Pose retreat = pick_in_base.pose;
     // retreat.position.z += approach_dz_;
@@ -253,21 +253,36 @@ private:
 
   // ------------------------- constraints & visuals ---------------------------
   moveit_msgs::msg::Constraints create_path_constraints() {
-    moveit_msgs::msg::Constraints constraints;
+    moveit_msgs::msg::Constraints cons;
 
+    // Keep TCP tool-down (yaw free)
     moveit_msgs::msg::OrientationConstraint oc;
-    oc.header.frame_id = move_group_->getPlanningFrame();
-    oc.link_name       = move_group_->getEndEffectorLink();
-    tf2::Quaternion q; q.setRPY(0, M_PI, 0); // Z-down
-    oc.orientation = tf2::toMsg(q);
-    oc.absolute_x_axis_tolerance = oc_tol_x_;
-    oc.absolute_y_axis_tolerance = oc_tol_y_;
-    oc.absolute_z_axis_tolerance = oc_tol_z_;
-    oc.weight = oc_weight_;
+    oc.header.frame_id = base_frame_;
+    oc.link_name       = tcp_link_;
+    oc.orientation.x = 1.0; oc.orientation.y = 0.0; oc.orientation.z = 0.0; oc.orientation.w = 0.0; // roll=pi
+    oc.absolute_x_axis_tolerance = 0.05;   // ~3°
+    oc.absolute_y_axis_tolerance = 0.05;
+    oc.absolute_z_axis_tolerance = 3.14;   // free yaw
+    oc.weight = 1.0;
+    cons.orientation_constraints.push_back(oc);
 
-    constraints.orientation_constraints.push_back(oc);
-    return constraints;
+    // Gentle elbow-out / shoulder-down / wrist-2 ~90° biases
+    auto make_jc = [](const std::string& n, double pos, double up, double down, double w=0.5){
+      moveit_msgs::msg::JointConstraint jc;
+      jc.joint_name = n;
+      jc.position = pos;
+      jc.tolerance_above = up;
+      jc.tolerance_below = down;
+      jc.weight = w;
+      return jc;
+    };
+    cons.joint_constraints.push_back(make_jc("shoulder_lift_joint", -1.2, 0.6, 0.6)); // ~[-1.8,-0.6]
+    cons.joint_constraints.push_back(make_jc("elbow_joint",          1.6,  0.8, 0.8)); // ~[0.8,2.4]
+    cons.joint_constraints.push_back(make_jc("wrist_2_joint",        1.57, 1.57, 1.57, 0.2));
+
+    return cons;
   }
+
 
   void apply_and_visualize_box_constraint(double center_x) {
     // Build box primitive for constraint
@@ -381,21 +396,6 @@ private:
     return false;
   }
 
-  bool maybe_execute(const moveit::planning_interface::MoveGroupInterface::Plan& plan,
-                     const std::string& stage)
-  {
-    if (!execute_) {
-      RCLCPP_INFO(get_logger(), "[%s] Planned (execute:=false).", stage.c_str());
-      return true;
-    }
-    auto ok = move_group_->execute(plan);
-    if (ok != moveit::core::MoveItErrorCode::SUCCESS) {
-      RCLCPP_ERROR(get_logger(), "Execution failed at: %s", stage.c_str());
-      return false;
-    }
-    return true;
-  }
-
   // ------------------------------- helpers -----------------------------------
   tf2::Quaternion make_down_quat(const geometry_msgs::msg::Quaternion& src, bool keep_yaw) {
     tf2::Quaternion q_src; tf2::fromMsg(src, q_src);
@@ -459,7 +459,7 @@ private:
   // constraints
   bool use_orientation_constraint_{false};
   bool enable_box_constraint_{false};
-  double oc_tol_x_{1.0}, oc_tol_y_{1.0}, oc_tol_z_{1.0}, oc_weight_{0.1};
+  double oc_tol_x_{0.1}, oc_tol_y_{0.1}, oc_tol_z_{3.14}, oc_weight_{0.1};
   double box_size_x_{0.40}, box_size_y_{0.80}, box_size_z_{0.70};
   double box_center_y_{0.45}, box_center_z_{0.45}, box_weight_{1.0};
 
