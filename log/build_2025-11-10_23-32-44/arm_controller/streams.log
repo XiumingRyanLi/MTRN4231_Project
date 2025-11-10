@@ -1,0 +1,31 @@
+[0.025s] Invoking command in '/home/dev/Desktop/MTRN4231_Project/build/arm_controller': CMAKE_PREFIX_PATH=/home/dev/Desktop/MTRN4231_Project/install/custom_interfaces:/home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom:/home/dev/Desktop/MTRN4231_Project/install/ur5e_custom_description:/home/dev/Desktop/MTRN4231_Project/install/end_effector_description:/home/dev/Desktop/MTRN4231_Project/install/arm_controller:/opt/ros/humble /usr/bin/cmake --build /home/dev/Desktop/MTRN4231_Project/build/arm_controller -- -j12 -l12
+[0.083s] [35m[1mConsolidate compiler generated dependencies of target arm_controller_node[0m
+[0.108s] [ 50%] Built target moveit_constrain_ur
+[0.125s] [ 75%] [32mBuilding CXX object CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o[0m
+[7.751s] [01m[K/home/dev/Desktop/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:[m[K In member function ‘[01m[Kvoid ArmController::execute(const std::shared_ptr<rclcpp_action::ServerGoalHandle<custom_interfaces::action::MoveTCP> >&)[m[K’:
+[7.751s] [01m[K/home/dev/Desktop/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:250:62:[m[K [01;35m[Kwarning: [m[K‘[01m[Kusing MoveItErrorCode = class moveit::core::MoveItErrorCode[m[K’ is deprecated: Use moveit::core::MoveItErrorCode [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[7.751s]   250 | eit::planning_interface::MoveItErrorCode::[01;35m[KSUCCESS[m[K ||
+[7.751s]       |                                           [01;35m[K^~~~~~~[m[K
+[7.751s] 
+[7.751s] In file included from [01m[K/home/dev/Desktop/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:28[m[K:
+[7.751s] [01m[K/opt/ros/humble/include/moveit/move_group_interface/move_group_interface.h:71:7:[m[K [01;36m[Knote: [m[Kdeclared here
+[7.751s]    71 | using [01;36m[KMoveItErrorCode[m[K [[deprecated("Use moveit::core::MoveItErrorCode")]] = moveit::core::MoveItErrorCode;
+[7.752s]       |       [01;36m[K^~~~~~~~~~~~~~~[m[K
+[7.752s] [01m[K/home/dev/Desktop/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:257:62:[m[K [01;35m[Kwarning: [m[K‘[01m[Kusing MoveItErrorCode = class moveit::core::MoveItErrorCode[m[K’ is deprecated: Use moveit::core::MoveItErrorCode [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[7.752s]   257 | eit::planning_interface::MoveItErrorCode::[01;35m[KSUCCESS[m[K) {
+[7.752s]       |                                           [01;35m[K^~~~~~~[m[K
+[7.752s] 
+[7.752s] In file included from [01m[K/home/dev/Desktop/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:28[m[K:
+[7.752s] [01m[K/opt/ros/humble/include/moveit/move_group_interface/move_group_interface.h:71:7:[m[K [01;36m[Knote: [m[Kdeclared here
+[7.752s]    71 | using [01;36m[KMoveItErrorCode[m[K [[deprecated("Use moveit::core::MoveItErrorCode")]] = moveit::core::MoveItErrorCode;
+[7.752s]       |       [01;36m[K^~~~~~~~~~~~~~~[m[K
+[7.752s] [01m[K/home/dev/Desktop/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:261:12:[m[K [01;31m[Kerror: [m[Kconflicting declaration ‘[01m[Kauto ok[m[K’
+[7.752s]   261 |       auto [01;31m[Kok[m[K = move_group_->plan(plan);
+[7.752s]       |            [01;31m[K^~[m[K
+[7.752s] [01m[K/home/dev/Desktop/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:249:12:[m[K [01;36m[Knote: [m[Kprevious declaration as ‘[01m[Kmoveit::core::MoveItErrorCode ok[m[K’
+[7.752s]   249 |       auto [01;36m[Kok[m[K = move_group_->plan(plan);
+[7.752s]       |            [01;36m[K^~[m[K
+[10.724s] gmake[2]: *** [CMakeFiles/arm_controller_node.dir/build.make:76: CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o] Error 1
+[10.724s] gmake[1]: *** [CMakeFiles/Makefile2:139: CMakeFiles/arm_controller_node.dir/all] Error 2
+[10.724s] gmake: *** [Makefile:146: all] Error 2
+[10.728s] Invoked command in '/home/dev/Desktop/MTRN4231_Project/build/arm_controller' returned '2': CMAKE_PREFIX_PATH=/home/dev/Desktop/MTRN4231_Project/install/custom_interfaces:/home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom:/home/dev/Desktop/MTRN4231_Project/install/ur5e_custom_description:/home/dev/Desktop/MTRN4231_Project/install/end_effector_description:/home/dev/Desktop/MTRN4231_Project/install/arm_controller:/opt/ros/humble /usr/bin/cmake --build /home/dev/Desktop/MTRN4231_Project/build/arm_controller -- -j12 -l12

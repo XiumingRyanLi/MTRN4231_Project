@@ -1,0 +1,49 @@
+[0.021s] Invoking command in '/home/dev/Desktop/MTRN4231_Project/build/arm_controller': CMAKE_PREFIX_PATH=/home/dev/Desktop/MTRN4231_Project/install/custom_interfaces:/home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom:/home/dev/Desktop/MTRN4231_Project/install/ur5e_custom_description:/home/dev/Desktop/MTRN4231_Project/install/end_effector_description:/home/dev/Desktop/MTRN4231_Project/install/arm_controller:/opt/ros/humble /usr/bin/cmake --build /home/dev/Desktop/MTRN4231_Project/build/arm_controller -- -j12 -l12
+[0.077s] [35m[1mConsolidate compiler generated dependencies of target arm_controller_node[0m
+[0.100s] [ 50%] Built target moveit_constrain_ur
+[0.115s] [ 75%] [32mBuilding CXX object CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o[0m
+[7.192s] [01m[K/home/dev/Desktop/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:[m[K In member function ‘[01m[Kvoid ArmController::execute(const std::shared_ptr<rclcpp_action::ServerGoalHandle<custom_interfaces::action::MoveTCP> >&)[m[K’:
+[7.192s] [01m[K/home/dev/Desktop/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:250:62:[m[K [01;35m[Kwarning: [m[K‘[01m[Kusing MoveItErrorCode = class moveit::core::MoveItErrorCode[m[K’ is deprecated: Use moveit::core::MoveItErrorCode [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[7.193s]   250 | nning_interface::MoveItErrorCode::[01;35m[KSUCCESS[m[K ||
+[7.193s]       |                                   [01;35m[K^~~~~~~[m[K
+[7.193s] 
+[7.193s] In file included from [01m[K/home/dev/Desktop/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:28[m[K:
+[7.193s] [01m[K/opt/ros/humble/include/moveit/move_group_interface/move_group_interface.h:71:7:[m[K [01;36m[Knote: [m[Kdeclared here
+[7.193s]    71 | using [01;36m[KMoveItErrorCode[m[K [[deprecated("Use moveit::core::MoveItErrorCode")]] = moveit::core::MoveItErrorCode;
+[7.193s]       |       [01;36m[K^~~~~~~~~~~~~~~[m[K
+[7.193s] [01m[K/home/dev/Desktop/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:257:62:[m[K [01;35m[Kwarning: [m[K‘[01m[Kusing MoveItErrorCode = class moveit::core::MoveItErrorCode[m[K’ is deprecated: Use moveit::core::MoveItErrorCode [[01;35m[K]8;;https://gcc.gnu.org/onlinedocs/gcc/Warning-Options.html#index-Wdeprecated-declarations-Wdeprecated-declarations]8;;[m[K]
+[7.193s]   257 | nning_interface::MoveItErrorCode::[01;35m[KSUCCESS[m[K) {
+[7.193s]       |                                   [01;35m[K^~~~~~~[m[K
+[7.193s] 
+[7.193s] In file included from [01m[K/home/dev/Desktop/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp:28[m[K:
+[7.193s] [01m[K/opt/ros/humble/include/moveit/move_group_interface/move_group_interface.h:71:7:[m[K [01;36m[Knote: [m[Kdeclared here
+[7.193s]    71 | using [01;36m[KMoveItErrorCode[m[K [[deprecated("Use moveit::core::MoveItErrorCode")]] = moveit::core::MoveItErrorCode;
+[7.193s]       |       [01;36m[K^~~~~~~~~~~~~~~[m[K
+[11.014s] [100%] [32m[1mLinking CXX executable arm_controller_node[0m
+[11.708s] [100%] Built target arm_controller_node
+[11.720s] Invoked command in '/home/dev/Desktop/MTRN4231_Project/build/arm_controller' returned '0': CMAKE_PREFIX_PATH=/home/dev/Desktop/MTRN4231_Project/install/custom_interfaces:/home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom:/home/dev/Desktop/MTRN4231_Project/install/ur5e_custom_description:/home/dev/Desktop/MTRN4231_Project/install/end_effector_description:/home/dev/Desktop/MTRN4231_Project/install/arm_controller:/opt/ros/humble /usr/bin/cmake --build /home/dev/Desktop/MTRN4231_Project/build/arm_controller -- -j12 -l12
+[11.721s] Invoking command in '/home/dev/Desktop/MTRN4231_Project/build/arm_controller': CMAKE_PREFIX_PATH=/home/dev/Desktop/MTRN4231_Project/install/custom_interfaces:/home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom:/home/dev/Desktop/MTRN4231_Project/install/ur5e_custom_description:/home/dev/Desktop/MTRN4231_Project/install/end_effector_description:/home/dev/Desktop/MTRN4231_Project/install/arm_controller:/opt/ros/humble /usr/bin/cmake --install /home/dev/Desktop/MTRN4231_Project/build/arm_controller
+[11.728s] -- Install configuration: ""
+[11.729s] -- Installing: /home/dev/Desktop/MTRN4231_Project/install/arm_controller/lib/arm_controller/arm_controller_node
+[11.731s] -- Set runtime path of "/home/dev/Desktop/MTRN4231_Project/install/arm_controller/lib/arm_controller/arm_controller_node" to ""
+[11.731s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/arm_controller/share/arm_controller/launch
+[11.731s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/arm_controller/share/arm_controller/launch/arm_controller.launch.py
+[11.731s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/arm_controller/share/arm_controller/launch/view_combined.launch.py
+[11.731s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/arm_controller/share/arm_controller/urdf
+[11.731s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/arm_controller/share/arm_controller/urdf/ur5e_with_tool.urdf.xacro
+[11.731s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/arm_controller/share/ament_index/resource_index/package_run_dependencies/arm_controller
+[11.731s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/arm_controller/share/ament_index/resource_index/parent_prefix_path/arm_controller
+[11.732s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/arm_controller/share/arm_controller/environment/ament_prefix_path.sh
+[11.732s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/arm_controller/share/arm_controller/environment/ament_prefix_path.dsv
+[11.732s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/arm_controller/share/arm_controller/environment/path.sh
+[11.732s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/arm_controller/share/arm_controller/environment/path.dsv
+[11.732s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/arm_controller/share/arm_controller/local_setup.bash
+[11.732s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/arm_controller/share/arm_controller/local_setup.sh
+[11.732s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/arm_controller/share/arm_controller/local_setup.zsh
+[11.732s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/arm_controller/share/arm_controller/local_setup.dsv
+[11.732s] -- Installing: /home/dev/Desktop/MTRN4231_Project/install/arm_controller/share/arm_controller/package.dsv
+[11.732s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/arm_controller/share/ament_index/resource_index/packages/arm_controller
+[11.732s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/arm_controller/share/arm_controller/cmake/arm_controllerConfig.cmake
+[11.732s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/arm_controller/share/arm_controller/cmake/arm_controllerConfig-version.cmake
+[11.732s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/arm_controller/share/arm_controller/package.xml
+[11.734s] Invoked command in '/home/dev/Desktop/MTRN4231_Project/build/arm_controller' returned '0': CMAKE_PREFIX_PATH=/home/dev/Desktop/MTRN4231_Project/install/custom_interfaces:/home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom:/home/dev/Desktop/MTRN4231_Project/install/ur5e_custom_description:/home/dev/Desktop/MTRN4231_Project/install/end_effector_description:/home/dev/Desktop/MTRN4231_Project/install/arm_controller:/opt/ros/humble /usr/bin/cmake --install /home/dev/Desktop/MTRN4231_Project/build/arm_controller

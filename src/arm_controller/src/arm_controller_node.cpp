@@ -1,479 +1,258 @@
-
-
-
-
-
 #include <memory>
-#include <string>
 #include <thread>
-#include <vector>
-#include <chrono>
-#include <sensor_msgs/msg/joint_state.hpp>
-#include <atomic>
 
 #include <rclcpp/rclcpp.hpp>
 #include <rclcpp_action/rclcpp_action.hpp>
-
-#include <geometry_msgs/msg/pose_stamped.hpp>
+#include <moveit/move_group_interface/move_group_interface.h>
 #include <geometry_msgs/msg/pose.hpp>
-#include <geometry_msgs/msg/transform_stamped.hpp>
-
+#include <geometry_msgs/msg/pose_stamped.hpp>
+#include <moveit/planning_scene_interface/planning_scene_interface.h>
+#include <moveit_msgs/msg/collision_object.hpp>
+#include <moveit_msgs/msg/orientation_constraint.hpp>
+#include <moveit_msgs/msg/constraints.hpp>
+#include <moveit_msgs/msg/position_constraint.hpp>
+#include <shape_msgs/msg/solid_primitive.hpp>
 #include <tf2_geometry_msgs/tf2_geometry_msgs.hpp>
-#include <tf2/LinearMath/Quaternion.h>
-#include <tf2/LinearMath/Matrix3x3.h>
 #include <tf2_ros/transform_listener.h>
 #include <tf2_ros/buffer.h>
 
-#include <shape_msgs/msg/solid_primitive.hpp>
-#include <moveit/move_group_interface/move_group_interface.h>
-#include <moveit/planning_scene_interface/planning_scene_interface.h>
-#include <moveit_msgs/msg/constraints.hpp>
-#include <moveit_msgs/msg/orientation_constraint.hpp>
-#include <moveit_msgs/msg/position_constraint.hpp>
-#include <moveit_msgs/msg/robot_trajectory.hpp>
-
-#include <moveit_visual_tools/moveit_visual_tools.h>
-#include <Eigen/Core>
-
 #include "custom_interfaces/action/move_tcp.hpp"
 
-using custom_interfaces::action::MoveTCP;
-namespace rca = rclcpp_action;
-namespace rvt = rviz_visual_tools;
-using namespace std::chrono_literals;
+using MoveTCP = custom_interfaces::action::MoveTCP;
+using GoalHandleMoveTCP = rclcpp_action::ServerGoalHandle<MoveTCP>;
 
-class ArmController : public rclcpp::Node {
+class ArmControllerNode : public rclcpp::Node
+{
 public:
-  using GoalHandle = rca::ServerGoalHandle<MoveTCP>;
+  ArmControllerNode()
+  : Node("arm_controller_node",
+         rclcpp::NodeOptions().automatically_declare_parameters_from_overrides(true)),
+    move_group_interface_(std::shared_ptr<rclcpp::Node>(this, [](auto*){}), "ur_manipulator"),
+    tf_buffer_(this->get_clock()),
+    tf_listener_(tf_buffer_)
+  {
+    // Action server: use YOUR action and server name
+    action_server_ = rclcpp_action::create_server<MoveTCP>(
+        this,
+        "arm/pick_place",
+        std::bind(&ArmControllerNode::handle_goal, this, std::placeholders::_1, std::placeholders::_2),
+        std::bind(&ArmControllerNode::handle_cancel, this, std::placeholders::_1),
+        std::bind(&ArmControllerNode::handle_accepted, this, std::placeholders::_1));
 
-  ArmController() : rclcpp::Node("arm_controller") {
-    // ---- Parameters (safe in ctor) ------------------------------------------
-    planning_group_ = declare_parameter<std::string>("planning_group", "ur_manipulator");
-    base_frame_     = declare_parameter<std::string>("base_frame",     "base_link");
-    tcp_link_       = declare_parameter<std::string>("tcp_link",       "tool0");
+    // MoveIt setup
+    // move_group_interface_.setEndEffectorLink("tool0");
+    move_group_interface_.setPlanningTime(30.0);
+    move_group_interface_.setNumPlanningAttempts(30);
+    move_group_interface_.setPlannerId("LBKPIECEkConfigDefault"); // OMPL planner
+    move_group_interface_.setMaxVelocityScalingFactor(0.25);
+    move_group_interface_.setMaxAccelerationScalingFactor(0.25);
 
-    vel_scale_      = declare_parameter<double>("vel_scale",           0.20);
-    acc_scale_      = declare_parameter<double>("acc_scale",           0.20);
-    planning_time_  = declare_parameter<double>("planning_time",       8.0);
-    planner_id_     = declare_parameter<std::string>("planner_id",     "CartezianPath");
+    // Optional: constraints you can apply per-goal
+    // (we’ll build them inside execute)
+    setupCollisionObjects();
 
-    approach_dz_    = declare_parameter<double>("approach_dz",         0.08);
-    keep_yaw_       = declare_parameter<bool>("keep_yaw",              false);
-    execute_        = declare_parameter<bool>("execute",               true);
-    // sampling for Cartesian planning
-    eef_step_    = declare_parameter<double>("eef_step", 0.003);   // 5 mm
-    jump_thresh_ = declare_parameter<double>("jump_threshold", 0.0);
-    cart_retries_ = declare_parameter<int>("cartesian_retries", 3);
-
-    
-
-
-    // Orientation path constraint (Z-down)
-    use_orientation_constraint_ = declare_parameter<bool>("use_orientation_constraint", true);
-    oc_tol_x_     = declare_parameter<double>("oc_tol_x",   1.0);
-    oc_tol_y_     = declare_parameter<double>("oc_tol_y",   1.0);
-    oc_tol_z_     = declare_parameter<double>("oc_tol_z",   10);
-    oc_weight_    = declare_parameter<double>("oc_weight",  0.1);
-
-    // Box position constraint + visual
-    enable_box_constraint_ = declare_parameter<bool>("enable_box_constraint", true);
-    box_size_x_ = declare_parameter<double>("box_size_x", 0.40);
-    box_size_y_ = declare_parameter<double>("box_size_y", 0.80);
-    box_size_z_ = declare_parameter<double>("box_size_z", 0.70);
-    box_center_y_ = declare_parameter<double>("box_center_y", 0.45);
-    box_center_z_ = declare_parameter<double>("box_center_z", 0.45);
-    box_weight_   = declare_parameter<double>("box_weight",   1.0);
-
-    retries_ = declare_parameter<int>("plan_retries", 2);
-
-    // ---- Defer everything that needs shared_from_this() ----------------------
-    init_timer_ = create_wall_timer(200ms, [this] {
-      if (initialized_) return;
-      try { late_init(); initialized_ = true; init_timer_->cancel(); }
-      catch (const std::exception& e) {
-        RCLCPP_WARN(get_logger(), "MoveIt init retry: %s", e.what());
-      }
-    });
+    RCLCPP_INFO(this->get_logger(),
+                "ArmControllerNode ready (group=%s, tcp=%s, planner=%s)",
+                move_group_interface_.getName().c_str(),
+                move_group_interface_.getEndEffectorLink().c_str(),
+                move_group_interface_.getPlannerId().c_str());
   }
 
 private:
-  // -------- util requested by you: collision object generator ----------------
-  moveit_msgs::msg::CollisionObject generateCollisionObject(
-      float sx, float sy, float sz, float x, float y, float z,
-      const std::string& frame_id, const std::string& id) {
-    moveit_msgs::msg::CollisionObject collision_object;
-    collision_object.header.frame_id = frame_id;
-    collision_object.id = id;
-
-    shape_msgs::msg::SolidPrimitive primitive;
-    primitive.type = primitive.BOX;
-    primitive.dimensions.resize(3);
-    primitive.dimensions[shape_msgs::msg::SolidPrimitive::BOX_X] = sx;
-    primitive.dimensions[shape_msgs::msg::SolidPrimitive::BOX_Y] = sy;
-    primitive.dimensions[shape_msgs::msg::SolidPrimitive::BOX_Z] = sz;
-
-    geometry_msgs::msg::Pose box_pose;
-    box_pose.orientation.w = 1.0;
-    box_pose.position.x = x;
-    box_pose.position.y = y;
-    box_pose.position.z = z;
-
-    collision_object.primitives.push_back(primitive);
-    collision_object.primitive_poses.push_back(box_pose);
-    collision_object.operation = collision_object.ADD;
-    return collision_object;
-  }
-
-  // --------------------------- deferred init ---------------------------------
-  void late_init() {
-    auto node = shared_from_this();
-
-    // TF
-    tf_buffer_   = std::make_shared<tf2_ros::Buffer>(get_clock());
-    tf_listener_ = std::make_shared<tf2_ros::TransformListener>(*tf_buffer_);
-
-    // MoveIt interfaces
-    move_group_ = std::make_shared<moveit::planning_interface::MoveGroupInterface>(node, planning_group_);
-    move_group_->setPoseReferenceFrame(base_frame_);
-    move_group_->setEndEffectorLink(tcp_link_);
-    move_group_->setPlanningTime(planning_time_);
-    move_group_->setPlannerId(planner_id_);
-    move_group_->setMaxVelocityScalingFactor(vel_scale_);
-    move_group_->setMaxAccelerationScalingFactor(acc_scale_);
-    move_group_->setGoalPositionTolerance(0.01);
-    move_group_->setGoalOrientationTolerance(0.05);
-
-    planning_scene_interface_ = std::make_shared<moveit::planning_interface::PlanningSceneInterface>();
-
-    // Visual tools
-    moveit_visual_tools_ = std::make_shared<moveit_visual_tools::MoveItVisualTools>(
-      node, base_frame_, rvt::RVIZ_MARKER_TOPIC, move_group_->getRobotModel());
-    moveit_visual_tools_->deleteAllMarkers();
-    moveit_visual_tools_->loadRemoteControl();
-    moveit_visual_tools_->trigger();
-
-    // Seed static scene (table/walls/box demo)
-    seed_environment();
-
-    // Action server
-    action_server_ = rca::create_server<MoveTCP>(
-      node,
-      "arm/pick_place",
-      std::bind(&ArmController::handle_goal,     this, std::placeholders::_1, std::placeholders::_2),
-      std::bind(&ArmController::handle_cancel,   this, std::placeholders::_1),
-      std::bind(&ArmController::handle_accepted, this, std::placeholders::_1));
-
-    RCLCPP_INFO(get_logger(),
-      "ArmController ready — /arm/pick_place, group=%s, tcp=%s, base=%s",
-      planning_group_.c_str(), tcp_link_.c_str(), base_frame_.c_str());
-  }
-
-  void seed_environment() {
-    const std::string frame_id = move_group_->getPlanningFrame();
-
-    // your requested objects:
-    // auto collision_object     = generateCollisionObject(0.08f, 0.6f, 0.57f, 0.5f, 0.2f, 0.2f, frame_id, "box");
-    auto col_object_table     = generateCollisionObject(2.4f, 1.2f, 0.04f, 0.85f, 0.25f, -0.03f, frame_id, "table");
-    auto col_object_backWall  = generateCollisionObject(2.4f, 0.04f, 1.0f, 0.85f, -0.45f, 0.5f, frame_id, "backWall");
-    auto col_object_sideWall  = generateCollisionObject(0.04f, 1.2f, 1.0f, -0.45f, 0.25f, 0.5f, frame_id, "sideWall");
-
-    std::vector<moveit_msgs::msg::CollisionObject> objs;
-    objs.push_back(col_object_table);
-    objs.push_back(col_object_backWall);
-    objs.push_back(col_object_sideWall);
-    // (optional) objs.push_back(collision_object);
-
-    planning_scene_interface_->applyCollisionObjects(objs);
-  }
-
-  // --------------------------- action plumbing -------------------------------
-  rca::GoalResponse handle_goal(const rclcpp_action::GoalUUID&,
-                                std::shared_ptr<const MoveTCP::Goal> goal) {
-    if (!goal || goal->pick_pose.header.frame_id.empty())
-      return rca::GoalResponse::REJECT;
-    return rca::GoalResponse::ACCEPT_AND_EXECUTE;
-  }
-  rca::CancelResponse handle_cancel(const std::shared_ptr<GoalHandle>) {
-    if (move_group_) move_group_->stop();
-    return rca::CancelResponse::ACCEPT;
-  }
-  void handle_accepted(const std::shared_ptr<GoalHandle> gh) {
-    std::thread([this, gh]() { execute(gh); }).detach();
-  }
-
-
-  // ------------------------------ execute ------------------------------------
-  void execute(const std::shared_ptr<GoalHandle>& gh) {
-    auto result = std::make_shared<MoveTCP::Result>();
-    if (!move_group_) { result->success=false; result->message="MoveGroup not ready"; gh->abort(result); return; }
-
-    // Transform goal to base frame
-    geometry_msgs::msg::PoseStamped pick_in_base;
-    if (!transform_to_base(gh->get_goal()->pick_pose, pick_in_base)) {
-      result->success = false; result->message = "TF transform failed"; gh->abort(result); return;
-    }
-
-    // Force Z-down orientation (optionally keep yaw)
-    pick_in_base.pose.orientation = tf2::toMsg(make_down_quat(pick_in_base.pose.orientation, keep_yaw_));
-
-    // Build + apply constraints (box + orientation), and visualize the box
-    if (enable_box_constraint_) {
-      apply_and_visualize_box_constraint(pick_in_base.pose.position.x);
-    } else {
-      move_group_->clearPathConstraints();
-    }
-    if (use_orientation_constraint_) {
-      auto c = create_path_constraints();
-      // merge (box constraint may already be set)
-      auto existing = move_group_->getPathConstraints();
-      existing.orientation_constraints.insert(existing.orientation_constraints.end(),
-                                              c.orientation_constraints.begin(),
-                                              c.orientation_constraints.end());
-      move_group_->setPathConstraints(existing);
-    }
-
-    // Stages: approach -> descend -> retreat
-    geometry_msgs::msg::Pose approach = pick_in_base.pose;
-    approach.position.z += approach_dz_;
-
-    if (!plan_with_fallbacks(approach, "approach_action", gh)) { return fail(gh, result, "approach_action"); }
-    // if (!plan_with_fallbacks(pick_in_base.pose, "descend_action", gh)) { return fail(gh, result, "descend_action"); }
-
-    // geometry_msgs::msg::Pose retreat = pick_in_base.pose;
-    // retreat.position.z += approach_dz_;
-    // if (!plan_with_fallbacks(retreat, "retreat", gh)) { return fail(gh, result, "retreat"); }
-
-    // clear visuals after success
-    if (moveit_visual_tools_) { moveit_visual_tools_->deleteAllMarkers(); moveit_visual_tools_->trigger(); }
-    move_group_->clearPathConstraints();
-
-    result->success = true; result->message = "OK";
-    gh->succeed(result);
-  }
-
-  // ------------------------- constraints & visuals ---------------------------
-  moveit_msgs::msg::Constraints create_path_constraints() {
-    moveit_msgs::msg::Constraints cons;
-
-    // Keep TCP tool-down (yaw free)
-    moveit_msgs::msg::OrientationConstraint oc;
-    oc.header.frame_id = base_frame_;
-    oc.link_name       = tcp_link_;
-    oc.orientation.x = 1.0; oc.orientation.y = 0.0; oc.orientation.z = 0.0; oc.orientation.w = 0.0; // roll=pi
-    oc.absolute_x_axis_tolerance = 0.05;   // ~3°
-    oc.absolute_y_axis_tolerance = 0.05;
-    oc.absolute_z_axis_tolerance = 3.14;   // free yaw
-    oc.weight = 1.0;
-    cons.orientation_constraints.push_back(oc);
-
-    // Gentle elbow-out / shoulder-down / wrist-2 ~90° biases
-    auto make_jc = [](const std::string& n, double pos, double up, double down, double w=0.5){
-      moveit_msgs::msg::JointConstraint jc;
-      jc.joint_name = n;
-      jc.position = pos;
-      jc.tolerance_above = up;
-      jc.tolerance_below = down;
-      jc.weight = w;
-      return jc;
-    };
-    cons.joint_constraints.push_back(make_jc("shoulder_lift_joint", -1.2, 0.6, 0.6)); // ~[-1.8,-0.6]
-    cons.joint_constraints.push_back(make_jc("elbow_joint",          1.6,  0.8, 0.8)); // ~[0.8,2.4]
-    cons.joint_constraints.push_back(make_jc("wrist_2_joint",        1.57, 1.57, 1.57, 0.2));
-
-    return cons;
-  }
-
-
-  void apply_and_visualize_box_constraint(double center_x) {
-    // Build box primitive for constraint
-    shape_msgs::msg::SolidPrimitive box;
-    box.type = shape_msgs::msg::SolidPrimitive::BOX;
-    box.dimensions = { box_size_x_, box_size_y_, box_size_z_ };
-
-    geometry_msgs::msg::Pose box_pose;
-    box_pose.orientation.w = 1.0;
-    box_pose.position.x = center_x;
-    box_pose.position.y = box_center_y_;
-    box_pose.position.z = box_center_z_;
-
-    // Visualize the cuboid in RViz
-    if (moveit_visual_tools_) {
-      Eigen::Vector3d p1(
-        box_pose.position.x - box.dimensions[0] / 2.0,
-        box_pose.position.y - box.dimensions[1] / 2.0,
-        box_pose.position.z - box.dimensions[2] / 2.0);
-      Eigen::Vector3d p2(
-        box_pose.position.x + box.dimensions[0] / 2.0,
-        box_pose.position.y + box.dimensions[1] / 2.0,
-        box_pose.position.z + box.dimensions[2] / 2.0);
-      moveit_visual_tools_->publishCuboid(p1, p2, rvt::TRANSLUCENT_DARK);
-      moveit_visual_tools_->trigger();
-    }
-
-    // Apply as path PositionConstraint on TCP
-    moveit_msgs::msg::PositionConstraint pc;
-    pc.header.frame_id = base_frame_;
-    pc.link_name       = tcp_link_;
-    pc.constraint_region.primitives.emplace_back(box);
-    pc.constraint_region.primitive_poses.emplace_back(box_pose);
-    pc.weight = box_weight_;
-
-    moveit_msgs::msg::Constraints cons = move_group_->getPathConstraints();
-    cons.position_constraints.clear();
-    cons.position_constraints.emplace_back(pc);
-    move_group_->setPathConstraints(cons);
-  }
-
-  // --------------------------- planning wrappers -----------------------------
-  void prep_planning() {
-    move_group_->stop();
-    move_group_->clearPoseTargets();
-    move_group_->setStartStateToCurrentState();
-    move_group_->setPlanningTime(planning_time_);
-    move_group_->setMaxVelocityScalingFactor(vel_scale_);
-    move_group_->setMaxAccelerationScalingFactor(acc_scale_);
-    move_group_->setPlannerId(planner_id_);
-  }
-
-  geometry_msgs::msg::Pose normalizeQ(geometry_msgs::msg::Pose p) {
-    tf2::Quaternion q; tf2::fromMsg(p.orientation, q); q.normalize();
-    p.orientation = tf2::toMsg(q);
-    return p;
-  }
-
-
-  bool plan_with_fallbacks(const geometry_msgs::msg::Pose& target_in,
-                         const std::string& stage,
-                         const std::shared_ptr<GoalHandle>& gh)
+  // ---------- Action server plumbing ----------
+  rclcpp_action::GoalResponse handle_goal(
+      const rclcpp_action::GoalUUID&,
+      std::shared_ptr<const MoveTCP::Goal> goal)
   {
-    publish_feedback(gh, stage, 0.0);
+    const auto frame = goal ? goal->pick_pose.header.frame_id : std::string{};
+    RCLCPP_INFO(this->get_logger(), "Received MoveTCP goal (frame=%s)", frame.c_str());
+    if (!goal || frame.empty()) return rclcpp_action::GoalResponse::REJECT;
+    return rclcpp_action::GoalResponse::ACCEPT_AND_EXECUTE;
+  }
 
-    // Build waypoints: start -> (x0,y0, z=target.z) -> target
-    geometry_msgs::msg::Pose start = move_group_->getCurrentPose(tcp_link_).pose;
-    start = normalizeQ(start);
+  rclcpp_action::CancelResponse handle_cancel(const std::shared_ptr<GoalHandleMoveTCP>)
+  {
+    RCLCPP_INFO(this->get_logger(), "Canceling current goal");
+    move_group_interface_.stop();
+    return rclcpp_action::CancelResponse::ACCEPT;
+  }
 
-    geometry_msgs::msg::Pose target = normalizeQ(target_in);
+  void handle_accepted(const std::shared_ptr<GoalHandleMoveTCP> goal_handle)
+  {
+    std::thread{std::bind(&ArmControllerNode::execute, this, goal_handle)}.detach();
+  }
 
-    // geometry_msgs::msg::Pose mid = start;
-    // mid.position.z = target.position.z;     // vertical leg first
+  // ---------- Execute one goal (plan -> execute with OMPL) ----------
+  void execute(const std::shared_ptr<GoalHandleMoveTCP> goal_handle)
+  {
+    const auto goal = goal_handle->get_goal();
 
-    // If start.z already equals target.z (within 0.5 mm), skip the mid waypoint.
-    std::vector<geometry_msgs::msg::Pose> waypoints;
-    waypoints.reserve(3);
-    waypoints.push_back(start);
-    // if (std::fabs(start.position.z - target.position.z) > 5e-4)
-    //   waypoints.push_back(mid);
-    waypoints.push_back(target);
+    // 1) Resolve target pose (your action carries PoseStamped: pick_pose)
+    geometry_msgs::msg::PoseStamped pick_in_base = goal->pick_pose;
+    if (pick_in_base.header.frame_id.empty())
+    {
+      RCLCPP_ERROR(this->get_logger(), "Empty frame_id in goal.");
+      auto res = std::make_shared<MoveTCP::Result>(); res->success = false; res->message = "empty frame";
+      goal_handle->abort(res); return;
+    }
 
-    moveit_msgs::msg::RobotTrajectory traj;
-
-    for (int i = 0; i < std::max(1, cart_retries_); ++i) {
-      prep_planning();
-      double fraction = move_group_->computeCartesianPath(
-          waypoints, eef_step_, jump_thresh_, traj,
-          /*avoid_collisions=*/true);
-
-      if (fraction >= 0.5) {
-        // Execute (or dry-run if execute_==false)
-        if (!execute_) {
-          RCLCPP_INFO(get_logger(), "[%s] Cartesian planned (execute:=false).", stage.c_str());
-          return true;
-        }
-        moveit::planning_interface::MoveGroupInterface::Plan plan;
-        plan.trajectory_ = traj;
-        auto ok = move_group_->execute(plan);
-        if (ok == moveit::core::MoveItErrorCode::SUCCESS) return true;
-
-        RCLCPP_WARN(get_logger(), "[%s] Execution failed; retry %d", stage.c_str(), i+1);
-      } else {
-        RCLCPP_WARN(get_logger(), "[%s] Cartesian fraction=%.3f; retry %d",
-                    stage.c_str(), fraction, i+1);
+    // Transform to planning frame if needed
+    const std::string planning_frame = move_group_interface_.getPlanningFrame();
+    if (pick_in_base.header.frame_id != planning_frame)
+    {
+      try {
+        geometry_msgs::msg::TransformStamped tf_stamped =
+            tf_buffer_.lookupTransform(planning_frame, pick_in_base.header.frame_id, tf2::TimePointZero);
+        geometry_msgs::msg::PoseStamped transformed;
+        tf2::doTransform(pick_in_base, transformed, tf_stamped);
+        pick_in_base = transformed;
+      } catch (tf2::TransformException& ex) {
+        RCLCPP_ERROR(this->get_logger(), "TF transform failed: %s", ex.what());
+        auto res = std::make_shared<MoveTCP::Result>(); res->success = false; res->message = "tf failed";
+        goal_handle->abort(res); return;
       }
-      rclcpp::sleep_for(50ms);
     }
 
-    RCLCPP_ERROR(get_logger(), "[%s] Cartesian planning failed.", stage.c_str());
-    return false;
-  }
-
-  // ------------------------------- helpers -----------------------------------
-  tf2::Quaternion make_down_quat(const geometry_msgs::msg::Quaternion& src, bool keep_yaw) {
-    tf2::Quaternion q_src; tf2::fromMsg(src, q_src);
-    double r, p, y; tf2::Matrix3x3(q_src).getRPY(r, p, y);
-    if (!keep_yaw) y = 0.0;
-    tf2::Quaternion q_down; q_down.setRPY(0.0, M_PI, y);
-    q_down.normalize();
-    return q_down;
-  }
-
-  bool transform_to_base(const geometry_msgs::msg::PoseStamped& in,
-                         geometry_msgs::msg::PoseStamped& out) {
-    if (in.header.frame_id.empty() || in.header.frame_id == base_frame_) {
-      out = in; out.header.frame_id = base_frame_;
-      if (out.header.stamp.sec == 0 && out.header.stamp.nanosec == 0) out.header.stamp = now();
-      return true;
+    // 2) Force tool-down (roll=pi, optional yaw free)
+    {
+      tf2::Quaternion q_src; tf2::fromMsg(pick_in_base.pose.orientation, q_src);
+      double r, p, y; tf2::Matrix3x3(q_src).getRPY(r, p, y);
+      tf2::Quaternion q_down; q_down.setRPY(0.0, M_PI, 0.0); // yaw=0 to standardize
+      q_down.normalize();
+      pick_in_base.pose.orientation = tf2::toMsg(q_down);
     }
-    try {
-      geometry_msgs::msg::TransformStamped tf =
-        tf_buffer_->lookupTransform(base_frame_, in.header.frame_id, tf2::TimePointZero);
-      tf2::doTransform(in, out, tf);
-      return true;
-    } catch (const tf2::TransformException& ex) {
-      RCLCPP_ERROR(get_logger(), "TF error: %s", ex.what());
+
+    // 3) Build constraints (orientation + gentle joint bias) like the sample
+    moveit_msgs::msg::Constraints constraints = setOrientationDownConstraint();
+    constraints.joint_constraints.push_back(createJointConstraint("shoulder_lift_joint", -1.2, 1.0, 1.0, 0.5));
+    constraints.joint_constraints.push_back(createJointConstraint("elbow_joint",          1.6,  1.2, 1.2, 0.5));
+    constraints.joint_constraints.push_back(createJointConstraint("wrist_2_joint",        1.57, 1.57, 1.57, 0.2));
+
+    // 4) Split into approach and pick (like your original logic but OMPL only)
+    geometry_msgs::msg::Pose approach = pick_in_base.pose;
+    approach.position.z += 0.10; // approach offset
+
+    bool ok =
+      plan_and_execute_to_pose(approach, constraints, "approach") &&
+      plan_and_execute_to_pose(pick_in_base.pose, constraints, "descend");
+
+    auto result = std::make_shared<MoveTCP::Result>();
+    if (ok) {
+      result->success = true;  result->message = "OK";
+      goal_handle->succeed(result);
+    } else {
+      result->success = false; result->message = "planning failed";
+      goal_handle->abort(result);
+    }
+  }
+
+  // ---------- One OMPL plan+execute to a pose with constraints ----------
+  bool plan_and_execute_to_pose(const geometry_msgs::msg::Pose& target,
+                                const moveit_msgs::msg::Constraints& cstr,
+                                const std::string& tag)
+  {
+    move_group_interface_.stop();
+    move_group_interface_.clearPoseTargets();
+    move_group_interface_.clearPathConstraints();
+
+    // Apply constraints
+    move_group_interface_.setPathConstraints(cstr);
+    move_group_interface_.setPoseTarget(target, move_group_interface_.getEndEffectorLink());
+
+    moveit::planning_interface::MoveGroupInterface::Plan plan;
+    auto ok = move_group_interface_.plan(plan);
+    if (!ok || plan.trajectory_.joint_trajectory.points.size() < 2) {
+      RCLCPP_ERROR(this->get_logger(), "[%s] plan failed or too short.", tag.c_str());
+      move_group_interface_.clearPathConstraints();
       return false;
     }
+    ok = move_group_interface_.execute(plan);
+    move_group_interface_.clearPathConstraints();
+    if (!ok) {
+      RCLCPP_ERROR(this->get_logger(), "[%s] execute failed.", tag.c_str());
+      return false;
+    }
+    return true;
   }
 
-  void publish_feedback(const std::shared_ptr<GoalHandle>& gh,
-                        const std::string& stage, double percent) {
-    auto fb = std::make_shared<MoveTCP::Feedback>();
-    fb->stage = stage;
-    fb->progress_percent = percent;
-    gh->publish_feedback(fb);
+  // ---------- Constraints & scene, matching the sample’s style ----------
+  moveit_msgs::msg::Constraints setOrientationDownConstraint()
+  {
+    moveit_msgs::msg::Constraints constraints;
+    moveit_msgs::msg::OrientationConstraint ocm;
+
+    ocm.link_name = move_group_interface_.getEndEffectorLink();
+    ocm.header.frame_id = move_group_interface_.getPlanningFrame();
+    ocm.absolute_x_axis_tolerance = 0.3;
+    ocm.absolute_y_axis_tolerance = 0.3;
+    ocm.absolute_z_axis_tolerance = 3.14; // free yaw
+    ocm.weight = 1.0;
+
+    tf2::Quaternion q; q.setRPY(0, M_PI, 0); // tool-down
+    ocm.orientation = tf2::toMsg(q);
+
+    constraints.orientation_constraints.push_back(ocm);
+    return constraints;
   }
 
-  void fail(const std::shared_ptr<GoalHandle>& gh,
-            const std::shared_ptr<MoveTCP::Result>& res,
-            const std::string& where) {
-    res->success = false;
-    res->message = "Failed at stage: " + where;
-    gh->abort(res);
+  moveit_msgs::msg::JointConstraint createJointConstraint(
+      const std::string& joint_name, double position, double tol_above,
+      double tol_below, double weight)
+  {
+    moveit_msgs::msg::JointConstraint jc;
+    jc.joint_name = joint_name;
+    jc.position = position;
+    jc.tolerance_above = tol_above;
+    jc.tolerance_below = tol_below;
+    jc.weight = weight;
+    return jc;
   }
 
-  // ------------------------------- members -----------------------------------
-  std::shared_ptr<moveit::planning_interface::MoveGroupInterface> move_group_;
-  std::shared_ptr<moveit::planning_interface::PlanningSceneInterface> planning_scene_interface_;
+  void setupCollisionObjects()
+  {
+    moveit::planning_interface::PlanningSceneInterface psi;
+    const std::string frame_id = move_group_interface_.getPlanningFrame();
 
-  std::shared_ptr<moveit_visual_tools::MoveItVisualTools> moveit_visual_tools_;
+    psi.applyCollisionObject(generateCollisionObject(2.4, 0.04, 1.0, 0.85, -0.30, 0.5, frame_id, "backWall"));
+    psi.applyCollisionObject(generateCollisionObject(0.04, 1.2, 1.0, -0.30, 0.25, 0.5, frame_id, "sideWall"));
+    psi.applyCollisionObject(generateCollisionObject(2.4, 2.4, 0.01, 0.85, 0.25, 0.013, frame_id, "table"));
+    psi.applyCollisionObject(generateCollisionObject(2.4, 2.4, 0.04, 0.85, 0.25, 1.2, frame_id, "ceiling"));
+  }
 
-  std::string planning_group_, base_frame_, tcp_link_, planner_id_;
-  double vel_scale_{0.2}, acc_scale_{0.2}, planning_time_{10.0};
-  double approach_dz_{0.08};
-  bool keep_yaw_{false};
-  bool execute_{true};
-  int  retries_{2};
-  int  cart_retries_{3};
-  double eef_step_{0.005};
-  double jump_thresh_{0.0};
+  moveit_msgs::msg::CollisionObject generateCollisionObject(
+      float sx, float sy, float sz, float x, float y, float z,
+      const std::string& frame_id, const std::string& id)
+  {
+    moveit_msgs::msg::CollisionObject co;
+    co.header.frame_id = frame_id;
+    co.id = id;
 
-  // constraints
-  bool use_orientation_constraint_{false};
-  bool enable_box_constraint_{false};
-  double oc_tol_x_{0.1}, oc_tol_y_{0.1}, oc_tol_z_{3.14}, oc_weight_{0.1};
-  double box_size_x_{0.40}, box_size_y_{0.80}, box_size_z_{0.70};
-  double box_center_y_{0.45}, box_center_z_{0.45}, box_weight_{1.0};
+    shape_msgs::msg::SolidPrimitive prim;
+    prim.type = prim.BOX;
+    prim.dimensions = {sx, sy, sz};
 
-  // infra
-  rca::Server<MoveTCP>::SharedPtr action_server_;
-  std::shared_ptr<tf2_ros::Buffer> tf_buffer_;
-  std::shared_ptr<tf2_ros::TransformListener> tf_listener_;
-  rclcpp::TimerBase::SharedPtr init_timer_;
-  bool initialized_{false};
+    geometry_msgs::msg::Pose p;
+    p.orientation.w = 1.0;
+    p.position.x = x; p.position.y = y; p.position.z = z;
+
+    co.primitives.push_back(prim);
+    co.primitive_poses.push_back(p);
+    co.operation = co.ADD;
+    return co;
+  }
+
+  // ---------- Members (match sample layout) ----------
+  moveit::planning_interface::MoveGroupInterface move_group_interface_;
+  tf2_ros::Buffer tf_buffer_;
+  tf2_ros::TransformListener tf_listener_;
+  rclcpp_action::Server<MoveTCP>::SharedPtr action_server_;
 };
 
-int main(int argc, char** argv) {
+int main(int argc, char** argv)
+{
   rclcpp::init(argc, argv);
-  rclcpp::spin(std::make_shared<ArmController>());
+  auto node = std::make_shared<ArmControllerNode>();
+  rclcpp::spin(node);
   rclcpp::shutdown();
   return 0;
 }
