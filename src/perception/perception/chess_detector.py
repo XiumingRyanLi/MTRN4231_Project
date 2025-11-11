@@ -388,7 +388,7 @@ class ChessBoardDetectorNode(Node):
         """Detect all pieces on the board"""
         piece_color_ranges = {
             'black': (np.array([0, 0, 0]), np.array([75, 60, 60])),
-            'white': (np.array([170, 175, 130]), np.array([255, 255, 255]))
+            'white': (np.array([180, 175, 130]), np.array([255, 255, 255]))
         }
         
         occupancy_dict = {}
@@ -398,7 +398,7 @@ class ChessBoardDetectorNode(Node):
             occupancy_dict[cell_num] = piece_color
         
 
-        x, y = self.get_cell_center(coord_dict[58])
+        x, y = self.get_cell_center(coord_dict[39])
         samples = self.get_sample_region(x, y)
 
         for x, y in samples:

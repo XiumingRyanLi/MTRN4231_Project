@@ -89,7 +89,7 @@ class UserInterface(tk.Tk):
 
         # create take picture publisher
         self.take_pic_pub = self.node.create_publisher(
-            Empty, 'take_picture', 10)
+            Empty, '/take_picture', 10)
 
         # create player move subscriber
         # self.move_sub = self.node.create_subscription(String, 'player_move', self.move_callback, 10)

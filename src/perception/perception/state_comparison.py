@@ -50,13 +50,7 @@ class ChessMoveDetector(Node):
                     move_msg.data = move_info
                     self.move_pub.publish(move_msg)
                     
-                    if 'move_notation' in move_info:
-                        self.get_logger().info(
-                            f"Move detected: {move_info['move_notation']} "
-                            f"({'capture' if move_info['is_capture'] else 'normal'})"
-                        )
-                    else:
-                        self.get_logger().warn(f"Unexpected move pattern: {move_info['note']}")
+                    self.get_logger().info(f"Move detected: {move_info}")
                 else:
                     self.get_logger().debug("Occupancy unchanged, skipping move detection")
             
@@ -122,11 +116,11 @@ class ChessMoveDetector(Node):
                
             
         else:
-            return {
-                'from_squares': from_squares,
-                'to_squares': to_squares,
-                'note': 'Unexpected move pattern detected'
-            }
+            return 'Unexpected move pattern detected'
+                # 'from_squares': from_squares,
+                # 'to_squares': to_squares,
+                # 'note': 
+            
     
     def cell_to_algebraic(self, cell_num):
         """Convert cell number (0-63) to algebraic notation (a1-h8)"""
