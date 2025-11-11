@@ -26,8 +26,8 @@ class ChessMoveDetector(Node):
         )
         
         # Store previous occupancy state
-        self.occupancy_before = {1: 'black', 2: 'empty', 3: 'black', 4: 'black', 5: 'black', 6: 'black', 7: 'black', 8: 'black', 9: 'black', 10: 'black', 11: 'black', 12: 'black', 13: 'black', 14: 'black', 15: 'black', 16: 'black', 17: 'empty', 18: 'empty', 19: 'black', 20: 'empty', 21: 'empty', 22: 'empty', 23: 'empty', 24: 'empty', 25: 'empty', 26: 'empty', 27: 'empty', 28: 'empty', 29: 'empty', 30: 'empty', 31: 'empty', 32: 'empty', 33: 'empty', 34: 'empty', 35: 'empty', 36: 'white', 37: 'empty', 38: 'empty', 39: 'empty', 40: 'empty', 41: 'empty', 42: 'empty', 43: 'empty', 44: 'empty', 45: 'empty', 46: 'empty', 47: 'empty', 48: 'empty', 49: 'white', 50: 'white', 51: 'white', 52: 'empty', 53: 'white', 54: 'white', 55: 'white', 56: 'white', 57: 'white', 58: 'white', 59: 'white', 60: 'white', 61: 'white', 62: 'white', 63: 'white', 64: 'white'}
-        
+        #self.occupancy_before = {1: 'black', 2: 'empty', 3: 'black', 4: 'black', 5: 'black', 6: 'black', 7: 'black', 8: 'black', 9: 'black', 10: 'black', 11: 'black', 12: 'black', 13: 'black', 14: 'black', 15: 'black', 16: 'black', 17: 'empty', 18: 'empty', 19: 'black', 20: 'empty', 21: 'empty', 22: 'empty', 23: 'empty', 24: 'empty', 25: 'empty', 26: 'empty', 27: 'empty', 28: 'empty', 29: 'empty', 30: 'empty', 31: 'empty', 32: 'empty', 33: 'empty', 34: 'empty', 35: 'empty', 36: 'white', 37: 'empty', 38: 'empty', 39: 'empty', 40: 'empty', 41: 'empty', 42: 'empty', 43: 'empty', 44: 'empty', 45: 'empty', 46: 'empty', 47: 'empty', 48: 'empty', 49: 'white', 50: 'white', 51: 'white', 52: 'empty', 53: 'white', 54: 'white', 55: 'white', 56: 'white', 57: 'white', 58: 'white', 59: 'white', 60: 'white', 61: 'white', 62: 'white', 63: 'white', 64: 'white'}
+        self.occupancy_before = None
         self.get_logger().info('Chess Move Detector Node initialized')
     
     def occupancy_callback(self, msg):
@@ -47,7 +47,7 @@ class ChessMoveDetector(Node):
                     
                     # Publish the detected move
                     move_msg = String()
-                    move_msg.data = json.dumps(move_info)
+                    move_msg.data = move_info
                     self.move_pub.publish(move_msg)
                     
                     if 'move_notation' in move_info:
@@ -114,13 +114,13 @@ class ChessMoveDetector(Node):
             from_algebraic = self.cell_to_algebraic(int(from_squares[0]))
             to_algebraic = self.cell_to_algebraic(int(to_squares[0]))
             
-            return {
-                'from_square': from_squares[0],
-                'to_square': to_squares[0],
-                'piece_color': occupancy_dict_after[to_squares[0]],
-                'is_capture': is_capture,
-                'move_notation': f"{from_algebraic}{to_algebraic}"
-            }
+            return  f"{from_algebraic}{to_algebraic}"
+                # 'from_square': from_squares[0],
+                # 'to_square': to_squares[0],
+                # 'piece_color': occupancy_dict_after[to_squares[0]],
+                # 'is_capture': is_capture,
+               
+            
         else:
             return {
                 'from_squares': from_squares,
@@ -130,10 +130,19 @@ class ChessMoveDetector(Node):
     
     def cell_to_algebraic(self, cell_num):
         """Convert cell number (0-63) to algebraic notation (a1-h8)"""
+        cell_num -= 1
+        #self.get_logger().info(cell_num)
         row = cell_num // 8
+        #self.get_logger().info("row:" + row)
         col = cell_num % 8
-        file = chr(ord('a') + col)  # Convert column to letter (a-h)
+        #self.get_logger().info("col:" + col)
+
+        file = chr(ord('h') - col)  # Convert column to letter (a-h)
+        #self.get_logger().info("file:" + file)
+
         rank = str(8 - row)  # Convert row to rank (8-1)
+        #self.get_logger().info("rank:" + rank)
+
         return f"{file}{rank}"
 
 
