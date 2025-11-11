@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<robot name="end_effector_only" xmlns:xacro="http://ros.org/wiki/xacro">
+  <xacro:include filename="$(find end_effector_description)/urdf/end_effector.urdf.xacro"/>
+  <link name="ee_root_link"/>
+  <xacro:end_effector prefix="ee_" parent="ee_root_link"/>
+</robot>

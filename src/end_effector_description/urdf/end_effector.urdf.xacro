@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<robot name="claw_end_effector" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- mm → m scale -->
+  <xacro:property name="scale" value="0.001"/>
+
+  <!-- Simple mass/inertia placeholders (tune later) -->
+  <xacro:property name="m" value="0.5"/>
+  <xacro:property name="I" value="1.0"/>
+
+  <!-- Macro: a single mesh link and a fixed joint to its parent -->
+  <xacro:macro name="end_effector" params="prefix parent">
+    <link name="${prefix}claw">
+      <visual>
+        <geometry>
+          <mesh filename="package://end_effector_description/meshes/claw_assembly.stl"
+                scale="${scale} ${scale} ${scale}"/>
+        </geometry>
+      </visual>
+      <collision>
+        <geometry>
+          <mesh filename="package://end_effector_description/meshes/claw_assembly.stl"
+                scale="${scale} ${scale} ${scale}"/>
+        </geometry>
+      </collision>
+      <inertial>
+        <mass value="${m}"/>
+        <inertia ixx="${I}" iyy="${I}" izz="${I}" ixy="0" ixz="0" iyz="0"/>
+      </inertial>
+    </link>
+
+    <!-- Mount (adjust pose to suit your CAD) -->
+    <joint name="${prefix}mount_joint" type="fixed">
+      <parent link="${parent}"/>
+      <child  link="${prefix}claw"/>
+      <!-- Example: 110 mm forward, flip 180° about Y -->
+      <origin xyz="0 0 0.11" rpy="0 ${pi} 0"/>
+    </joint>
+  </xacro:macro>
+
+</robot>

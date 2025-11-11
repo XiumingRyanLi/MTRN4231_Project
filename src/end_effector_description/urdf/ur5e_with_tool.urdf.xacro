@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<robot name="ur5e_with_claw" xmlns:xacro="http://ros.org/wiki/xacro">
+
+  <!-- REQUIRED by ur_macro.xacro -->
+  <xacro:arg name="name"   default="ur"/>
+  <xacro:arg name="prefix" default=""/>
+
+  <!-- Include the UR macro that defines xacro:ur_robot (your system has this) -->
+  <xacro:include filename="$(find ur_description)/urdf/ur_macro.xacro"/>
+
+  <!-- Instantiate the UR5e by passing the UR5e config files directly.
+       NOTE: No 'ur_type' param here (your ur_robot doesn't take it). -->
+  <xacro:ur_robot
+      name="${name}"
+      prefix="${prefix}"
+      joint_limit_params ="$(find ur_description)/config/ur5e/joint_limits.yaml"
+      kinematics_params  ="$(find ur_description)/config/ur5e/default_kinematics.yaml"
+      physical_params    ="$(find ur_description)/config/ur5e/physical_parameters.yaml"
+      visual_params      ="$(find ur_description)/config/ur5e/visual_parameters.yaml"
+      safety_limits="true"
+      safety_pos_margin="0.15"
+      safety_k_position="20"/>
+
+  <!-- Include and mount your claw -->
+  <xacro:include filename="$(find end_effector_description)/urdf/end_effector.urdf.xacro"/>
+  <xacro:end_effector prefix="ee_" parent="${prefix}tool0"/>
+
+</robot>
