@@ -1,12 +1,1 @@
-# Goal
-geometry_msgs/PoseStamped pick_pose
-
----
-# Result
-bool   success
-string message
-
----
-# Feedback
-float64 progress_percent
-string  stage
+/home/ryanl/4231/MTRN4231_Project/src/custom_interfaces/action/MoveTCP.action

@@ -1,40 +1,53 @@
 <?xml version="1.0"?>
-<robot name="claw_end_effector" xmlns:xacro="http://ros.org/wiki/xacro">
+<robot name="end_effector" xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <!-- mm → m scale -->
-  <xacro:property name="scale" value="0.001"/>
+  <!-- Constants -->
+  <xacro:property name="scale_factor" value="0.001"/>
+  <xacro:property name="mass_value" value="0.5"/>
+  <xacro:property name="inertia_value" value="1.0"/>
 
-  <!-- Simple mass/inertia placeholders (tune later) -->
-  <xacro:property name="m" value="0.5"/>
-  <xacro:property name="I" value="1.0"/>
-
-  <!-- Macro: a single mesh link and a fixed joint to its parent -->
-  <xacro:macro name="end_effector" params="prefix parent">
-    <link name="${prefix}claw">
+  <!-- Helper: mesh link with inertial -->
+  <xacro:macro name="add_mesh_link" params="link_name mesh_path">
+    <link name="${link_name}">
       <visual>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://end_effector_description/meshes/claw_assembly.stl"
-                scale="${scale} ${scale} ${scale}"/>
+          <mesh filename="${mesh_path}" scale="${scale_factor} ${scale_factor} ${scale_factor}"/>
         </geometry>
       </visual>
+
+      <!-- Use a simple box for collision (faster & more robust than STL) -->
       <collision>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
         <geometry>
-          <mesh filename="package://end_effector_description/meshes/claw_assembly.stl"
-                scale="${scale} ${scale} ${scale}"/>
+          <!-- tune these to roughly bound your gripper -->
+          <box size="0.06 0.09 0.11"/>
         </geometry>
       </collision>
+
       <inertial>
-        <mass value="${m}"/>
-        <inertia ixx="${I}" iyy="${I}" izz="${I}" ixy="0" ixz="0" iyz="0"/>
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <mass value="${mass_value}"/>
+        <inertia ixx="${inertia_value}" ixy="0" ixz="0"
+                 iyy="${inertia_value}" iyz="0"
+                 izz="${inertia_value}"/>
       </inertial>
     </link>
+  </xacro:macro>
 
-    <!-- Mount (adjust pose to suit your CAD) -->
-    <joint name="${prefix}mount_joint" type="fixed">
+
+  <!-- Main end-effector macro -->
+  <xacro:macro name="end_effector" params="prefix parent">
+    <xacro:add_mesh_link
+      link_name="${prefix}gripper"
+      mesh_path="package://end_effector_description/meshes/claw_assembly.stl"/>
+
+    <!-- Mount to the parent (e.g., tool0). Adjust pose to suit your CAD. -->
+    <joint name="${prefix}gripper_mount" type="fixed">
       <parent link="${parent}"/>
-      <child  link="${prefix}claw"/>
-      <!-- Example: 110 mm forward, flip 180° about Y -->
-      <origin xyz="0 0 0.11" rpy="0 ${pi} 0"/>
+      <child  link="${prefix}gripper"/>
+      <!-- Example pose: 67 mm forward, rotate as needed -->
+      <origin xyz="0 0 0.067" rpy="0 ${pi} 0"/>
     </joint>
   </xacro:macro>
 

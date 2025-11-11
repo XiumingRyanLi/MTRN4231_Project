@@ -1,12 +1,1 @@
-// generated from rosidl_generator_c/resource/idl.h.em
-// with input from custom_interfaces:action/GripperCommand.idl
-// generated code does not contain a copyright notice
-
-#ifndef CUSTOM_INTERFACES__ACTION__GRIPPER_COMMAND_H_
-#define CUSTOM_INTERFACES__ACTION__GRIPPER_COMMAND_H_
-
-#include "custom_interfaces/action/detail/gripper_command__struct.h"
-#include "custom_interfaces/action/detail/gripper_command__functions.h"
-#include "custom_interfaces/action/detail/gripper_command__type_support.h"
-
-#endif  // CUSTOM_INTERFACES__ACTION__GRIPPER_COMMAND_H_
+/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/rosidl_generator_c/custom_interfaces/action/gripper_command.h
