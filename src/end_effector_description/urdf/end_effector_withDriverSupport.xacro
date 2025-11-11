@@ -1,21 +1,20 @@
 <?xml version="1.0"?>
 <robot name="end_effector_withDriverSupport" xmlns:xacro="http://ros.org/wiki/xacro">
 
-  <!-- === UR arm (set the args the UR xacro expects) === -->
-  <xacro:arg name="name" default="ur5e"/>
-  <xacro:arg name="ur_type" default="ur5e"/>
-  <!-- Use find-pkg-share on ROS 2 -->
-  <xacro:include filename="$(find-pkg-share ur_description)/urdf/ur.urdf.xacro"/>
+  <!-- UR args (prefer ur5e unless you truly have ur5) -->
+  <xacro:arg name="name"    default="ur5e"/>
+  <xacro:arg name="ur_type" default="ur5"/>
+  <xacro:arg name="prefix"  default=""/>
 
-  <!-- Instantiate the UR with empty prefix (tool0, flange, etc. will exist) -->
-  <xacro:ur_robot name="$(arg name)" ur_type="$(arg ur_type)" prefix=""/>
+  <!-- UR robot -->
+  <xacro:include filename="$(find ur_description)/urdf/ur.urdf.xacro"/>
+  <!-- Don't pass ur_type here; it's consumed internally by ur.urdf.xacro -->
+  <!-- <xacro:ur_robot name="$(arg name)"/> -->
 
-  <!-- === End-effector macro (visual + collision) === -->
-  <xacro:include filename="$(find-pkg-share end_effector_description)/urdf/end_effector.urdf.xacro"/>
+  <!-- End-effector macro (your file above) -->
+  <xacro:include filename="$(find end_effector_description)/urdf/end_effector.urdf.xacro"/>
 
-  <!-- Mount the gripper directly to tool0. Adjust pose as needed. -->
+  <!-- Mount the gripper to tool0 -->
   <xacro:end_effector prefix="" parent="tool0"/>
-
-  
 
 </robot>

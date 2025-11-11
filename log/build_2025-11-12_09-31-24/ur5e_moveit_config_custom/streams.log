@@ -1,0 +1,49 @@
+[0.356s] Invoking command in '/home/mtrn/Downloads/MTRN4231_Project/build/ur5e_moveit_config_custom': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mtrn/4231/ws_moveit2/install/moveit_configs_utils:/home/mtrn/4231/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --build /home/mtrn/Downloads/MTRN4231_Project/build/ur5e_moveit_config_custom -- -j4 -l4
+[1.517s] Built target ament_cmake_python_copy_ur5e_moveit_config_custom
+[3.370s] running egg_info
+[3.370s] writing ur5e_moveit_config_custom.egg-info/PKG-INFO
+[3.371s] writing dependency_links to ur5e_moveit_config_custom.egg-info/dependency_links.txt
+[3.371s] writing top-level names to ur5e_moveit_config_custom.egg-info/top_level.txt
+[3.384s] reading manifest file 'ur5e_moveit_config_custom.egg-info/SOURCES.txt'
+[3.403s] writing manifest file 'ur5e_moveit_config_custom.egg-info/SOURCES.txt'
+[3.510s] Built target ament_cmake_python_build_ur5e_moveit_config_custom_egg
+[3.793s] Invoked command in '/home/mtrn/Downloads/MTRN4231_Project/build/ur5e_moveit_config_custom' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mtrn/4231/ws_moveit2/install/moveit_configs_utils:/home/mtrn/4231/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --build /home/mtrn/Downloads/MTRN4231_Project/build/ur5e_moveit_config_custom -- -j4 -l4
+[4.383s] Invoking command in '/home/mtrn/Downloads/MTRN4231_Project/build/ur5e_moveit_config_custom': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mtrn/4231/ws_moveit2/install/moveit_configs_utils:/home/mtrn/4231/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --install /home/mtrn/Downloads/MTRN4231_Project/build/ur5e_moveit_config_custom
+[4.546s] -- Install configuration: ""
+[4.552s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/config
+[4.554s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/config/controllers.yaml
+[4.554s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/config/ur_servo.yaml
+[4.554s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/config/ompl_planning.yaml
+[4.555s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/config/kinematics.yaml
+[4.555s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/launch
+[4.555s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/launch/ur_moveit.launch.py
+[4.556s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/rviz
+[4.556s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/rviz/view_robot.rviz
+[4.556s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/environment/pythonpath.sh
+[4.556s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/environment/pythonpath.dsv
+[4.556s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/ur5e_moveit_config_custom/local/lib/python3.10/dist-packages/ur5e_moveit_config_custom-0.0.1-py3.10.egg-info
+[4.556s] -- Installing: /home/mtrn/Downloads/MTRN4231_Project/install/ur5e_moveit_config_custom/local/lib/python3.10/dist-packages/ur5e_moveit_config_custom-0.0.1-py3.10.egg-info/top_level.txt
+[4.556s] -- Installing: /home/mtrn/Downloads/MTRN4231_Project/install/ur5e_moveit_config_custom/local/lib/python3.10/dist-packages/ur5e_moveit_config_custom-0.0.1-py3.10.egg-info/SOURCES.txt
+[4.556s] -- Installing: /home/mtrn/Downloads/MTRN4231_Project/install/ur5e_moveit_config_custom/local/lib/python3.10/dist-packages/ur5e_moveit_config_custom-0.0.1-py3.10.egg-info/PKG-INFO
+[4.557s] -- Installing: /home/mtrn/Downloads/MTRN4231_Project/install/ur5e_moveit_config_custom/local/lib/python3.10/dist-packages/ur5e_moveit_config_custom-0.0.1-py3.10.egg-info/dependency_links.txt
+[4.557s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/ur5e_moveit_config_custom/local/lib/python3.10/dist-packages/ur5e_moveit_config_custom
+[4.557s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/ur5e_moveit_config_custom/local/lib/python3.10/dist-packages/ur5e_moveit_config_custom/launch_common.py
+[4.557s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/ur5e_moveit_config_custom/local/lib/python3.10/dist-packages/ur5e_moveit_config_custom/__init__.py
+[4.896s] Listing '/home/mtrn/Downloads/MTRN4231_Project/install/ur5e_moveit_config_custom/local/lib/python3.10/dist-packages/ur5e_moveit_config_custom'...
+[4.901s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/ur5e_moveit_config_custom/local/lib/python3.10/dist-packages/launch_common.py
+[5.015s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ament_index/resource_index/package_run_dependencies/ur5e_moveit_config_custom
+[5.017s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ament_index/resource_index/parent_prefix_path/ur5e_moveit_config_custom
+[5.019s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/environment/ament_prefix_path.sh
+[5.028s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/environment/ament_prefix_path.dsv
+[5.028s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/environment/path.sh
+[5.029s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/environment/path.dsv
+[5.029s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/local_setup.bash
+[5.029s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/local_setup.sh
+[5.029s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/local_setup.zsh
+[5.035s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/local_setup.dsv
+[5.058s] -- Installing: /home/mtrn/Downloads/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/package.dsv
+[5.084s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ament_index/resource_index/packages/ur5e_moveit_config_custom
+[5.085s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/cmake/ur5e_moveit_config_customConfig.cmake
+[5.085s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/cmake/ur5e_moveit_config_customConfig-version.cmake
+[5.085s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/package.xml
+[5.134s] Invoked command in '/home/mtrn/Downloads/MTRN4231_Project/build/ur5e_moveit_config_custom' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mtrn/4231/ws_moveit2/install/moveit_configs_utils:/home/mtrn/4231/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --install /home/mtrn/Downloads/MTRN4231_Project/build/ur5e_moveit_config_custom

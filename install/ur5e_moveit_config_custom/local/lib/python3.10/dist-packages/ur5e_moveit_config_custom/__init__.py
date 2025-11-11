@@ -1,1 +1,0 @@
-/home/ryanl/4231/MTRN4231_Project/src/ur5e_moveit_config_custom/ur5e_moveit_config_custom/__init__.py

@@ -1,1 +1,4 @@
-/home/ryanl/4231/MTRN4231_Project/build/custom_interfaces/ament_cmake_index/share/ament_index/resource_index/rosidl_interfaces/custom_interfaces
+action/GripperCommand.action
+action/GripperCommand.idl
+action/MoveTCP.action
+action/MoveTCP.idl

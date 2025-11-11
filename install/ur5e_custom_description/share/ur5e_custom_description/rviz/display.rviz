@@ -1,1 +1,56 @@
-/home/ryanl/4231/MTRN4231_Project/src/ur5e_custom_description/rviz/display.rviz
+Panels:
+  - Class: rviz_common/Displays
+    Name: Displays
+  - Class: rviz_common/Views
+    Name: Views
+  - Class: rviz_common/Time
+    Name: Time
+
+Visualization Manager:
+  Class: ""
+  Enabled: true
+  Global Options:
+    Background Color: 48; 48; 48
+    Fixed Frame: base
+    Frame Rate: 30
+  Displays:
+    - Class: rviz_default_plugins/Grid
+      Name: Grid
+      Enabled: true
+      Plane: XY
+      Plane Cell Count: 20
+      Cell Size: 0.1
+      Alpha: 0.5
+      Color: 160;160;160
+    - Class: rviz_default_plugins/TF
+      Name: TF
+      Show Arrows: true
+      Show Axes: true
+    - Class: rviz_default_plugins/RobotModel
+      Name: RobotModel
+      Enabled: true
+      Visual Enabled: true
+      Collision Enabled: false
+      Description Source: Topic
+      Description Topic: {Value: /robot_description}
+      Links:
+        All Links Enabled: true
+  Tools:
+    - Class: rviz_default_plugins/Interact
+    - Class: rviz_default_plugins/MoveCamera
+    - Class: rviz_default_plugins/Select
+    - Class: rviz_default_plugins/FocusCamera
+    - Class: rviz_default_plugins/Measure
+  Views:
+    Current:
+      Class: rviz_default_plugins/Orbit
+      Name: Orbit
+      Distance: 2.8
+      Pitch: 0.785
+      Yaw: 0.785
+
+Window Geometry:
+  Hide Left Dock: false
+  Hide Right Dock: false
+  Width: 1600
+  Height: 900

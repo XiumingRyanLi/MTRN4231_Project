@@ -98,8 +98,6 @@ max_serialized_size_GripperCommand_Goal(
 
   const size_t padding = 4;
   const size_t wchar_size = 4;
-  size_t last_member_size = 0;
-  (void)last_member_size;
   (void)padding;
   (void)wchar_size;
 
@@ -111,7 +109,6 @@ max_serialized_size_GripperCommand_Goal(
   {
     size_t array_size = 1;
 
-    last_member_size = array_size * sizeof(uint8_t);
     current_alignment += array_size * sizeof(uint8_t);
   }
 
@@ -119,25 +116,11 @@ max_serialized_size_GripperCommand_Goal(
   {
     size_t array_size = 1;
 
-    last_member_size = array_size * sizeof(uint64_t);
     current_alignment += array_size * sizeof(uint64_t) +
       eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
   }
 
-  size_t ret_val = current_alignment - initial_alignment;
-  if (is_plain) {
-    // All members are plain, and type is not empty.
-    // We still need to check that the in-memory alignment
-    // is the same as the CDR mandated alignment.
-    using DataType = custom_interfaces::action::GripperCommand_Goal;
-    is_plain =
-      (
-      offsetof(DataType, effort) +
-      last_member_size
-      ) == ret_val;
-  }
-
-  return ret_val;
+  return current_alignment - initial_alignment;
 }
 
 static bool _GripperCommand_Goal__cdr_serialize(
@@ -331,8 +314,6 @@ max_serialized_size_GripperCommand_Result(
 
   const size_t padding = 4;
   const size_t wchar_size = 4;
-  size_t last_member_size = 0;
-  (void)last_member_size;
   (void)padding;
   (void)wchar_size;
 
@@ -344,7 +325,6 @@ max_serialized_size_GripperCommand_Result(
   {
     size_t array_size = 1;
 
-    last_member_size = array_size * sizeof(uint8_t);
     current_alignment += array_size * sizeof(uint8_t);
   }
 
@@ -361,20 +341,7 @@ max_serialized_size_GripperCommand_Result(
     }
   }
 
-  size_t ret_val = current_alignment - initial_alignment;
-  if (is_plain) {
-    // All members are plain, and type is not empty.
-    // We still need to check that the in-memory alignment
-    // is the same as the CDR mandated alignment.
-    using DataType = custom_interfaces::action::GripperCommand_Result;
-    is_plain =
-      (
-      offsetof(DataType, message) +
-      last_member_size
-      ) == ret_val;
-  }
-
-  return ret_val;
+  return current_alignment - initial_alignment;
 }
 
 static bool _GripperCommand_Result__cdr_serialize(
@@ -564,8 +531,6 @@ max_serialized_size_GripperCommand_Feedback(
 
   const size_t padding = 4;
   const size_t wchar_size = 4;
-  size_t last_member_size = 0;
-  (void)last_member_size;
   (void)padding;
   (void)wchar_size;
 
@@ -577,7 +542,6 @@ max_serialized_size_GripperCommand_Feedback(
   {
     size_t array_size = 1;
 
-    last_member_size = array_size * sizeof(uint64_t);
     current_alignment += array_size * sizeof(uint64_t) +
       eprosima::fastcdr::Cdr::alignment(current_alignment, sizeof(uint64_t));
   }
@@ -595,20 +559,7 @@ max_serialized_size_GripperCommand_Feedback(
     }
   }
 
-  size_t ret_val = current_alignment - initial_alignment;
-  if (is_plain) {
-    // All members are plain, and type is not empty.
-    // We still need to check that the in-memory alignment
-    // is the same as the CDR mandated alignment.
-    using DataType = custom_interfaces::action::GripperCommand_Feedback;
-    is_plain =
-      (
-      offsetof(DataType, stage) +
-      last_member_size
-      ) == ret_val;
-  }
-
-  return ret_val;
+  return current_alignment - initial_alignment;
 }
 
 static bool _GripperCommand_Feedback__cdr_serialize(
@@ -830,8 +781,6 @@ max_serialized_size_GripperCommand_SendGoal_Request(
 
   const size_t padding = 4;
   const size_t wchar_size = 4;
-  size_t last_member_size = 0;
-  (void)last_member_size;
   (void)padding;
   (void)wchar_size;
 
@@ -844,15 +793,12 @@ max_serialized_size_GripperCommand_SendGoal_Request(
     size_t array_size = 1;
 
 
-    last_member_size = 0;
     for (size_t index = 0; index < array_size; ++index) {
       bool inner_full_bounded;
       bool inner_is_plain;
-      size_t inner_size =
+      current_alignment +=
         unique_identifier_msgs::msg::typesupport_fastrtps_cpp::max_serialized_size_UUID(
         inner_full_bounded, inner_is_plain, current_alignment);
-      last_member_size += inner_size;
-      current_alignment += inner_size;
       full_bounded &= inner_full_bounded;
       is_plain &= inner_is_plain;
     }
@@ -863,34 +809,18 @@ max_serialized_size_GripperCommand_SendGoal_Request(
     size_t array_size = 1;
 
 
-    last_member_size = 0;
     for (size_t index = 0; index < array_size; ++index) {
       bool inner_full_bounded;
       bool inner_is_plain;
-      size_t inner_size =
+      current_alignment +=
         custom_interfaces::action::typesupport_fastrtps_cpp::max_serialized_size_GripperCommand_Goal(
         inner_full_bounded, inner_is_plain, current_alignment);
-      last_member_size += inner_size;
-      current_alignment += inner_size;
       full_bounded &= inner_full_bounded;
       is_plain &= inner_is_plain;
     }
   }
 
-  size_t ret_val = current_alignment - initial_alignment;
-  if (is_plain) {
-    // All members are plain, and type is not empty.
-    // We still need to check that the in-memory alignment
-    // is the same as the CDR mandated alignment.
-    using DataType = custom_interfaces::action::GripperCommand_SendGoal_Request;
-    is_plain =
-      (
-      offsetof(DataType, goal) +
-      last_member_size
-      ) == ret_val;
-  }
-
-  return ret_val;
+  return current_alignment - initial_alignment;
 }
 
 static bool _GripperCommand_SendGoal_Request__cdr_serialize(
@@ -1113,8 +1043,6 @@ max_serialized_size_GripperCommand_SendGoal_Response(
 
   const size_t padding = 4;
   const size_t wchar_size = 4;
-  size_t last_member_size = 0;
-  (void)last_member_size;
   (void)padding;
   (void)wchar_size;
 
@@ -1126,7 +1054,6 @@ max_serialized_size_GripperCommand_SendGoal_Response(
   {
     size_t array_size = 1;
 
-    last_member_size = array_size * sizeof(uint8_t);
     current_alignment += array_size * sizeof(uint8_t);
   }
 
@@ -1135,34 +1062,18 @@ max_serialized_size_GripperCommand_SendGoal_Response(
     size_t array_size = 1;
 
 
-    last_member_size = 0;
     for (size_t index = 0; index < array_size; ++index) {
       bool inner_full_bounded;
       bool inner_is_plain;
-      size_t inner_size =
+      current_alignment +=
         builtin_interfaces::msg::typesupport_fastrtps_cpp::max_serialized_size_Time(
         inner_full_bounded, inner_is_plain, current_alignment);
-      last_member_size += inner_size;
-      current_alignment += inner_size;
       full_bounded &= inner_full_bounded;
       is_plain &= inner_is_plain;
     }
   }
 
-  size_t ret_val = current_alignment - initial_alignment;
-  if (is_plain) {
-    // All members are plain, and type is not empty.
-    // We still need to check that the in-memory alignment
-    // is the same as the CDR mandated alignment.
-    using DataType = custom_interfaces::action::GripperCommand_SendGoal_Response;
-    is_plain =
-      (
-      offsetof(DataType, stamp) +
-      last_member_size
-      ) == ret_val;
-  }
-
-  return ret_val;
+  return current_alignment - initial_alignment;
 }
 
 static bool _GripperCommand_SendGoal_Response__cdr_serialize(
@@ -1408,8 +1319,6 @@ max_serialized_size_GripperCommand_GetResult_Request(
 
   const size_t padding = 4;
   const size_t wchar_size = 4;
-  size_t last_member_size = 0;
-  (void)last_member_size;
   (void)padding;
   (void)wchar_size;
 
@@ -1422,34 +1331,18 @@ max_serialized_size_GripperCommand_GetResult_Request(
     size_t array_size = 1;
 
 
-    last_member_size = 0;
     for (size_t index = 0; index < array_size; ++index) {
       bool inner_full_bounded;
       bool inner_is_plain;
-      size_t inner_size =
+      current_alignment +=
         unique_identifier_msgs::msg::typesupport_fastrtps_cpp::max_serialized_size_UUID(
         inner_full_bounded, inner_is_plain, current_alignment);
-      last_member_size += inner_size;
-      current_alignment += inner_size;
       full_bounded &= inner_full_bounded;
       is_plain &= inner_is_plain;
     }
   }
 
-  size_t ret_val = current_alignment - initial_alignment;
-  if (is_plain) {
-    // All members are plain, and type is not empty.
-    // We still need to check that the in-memory alignment
-    // is the same as the CDR mandated alignment.
-    using DataType = custom_interfaces::action::GripperCommand_GetResult_Request;
-    is_plain =
-      (
-      offsetof(DataType, goal_id) +
-      last_member_size
-      ) == ret_val;
-  }
-
-  return ret_val;
+  return current_alignment - initial_alignment;
 }
 
 static bool _GripperCommand_GetResult_Request__cdr_serialize(
@@ -1646,8 +1539,6 @@ max_serialized_size_GripperCommand_GetResult_Response(
 
   const size_t padding = 4;
   const size_t wchar_size = 4;
-  size_t last_member_size = 0;
-  (void)last_member_size;
   (void)padding;
   (void)wchar_size;
 
@@ -1659,7 +1550,6 @@ max_serialized_size_GripperCommand_GetResult_Response(
   {
     size_t array_size = 1;
 
-    last_member_size = array_size * sizeof(uint8_t);
     current_alignment += array_size * sizeof(uint8_t);
   }
 
@@ -1668,34 +1558,18 @@ max_serialized_size_GripperCommand_GetResult_Response(
     size_t array_size = 1;
 
 
-    last_member_size = 0;
     for (size_t index = 0; index < array_size; ++index) {
       bool inner_full_bounded;
       bool inner_is_plain;
-      size_t inner_size =
+      current_alignment +=
         custom_interfaces::action::typesupport_fastrtps_cpp::max_serialized_size_GripperCommand_Result(
         inner_full_bounded, inner_is_plain, current_alignment);
-      last_member_size += inner_size;
-      current_alignment += inner_size;
       full_bounded &= inner_full_bounded;
       is_plain &= inner_is_plain;
     }
   }
 
-  size_t ret_val = current_alignment - initial_alignment;
-  if (is_plain) {
-    // All members are plain, and type is not empty.
-    // We still need to check that the in-memory alignment
-    // is the same as the CDR mandated alignment.
-    using DataType = custom_interfaces::action::GripperCommand_GetResult_Response;
-    is_plain =
-      (
-      offsetof(DataType, result) +
-      last_member_size
-      ) == ret_val;
-  }
-
-  return ret_val;
+  return current_alignment - initial_alignment;
 }
 
 static bool _GripperCommand_GetResult_Response__cdr_serialize(
@@ -1959,8 +1833,6 @@ max_serialized_size_GripperCommand_FeedbackMessage(
 
   const size_t padding = 4;
   const size_t wchar_size = 4;
-  size_t last_member_size = 0;
-  (void)last_member_size;
   (void)padding;
   (void)wchar_size;
 
@@ -1973,15 +1845,12 @@ max_serialized_size_GripperCommand_FeedbackMessage(
     size_t array_size = 1;
 
 
-    last_member_size = 0;
     for (size_t index = 0; index < array_size; ++index) {
       bool inner_full_bounded;
       bool inner_is_plain;
-      size_t inner_size =
+      current_alignment +=
         unique_identifier_msgs::msg::typesupport_fastrtps_cpp::max_serialized_size_UUID(
         inner_full_bounded, inner_is_plain, current_alignment);
-      last_member_size += inner_size;
-      current_alignment += inner_size;
       full_bounded &= inner_full_bounded;
       is_plain &= inner_is_plain;
     }
@@ -1992,34 +1861,18 @@ max_serialized_size_GripperCommand_FeedbackMessage(
     size_t array_size = 1;
 
 
-    last_member_size = 0;
     for (size_t index = 0; index < array_size; ++index) {
       bool inner_full_bounded;
       bool inner_is_plain;
-      size_t inner_size =
+      current_alignment +=
         custom_interfaces::action::typesupport_fastrtps_cpp::max_serialized_size_GripperCommand_Feedback(
         inner_full_bounded, inner_is_plain, current_alignment);
-      last_member_size += inner_size;
-      current_alignment += inner_size;
       full_bounded &= inner_full_bounded;
       is_plain &= inner_is_plain;
     }
   }
 
-  size_t ret_val = current_alignment - initial_alignment;
-  if (is_plain) {
-    // All members are plain, and type is not empty.
-    // We still need to check that the in-memory alignment
-    // is the same as the CDR mandated alignment.
-    using DataType = custom_interfaces::action::GripperCommand_FeedbackMessage;
-    is_plain =
-      (
-      offsetof(DataType, feedback) +
-      last_member_size
-      ) == ret_val;
-  }
-
-  return ret_val;
+  return current_alignment - initial_alignment;
 }
 
 static bool _GripperCommand_FeedbackMessage__cdr_serialize(

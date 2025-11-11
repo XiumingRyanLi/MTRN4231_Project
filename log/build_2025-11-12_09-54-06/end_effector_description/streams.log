@@ -1,0 +1,32 @@
+[0.117s] Invoking command in '/home/mtrn/Downloads/MTRN4231_Project/build/end_effector_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mtrn/4231/ws_moveit2/install/moveit_configs_utils:/home/mtrn/4231/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --build /home/mtrn/Downloads/MTRN4231_Project/build/end_effector_description -- -j4 -l4
+[0.416s] Invoked command in '/home/mtrn/Downloads/MTRN4231_Project/build/end_effector_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mtrn/4231/ws_moveit2/install/moveit_configs_utils:/home/mtrn/4231/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --build /home/mtrn/Downloads/MTRN4231_Project/build/end_effector_description -- -j4 -l4
+[1.046s] Invoking command in '/home/mtrn/Downloads/MTRN4231_Project/build/end_effector_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mtrn/4231/ws_moveit2/install/moveit_configs_utils:/home/mtrn/4231/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --install /home/mtrn/Downloads/MTRN4231_Project/build/end_effector_description
+[1.163s] -- Install configuration: ""
+[1.163s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/end_effector_description/share/end_effector_description/launch
+[1.164s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/end_effector_description/share/end_effector_description/launch/display_ee.launch.py
+[1.164s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/end_effector_description/share/end_effector_description/rviz
+[1.164s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/end_effector_description/share/end_effector_description/rviz/ee.rviz
+[1.171s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/end_effector_description/share/end_effector_description/urdf
+[1.171s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/end_effector_description/share/end_effector_description/urdf/end_effector.urdf.xacro
+[1.172s] -- Installing: /home/mtrn/Downloads/MTRN4231_Project/install/end_effector_description/share/end_effector_description/urdf/end_effector_withDriverSupport.xacro
+[1.172s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/end_effector_description/share/end_effector_description/urdf/end_effector_only.urdf.xacro
+[1.216s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/end_effector_description/share/end_effector_description/meshes
+[1.217s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/end_effector_description/share/end_effector_description/meshes/claw_assembly.stl
+[1.217s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/end_effector_description/share/end_effector_description/etc
+[1.217s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/end_effector_description/share/end_effector_description/etc/robot_calibration.yaml
+[1.217s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/end_effector_description/share/ament_index/resource_index/package_run_dependencies/end_effector_description
+[1.223s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/end_effector_description/share/ament_index/resource_index/parent_prefix_path/end_effector_description
+[1.223s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/end_effector_description/share/end_effector_description/environment/ament_prefix_path.sh
+[1.223s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/end_effector_description/share/end_effector_description/environment/ament_prefix_path.dsv
+[1.224s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/end_effector_description/share/end_effector_description/environment/path.sh
+[1.224s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/end_effector_description/share/end_effector_description/environment/path.dsv
+[1.232s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/end_effector_description/share/end_effector_description/local_setup.bash
+[1.282s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/end_effector_description/share/end_effector_description/local_setup.sh
+[1.282s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/end_effector_description/share/end_effector_description/local_setup.zsh
+[1.283s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/end_effector_description/share/end_effector_description/local_setup.dsv
+[1.283s] -- Installing: /home/mtrn/Downloads/MTRN4231_Project/install/end_effector_description/share/end_effector_description/package.dsv
+[1.283s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/end_effector_description/share/ament_index/resource_index/packages/end_effector_description
+[1.283s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/end_effector_description/share/end_effector_description/cmake/end_effector_descriptionConfig.cmake
+[1.283s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/end_effector_description/share/end_effector_description/cmake/end_effector_descriptionConfig-version.cmake
+[1.283s] -- Up-to-date: /home/mtrn/Downloads/MTRN4231_Project/install/end_effector_description/share/end_effector_description/package.xml
+[1.283s] Invoked command in '/home/mtrn/Downloads/MTRN4231_Project/build/end_effector_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/mtrn/4231/ws_moveit2/install/moveit_configs_utils:/home/mtrn/4231/ws_moveit2/install/launch_param_builder:/opt/ros/humble /usr/bin/cmake --install /home/mtrn/Downloads/MTRN4231_Project/build/end_effector_description

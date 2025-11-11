@@ -1,1 +1,1 @@
-/home/ryanl/4231/MTRN4231_Project/build/ur5e_moveit_config_custom/ament_cmake_index/share/ament_index/resource_index/package_run_dependencies/ur5e_moveit_config_custom
+launch;launch_ros;moveit_kinematics;moveit_planners_ompl;moveit_ros_move_group;moveit_ros_visualization;moveit_servo;moveit_simple_controller_manager;rviz2;ur_description_custom;urdf;warehouse_ros_sqlite;xacro
