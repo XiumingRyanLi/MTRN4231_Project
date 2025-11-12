@@ -129,16 +129,27 @@ private:
     moveit_msgs::msg::Constraints cstr = orientation_down_constraint();
 
     // 4) Split: approach 10 cm above, then descend
+    const auto current_pose = move_group_->getCurrentPose().pose;
+    geometry_msgs::msg::Pose lift = current_pose;
+    lift.position.z += 0.15;
+
     geometry_msgs::msg::Pose approach = target.pose;
-    approach.position.z += 0.10;
+    approach.position.z += 0.15;
 
-    feedback->stage = "planning_approach"; feedback->progress_percent = 10.0f; gh->publish_feedback(feedback);
-    bool ok = plan_and_execute_to_pose(approach, cstr, "approach");
+    
+    feedback->stage = "planning_lift"; feedback->progress_percent = 60.0f; gh->publish_feedback(feedback);
+    bool ok = plan_and_execute_to_pose(lift, cstr, "lift");
+    
 
-    // if (ok) {
-    //   feedback->stage = "planning_descend"; feedback->progress_percent = 60.0f; gh->publish_feedback(feedback);
-    //   ok = plan_and_execute_to_pose(target.pose, cstr, "descend");
-    // }
+    if (ok) {
+      feedback->stage = "planning_approach"; feedback->progress_percent = 10.0f; gh->publish_feedback(feedback);
+      ok = plan_and_execute_to_pose(approach, cstr, "approach");
+    }
+
+    if (ok) {
+      feedback->stage = "planning_descend"; feedback->progress_percent = 60.0f; gh->publish_feedback(feedback);
+      ok = plan_and_execute_to_pose(target.pose, cstr, "descend");
+    }
 
     if (ok) {
       feedback->stage = "done"; feedback->progress_percent = 100.0f; gh->publish_feedback(feedback);
@@ -177,7 +188,7 @@ private:
     waypoints.push_back(goal_pose);
 
     moveit_msgs::msg::RobotTrajectory trajectory;
-    const double eef_step = 0.005;  // 5 mm resolution
+    const double eef_step = 0.002;  // 5 mm resolution
     const double jump_threshold = 0.0;
     double fraction = move_group_->computeCartesianPath(waypoints, eef_step, jump_threshold, trajectory);
 
@@ -229,9 +240,9 @@ private:
 
     ocm.link_name = move_group_->getEndEffectorLink();
     ocm.header.frame_id = move_group_->getPlanningFrame();
-    // ocm.absolute_x_axis_tolerance = 0.01;  // tight roll
-    // ocm.absolute_y_axis_tolerance = 0.01;  // tight pitch
-    // ocm.absolute_z_axis_tolerance = 3.14159; // yaw free
+    ocm.absolute_x_axis_tolerance = 0.01;  // tight roll
+    ocm.absolute_y_axis_tolerance = 0.01;  // tight pitch
+    ocm.absolute_z_axis_tolerance = 3.14159; // yaw free
     ocm.weight = 1.0;
 
     tf2::Quaternion q; q.setRPY(0, M_PI, 0);
