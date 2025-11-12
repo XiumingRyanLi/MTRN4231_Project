@@ -10,8 +10,8 @@ A8 = (4.9, -818.0)
 H8 = (4.9, -519.9)
 
 # Define pieces height
-KING_HEIGHT = -220.2
-PAWN_HEIGHT = -247.5
+KING_HEIGHT = 180
+PAWN_HEIGHT = 153.6
 
 class TaskCoordinator(Node):
 
