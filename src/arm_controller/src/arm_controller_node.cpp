@@ -41,7 +41,7 @@ public:
         rclcpp::Duration::from_seconds(5.0));
 
     // Planner & timing to match your style
-    node_->declare_parameter("planning_time", 50.0);
+    node_->declare_parameter("planning_time", 15.0);
     node_->declare_parameter("goal_joint_tolerance", 0.005);
     node_->declare_parameter("goal_position_tolerance", 0.005);
     node_->declare_parameter("goal_orientation_tolerance", 0.005);
@@ -50,7 +50,7 @@ public:
     move_group_->setGoalJointTolerance(node_->get_parameter("goal_joint_tolerance").as_double());
     move_group_->setGoalPositionTolerance(node_->get_parameter("goal_position_tolerance").as_double());
     move_group_->setGoalOrientationTolerance(node_->get_parameter("goal_orientation_tolerance").as_double());
-    move_group_->setPlannerId("TRRTkConfigDefault");      // consistent with your working server
+    move_group_->setPlannerId("RRTConnect");      // consistent with your working server
     move_group_->setMaxVelocityScalingFactor(0.25);
     move_group_->setMaxAccelerationScalingFactor(0.25);
 
@@ -135,10 +135,10 @@ private:
     feedback->stage = "planning_approach"; feedback->progress_percent = 10.0f; gh->publish_feedback(feedback);
     bool ok = plan_and_execute_to_pose(approach, cstr, "approach");
 
-    if (ok) {
-      feedback->stage = "planning_descend"; feedback->progress_percent = 60.0f; gh->publish_feedback(feedback);
-      ok = plan_and_execute_to_pose(target.pose, cstr, "descend");
-    }
+    // if (ok) {
+    //   feedback->stage = "planning_descend"; feedback->progress_percent = 60.0f; gh->publish_feedback(feedback);
+    //   ok = plan_and_execute_to_pose(target.pose, cstr, "descend");
+    // }
 
     if (ok) {
       feedback->stage = "done"; feedback->progress_percent = 100.0f; gh->publish_feedback(feedback);
@@ -152,34 +152,74 @@ private:
 
   // ---------------- One plan+execute to a constrained pose ----------------
   bool plan_and_execute_to_pose(const geometry_msgs::msg::Pose& goal_pose,
-                                const moveit_msgs::msg::Constraints& cstr,
-                                const std::string& tag)
-  {
-    move_group_->stop();
-    move_group_->clearPoseTargets();
-    move_group_->clearPathConstraints();
+                              const moveit_msgs::msg::Constraints& cstr,
+                              const std::string& tag)
+{
+  move_group_->stop();
+  move_group_->clearPoseTargets();
+  move_group_->clearPathConstraints();
 
+  const auto current_pose = move_group_->getCurrentPose().pose;
+  const double dx = goal_pose.position.x - current_pose.position.x;
+  const double dy = goal_pose.position.y - current_pose.position.y;
+  const double dz = goal_pose.position.z - current_pose.position.z;
+  const double distance = std::sqrt(dx*dx + dy*dy + dz*dz);
+
+  RCLCPP_INFO(node_->get_logger(), "[%s] distance = %.3f m", tag.c_str(), distance);
+
+  bool success = false;
+
+  // --- 1) Short motion → Cartesian path ---
+  if (distance < 0.60)
+  {
+    RCLCPP_INFO(node_->get_logger(), "[%s] Using Cartesian planner", tag.c_str());
+    std::vector<geometry_msgs::msg::Pose> waypoints;
+    waypoints.push_back(goal_pose);
+
+    moveit_msgs::msg::RobotTrajectory trajectory;
+    const double eef_step = 0.005;  // 5 mm resolution
+    const double jump_threshold = 0.0;
+    double fraction = move_group_->computeCartesianPath(waypoints, eef_step, jump_threshold, trajectory);
+
+    if (fraction > 0.5)
+    {
+      moveit::planning_interface::MoveGroupInterface::Plan plan;
+      plan.trajectory_ = trajectory;
+      // RCLCPP_INFO("Cartesian Path planned");
+      success = (move_group_->execute(plan) == moveit::core::MoveItErrorCode::SUCCESS);
+      
+    }
+    else
+    {
+      RCLCPP_WARN(node_->get_logger(), "[%s] Cartesian path incomplete (%.1f%%)", tag.c_str(), fraction * 100.0);
+      success = false;
+    }
+  }
+  // --- 2) Longer motion → OMPL planner ---
+  else
+  {
+    RCLCPP_INFO(node_->get_logger(), "[%s] Using OMPL planner", tag.c_str());
     move_group_->setPathConstraints(cstr);
-    move_group_->setPoseTarget(goal_pose, move_group_->getEndEffectorLink());
+    move_group_->setPoseTarget(goal_pose);
 
     moveit::planning_interface::MoveGroupInterface::Plan plan;
     auto code = move_group_->plan(plan);
-    if (code != moveit::core::MoveItErrorCode::SUCCESS ||
-        plan.trajectory_.joint_trajectory.points.size() < 2)
+    if (code == moveit::core::MoveItErrorCode::SUCCESS &&
+        !plan.trajectory_.joint_trajectory.points.empty())
     {
-      RCLCPP_ERROR(node_->get_logger(), "[%s] plan failed or too short.", tag.c_str());
-      move_group_->clearPathConstraints();
-      return false;
+      success = (move_group_->execute(plan) == moveit::core::MoveItErrorCode::SUCCESS);
     }
-
-    auto exec_code = move_group_->execute(plan);
     move_group_->clearPathConstraints();
-    if (exec_code != moveit::core::MoveItErrorCode::SUCCESS) {
-      RCLCPP_ERROR(node_->get_logger(), "[%s] execute failed.", tag.c_str());
-      return false;
-    }
-    return true;
   }
+
+  if (!success)
+    RCLCPP_ERROR(node_->get_logger(), "[%s] Motion failed.", tag.c_str());
+  else
+    RCLCPP_INFO(node_->get_logger(), "[%s] Motion complete.", tag.c_str());
+
+  return success;
+}
+
 
   // ---------------- Constraints & scene (mirrors the “working” server) ----------------
   moveit_msgs::msg::Constraints orientation_down_constraint()
@@ -189,9 +229,9 @@ private:
 
     ocm.link_name = move_group_->getEndEffectorLink();
     ocm.header.frame_id = move_group_->getPlanningFrame();
-    ocm.absolute_x_axis_tolerance = 0.01;  // tight roll
-    ocm.absolute_y_axis_tolerance = 0.01;  // tight pitch
-    ocm.absolute_z_axis_tolerance = 3.14159; // yaw free
+    // ocm.absolute_x_axis_tolerance = 0.01;  // tight roll
+    // ocm.absolute_y_axis_tolerance = 0.01;  // tight pitch
+    // ocm.absolute_z_axis_tolerance = 3.14159; // yaw free
     ocm.weight = 1.0;
 
     tf2::Quaternion q; q.setRPY(0, M_PI, 0);
@@ -200,6 +240,8 @@ private:
     constraints.orientation_constraints.push_back(ocm);
     return constraints;
   }
+
+  // void setupJointConstraint
 
   void setupCollisionObjects()
   {

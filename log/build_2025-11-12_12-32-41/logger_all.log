@@ -1,0 +1,399 @@
+[0.147s] DEBUG:colcon:Command line arguments: ['/usr/bin/colcon', 'build']
+[0.147s] DEBUG:colcon:Parsed command line arguments: Namespace(log_base=None, log_level=None, verb_name='build', build_base='build', install_base='install', merge_install=False, symlink_install=False, test_result_base=None, continue_on_error=False, executor='parallel', parallel_workers=20, event_handlers=None, ignore_user_meta=False, metas=['./colcon.meta'], base_paths=['.'], packages_ignore=None, packages_ignore_regex=None, paths=None, packages_up_to=None, packages_up_to_regex=None, packages_above=None, packages_above_and_dependencies=None, packages_above_depth=None, packages_select_by_dep=None, packages_skip_by_dep=None, packages_skip_up_to=None, packages_select_build_failed=False, packages_skip_build_finished=False, packages_select_test_failures=False, packages_skip_test_passed=False, packages_select=None, packages_skip=None, packages_select_regex=None, packages_skip_regex=None, packages_start=None, packages_end=None, allow_overriding=[], cmake_args=None, cmake_target=None, cmake_target_skip_unavailable=False, cmake_clean_cache=False, cmake_clean_first=False, cmake_force_configure=False, ament_cmake_args=None, catkin_cmake_args=None, catkin_skip_building_tests=False, mixin_files=None, mixin=None, verb_parser=<colcon_mixin.mixin.mixin_argument.MixinArgumentDecorator object at 0x761eb6b4b400>, verb_extension=<colcon_core.verb.build.BuildVerb object at 0x761eb6ca8160>, main=<bound method BuildVerb.main of <colcon_core.verb.build.BuildVerb object at 0x761eb6ca8160>>, mixin_verb=('build',))
+[0.310s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) check parameters
+[0.310s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) check parameters
+[0.310s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) check parameters
+[0.310s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) check parameters
+[0.310s] Level 1:colcon.colcon_core.package_discovery:discover_packages(colcon_meta) discover
+[0.311s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) discover
+[0.311s] INFO:colcon.colcon_core.package_discovery:Crawling recursively for packages in '/home/mtrn/MTRN4231_Project'
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ignore', 'ignore_ament_install']
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore'
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ignore_ament_install'
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_pkg']
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_pkg'
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['colcon_meta']
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'colcon_meta'
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['ros']
+[0.311s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'ros'
+[0.329s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['cmake', 'python']
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'cmake'
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python'
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extensions ['python_setup_py']
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(.) by extension 'python_setup_py'
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extensions ['ignore', 'ignore_ament_install']
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(build) by extension 'ignore'
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(build) ignored
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extensions ['ignore', 'ignore_ament_install']
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(install) by extension 'ignore'
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(install) ignored
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extensions ['ignore', 'ignore_ament_install']
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(log) by extension 'ignore'
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(log) ignored
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ignore', 'ignore_ament_install']
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore'
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ignore_ament_install'
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_pkg']
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_pkg'
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['colcon_meta']
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'colcon_meta'
+[0.330s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['ros']
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'ros'
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['cmake', 'python']
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'cmake'
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python'
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extensions ['python_setup_py']
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(src) by extension 'python_setup_py'
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(src/arm_controller) by extensions ['ignore', 'ignore_ament_install']
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(src/arm_controller) by extension 'ignore'
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(src/arm_controller) by extension 'ignore_ament_install'
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(src/arm_controller) by extensions ['colcon_pkg']
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(src/arm_controller) by extension 'colcon_pkg'
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(src/arm_controller) by extensions ['colcon_meta']
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(src/arm_controller) by extension 'colcon_meta'
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(src/arm_controller) by extensions ['ros']
+[0.331s] Level 1:colcon.colcon_core.package_identification:_identify(src/arm_controller) by extension 'ros'
+[0.334s] DEBUG:colcon.colcon_core.package_identification:Package 'src/arm_controller' with type 'ros.ament_cmake' and name 'arm_controller'
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(src/custom_interfaces) by extensions ['ignore', 'ignore_ament_install']
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(src/custom_interfaces) by extension 'ignore'
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(src/custom_interfaces) by extension 'ignore_ament_install'
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(src/custom_interfaces) by extensions ['colcon_pkg']
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(src/custom_interfaces) by extension 'colcon_pkg'
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(src/custom_interfaces) by extensions ['colcon_meta']
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(src/custom_interfaces) by extension 'colcon_meta'
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(src/custom_interfaces) by extensions ['ros']
+[0.334s] Level 1:colcon.colcon_core.package_identification:_identify(src/custom_interfaces) by extension 'ros'
+[0.335s] DEBUG:colcon.colcon_core.package_identification:Package 'src/custom_interfaces' with type 'ros.ament_cmake' and name 'custom_interfaces'
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(src/end_effector_description) by extensions ['ignore', 'ignore_ament_install']
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(src/end_effector_description) by extension 'ignore'
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(src/end_effector_description) by extension 'ignore_ament_install'
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(src/end_effector_description) by extensions ['colcon_pkg']
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(src/end_effector_description) by extension 'colcon_pkg'
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(src/end_effector_description) by extensions ['colcon_meta']
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(src/end_effector_description) by extension 'colcon_meta'
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(src/end_effector_description) by extensions ['ros']
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(src/end_effector_description) by extension 'ros'
+[0.335s] DEBUG:colcon.colcon_core.package_identification:Package 'src/end_effector_description' with type 'ros.ament_cmake' and name 'end_effector_description'
+[0.335s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_custom_description) by extensions ['ignore', 'ignore_ament_install']
+[0.336s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_custom_description) by extension 'ignore'
+[0.336s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_custom_description) by extension 'ignore_ament_install'
+[0.336s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_custom_description) by extensions ['colcon_pkg']
+[0.336s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_custom_description) by extension 'colcon_pkg'
+[0.336s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_custom_description) by extensions ['colcon_meta']
+[0.336s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_custom_description) by extension 'colcon_meta'
+[0.336s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_custom_description) by extensions ['ros']
+[0.336s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_custom_description) by extension 'ros'
+[0.336s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ur5e_custom_description' with type 'ros.ament_cmake' and name 'ur5e_custom_description'
+[0.336s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_moveit_config_custom) by extensions ['ignore', 'ignore_ament_install']
+[0.336s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_moveit_config_custom) by extension 'ignore'
+[0.336s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_moveit_config_custom) by extension 'ignore_ament_install'
+[0.336s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_moveit_config_custom) by extensions ['colcon_pkg']
+[0.336s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_moveit_config_custom) by extension 'colcon_pkg'
+[0.337s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_moveit_config_custom) by extensions ['colcon_meta']
+[0.337s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_moveit_config_custom) by extension 'colcon_meta'
+[0.337s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_moveit_config_custom) by extensions ['ros']
+[0.337s] Level 1:colcon.colcon_core.package_identification:_identify(src/ur5e_moveit_config_custom) by extension 'ros'
+[0.338s] DEBUG:colcon.colcon_core.package_identification:Package 'src/ur5e_moveit_config_custom' with type 'ros.ament_cmake' and name 'ur5e_moveit_config_custom'
+[0.338s] Level 1:colcon.colcon_core.package_discovery:discover_packages(recursive) using defaults
+[0.338s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) discover
+[0.338s] Level 1:colcon.colcon_core.package_discovery:discover_packages(ignore) using defaults
+[0.338s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) discover
+[0.338s] Level 1:colcon.colcon_core.package_discovery:discover_packages(path) using defaults
+[0.357s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) check parameters
+[0.357s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) discover
+[0.358s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 5 installed packages in /home/mtrn/MTRN4231_Project/install
+[0.360s] DEBUG:colcon.colcon_installed_package_information.package_discovery:Found 351 installed packages in /opt/ros/humble
+[0.361s] Level 1:colcon.colcon_core.package_discovery:discover_packages(prefix_path) using defaults
+[0.401s] Level 5:colcon.colcon_core.verb:set package 'custom_interfaces' build argument 'cmake_args' from command line to 'None'
+[0.401s] Level 5:colcon.colcon_core.verb:set package 'custom_interfaces' build argument 'cmake_target' from command line to 'None'
+[0.401s] Level 5:colcon.colcon_core.verb:set package 'custom_interfaces' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.401s] Level 5:colcon.colcon_core.verb:set package 'custom_interfaces' build argument 'cmake_clean_cache' from command line to 'False'
+[0.401s] Level 5:colcon.colcon_core.verb:set package 'custom_interfaces' build argument 'cmake_clean_first' from command line to 'False'
+[0.401s] Level 5:colcon.colcon_core.verb:set package 'custom_interfaces' build argument 'cmake_force_configure' from command line to 'False'
+[0.401s] Level 5:colcon.colcon_core.verb:set package 'custom_interfaces' build argument 'ament_cmake_args' from command line to 'None'
+[0.401s] Level 5:colcon.colcon_core.verb:set package 'custom_interfaces' build argument 'catkin_cmake_args' from command line to 'None'
+[0.401s] Level 5:colcon.colcon_core.verb:set package 'custom_interfaces' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.401s] DEBUG:colcon.colcon_core.verb:Building package 'custom_interfaces' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/mtrn/MTRN4231_Project/build/custom_interfaces', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/mtrn/MTRN4231_Project/install/custom_interfaces', 'merge_install': False, 'path': '/home/mtrn/MTRN4231_Project/src/custom_interfaces', 'symlink_install': False, 'test_result_base': None}
+[0.402s] Level 5:colcon.colcon_core.verb:set package 'end_effector_description' build argument 'cmake_args' from command line to 'None'
+[0.402s] Level 5:colcon.colcon_core.verb:set package 'end_effector_description' build argument 'cmake_target' from command line to 'None'
+[0.402s] Level 5:colcon.colcon_core.verb:set package 'end_effector_description' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.402s] Level 5:colcon.colcon_core.verb:set package 'end_effector_description' build argument 'cmake_clean_cache' from command line to 'False'
+[0.402s] Level 5:colcon.colcon_core.verb:set package 'end_effector_description' build argument 'cmake_clean_first' from command line to 'False'
+[0.402s] Level 5:colcon.colcon_core.verb:set package 'end_effector_description' build argument 'cmake_force_configure' from command line to 'False'
+[0.402s] Level 5:colcon.colcon_core.verb:set package 'end_effector_description' build argument 'ament_cmake_args' from command line to 'None'
+[0.402s] Level 5:colcon.colcon_core.verb:set package 'end_effector_description' build argument 'catkin_cmake_args' from command line to 'None'
+[0.402s] Level 5:colcon.colcon_core.verb:set package 'end_effector_description' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.402s] DEBUG:colcon.colcon_core.verb:Building package 'end_effector_description' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/mtrn/MTRN4231_Project/build/end_effector_description', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/mtrn/MTRN4231_Project/install/end_effector_description', 'merge_install': False, 'path': '/home/mtrn/MTRN4231_Project/src/end_effector_description', 'symlink_install': False, 'test_result_base': None}
+[0.402s] Level 5:colcon.colcon_core.verb:set package 'ur5e_moveit_config_custom' build argument 'cmake_args' from command line to 'None'
+[0.402s] Level 5:colcon.colcon_core.verb:set package 'ur5e_moveit_config_custom' build argument 'cmake_target' from command line to 'None'
+[0.402s] Level 5:colcon.colcon_core.verb:set package 'ur5e_moveit_config_custom' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.402s] Level 5:colcon.colcon_core.verb:set package 'ur5e_moveit_config_custom' build argument 'cmake_clean_cache' from command line to 'False'
+[0.402s] Level 5:colcon.colcon_core.verb:set package 'ur5e_moveit_config_custom' build argument 'cmake_clean_first' from command line to 'False'
+[0.402s] Level 5:colcon.colcon_core.verb:set package 'ur5e_moveit_config_custom' build argument 'cmake_force_configure' from command line to 'False'
+[0.402s] Level 5:colcon.colcon_core.verb:set package 'ur5e_moveit_config_custom' build argument 'ament_cmake_args' from command line to 'None'
+[0.402s] Level 5:colcon.colcon_core.verb:set package 'ur5e_moveit_config_custom' build argument 'catkin_cmake_args' from command line to 'None'
+[0.402s] Level 5:colcon.colcon_core.verb:set package 'ur5e_moveit_config_custom' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.402s] DEBUG:colcon.colcon_core.verb:Building package 'ur5e_moveit_config_custom' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/mtrn/MTRN4231_Project/build/ur5e_moveit_config_custom', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom', 'merge_install': False, 'path': '/home/mtrn/MTRN4231_Project/src/ur5e_moveit_config_custom', 'symlink_install': False, 'test_result_base': None}
+[0.403s] Level 5:colcon.colcon_core.verb:set package 'arm_controller' build argument 'cmake_args' from command line to 'None'
+[0.403s] Level 5:colcon.colcon_core.verb:set package 'arm_controller' build argument 'cmake_target' from command line to 'None'
+[0.403s] Level 5:colcon.colcon_core.verb:set package 'arm_controller' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.403s] Level 5:colcon.colcon_core.verb:set package 'arm_controller' build argument 'cmake_clean_cache' from command line to 'False'
+[0.403s] Level 5:colcon.colcon_core.verb:set package 'arm_controller' build argument 'cmake_clean_first' from command line to 'False'
+[0.403s] Level 5:colcon.colcon_core.verb:set package 'arm_controller' build argument 'cmake_force_configure' from command line to 'False'
+[0.403s] Level 5:colcon.colcon_core.verb:set package 'arm_controller' build argument 'ament_cmake_args' from command line to 'None'
+[0.403s] Level 5:colcon.colcon_core.verb:set package 'arm_controller' build argument 'catkin_cmake_args' from command line to 'None'
+[0.403s] Level 5:colcon.colcon_core.verb:set package 'arm_controller' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.403s] DEBUG:colcon.colcon_core.verb:Building package 'arm_controller' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/mtrn/MTRN4231_Project/build/arm_controller', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/mtrn/MTRN4231_Project/install/arm_controller', 'merge_install': False, 'path': '/home/mtrn/MTRN4231_Project/src/arm_controller', 'symlink_install': False, 'test_result_base': None}
+[0.403s] Level 5:colcon.colcon_core.verb:set package 'ur5e_custom_description' build argument 'cmake_args' from command line to 'None'
+[0.403s] Level 5:colcon.colcon_core.verb:set package 'ur5e_custom_description' build argument 'cmake_target' from command line to 'None'
+[0.403s] Level 5:colcon.colcon_core.verb:set package 'ur5e_custom_description' build argument 'cmake_target_skip_unavailable' from command line to 'False'
+[0.403s] Level 5:colcon.colcon_core.verb:set package 'ur5e_custom_description' build argument 'cmake_clean_cache' from command line to 'False'
+[0.403s] Level 5:colcon.colcon_core.verb:set package 'ur5e_custom_description' build argument 'cmake_clean_first' from command line to 'False'
+[0.403s] Level 5:colcon.colcon_core.verb:set package 'ur5e_custom_description' build argument 'cmake_force_configure' from command line to 'False'
+[0.403s] Level 5:colcon.colcon_core.verb:set package 'ur5e_custom_description' build argument 'ament_cmake_args' from command line to 'None'
+[0.403s] Level 5:colcon.colcon_core.verb:set package 'ur5e_custom_description' build argument 'catkin_cmake_args' from command line to 'None'
+[0.403s] Level 5:colcon.colcon_core.verb:set package 'ur5e_custom_description' build argument 'catkin_skip_building_tests' from command line to 'False'
+[0.403s] DEBUG:colcon.colcon_core.verb:Building package 'ur5e_custom_description' with the following arguments: {'ament_cmake_args': None, 'build_base': '/home/mtrn/MTRN4231_Project/build/ur5e_custom_description', 'catkin_cmake_args': None, 'catkin_skip_building_tests': False, 'cmake_args': None, 'cmake_clean_cache': False, 'cmake_clean_first': False, 'cmake_force_configure': False, 'cmake_target': None, 'cmake_target_skip_unavailable': False, 'install_base': '/home/mtrn/MTRN4231_Project/install/ur5e_custom_description', 'merge_install': False, 'path': '/home/mtrn/MTRN4231_Project/src/ur5e_custom_description', 'symlink_install': False, 'test_result_base': None}
+[0.403s] INFO:colcon.colcon_core.executor:Executing jobs using 'parallel' executor
+[0.404s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete
+[0.405s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/mtrn/MTRN4231_Project/src/custom_interfaces' with build type 'ament_cmake'
+[0.405s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/mtrn/MTRN4231_Project/src/custom_interfaces'
+[0.406s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_core.shell.bat': Not used on non-Windows systems
+[0.407s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.407s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.412s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/mtrn/MTRN4231_Project/src/end_effector_description' with build type 'ament_cmake'
+[0.413s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/mtrn/MTRN4231_Project/src/end_effector_description'
+[0.413s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.413s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.416s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/mtrn/MTRN4231_Project/src/ur5e_moveit_config_custom' with build type 'ament_cmake'
+[0.416s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/mtrn/MTRN4231_Project/src/ur5e_moveit_config_custom'
+[0.417s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.417s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.429s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/mtrn/MTRN4231_Project/build/custom_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /home/mtrn/.local/bin/cmake --build /home/mtrn/MTRN4231_Project/build/custom_interfaces -- -j20 -l20
+[0.437s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/mtrn/MTRN4231_Project/build/end_effector_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /home/mtrn/.local/bin/cmake --build /home/mtrn/MTRN4231_Project/build/end_effector_description -- -j20 -l20
+[0.442s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/mtrn/MTRN4231_Project/build/ur5e_moveit_config_custom': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /home/mtrn/.local/bin/cmake --build /home/mtrn/MTRN4231_Project/build/ur5e_moveit_config_custom -- -j20 -l20
+[0.510s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/mtrn/MTRN4231_Project/build/end_effector_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /home/mtrn/.local/bin/cmake --build /home/mtrn/MTRN4231_Project/build/end_effector_description -- -j20 -l20
+[0.591s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/mtrn/MTRN4231_Project/build/end_effector_description': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /home/mtrn/.local/bin/cmake --install /home/mtrn/MTRN4231_Project/build/end_effector_description
+[0.641s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(end_effector_description)
+[0.641s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/mtrn/MTRN4231_Project/build/end_effector_description' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /home/mtrn/.local/bin/cmake --install /home/mtrn/MTRN4231_Project/build/end_effector_description
+[0.644s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/end_effector_description' for CMake module files
+[0.644s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/end_effector_description' for CMake config files
+[0.644s] Level 1:colcon.colcon_core.shell:create_environment_hook('end_effector_description', 'cmake_prefix_path')
+[0.645s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mtrn/MTRN4231_Project/install/end_effector_description/share/end_effector_description/hook/cmake_prefix_path.ps1'
+[0.645s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/mtrn/MTRN4231_Project/install/end_effector_description/share/end_effector_description/hook/cmake_prefix_path.dsv'
+[0.646s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mtrn/MTRN4231_Project/install/end_effector_description/share/end_effector_description/hook/cmake_prefix_path.sh'
+[0.646s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/end_effector_description/bin'
+[0.646s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/end_effector_description/lib/pkgconfig/end_effector_description.pc'
+[0.647s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/end_effector_description/lib/python3.10/site-packages'
+[0.647s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/end_effector_description/bin'
+[0.647s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/end_effector_description/share/end_effector_description/package.ps1'
+[0.648s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/mtrn/MTRN4231_Project/install/end_effector_description/share/end_effector_description/package.dsv'
+[0.648s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/end_effector_description/share/end_effector_description/package.sh'
+[0.649s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/end_effector_description/share/end_effector_description/package.bash'
+[0.650s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/end_effector_description/share/end_effector_description/package.zsh'
+[0.650s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/mtrn/MTRN4231_Project/install/end_effector_description/share/colcon-core/packages/end_effector_description)
+[0.713s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(end_effector_description)
+[0.714s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/end_effector_description' for CMake module files
+[0.716s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/end_effector_description' for CMake config files
+[0.717s] Level 1:colcon.colcon_core.shell:create_environment_hook('end_effector_description', 'cmake_prefix_path')
+[0.718s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mtrn/MTRN4231_Project/install/end_effector_description/share/end_effector_description/hook/cmake_prefix_path.ps1'
+[0.720s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/mtrn/MTRN4231_Project/install/end_effector_description/share/end_effector_description/hook/cmake_prefix_path.dsv'
+[0.721s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mtrn/MTRN4231_Project/install/end_effector_description/share/end_effector_description/hook/cmake_prefix_path.sh'
+[0.723s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/end_effector_description/bin'
+[0.723s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/end_effector_description/lib/pkgconfig/end_effector_description.pc'
+[0.724s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/end_effector_description/lib/python3.10/site-packages'
+[0.724s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/end_effector_description/bin'
+[0.725s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/end_effector_description/share/end_effector_description/package.ps1'
+[0.726s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/mtrn/MTRN4231_Project/install/end_effector_description/share/end_effector_description/package.dsv'
+[0.728s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/end_effector_description/share/end_effector_description/package.sh'
+[0.729s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/end_effector_description/share/end_effector_description/package.bash'
+[0.730s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/end_effector_description/share/end_effector_description/package.zsh'
+[0.734s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/mtrn/MTRN4231_Project/install/end_effector_description/share/colcon-core/packages/end_effector_description)
+[0.734s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/mtrn/MTRN4231_Project/src/ur5e_custom_description' with build type 'ament_cmake'
+[0.735s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/mtrn/MTRN4231_Project/src/ur5e_custom_description'
+[0.735s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[0.735s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[0.752s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/mtrn/MTRN4231_Project/build/ur5e_custom_description': CMAKE_PREFIX_PATH=/home/mtrn/MTRN4231_Project/install/end_effector_description:/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom:/home/mtrn/MTRN4231_Project/install/ur5e_custom_description:/home/mtrn/MTRN4231_Project/install/arm_controller:/home/mtrn/MTRN4231_Project/install/custom_interfaces:/opt/ros/humble /home/mtrn/.local/bin/cmake --build /home/mtrn/MTRN4231_Project/build/ur5e_custom_description -- -j20 -l20
+[0.829s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/mtrn/MTRN4231_Project/build/ur5e_custom_description' returned '0': CMAKE_PREFIX_PATH=/home/mtrn/MTRN4231_Project/install/end_effector_description:/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom:/home/mtrn/MTRN4231_Project/install/ur5e_custom_description:/home/mtrn/MTRN4231_Project/install/arm_controller:/home/mtrn/MTRN4231_Project/install/custom_interfaces:/opt/ros/humble /home/mtrn/.local/bin/cmake --build /home/mtrn/MTRN4231_Project/build/ur5e_custom_description -- -j20 -l20
+[0.842s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/mtrn/MTRN4231_Project/build/custom_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /home/mtrn/.local/bin/cmake --build /home/mtrn/MTRN4231_Project/build/custom_interfaces -- -j20 -l20
+[0.849s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/mtrn/MTRN4231_Project/build/ur5e_moveit_config_custom' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /home/mtrn/.local/bin/cmake --build /home/mtrn/MTRN4231_Project/build/ur5e_moveit_config_custom -- -j20 -l20
+[0.885s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/mtrn/MTRN4231_Project/build/ur5e_custom_description': CMAKE_PREFIX_PATH=/home/mtrn/MTRN4231_Project/install/end_effector_description:/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom:/home/mtrn/MTRN4231_Project/install/ur5e_custom_description:/home/mtrn/MTRN4231_Project/install/arm_controller:/home/mtrn/MTRN4231_Project/install/custom_interfaces:/opt/ros/humble /home/mtrn/.local/bin/cmake --install /home/mtrn/MTRN4231_Project/build/ur5e_custom_description
+[0.906s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/mtrn/MTRN4231_Project/build/ur5e_moveit_config_custom': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /home/mtrn/.local/bin/cmake --install /home/mtrn/MTRN4231_Project/build/ur5e_moveit_config_custom
+[0.918s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ur5e_custom_description)
+[0.918s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/ur5e_custom_description' for CMake module files
+[0.919s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/mtrn/MTRN4231_Project/build/ur5e_custom_description' returned '0': CMAKE_PREFIX_PATH=/home/mtrn/MTRN4231_Project/install/end_effector_description:/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom:/home/mtrn/MTRN4231_Project/install/ur5e_custom_description:/home/mtrn/MTRN4231_Project/install/arm_controller:/home/mtrn/MTRN4231_Project/install/custom_interfaces:/opt/ros/humble /home/mtrn/.local/bin/cmake --install /home/mtrn/MTRN4231_Project/build/ur5e_custom_description
+[0.920s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/ur5e_custom_description' for CMake config files
+[0.920s] Level 1:colcon.colcon_core.shell:create_environment_hook('ur5e_custom_description', 'cmake_prefix_path')
+[0.921s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mtrn/MTRN4231_Project/install/ur5e_custom_description/share/ur5e_custom_description/hook/cmake_prefix_path.ps1'
+[0.921s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/mtrn/MTRN4231_Project/install/ur5e_custom_description/share/ur5e_custom_description/hook/cmake_prefix_path.dsv'
+[0.922s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mtrn/MTRN4231_Project/install/ur5e_custom_description/share/ur5e_custom_description/hook/cmake_prefix_path.sh'
+[0.923s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/ur5e_custom_description/bin'
+[0.923s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/ur5e_custom_description/lib/pkgconfig/ur5e_custom_description.pc'
+[0.923s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/ur5e_custom_description/lib/python3.10/site-packages'
+[0.923s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/ur5e_custom_description/bin'
+[0.924s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/ur5e_custom_description/share/ur5e_custom_description/package.ps1'
+[0.924s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/mtrn/MTRN4231_Project/install/ur5e_custom_description/share/ur5e_custom_description/package.dsv'
+[0.925s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/ur5e_custom_description/share/ur5e_custom_description/package.sh'
+[0.925s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/ur5e_custom_description/share/ur5e_custom_description/package.bash'
+[0.926s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/ur5e_custom_description/share/ur5e_custom_description/package.zsh'
+[0.926s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/mtrn/MTRN4231_Project/install/ur5e_custom_description/share/colcon-core/packages/ur5e_custom_description)
+[0.975s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/mtrn/MTRN4231_Project/build/custom_interfaces': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /home/mtrn/.local/bin/cmake --install /home/mtrn/MTRN4231_Project/build/custom_interfaces
+[0.983s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ur5e_custom_description)
+[0.984s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/ur5e_custom_description' for CMake module files
+[0.984s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/ur5e_custom_description' for CMake config files
+[0.984s] Level 1:colcon.colcon_core.shell:create_environment_hook('ur5e_custom_description', 'cmake_prefix_path')
+[0.985s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mtrn/MTRN4231_Project/install/ur5e_custom_description/share/ur5e_custom_description/hook/cmake_prefix_path.ps1'
+[0.985s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/mtrn/MTRN4231_Project/install/ur5e_custom_description/share/ur5e_custom_description/hook/cmake_prefix_path.dsv'
+[0.986s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mtrn/MTRN4231_Project/install/ur5e_custom_description/share/ur5e_custom_description/hook/cmake_prefix_path.sh'
+[0.986s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/ur5e_custom_description/bin'
+[0.986s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/ur5e_custom_description/lib/pkgconfig/ur5e_custom_description.pc'
+[0.986s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/ur5e_custom_description/lib/python3.10/site-packages'
+[0.987s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/ur5e_custom_description/bin'
+[0.987s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/ur5e_custom_description/share/ur5e_custom_description/package.ps1'
+[0.987s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/mtrn/MTRN4231_Project/install/ur5e_custom_description/share/ur5e_custom_description/package.dsv'
+[0.988s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/ur5e_custom_description/share/ur5e_custom_description/package.sh'
+[0.988s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/ur5e_custom_description/share/ur5e_custom_description/package.bash'
+[0.988s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/ur5e_custom_description/share/ur5e_custom_description/package.zsh'
+[0.989s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/mtrn/MTRN4231_Project/install/ur5e_custom_description/share/colcon-core/packages/ur5e_custom_description)
+[1.037s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ur5e_moveit_config_custom)
+[1.037s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom' for CMake module files
+[1.038s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/mtrn/MTRN4231_Project/build/ur5e_moveit_config_custom' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /home/mtrn/.local/bin/cmake --install /home/mtrn/MTRN4231_Project/build/ur5e_moveit_config_custom
+[1.038s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom' for CMake config files
+[1.039s] Level 1:colcon.colcon_core.shell:create_environment_hook('ur5e_moveit_config_custom', 'cmake_prefix_path')
+[1.039s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/hook/cmake_prefix_path.ps1'
+[1.040s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/hook/cmake_prefix_path.dsv'
+[1.040s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/hook/cmake_prefix_path.sh'
+[1.041s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom/bin'
+[1.041s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom/lib/pkgconfig/ur5e_moveit_config_custom.pc'
+[1.042s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom/lib/python3.10/site-packages'
+[1.042s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom/bin'
+[1.042s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/package.ps1'
+[1.043s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/package.dsv'
+[1.044s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/package.sh'
+[1.044s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/package.bash'
+[1.045s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/package.zsh'
+[1.045s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom/share/colcon-core/packages/ur5e_moveit_config_custom)
+[1.074s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(custom_interfaces)
+[1.075s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/custom_interfaces' for CMake module files
+[1.076s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/mtrn/MTRN4231_Project/build/custom_interfaces' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/opt/ros/humble /home/mtrn/.local/bin/cmake --install /home/mtrn/MTRN4231_Project/build/custom_interfaces
+[1.076s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/custom_interfaces' for CMake config files
+[1.077s] Level 1:colcon.colcon_core.shell:create_environment_hook('custom_interfaces', 'cmake_prefix_path')
+[1.077s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mtrn/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/hook/cmake_prefix_path.ps1'
+[1.078s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/mtrn/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/hook/cmake_prefix_path.dsv'
+[1.078s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mtrn/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/hook/cmake_prefix_path.sh'
+[1.079s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/custom_interfaces/lib'
+[1.080s] Level 1:colcon.colcon_core.shell:create_environment_hook('custom_interfaces', 'ld_library_path_lib')
+[1.080s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mtrn/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/hook/ld_library_path_lib.ps1'
+[1.081s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/mtrn/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/hook/ld_library_path_lib.dsv'
+[1.081s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mtrn/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/hook/ld_library_path_lib.sh'
+[1.083s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/custom_interfaces/bin'
+[1.083s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/custom_interfaces/lib/pkgconfig/custom_interfaces.pc'
+[1.084s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/custom_interfaces/lib/python3.10/site-packages'
+[1.085s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/custom_interfaces/bin'
+[1.086s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/package.ps1'
+[1.087s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/mtrn/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/package.dsv'
+[1.088s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/package.sh'
+[1.088s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/package.bash'
+[1.088s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/package.zsh'
+[1.089s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/mtrn/MTRN4231_Project/install/custom_interfaces/share/colcon-core/packages/custom_interfaces)
+[1.099s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(ur5e_moveit_config_custom)
+[1.099s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom' for CMake module files
+[1.100s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom' for CMake config files
+[1.101s] Level 1:colcon.colcon_core.shell:create_environment_hook('ur5e_moveit_config_custom', 'cmake_prefix_path')
+[1.101s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/hook/cmake_prefix_path.ps1'
+[1.101s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/hook/cmake_prefix_path.dsv'
+[1.102s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/hook/cmake_prefix_path.sh'
+[1.102s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom/bin'
+[1.103s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom/lib/pkgconfig/ur5e_moveit_config_custom.pc'
+[1.103s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom/lib/python3.10/site-packages'
+[1.103s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom/bin'
+[1.104s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/package.ps1'
+[1.104s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/package.dsv'
+[1.105s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/package.sh'
+[1.105s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/package.bash'
+[1.106s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/package.zsh'
+[1.106s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom/share/colcon-core/packages/ur5e_moveit_config_custom)
+[1.200s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(custom_interfaces)
+[1.201s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/custom_interfaces' for CMake module files
+[1.202s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/custom_interfaces' for CMake config files
+[1.203s] Level 1:colcon.colcon_core.shell:create_environment_hook('custom_interfaces', 'cmake_prefix_path')
+[1.203s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mtrn/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/hook/cmake_prefix_path.ps1'
+[1.204s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/mtrn/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/hook/cmake_prefix_path.dsv'
+[1.205s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mtrn/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/hook/cmake_prefix_path.sh'
+[1.206s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/custom_interfaces/lib'
+[1.206s] Level 1:colcon.colcon_core.shell:create_environment_hook('custom_interfaces', 'ld_library_path_lib')
+[1.206s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mtrn/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/hook/ld_library_path_lib.ps1'
+[1.207s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/mtrn/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/hook/ld_library_path_lib.dsv'
+[1.208s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mtrn/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/hook/ld_library_path_lib.sh'
+[1.208s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/custom_interfaces/bin'
+[1.208s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/custom_interfaces/lib/pkgconfig/custom_interfaces.pc'
+[1.209s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/custom_interfaces/lib/python3.10/site-packages'
+[1.209s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/custom_interfaces/bin'
+[1.210s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/package.ps1'
+[1.210s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/mtrn/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/package.dsv'
+[1.211s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/package.sh'
+[1.212s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/package.bash'
+[1.213s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/package.zsh'
+[1.213s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/mtrn/MTRN4231_Project/install/custom_interfaces/share/colcon-core/packages/custom_interfaces)
+[1.214s] INFO:colcon.colcon_ros.task.ament_cmake.build:Building ROS package in '/home/mtrn/MTRN4231_Project/src/arm_controller' with build type 'ament_cmake'
+[1.214s] INFO:colcon.colcon_cmake.task.cmake.build:Building CMake package in '/home/mtrn/MTRN4231_Project/src/arm_controller'
+[1.214s] INFO:colcon.colcon_core.shell:Skip shell extension 'powershell' for command environment: Not usable outside of PowerShell
+[1.214s] DEBUG:colcon.colcon_core.shell:Skip shell extension 'dsv' for command environment
+[1.242s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/mtrn/MTRN4231_Project/build/arm_controller': CMAKE_PREFIX_PATH=/home/mtrn/MTRN4231_Project/install/custom_interfaces:/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom:/home/mtrn/MTRN4231_Project/install/ur5e_custom_description:/home/mtrn/MTRN4231_Project/install/end_effector_description:/home/mtrn/MTRN4231_Project/install/arm_controller:/opt/ros/humble /home/mtrn/.local/bin/cmake --build /home/mtrn/MTRN4231_Project/build/arm_controller -- -j20 -l20
+[1.353s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/mtrn/MTRN4231_Project/build/arm_controller' returned '0': CMAKE_PREFIX_PATH=/home/mtrn/MTRN4231_Project/install/custom_interfaces:/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom:/home/mtrn/MTRN4231_Project/install/ur5e_custom_description:/home/mtrn/MTRN4231_Project/install/end_effector_description:/home/mtrn/MTRN4231_Project/install/arm_controller:/opt/ros/humble /home/mtrn/.local/bin/cmake --build /home/mtrn/MTRN4231_Project/build/arm_controller -- -j20 -l20
+[1.435s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoking command in '/home/mtrn/MTRN4231_Project/build/arm_controller': CMAKE_PREFIX_PATH=/home/mtrn/MTRN4231_Project/install/custom_interfaces:/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom:/home/mtrn/MTRN4231_Project/install/ur5e_custom_description:/home/mtrn/MTRN4231_Project/install/end_effector_description:/home/mtrn/MTRN4231_Project/install/arm_controller:/opt/ros/humble /home/mtrn/.local/bin/cmake --install /home/mtrn/MTRN4231_Project/build/arm_controller
+[1.475s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(arm_controller)
+[1.476s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/arm_controller' for CMake module files
+[1.476s] DEBUG:colcon.colcon_core.event_handler.log_command:Invoked command in '/home/mtrn/MTRN4231_Project/build/arm_controller' returned '0': CMAKE_PREFIX_PATH=/home/mtrn/MTRN4231_Project/install/custom_interfaces:/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom:/home/mtrn/MTRN4231_Project/install/ur5e_custom_description:/home/mtrn/MTRN4231_Project/install/end_effector_description:/home/mtrn/MTRN4231_Project/install/arm_controller:/opt/ros/humble /home/mtrn/.local/bin/cmake --install /home/mtrn/MTRN4231_Project/build/arm_controller
+[1.477s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/arm_controller' for CMake config files
+[1.477s] Level 1:colcon.colcon_core.shell:create_environment_hook('arm_controller', 'cmake_prefix_path')
+[1.477s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mtrn/MTRN4231_Project/install/arm_controller/share/arm_controller/hook/cmake_prefix_path.ps1'
+[1.478s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/mtrn/MTRN4231_Project/install/arm_controller/share/arm_controller/hook/cmake_prefix_path.dsv'
+[1.478s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mtrn/MTRN4231_Project/install/arm_controller/share/arm_controller/hook/cmake_prefix_path.sh'
+[1.479s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/arm_controller/lib'
+[1.479s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/arm_controller/bin'
+[1.479s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/arm_controller/lib/pkgconfig/arm_controller.pc'
+[1.479s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/arm_controller/lib/python3.10/site-packages'
+[1.479s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/arm_controller/bin'
+[1.480s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/arm_controller/share/arm_controller/package.ps1'
+[1.480s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/mtrn/MTRN4231_Project/install/arm_controller/share/arm_controller/package.dsv'
+[1.480s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/arm_controller/share/arm_controller/package.sh'
+[1.481s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/arm_controller/share/arm_controller/package.bash'
+[1.481s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/arm_controller/share/arm_controller/package.zsh'
+[1.481s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/mtrn/MTRN4231_Project/install/arm_controller/share/colcon-core/packages/arm_controller)
+[1.559s] Level 1:colcon.colcon_core.environment:create_environment_scripts_only(arm_controller)
+[1.560s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/arm_controller' for CMake module files
+[1.560s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/arm_controller' for CMake config files
+[1.560s] Level 1:colcon.colcon_core.shell:create_environment_hook('arm_controller', 'cmake_prefix_path')
+[1.561s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mtrn/MTRN4231_Project/install/arm_controller/share/arm_controller/hook/cmake_prefix_path.ps1'
+[1.561s] INFO:colcon.colcon_core.shell:Creating environment descriptor '/home/mtrn/MTRN4231_Project/install/arm_controller/share/arm_controller/hook/cmake_prefix_path.dsv'
+[1.561s] INFO:colcon.colcon_core.shell:Creating environment hook '/home/mtrn/MTRN4231_Project/install/arm_controller/share/arm_controller/hook/cmake_prefix_path.sh'
+[1.562s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/arm_controller/lib'
+[1.562s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/arm_controller/bin'
+[1.562s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/arm_controller/lib/pkgconfig/arm_controller.pc'
+[1.562s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/arm_controller/lib/python3.10/site-packages'
+[1.562s] Level 1:colcon.colcon_core.environment:checking '/home/mtrn/MTRN4231_Project/install/arm_controller/bin'
+[1.563s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/arm_controller/share/arm_controller/package.ps1'
+[1.563s] INFO:colcon.colcon_core.shell:Creating package descriptor '/home/mtrn/MTRN4231_Project/install/arm_controller/share/arm_controller/package.dsv'
+[1.563s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/arm_controller/share/arm_controller/package.sh'
+[1.564s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/arm_controller/share/arm_controller/package.bash'
+[1.564s] INFO:colcon.colcon_core.shell:Creating package script '/home/mtrn/MTRN4231_Project/install/arm_controller/share/arm_controller/package.zsh'
+[1.564s] Level 1:colcon.colcon_core.environment:create_file_with_runtime_dependencies(/home/mtrn/MTRN4231_Project/install/arm_controller/share/colcon-core/packages/arm_controller)
+[1.565s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:closing loop
+[1.565s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:loop closed
+[1.565s] DEBUG:colcon.colcon_parallel_executor.executor.parallel:run_until_complete finished with '0'
+[1.565s] DEBUG:colcon.colcon_core.event_reactor:joining thread
+[1.575s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.terminal_notifier': Not used on non-Darwin systems
+[1.575s] INFO:colcon.colcon_core.plugin_system:Skipping extension 'colcon_notification.desktop_notification.win32': Not used on non-Windows systems
+[1.576s] INFO:colcon.colcon_notification.desktop_notification:Sending desktop notification using 'notify2'
+[1.597s] DEBUG:colcon.colcon_core.event_reactor:joined thread
+[1.597s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/mtrn/MTRN4231_Project/install/local_setup.ps1'
+[1.599s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/mtrn/MTRN4231_Project/install/_local_setup_util_ps1.py'
+[1.601s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/mtrn/MTRN4231_Project/install/setup.ps1'
+[1.603s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/mtrn/MTRN4231_Project/install/local_setup.sh'
+[1.604s] INFO:colcon.colcon_core.shell:Creating prefix util module '/home/mtrn/MTRN4231_Project/install/_local_setup_util_sh.py'
+[1.605s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/mtrn/MTRN4231_Project/install/setup.sh'
+[1.607s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/mtrn/MTRN4231_Project/install/local_setup.bash'
+[1.607s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/mtrn/MTRN4231_Project/install/setup.bash'
+[1.608s] INFO:colcon.colcon_core.shell:Creating prefix script '/home/mtrn/MTRN4231_Project/install/local_setup.zsh'
+[1.609s] INFO:colcon.colcon_core.shell:Creating prefix chain script '/home/mtrn/MTRN4231_Project/install/setup.zsh'

@@ -1,5 +1,5 @@
 CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: \
- /home/mtrn/Downloads/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp \
+ /home/mtrn/MTRN4231_Project/src/arm_controller/src/arm_controller_node.cpp \
  /usr/include/stdc-predef.h /usr/include/c++/11/memory \
  /usr/include/c++/11/bits/stl_algobase.h \
  /usr/include/x86_64-linux-gnu/c++/11/bits/c++config.h \
@@ -668,13 +668,13 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_stamped__builder.hpp \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_stamped__traits.hpp \
  /opt/ros/humble/include/std_msgs/std_msgs/msg/detail/header__traits.hpp \
- /home/mtrn/4231/ws_moveit2/install/moveit_ros_planning_interface/include/moveit/move_group_interface/move_group_interface.h \
- /home/mtrn/4231/ws_moveit2/install/moveit_core/include/moveit/macros/class_forward.h \
- /home/mtrn/4231/ws_moveit2/install/moveit_core/include/moveit/macros/declare_ptr.h \
- /home/mtrn/4231/ws_moveit2/install/moveit_core/include/moveit/robot_state/robot_state.h \
- /home/mtrn/4231/ws_moveit2/install/moveit_core/include/moveit/robot_model/robot_model.h \
- /home/mtrn/4231/ws_moveit2/install/moveit_core/include/moveit/exceptions/exceptions.h \
- /opt/ros/humble/include/srdfdom/model.h \
+ /opt/ros/humble/include/moveit/move_group_interface/move_group_interface.h \
+ /opt/ros/humble/include/moveit/macros/class_forward.h \
+ /opt/ros/humble/include/moveit/macros/declare_ptr.h \
+ /opt/ros/humble/include/moveit/robot_state/robot_state.h \
+ /opt/ros/humble/include/moveit/robot_model/robot_model.h \
+ /opt/ros/humble/include/moveit/exceptions/exceptions.h \
+ /opt/ros/humble/include/srdfdom/model.h /usr/include/tinyxml2.h \
  /opt/ros/humble/include/urdf/urdf/model.h \
  /opt/ros/humble/include/urdfdom_headers/urdf_model/model.h \
  /opt/ros/humble/include/urdfdom_headers/urdf_model/link.h \
@@ -689,10 +689,9 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: \
  /opt/ros/humble/include/urdf/urdf/urdfdom_compatibility.h \
  /opt/ros/humble/include/urdfdom_headers/urdf_world/types.h \
  /opt/ros/humble/include/urdf/urdf/visibility_control.hpp \
- /usr/include/tinyxml2.h \
  /opt/ros/humble/include/srdfdom/visibility_control.h \
- /home/mtrn/4231/ws_moveit2/install/moveit_core/include/moveit/robot_model/joint_model_group.h \
- /home/mtrn/4231/ws_moveit2/install/moveit_core/include/moveit/robot_model/joint_model.h \
+ /opt/ros/humble/include/moveit/robot_model/joint_model_group.h \
+ /opt/ros/humble/include/moveit/robot_model/joint_model.h \
  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/joint_limits.hpp \
  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/joint_limits__struct.hpp \
  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/joint_limits__builder.hpp \
@@ -1021,25 +1020,25 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: \
  /usr/include/eigen3/Eigen/src/Geometry/AlignedBox.h \
  /usr/include/eigen3/Eigen/src/Geometry/Umeyama.h \
  /usr/include/eigen3/Eigen/src/Geometry/arch/Geometry_SIMD.h \
- /home/mtrn/4231/ws_moveit2/install/moveit_core/include/moveit/robot_model/link_model.h \
+ /opt/ros/humble/include/moveit/robot_model/link_model.h \
  /opt/ros/humble/include/eigen_stl_containers/eigen_stl_vector_container.h \
  /usr/include/eigen3/Eigen/Core /usr/include/eigen3/Eigen/StdVector \
  /usr/include/eigen3/Eigen/src/StlSupport/StdVector.h \
  /usr/include/eigen3/Eigen/src/StlSupport/details.h \
  /opt/ros/humble/include/geometric_shapes/check_isometry.h \
- /home/mtrn/4231/ws_moveit2/install/moveit_core/include/moveit/kinematics_base/kinematics_base.h \
+ /opt/ros/humble/include/moveit/kinematics_base/kinematics_base.h \
  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/move_it_error_codes.hpp \
  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/move_it_error_codes__struct.hpp \
  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/move_it_error_codes__builder.hpp \
  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/move_it_error_codes__traits.hpp \
- /home/mtrn/4231/ws_moveit2/install/moveit_core/include/moveit_kinematics_base_export.h \
- /home/mtrn/4231/ws_moveit2/install/moveit_core/include/moveit/robot_model/fixed_joint_model.h \
- /home/mtrn/4231/ws_moveit2/install/moveit_core/include/moveit/robot_model/floating_joint_model.h \
- /home/mtrn/4231/ws_moveit2/install/moveit_core/include/moveit/robot_model/planar_joint_model.h \
- /home/mtrn/4231/ws_moveit2/install/moveit_core/include/moveit/robot_model/revolute_joint_model.h \
- /home/mtrn/4231/ws_moveit2/install/moveit_core/include/moveit/robot_model/prismatic_joint_model.h \
- /home/mtrn/4231/ws_moveit2/install/moveit_core/include/moveit/robot_state/attached_body.h \
- /home/mtrn/4231/ws_moveit2/install/moveit_core/include/moveit/transforms/transforms.h \
+ /opt/ros/humble/include/moveit_kinematics_base_export.h \
+ /opt/ros/humble/include/moveit/robot_model/fixed_joint_model.h \
+ /opt/ros/humble/include/moveit/robot_model/floating_joint_model.h \
+ /opt/ros/humble/include/moveit/robot_model/planar_joint_model.h \
+ /opt/ros/humble/include/moveit/robot_model/revolute_joint_model.h \
+ /opt/ros/humble/include/moveit/robot_model/prismatic_joint_model.h \
+ /opt/ros/humble/include/moveit/robot_state/attached_body.h \
+ /opt/ros/humble/include/moveit/transforms/transforms.h \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/transform_stamped.hpp \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform_stamped__struct.hpp \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/transform__struct.hpp \
@@ -1080,7 +1079,7 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist__struct.hpp \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist__builder.hpp \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/twist__traits.hpp \
- /home/mtrn/4231/ws_moveit2/install/moveit_core/include/moveit/utils/moveit_error_code.h \
+ /opt/ros/humble/include/moveit/utils/moveit_error_code.h \
  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/robot_trajectory.hpp \
  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/robot_trajectory__struct.hpp \
  /opt/ros/humble/include/trajectory_msgs/trajectory_msgs/msg/detail/multi_dof_joint_trajectory__struct.hpp \
@@ -1209,6 +1208,10 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: \
  /opt/ros/humble/include/tf2/tf2/visibility_control.h \
  /opt/ros/humble/include/tf2/tf2/LinearMath/Quaternion.h \
  /opt/ros/humble/include/tf2/tf2/LinearMath/QuadWord.h \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/velocity_stamped.hpp \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/velocity_stamped__struct.hpp \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/velocity_stamped__builder.hpp \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/velocity_stamped__traits.hpp \
  /opt/ros/humble/include/tf2/tf2/buffer_core_interface.h \
  /opt/ros/humble/include/tf2/tf2/time.h \
  /opt/ros/humble/include/tf2/tf2/exceptions.h \
@@ -1224,8 +1227,8 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: \
  /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__struct.hpp \
  /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__builder.hpp \
  /opt/ros/humble/include/tf2_msgs/tf2_msgs/srv/detail/frame_graph__traits.hpp \
- /home/mtrn/4231/ws_moveit2/install/moveit_ros_planning_interface/include/moveit_move_group_interface_export.h \
- /home/mtrn/4231/ws_moveit2/install/moveit_ros_planning_interface/include/moveit/planning_scene_interface/planning_scene_interface.h \
+ /opt/ros/humble/include/moveit_move_group_interface_export.h \
+ /opt/ros/humble/include/moveit/planning_scene_interface/planning_scene_interface.h \
  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/object_color.hpp \
  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/detail/object_color__builder.hpp \
  /opt/ros/humble/include/moveit_msgs/moveit_msgs/msg/collision_object.hpp \
@@ -1255,6 +1258,8 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/vector3_stamped__builder.hpp \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/point.hpp \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point__builder.hpp \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/point32.hpp \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/point32__builder.hpp \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/pose_with_covariance.hpp \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_with_covariance__struct.hpp \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_with_covariance__builder.hpp \
@@ -1263,6 +1268,10 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_with_covariance_stamped__struct.hpp \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_with_covariance_stamped__builder.hpp \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/pose_with_covariance_stamped__traits.hpp \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/polygon_stamped.hpp \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/polygon_stamped__struct.hpp \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/polygon_stamped__builder.hpp \
+ /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/polygon_stamped__traits.hpp \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/wrench.hpp \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/detail/wrench__builder.hpp \
  /opt/ros/humble/include/geometry_msgs/geometry_msgs/msg/wrench_stamped.hpp \
@@ -1279,7 +1288,7 @@ CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o: \
  /opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/detail/tf_message__builder.hpp \
  /opt/ros/humble/include/tf2_msgs/tf2_msgs/msg/detail/tf_message__traits.hpp \
  /opt/ros/humble/include/tf2_ros/tf2_ros/qos.hpp \
- /home/mtrn/Downloads/MTRN4231_Project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/move_tcp.hpp \
- /home/mtrn/Downloads/MTRN4231_Project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail/move_tcp__struct.hpp \
- /home/mtrn/Downloads/MTRN4231_Project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail/move_tcp__builder.hpp \
- /home/mtrn/Downloads/MTRN4231_Project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail/move_tcp__traits.hpp
+ /home/mtrn/MTRN4231_Project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/move_tcp.hpp \
+ /home/mtrn/MTRN4231_Project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail/move_tcp__struct.hpp \
+ /home/mtrn/MTRN4231_Project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail/move_tcp__builder.hpp \
+ /home/mtrn/MTRN4231_Project/install/custom_interfaces/include/custom_interfaces/custom_interfaces/action/detail/move_tcp__traits.hpp
