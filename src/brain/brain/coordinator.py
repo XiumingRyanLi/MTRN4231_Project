@@ -3,6 +3,15 @@ from rclpy.node import Node
 from std_msgs.msg import String
 from custom_interfaces.srv import ChessMove
 
+# Define corner coordinates
+A1 = (309, -818.0)
+H1 = (309, -519.9)
+A8 = (4.9, -818.0)
+H8 = (4.9, -519.9)
+
+# Define pieces height
+KING_HEIGHT = -220.2
+PAWN_HEIGHT = -247.5
 
 class TaskCoordinator(Node):
 
@@ -56,6 +65,8 @@ class TaskCoordinator(Node):
         self.get_logger().info(f"is_capture: {resp.is_capture}")
         self.get_logger().info(f"is_castling: {resp.is_castling}")
         self.get_logger().info(f"is_promotion: {resp.is_promotion}")
+        self.get_logger().info(f"is_tall_piece_from: {resp.is_tall_piece_from}")
+        self.get_logger().info(f"is_tall_piece_to: {resp.is_tall_piece_to}")
 
         # Figure robot arm movement steps
         self.get_logger().info("== Robot Arm Movement Steps ==")
@@ -67,51 +78,57 @@ class TaskCoordinator(Node):
         sq2 = robot_move[2:4]
         x1, y1 = self.get_real_world_coords(sq1)
         x2, y2 = self.get_real_world_coords(sq2)
+        from_piece_is_tall = resp.is_tall_piece_from
+        to_piece_is_tall = resp.is_tall_piece_to
 
         # case en passant
         if resp.is_en_passant:
-            self.normal_move(x1, y1, x2, y2, sq1, sq2)
+            self.normal_move(x1, y1, x2, y2, sq1, sq2, PAWN_HEIGHT)
             # sq2 same file + 1 rank
             pawn_sq = sq2[0] + '4'
             pawnx, pawny = self.get_real_world_coords(pawn_sq)
-            self.discard_piece(pawnx, pawny, pawn_sq)
+            self.discard_piece(pawnx, pawny, pawn_sq, PAWN_HEIGHT)
             return
         # case capture
         if resp.is_capture:
-            self.discard_piece(x2, y2, sq2)
-            if resp.is_promotion:
-                self.discard_piece(x1, y1, sq1)
-                self.promote_piece(x2, y2, sq2)
+            if to_piece_is_tall:
+                self.discard_piece(x2, y2, sq2, KING_HEIGHT)
             else:
-                self.normal_move(x1, y1, x2, y2, sq1, sq2)
+                self.discard_piece(x2, y2, sq2, PAWN_HEIGHT)
+            if resp.is_promotion:
+                self.discard_piece(x1, y1, sq1, PAWN_HEIGHT)
+                self.promote_piece(x2, y2, sq2, KING_HEIGHT)
+            else:
+                if from_piece_is_tall:
+                    self.normal_move(x1, y1, x2, y2, sq1, sq2, KING_HEIGHT)
+                else:
+                    self.normal_move(x1, y1, x2, y2, sq1, sq2, PAWN_HEIGHT)
             return
         # case castling
         if resp.is_castling:
-            self.normal_move(x1, y1, x2, y2, sq1, sq2)
-            # check which rook to move
+            self.normal_move(x1, y1, x2, y2, sq1, sq2, KING_HEIGHT)
+            # check which rook to move (works for white only for now)
             if sq2 == 'g8':
                 rookx1, rooky1 = self.get_real_world_coords('h8')
                 rookx2, rooky2 = self.get_real_world_coords('f8')
-                self.normal_move(rookx1, rooky1, rookx2, rooky2, 'h8', 'f8')
+                self.normal_move(rookx1, rooky1, rookx2, rooky2, 'h8', 'f8', PAWN_HEIGHT)
             if sq2 == 'c8':
                 rookx1, rooky1 = self.get_real_world_coords('a8')
                 rookx2, rooky2 = self.get_real_world_coords('d8')
-                self.normal_move(rookx1, rooky1, rookx2, rooky2, 'a8', 'd8')
+                self.normal_move(rookx1, rooky1, rookx2, rooky2, 'a8', 'd8', PAWN_HEIGHT)
             return
         # case promotion
         if resp.is_promotion:
-            self.discard_piece(x1, y1, sq1)
-            self.promote_piece(x2, y2, sq2)
+            self.discard_piece(x1, y1, sq1, PAWN_HEIGHT)
+            self.promote_piece(x2, y2, sq2, KING_HEIGHT)
             return
 
-        self.normal_move(x1, y1, x2, y2, sq1, sq2)
+        if from_piece_is_tall:
+            self.normal_move(x1, y1, x2, y2, sq1, sq2, KING_HEIGHT)
+        else:
+            self.normal_move(x1, y1, x2, y2, sq1, sq2, PAWN_HEIGHT)
 
     def get_real_world_coords(self, square: str):
-        # Define corner coordinates
-        A1 = (309, -818.0)
-        H1 = (309, -519.9)
-        A8 = (4.9, -818.0)
-        H8 = (4.9, -519.9)
 
         # Extract file (A-H) and rank (1-8)
         file = square[0].upper()
@@ -135,22 +152,22 @@ class TaskCoordinator(Node):
 
         return x, y
 
-    def normal_move(self, x1, y1, x2, y2, sq1, sq2):
-        self.get_logger().info(f"Move to {x1}, {y1} ({sq1})")
+    def normal_move(self, x1, y1, x2, y2, sq1, sq2, h):
+        self.get_logger().info(f"Move to {x1}, {y1}, {h} ({sq1})")
         self.get_logger().info(f"Grip")
-        self.get_logger().info(f"Move to {x2}, {y2} ({sq2})")
+        self.get_logger().info(f"Move to {x2}, {y2}, {h} ({sq2})")
         self.get_logger().info(f"Ungrip")
 
-    def discard_piece(self, x, y, sq):
-        self.get_logger().info(f"Move to {x}, {y} ({sq})")
+    def discard_piece(self, x, y, sq, h):
+        self.get_logger().info(f"Move to {x}, {y}, {h} ({sq})")
         self.get_logger().info(f"Grip")
         self.get_logger().info(f"Move to discard pile")
         self.get_logger().info(f"Ungrip")
 
-    def promote_piece(self, x, y, sq):
+    def promote_piece(self, x, y, sq, h):
         self.get_logger().info(f"Move to extra queen")
         self.get_logger().info(f"Grip")
-        self.get_logger().info(f"Move to {x}, {y} ({sq})")
+        self.get_logger().info(f"Move to {x}, {y}, {h} ({sq})")
         self.get_logger().info(f"Ungrip")
 
 

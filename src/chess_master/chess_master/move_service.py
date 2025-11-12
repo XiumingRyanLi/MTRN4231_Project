@@ -154,6 +154,8 @@ class ChessMaster(Node):
             response.is_castling = False
             response.is_promotion = False
             response.is_capture = False
+            response.is_tall_piece_from = False
+            response.is_tall_piece_to = False
             if self.board.is_en_passant(best_move):
                 response.is_en_passant = True
             if self.board.is_capture(best_move):
@@ -163,11 +165,25 @@ class ChessMaster(Node):
             if best_move.promotion:
                 response.is_promotion = True
 
+            # Get the piece that is moving
+            moving_piece = self.board.piece_at(best_move.from_square)
+
+            # Get the piece being captured (if any)
+            captured_piece = self.board.piece_at(best_move.to_square)
+
+            # Check what’s moving
+            if moving_piece.piece_type in [chess.KING, chess.QUEEN]:
+                response.is_tall_piece_from = True
+
+            # Check what’s being captured
+            if captured_piece and captured_piece.piece_type in [chess.KING, chess.QUEEN]:
+                response.is_tall_piece_to = True
+
             self.board.push(best_move)
 
             # Check if game is over
             if self.board.is_checkmate():
-                response.robot_move = "Game Over!"
+                # response.robot_move = "Game Over!"
                 self.status_publish("HAHAHAHAHAHAHA YOU LOST L")
                 return response
 

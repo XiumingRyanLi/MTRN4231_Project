@@ -5,3 +5,5 @@ bool is_en_passant
 bool is_capture
 bool is_castling
 bool is_promotion
+bool is_tall_piece_from
+bool is_tall_piece_to

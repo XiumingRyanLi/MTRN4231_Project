@@ -138,7 +138,7 @@ class UserInterface(tk.Tk):
 
     def take_picture(self):
         self.take_pic_pub.publish(Empty())
-        self.take_pic_btn.config(state="disabled")
+        # self.take_pic_btn.config(state="disabled")
 
     def reset_press(self):
         # reset board
