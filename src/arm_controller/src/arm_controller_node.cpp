@@ -192,7 +192,7 @@ private:
     const double jump_threshold = 0.0;
     double fraction = move_group_->computeCartesianPath(waypoints, eef_step, jump_threshold, trajectory);
 
-    if (fraction > 0.5)
+    if (fraction > 0.9)
     {
       moveit::planning_interface::MoveGroupInterface::Plan plan;
       plan.trajectory_ = trajectory;
