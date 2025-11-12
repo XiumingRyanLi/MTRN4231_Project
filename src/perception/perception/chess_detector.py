@@ -73,6 +73,11 @@ class ChessBoardDetectorNode(Node):
                 '/chess/warped_board',
                 10
             )
+            self.cropped_image_pub = self.create_publisher(
+                Image,
+                'chess/cropped_image',
+                10
+            )
         
         self.get_logger().info('Chess Board Detector Node initialized')
         self.get_logger().info(f'Listening to: {image_topic}')
@@ -83,7 +88,9 @@ class ChessBoardDetectorNode(Node):
         try:
             cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
             # Crop to 1200x700 from top-left corner
-            self.latest_image = cv_image[0:700, 0:1200]
+            self.latest_image = cv_image[100:700, 550:1150]
+            cropped_msg = self.bridge.cv2_to_imgmsg(self.latest_image, encoding='bgr8')
+            self.cropped_image_pub.publish(cropped_msg)
         except Exception as e:
             self.get_logger().error(f'Error converting image: {str(e)}')
 
@@ -340,7 +347,7 @@ class ChessBoardDetectorNode(Node):
         center_y = int(np.mean(y_coords))
         return center_x, center_y
 
-    def get_sample_region(self, center_x, center_y, radius=10):
+    def get_sample_region(self, center_x, center_y, radius=5):
         """Get sample points around center"""
         points = []
         for angle in range(0, 360, 30):
@@ -380,8 +387,8 @@ class ChessBoardDetectorNode(Node):
     def detect_pieces(self, image, coord_dict):
         """Detect all pieces on the board"""
         piece_color_ranges = {
-            'black': (np.array([0, 0, 0]), np.array([30, 30, 30])),
-            'white': (np.array([150, 150, 120]), np.array([255, 255, 255]))
+            'black': (np.array([0, 0, 0]), np.array([75, 60, 60])),
+            'white': (np.array([180, 175, 130]), np.array([255, 255, 255]))
         }
         
         occupancy_dict = {}
@@ -391,7 +398,7 @@ class ChessBoardDetectorNode(Node):
             occupancy_dict[cell_num] = piece_color
         
 
-        x, y = self.get_cell_center(coord_dict[46])
+        x, y = self.get_cell_center(coord_dict[39])
         samples = self.get_sample_region(x, y)
 
         for x, y in samples:
