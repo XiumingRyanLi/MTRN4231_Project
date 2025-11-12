@@ -188,7 +188,7 @@ private:
     waypoints.push_back(goal_pose);
 
     moveit_msgs::msg::RobotTrajectory trajectory;
-    const double eef_step = 0.002;  // 5 mm resolution
+    const double eef_step = 0.001;  // 1 mm resolution
     const double jump_threshold = 0.0;
     double fraction = move_group_->computeCartesianPath(waypoints, eef_step, jump_threshold, trajectory);
 
