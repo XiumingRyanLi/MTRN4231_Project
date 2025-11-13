@@ -1,0 +1,37 @@
+[0.012s] Invoking command in '/home/dev/Desktop/MTRN4231_Project/build/ur5e_moveit_config_custom': CMAKE_PREFIX_PATH=/home/dev/Desktop/MTRN4231_Project/install/end_effector_description:/home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom:/home/dev/Desktop/MTRN4231_Project/install/ur5e_custom_description:/home/dev/Desktop/MTRN4231_Project/install/arm_controller:/home/dev/Desktop/MTRN4231_Project/install/custom_interfaces:/opt/ros/humble /usr/bin/cmake --build /home/dev/Desktop/MTRN4231_Project/build/ur5e_moveit_config_custom -- -j12 -l12
+[0.052s] Invoked command in '/home/dev/Desktop/MTRN4231_Project/build/ur5e_moveit_config_custom' returned '0': CMAKE_PREFIX_PATH=/home/dev/Desktop/MTRN4231_Project/install/end_effector_description:/home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom:/home/dev/Desktop/MTRN4231_Project/install/ur5e_custom_description:/home/dev/Desktop/MTRN4231_Project/install/arm_controller:/home/dev/Desktop/MTRN4231_Project/install/custom_interfaces:/opt/ros/humble /usr/bin/cmake --build /home/dev/Desktop/MTRN4231_Project/build/ur5e_moveit_config_custom -- -j12 -l12
+[0.054s] Invoking command in '/home/dev/Desktop/MTRN4231_Project/build/ur5e_moveit_config_custom': CMAKE_PREFIX_PATH=/home/dev/Desktop/MTRN4231_Project/install/end_effector_description:/home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom:/home/dev/Desktop/MTRN4231_Project/install/ur5e_custom_description:/home/dev/Desktop/MTRN4231_Project/install/arm_controller:/home/dev/Desktop/MTRN4231_Project/install/custom_interfaces:/opt/ros/humble /usr/bin/cmake --install /home/dev/Desktop/MTRN4231_Project/build/ur5e_moveit_config_custom
+[0.061s] -- Install configuration: ""
+[0.062s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ament_index/resource_index/package_run_dependencies/ur5e_moveit_config_custom
+[0.062s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ament_index/resource_index/parent_prefix_path/ur5e_moveit_config_custom
+[0.062s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/environment/ament_prefix_path.sh
+[0.062s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/environment/ament_prefix_path.dsv
+[0.063s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/environment/path.sh
+[0.063s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/environment/path.dsv
+[0.063s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/local_setup.bash
+[0.064s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/local_setup.sh
+[0.064s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/local_setup.zsh
+[0.064s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/local_setup.dsv
+[0.064s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/package.dsv
+[0.064s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ament_index/resource_index/packages/ur5e_moveit_config_custom
+[0.064s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/cmake/ur5e_moveit_config_customConfig.cmake
+[0.064s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/cmake/ur5e_moveit_config_customConfig-version.cmake
+[0.064s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/package.xml
+[0.065s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/launch
+[0.065s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/launch/rsp.launch.py
+[0.065s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/launch/moveit_rviz.launch.py
+[0.065s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/launch/setup_assistant.launch.py
+[0.065s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/launch/move_group.launch.py
+[0.065s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/launch/spawn_controllers.launch.py
+[0.065s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/config
+[0.066s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/config/joint_limits.yaml
+[0.066s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/config/moveit.rviz
+[0.066s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/config/moveit_controllers.yaml
+[0.066s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/config/end_effector_withDriverSupport.srdf
+[0.066s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/config/initial_positions.yaml
+[0.066s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/config/kinematics.yaml
+[0.066s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/config/end_effector_withDriverSupport.urdf.xacro
+[0.066s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/config/end_effector_withDriverSupport.ros2_control.xacro
+[0.066s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/config/pilz_cartesian_limits.yaml
+[0.066s] -- Up-to-date: /home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom/share/ur5e_moveit_config_custom/.setup_assistant
+[0.067s] Invoked command in '/home/dev/Desktop/MTRN4231_Project/build/ur5e_moveit_config_custom' returned '0': CMAKE_PREFIX_PATH=/home/dev/Desktop/MTRN4231_Project/install/end_effector_description:/home/dev/Desktop/MTRN4231_Project/install/ur5e_moveit_config_custom:/home/dev/Desktop/MTRN4231_Project/install/ur5e_custom_description:/home/dev/Desktop/MTRN4231_Project/install/arm_controller:/home/dev/Desktop/MTRN4231_Project/install/custom_interfaces:/opt/ros/humble /usr/bin/cmake --install /home/dev/Desktop/MTRN4231_Project/build/ur5e_moveit_config_custom

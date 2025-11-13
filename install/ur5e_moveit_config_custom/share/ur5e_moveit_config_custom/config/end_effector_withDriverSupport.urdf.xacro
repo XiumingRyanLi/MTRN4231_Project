@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="end_effector_withDriverSupport">
+    <xacro:arg name="initial_positions_file" default="initial_positions.yaml" />
+
+    <!-- Import end_effector_withDriverSupport urdf file -->
+    <xacro:include filename="$(find end_effector_description)/urdf/end_effector_withDriverSupport.xacro" />
+
+    <!-- Import control_xacro -->
+    <xacro:include filename="end_effector_withDriverSupport.ros2_control.xacro" />
+
+
+    <xacro:end_effector_withDriverSupport_ros2_control name="FakeSystem" initial_positions_file="$(arg initial_positions_file)"/>
+
+</robot>

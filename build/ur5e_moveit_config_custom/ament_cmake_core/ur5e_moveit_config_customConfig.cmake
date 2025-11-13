@@ -16,7 +16,7 @@ set(_ur5e_moveit_config_custom_CONFIG_INCLUDED TRUE)
 
 # output package information
 if(NOT ur5e_moveit_config_custom_FIND_QUIETLY)
-  message(STATUS "Found ur5e_moveit_config_custom: 0.0.1 (${ur5e_moveit_config_custom_DIR})")
+  message(STATUS "Found ur5e_moveit_config_custom: 0.3.0 (${ur5e_moveit_config_custom_DIR})")
 endif()
 
 # warn when using a deprecated package

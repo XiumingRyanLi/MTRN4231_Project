@@ -10,7 +10,7 @@
   <xacro:include filename="$(find ur_description)/urdf/ur.urdf.xacro"/>
   <!-- Don't pass ur_type here; it's consumed internally by ur.urdf.xacro -->
   <!-- <xacro:ur_robot name="$(arg name)"/> -->
-
+  <!-- <xacro:ur_robot name="$(arg name)"/> -->
   <!-- End-effector macro (your file above) -->
   <xacro:include filename="$(find end_effector_description)/urdf/end_effector.urdf.xacro"/>
 

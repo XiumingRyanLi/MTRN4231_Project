@@ -1,6 +1,6 @@
 # CMake generated Testfile for 
-# Source directory: /home/mtrn/MTRN4231_Project/src/end_effector_description
-# Build directory: /home/mtrn/MTRN4231_Project/build/end_effector_description
+# Source directory: /home/dev/Desktop/MTRN4231_Project/src/end_effector_description
+# Build directory: /home/dev/Desktop/MTRN4231_Project/build/end_effector_description
 # 
 # This file includes the relevant testing commands required for 
 # testing this directory and lists subdirectories to be tested as well.
