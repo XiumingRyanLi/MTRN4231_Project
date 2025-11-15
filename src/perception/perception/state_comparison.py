@@ -26,7 +26,6 @@ class ChessMoveDetector(Node):
         )
         
         # Store previous occupancy state
-        #self.occupancy_before = {1: 'black', 2: 'empty', 3: 'black', 4: 'black', 5: 'black', 6: 'black', 7: 'black', 8: 'black', 9: 'black', 10: 'black', 11: 'black', 12: 'black', 13: 'black', 14: 'black', 15: 'black', 16: 'black', 17: 'empty', 18: 'empty', 19: 'black', 20: 'empty', 21: 'empty', 22: 'empty', 23: 'empty', 24: 'empty', 25: 'empty', 26: 'empty', 27: 'empty', 28: 'empty', 29: 'empty', 30: 'empty', 31: 'empty', 32: 'empty', 33: 'empty', 34: 'empty', 35: 'empty', 36: 'white', 37: 'empty', 38: 'empty', 39: 'empty', 40: 'empty', 41: 'empty', 42: 'empty', 43: 'empty', 44: 'empty', 45: 'empty', 46: 'empty', 47: 'empty', 48: 'empty', 49: 'white', 50: 'white', 51: 'white', 52: 'empty', 53: 'white', 54: 'white', 55: 'white', 56: 'white', 57: 'white', 58: 'white', 59: 'white', 60: 'white', 61: 'white', 62: 'white', 63: 'white', 64: 'white'}
         self.occupancy_before = None
         self.get_logger().info('Chess Move Detector Node initialized')
     
@@ -101,42 +100,103 @@ class ChessMoveDetector(Node):
             elif before in ['black', 'white'] and after in ['black', 'white'] and before != after:
                 to_squares.append(cell_num)
         
+        # Normal move (1 from, 1 to)
         if len(from_squares) == 1 and len(to_squares) == 1:
-            is_capture = occupancy_dict_before[to_squares[0]] in ['black', 'white']
-            
-            # Convert cell numbers to algebraic notation
             from_algebraic = self.cell_to_algebraic(int(from_squares[0]))
             to_algebraic = self.cell_to_algebraic(int(to_squares[0]))
+            return f"{from_algebraic}{to_algebraic}"
+        
+        # Castling (2 from, 2 to - king and rook both move)
+        elif len(from_squares) == 2 and len(to_squares) == 2:
+            castle_move = self.detect_castling(from_squares, to_squares, occupancy_dict_after)
+            if castle_move:
+                return castle_move
+        
+        # En passant (2 from, 1 to - attacking pawn moves, captured pawn disappears)
+        elif len(from_squares) == 2 and len(to_squares) == 1:
+            en_passant_move = self.detect_en_passant(from_squares, to_squares, occupancy_dict_before, occupancy_dict_after)
+            if en_passant_move:
+                return en_passant_move
+        
+        return 'Unexpected move pattern detected'
+    
+    def detect_castling(self, from_squares, to_squares, occupancy_after):
+        """Detect if the move is castling"""
+        # Convert to integers for easier calculation
+        from_cells = [int(sq) for sq in from_squares]
+        to_cells = [int(sq) for sq in to_squares]
+        
+        # Sort to get consistent ordering
+        from_cells.sort()
+        to_cells.sort()
+        
+        # Check for white kingside castling (e1-g1, h1-f1)
+        # Cell 61 = e1, 64 = h1, 63 = g1, 62 = f1
+        if set(from_cells) == {61, 64} and set(to_cells) == {62, 63}:
+            return "e1g1"  # White kingside
+        
+        # Check for white queenside castling (e1-c1, a1-d1)
+        # Cell 61 = e1, 57 = a1, 59 = c1, 60 = d1
+        if set(from_cells) == {57, 61} and set(to_cells) == {59, 60}:
+            return "e1c1"  # White queenside
+        
+        # Check for black kingside castling (e8-g8, h8-f8)
+        # Cell 5 = e8, 8 = h8, 7 = g8, 6 = f8
+        if set(from_cells) == {5, 8} and set(to_cells) == {6, 7}:
+            return "e8g8"  # Black kingside
+        
+        # Check for black queenside castling (e8-c8, a8-d8)
+        # Cell 5 = e8, 1 = a8, 3 = c8, 4 = d8
+        if set(from_cells) == {1, 5} and set(to_cells) == {3, 4}:
+            return "e8c8"  # Black queenside
+        
+        return None
+    
+    def detect_en_passant(self, from_squares, to_squares, occupancy_before, occupancy_after):
+        """Detect if the move is en passant"""
+        # En passant has 2 pieces leaving (attacking pawn + captured pawn) and 1 arriving (attacking pawn)
+        from_cells = [int(sq) for sq in from_squares]
+        to_cell = int(to_squares[0])
+        
+        # Determine which piece moved and which disappeared
+        moving_pawn = None
+        captured_pawn = None
+        
+        for from_cell in from_cells:
+            # The moving pawn should end up in the to_square
+            # Check if this could be the attacking pawn by seeing if it's diagonal to the destination
+            from_row = (from_cell - 1) // 8
+            from_col = (from_cell - 1) % 8
+            to_row = (to_cell - 1) // 8
+            to_col = (to_cell - 1) % 8
             
-            return  f"{from_algebraic}{to_algebraic}"
-                # 'from_square': from_squares[0],
-                # 'to_square': to_squares[0],
-                # 'piece_color': occupancy_dict_after[to_squares[0]],
-                # 'is_capture': is_capture,
-               
+            # Pawn moves diagonally one square in en passant
+            if abs(from_row - to_row) == 1 and abs(from_col - to_col) == 1:
+                # Check if the piece in the destination is the same color as this from_square
+                if occupancy_before[str(from_cell)] == occupancy_after[str(to_cell)]:
+                    moving_pawn = from_cell
+                    captured_pawn = [c for c in from_cells if c != moving_pawn][0]
+                    break
+        
+        if moving_pawn and captured_pawn:
+            # Verify it's en passant: captured pawn should be on same row as moving pawn's start
+            captured_row = (captured_pawn - 1) // 8
+            moving_row = (moving_pawn - 1) // 8
             
-        else:
-            return 'Unexpected move pattern detected'
-                # 'from_squares': from_squares,
-                # 'to_squares': to_squares,
-                # 'note': 
-            
+            if captured_row == moving_row:
+                from_algebraic = self.cell_to_algebraic(moving_pawn)
+                to_algebraic = self.cell_to_algebraic(to_cell)
+                return f"{from_algebraic}{to_algebraic}"
+        
+        return None
     
     def cell_to_algebraic(self, cell_num):
-        """Convert cell number (0-63) to algebraic notation (a1-h8)"""
+        """Convert cell number (1-64) to algebraic notation (a1-h8)"""
         cell_num -= 1
-        #self.get_logger().info(cell_num)
         row = cell_num // 8
-        #self.get_logger().info("row:" + row)
         col = cell_num % 8
-        #self.get_logger().info("col:" + col)
-
         file = chr(ord('h') - col)  # Convert column to letter (a-h)
-        #self.get_logger().info("file:" + file)
-
         rank = str(8 - row)  # Convert row to rank (8-1)
-        #self.get_logger().info("rank:" + rank)
-
         return f"{file}{rank}"
 
 

@@ -32,6 +32,8 @@ class ChessBoardDetectorNode(Node):
         self.coord_dict = None
         self.M_inv = None
         self.previous_occupancy = None
+        self.is_calibrated = False
+        self.piece_color_ranges = None
         
         # Subscribers
         self.image_sub = self.create_subscription(
@@ -82,6 +84,7 @@ class ChessBoardDetectorNode(Node):
         self.get_logger().info('Chess Board Detector Node initialized')
         self.get_logger().info(f'Listening to: {image_topic}')
         self.get_logger().info('Waiting for trigger on /take_picture')
+        self.get_logger().info('First trigger will calibrate piece colors from initial position')
 
     def image_callback(self, msg):
         """Store the latest image without processing"""
@@ -100,8 +103,100 @@ class ChessBoardDetectorNode(Node):
             self.get_logger().warn('Trigger received but no image available yet')
             return
         
-        self.get_logger().info('Processing triggered image...')
+        if not self.is_calibrated:
+            self.get_logger().info('First trigger - calibrating colors from initial position...')
+        else:
+            self.get_logger().info('Processing triggered image...')
+        
         self.process_latest_image()
+
+    def calibrate_piece_colors(self, image, coord_dict):
+        """Automatically calibrate piece colors from initial board position"""
+        self.get_logger().info('Starting automatic color calibration...')
+        
+        # Cells 1-16 should have black pieces (rows 1-2)
+        black_cells = list(range(1, 17))
+        # Cells 49-64 should have white pieces (rows 7-8)
+        white_cells = list(range(49, 65))
+        
+        # Collect samples from black pieces
+        black_samples = []
+        for cell_num in black_cells:
+            if cell_num in coord_dict:
+                cell_coords = coord_dict[cell_num]
+                center_x, center_y = self.get_cell_center(cell_coords)
+                sample_points = self.get_sample_region(center_x, center_y)
+                
+                for x, y in sample_points:
+                    if 0 <= y < image.shape[0] and 0 <= x < image.shape[1]:
+                        pixel = image[y, x]
+                        black_samples.append(pixel.tolist())
+        
+        # Collect samples from white pieces
+        white_samples = []
+        for cell_num in white_cells:
+            if cell_num in coord_dict:
+                cell_coords = coord_dict[cell_num]
+                center_x, center_y = self.get_cell_center(cell_coords)
+                sample_points = self.get_sample_region(center_x, center_y)
+                
+                for x, y in sample_points:
+                    if 0 <= y < image.shape[0] and 0 <= x < image.shape[1]:
+                        pixel = image[y, x]
+                        white_samples.append(pixel.tolist())
+        
+        if not black_samples or not white_samples:
+            self.get_logger().error('Failed to collect calibration samples')
+            return False
+        
+        # Convert to numpy arrays for easier processing
+        black_samples = np.array(black_samples)
+        white_samples = np.array(white_samples)
+        
+        # Sort samples by brightness (sum of BGR values) to identify outliers
+        black_brightness = np.sum(black_samples, axis=1)
+        white_brightness = np.sum(white_samples, axis=1)
+        
+        # Remove top 2 and bottom 2 outliers for black pieces
+        black_sorted_indices = np.argsort(black_brightness)
+        if len(black_sorted_indices) > 4:
+            black_filtered_indices = black_sorted_indices[2:-2]
+            black_filtered = black_samples[black_filtered_indices]
+        else:
+            black_filtered = black_samples
+        
+        # Remove top 2 and bottom 2 outliers for white pieces
+        white_sorted_indices = np.argsort(white_brightness)
+        if len(white_sorted_indices) > 4:
+            white_filtered_indices = white_sorted_indices[2:-2]
+            white_filtered = white_samples[white_filtered_indices]
+        else:
+            white_filtered = white_samples
+        
+        # Calculate bounds for black pieces
+        # Lower bound stays at [0, 0, 0]
+        # Upper bound is the maximum from filtered samples, with some margin
+        black_upper = np.max(black_filtered, axis=0)
+        black_upper = np.minimum(black_upper + 15, 255).astype(int)  # Add 15 margin, cap at 255
+        
+        # Calculate bounds for white pieces
+        # Upper bound stays at [255, 255, 255]
+        # Lower bound is the minimum from filtered samples, with some margin
+        white_lower = np.min(white_filtered, axis=0)
+        white_lower = np.maximum(white_lower - 15, 0).astype(int)  # Subtract 15 margin, floor at 0
+        
+        # Store calibrated ranges
+        self.piece_color_ranges = {
+            'black': (np.array([0, 0, 0]), np.array(black_upper)),
+            'white': (np.array(white_lower), np.array([255, 255, 255]))
+        }
+        
+        self.get_logger().info(f'Black piece range calibrated: [0, 0, 0] to {black_upper.tolist()}')
+        self.get_logger().info(f'White piece range calibrated: {white_lower.tolist()} to [255, 255, 255]')
+        self.get_logger().info(f'Analyzed {len(black_filtered)} black samples and {len(white_filtered)} white samples')
+        
+        self.is_calibrated = True
+        return True
 
     def process_latest_image(self):
         """Process the stored latest image"""
@@ -115,6 +210,13 @@ class ChessBoardDetectorNode(Node):
                 # Store transformation matrix and coordinates
                 self.coord_dict = coord_dict
                 self.M_inv = M_inv
+                
+                # If not calibrated, calibrate from initial position
+                if not self.is_calibrated:
+                    calibration_success = self.calibrate_piece_colors(cv_image, coord_dict)
+                    if not calibration_success:
+                        self.get_logger().error('Color calibration failed')
+                        return
                 
                 # Detect pieces
                 occupancy_dict = self.detect_pieces(cv_image, coord_dict)
@@ -357,8 +459,12 @@ class ChessBoardDetectorNode(Node):
             points.append((x, y))
         return points
 
-    def detect_piece_color(self, image, cell_coords, piece_color_ranges):
+    def detect_piece_color(self, image, cell_coords):
         """Detect if piece is black, white, or empty"""
+        if self.piece_color_ranges is None:
+            self.get_logger().error('Piece colors not calibrated yet!')
+            return 'empty'
+        
         center_x, center_y = self.get_cell_center(cell_coords)
         sample_points = self.get_sample_region(center_x, center_y)
         
@@ -369,7 +475,7 @@ class ChessBoardDetectorNode(Node):
             if 0 <= y < image.shape[0] and 0 <= x < image.shape[1]:
                 pixel = image[y, x]
                 
-                for color_name, color_range in piece_color_ranges.items():
+                for color_name, color_range in self.piece_color_ranges.items():
                     lower, upper = color_range
                     if np.all(pixel >= lower) and np.all(pixel <= upper):
                         color_counts[color_name] += 1
@@ -386,26 +492,12 @@ class ChessBoardDetectorNode(Node):
 
     def detect_pieces(self, image, coord_dict):
         """Detect all pieces on the board"""
-        piece_color_ranges = {
-            'black': (np.array([0, 0, 0]), np.array([75, 60, 60])),
-            'white': (np.array([180, 175, 130]), np.array([255, 255, 255]))
-        }
-        
         occupancy_dict = {}
         
         for cell_num, cell_coords in coord_dict.items():
-            piece_color = self.detect_piece_color(image, cell_coords, piece_color_ranges)
+            piece_color = self.detect_piece_color(image, cell_coords)
             occupancy_dict[cell_num] = piece_color
         
-
-        x, y = self.get_cell_center(coord_dict[39])
-        samples = self.get_sample_region(x, y)
-
-        for x, y in samples:
-            pixel = image[y,x]
-            self.get_logger().info(f'colour: {pixel}')
-
-        #self.get_logger().info(f'Occupancy: {occupancy_dict[1]}')
         return occupancy_dict
 
     def detect_move(self, occupancy_dict_before, occupancy_dict_after):
