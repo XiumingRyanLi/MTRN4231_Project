@@ -3,7 +3,6 @@
 
 import re
 import time
-import asyncio
 import threading
 from typing import Optional, Tuple
 
@@ -70,22 +69,28 @@ class SerialGripperBridge(Node):
         self.declare_parameter("command_timeout_s", 8.0)
         self.declare_parameter("verify_period_s", 0.2)
         self.declare_parameter("auto_find_usb", True)
-        self.declare_parameter("invert_open_bit", False)  # flip meaning of 'open' if needed
+        # flip meaning of 'open' if needed
+        self.declare_parameter("invert_open_bit", False)
 
-        self._port = self.get_parameter("port").get_parameter_value().string_value
+        self._port = self.get_parameter(
+            "port").get_parameter_value().string_value
         self._baud = int(self.get_parameter("baud").value)
         self._read_timeout = float(self.get_parameter("read_timeout_s").value)
         self._write_retries = int(self.get_parameter("write_retries").value)
-        self._command_timeout = float(self.get_parameter("command_timeout_s").value)
-        self._verify_period = float(self.get_parameter("verify_period_s").value)
+        self._command_timeout = float(
+            self.get_parameter("command_timeout_s").value)
+        self._verify_period = float(
+            self.get_parameter("verify_period_s").value)
         self._auto_find_usb = bool(self.get_parameter("auto_find_usb").value)
-        self._invert_open_bit = bool(self.get_parameter("invert_open_bit").value)
+        self._invert_open_bit = bool(
+            self.get_parameter("invert_open_bit").value)
 
         # ---------- Serial state ----------
         self._ser_lock = threading.Lock()
         self._ser: Optional[Serial] = None
         self._stop_event = threading.Event()
-        self._reader_thread = threading.Thread(target=self._serial_reader_loop, daemon=True)
+        self._reader_thread = threading.Thread(
+            target=self._serial_reader_loop, daemon=True)
 
         # Last parsed state (updated by reader thread)
         self._last_open: Optional[int] = None
@@ -115,7 +120,8 @@ class SerialGripperBridge(Node):
 
     # ===== Action callbacks =====
     def goal_cb(self, goal_request: GripperCommand.Goal) -> GoalResponse:
-        self.get_logger().info(f"Goal received: close={goal_request.close}, effort={goal_request.effort:.3f}")
+        self.get_logger().info(
+            f"Goal received: close={goal_request.close}, effort={goal_request.effort:.3f}")
         return GoalResponse.ACCEPT
 
     def cancel_cb(self, _goal_handle) -> CancelResponse:
@@ -210,14 +216,16 @@ class SerialGripperBridge(Node):
         # Optional effort
         if goal.effort and goal.effort > 0.0:
             if not self._send_with_retries(f"EFFORT {goal.effort:.3f}\n"):
-                res = GripperCommand.Result(success=False, message="Failed to send effort to serial")
+                res = GripperCommand.Result(
+                    success=False, message="Failed to send effort to serial")
                 goal_handle.abort()
                 return res
 
         # Send command
         cmd = "CMD CLOSE\n" if goal.close else "CMD OPEN\n"
         if not self._send_with_retries(cmd):
-            res = GripperCommand.Result(success=False, message="Failed to write command to serial")
+            res = GripperCommand.Result(
+                success=False, message="Failed to write command to serial")
             goal_handle.abort()
             return res
 
@@ -245,11 +253,13 @@ class SerialGripperBridge(Node):
 
             # Prefer firmware progress if provided & fresh
             if fresh and self._last_progress is not None:
-                progress_percent = float(int(max(0.0, min(100.0, self._last_progress))))
+                progress_percent = float(
+                    int(max(0.0, min(100.0, self._last_progress))))
             else:
                 # fallback ramp 5%..90% based on elapsed time
                 elapsed_s = (now_ms() - start_ms) / 1000.0
-                ramp = max(0.05, min(0.90, elapsed_s / max(self._command_timeout, 0.001)))
+                ramp = max(0.05, min(0.90, elapsed_s /
+                           max(self._command_timeout, 0.001)))
                 progress_percent = float(int(ramp * 100.0))
 
             stage = "verifying" if arrived else "executing"
@@ -271,7 +281,8 @@ class SerialGripperBridge(Node):
                 return res
 
             if (now_ms() - start_ms) / 1000.0 > self._command_timeout:
-                res = GripperCommand.Result(success=False, message="Timeout waiting for target state")
+                res = GripperCommand.Result(
+                    success=False, message="Timeout waiting for target state")
                 goal_handle.abort()
                 self._pending_target_open = None
                 return res
@@ -279,13 +290,13 @@ class SerialGripperBridge(Node):
             # Sleep without asyncio
             time.sleep(self._verify_period)
 
-
-
     # ===== Serial helpers =====
+
     def _connect_serial(self):
         port = self._port
         if self._auto_find_usb and (not port or port == "/dev/ttyUSB0"):
-            cands = [p.device for p in list_ports.comports() if ("ttyUSB" in p.device or "ttyACM" in p.device)]
+            cands = [p.device for p in list_ports.comports() if (
+                "ttyUSB" in p.device or "ttyACM" in p.device)]
             if cands:
                 port = cands[0]
                 self.get_logger().warn(f"Auto-selected serial port: {port}")
@@ -314,10 +325,12 @@ class SerialGripperBridge(Node):
                 while b"\n" in buf:
                     line, _, rest = buf.partition(b"\n")
                     buf = bytearray(rest)
-                    self._handle_serial_line(line.decode(errors="ignore").strip())
+                    self._handle_serial_line(
+                        line.decode(errors="ignore").strip())
 
             except SerialException as e:
-                self.get_logger().error(f"Serial read error: {e}; reconnecting…")
+                self.get_logger().error(
+                    f"Serial read error: {e}; reconnecting…")
                 with self._ser_lock:
                     try:
                         if self._ser:
@@ -349,7 +362,8 @@ class SerialGripperBridge(Node):
                     pass
             if progress_tok is not None:
                 try:
-                    self._last_progress = max(0.0, min(100.0, float(progress_tok)))
+                    self._last_progress = max(
+                        0.0, min(100.0, float(progress_tok)))
                 except Exception:
                     self._last_progress = None
 
@@ -394,7 +408,8 @@ class SerialGripperBridge(Node):
         for i in range(self._write_retries):
             if self._send_line(s):
                 return True
-            self.get_logger().warn(f"Write retry {i+1}/{self._write_retries} for: {s.strip()}")
+            self.get_logger().warn(
+                f"Write retry {i+1}/{self._write_retries} for: {s.strip()}")
             time.sleep(0.1)
         return False
 
