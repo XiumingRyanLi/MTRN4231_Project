@@ -7,6 +7,5 @@
 #include "custom_interfaces/action/detail/gripper_command__struct.hpp"
 #include "custom_interfaces/action/detail/gripper_command__builder.hpp"
 #include "custom_interfaces/action/detail/gripper_command__traits.hpp"
-#include "custom_interfaces/action/detail/gripper_command__type_support.hpp"
 
 #endif  // CUSTOM_INTERFACES__ACTION__GRIPPER_COMMAND_HPP_

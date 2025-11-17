@@ -1,0 +1,115 @@
+[0.011s] Invoking command in '/home/mtrn/MTRN4231_Project/build/arm_controller': CMAKE_PREFIX_PATH=/home/mtrn/MTRN4231_Project/install/custom_interfaces:/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom:/home/mtrn/MTRN4231_Project/install/ur5e_custom_description:/home/mtrn/MTRN4231_Project/install/move_to_marker:/home/mtrn/MTRN4231_Project/install/end_effector_description:/home/mtrn/MTRN4231_Project/install/arm_controller:/home/mtrn/MTRN4231_Project/install/ui:/home/mtrn/MTRN4231_Project/install/perception:/home/mtrn/MTRN4231_Project/install/gripper:/home/mtrn/MTRN4231_Project/install/chess_master:/home/mtrn/MTRN4231_Project/install/brain:/opt/ros/humble /home/mtrn/.local/bin/cmake /home/mtrn/MTRN4231_Project/src/arm_controller -DCMAKE_INSTALL_PREFIX=/home/mtrn/MTRN4231_Project/install/arm_controller
+[0.121s] -- The C compiler identification is GNU 11.4.0
+[0.207s] -- The CXX compiler identification is GNU 11.4.0
+[0.227s] -- Detecting C compiler ABI info
+[0.321s] -- Detecting C compiler ABI info - done
+[0.334s] -- Check for working C compiler: /usr/bin/cc - skipped
+[0.335s] -- Detecting C compile features
+[0.337s] -- Detecting C compile features - done
+[0.348s] -- Detecting CXX compiler ABI info
+[0.461s] -- Detecting CXX compiler ABI info - done
+[0.475s] -- Check for working CXX compiler: /usr/bin/c++ - skipped
+[0.475s] -- Detecting CXX compile features
+[0.476s] -- Detecting CXX compile features - done
+[0.478s] -- Found ament_cmake: 1.3.10 (/opt/ros/humble/share/ament_cmake/cmake)
+[0.673s] -- Found Python3: /usr/bin/python3 (found version "3.10.12") found components: Interpreter 
+[0.812s] -- Found rclcpp: 16.0.10 (/opt/ros/humble/share/rclcpp/cmake)
+[0.887s] -- Found rosidl_generator_c: 3.1.5 (/opt/ros/humble/share/rosidl_generator_c/cmake)
+[0.889s] -- Found rosidl_adapter: 3.1.5 (/opt/ros/humble/share/rosidl_adapter/cmake)
+[0.899s] -- Found rosidl_generator_cpp: 3.1.5 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)
+[0.920s] -- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c
+[0.950s] -- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp
+[1.017s] -- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)
+[1.020s] -- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)
+[1.141s] -- Found OpenSSL: /usr/lib/x86_64-linux-gnu/libcrypto.so (found version "3.0.2")  
+[1.182s] -- Found FastRTPS: /opt/ros/humble/include  
+[1.251s] -- Using RMW implementation 'rmw_fastrtps_cpp' as default
+[1.264s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD
+[1.361s] -- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success
+[1.363s] -- Found Threads: TRUE  
+[1.462s] -- Found rclcpp_action: 16.0.10 (/opt/ros/humble/share/rclcpp_action/cmake)
+[1.522s] -- Found tf2_ros: 0.25.8 (/opt/ros/humble/share/tf2_ros/cmake)
+[1.662s] -- Found tf2_geometry_msgs: 0.25.8 (/opt/ros/humble/share/tf2_geometry_msgs/cmake)
+[1.682s] -- Found eigen3_cmake_module: 0.1.1 (/opt/ros/humble/share/eigen3_cmake_module/cmake)
+[1.682s] -- Found Eigen3: TRUE (found version "3.4.0") 
+[1.682s] -- Ensuring Eigen3 include directory is part of orocos-kdl CMake target
+[1.689s] -- Found moveit_ros_planning_interface: 2.5.5 (/opt/ros/humble/share/moveit_ros_planning_interface/cmake)
+[1.722s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: date_time filesystem program_options system thread 
+[1.989s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: chrono date_time filesystem iostreams program_options regex serialization system thread 
+[2.015s] -- Found parameter_traits: 0.3.9 (/opt/ros/humble/share/parameter_traits/cmake)
+[2.032s] -- Found rclcpp_lifecycle: 16.0.10 (/opt/ros/humble/share/rclcpp_lifecycle/cmake)
+[2.080s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: filesystem 
+[2.204s] -- library: /usr/lib/x86_64-linux-gnu/libcurl.so
+[2.376s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread chrono 
+[2.437s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: thread system filesystem regex date_time program_options 
+[2.475s] -- Found Boost: /usr/lib/x86_64-linux-gnu/cmake/Boost-1.74.0/BoostConfig.cmake (found version "1.74.0") found components: system filesystem date_time program_options thread 
+[2.528s] -- Found custom_interfaces: 0.0.0 (/home/mtrn/MTRN4231_Project/install/custom_interfaces/share/custom_interfaces/cmake)
+[2.566s] -- Found moveit_visual_tools: 4.1.0 (/opt/ros/humble/share/moveit_visual_tools/cmake)
+[2.667s] -- Setting assimp_DIR to: '/opt/ros/humble/share/rviz_assimp_vendor/cmake/../../../opt/rviz_assimp_vendor/lib/cmake/assimp-4.1'
+[2.675s] -- Setting OGRE_DIR to: '/opt/ros/humble/share/rviz_ogre_vendor/cmake/../../../opt/rviz_ogre_vendor/lib/OGRE/cmake'
+[2.677s] -- Found OGRE
+[2.677s] --   static     : OFF
+[2.677s] --   components : HLMS;MeshLodGenerator;Overlay;Paging;Property;RTShaderSystem;Terrain;Volume
+[2.677s] --   plugins    : Plugin_BSPSceneManager;Plugin_OctreeSceneManager;Plugin_PCZSceneManager;Plugin_ParticleFX;RenderSystem_GL;RenderSystem_GL3Plus;Codec_STBI
+[2.677s] --   media      : /opt/ros/humble/opt/rviz_ogre_vendor/share/OGRE/Media
+[2.677s] -- OGRE_LIBRARIES: OgreHLMS;OgreMeshLodGenerator;OgreOverlay;OgrePaging;OgreProperty;OgreRTShaderSystem;OgreTerrain;OgreVolume;OgreMain
+[2.677s] -- OGRE_LIBRARY_DIRS: /opt/ros/humble/opt/rviz_ogre_vendor/lib
+[2.677s] -- OGRE_PLUGINS: Plugin_BSPSceneManager;Plugin_OctreeSceneManager;Plugin_PCZSceneManager;Plugin_ParticleFX;RenderSystem_GL;RenderSystem_GL3Plus;Codec_STBI
+[2.677s] -- OGRE_PLUGIN_DIR: /opt/ros/humble/opt/rviz_ogre_vendor/lib/OGRE
+[2.678s] -- rviz_ogre_vendor::OgreOverlay for IMPORTED_LOCATION_RELEASE: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreOverlay.so
+[2.678s] -- rviz_ogre_vendor::OgreOverlay for IMPORTED_LOCATION_DEBUG: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreOverlay.so
+[2.678s] -- rviz_ogre_vendor::OgreMain for IMPORTED_LOCATION_RELEASE: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreMain.so
+[2.678s] -- rviz_ogre_vendor::OgreMain for IMPORTED_LOCATION_DEBUG: /opt/ros/humble/opt/rviz_ogre_vendor/lib/libOgreMain.so
+[2.681s] -- Could not find freeimage library
+[2.738s] -- Found ZLIB: /usr/lib/x86_64-linux-gnu/libz.so (found version "1.2.11")  
+[2.752s] -- Found OpenGL: /usr/lib/x86_64-linux-gnu/libOpenGL.so   
+[2.977s] -- Found X11: /usr/include   
+[2.977s] -- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so
+[3.080s] -- Looking for XOpenDisplay in /usr/lib/x86_64-linux-gnu/libX11.so;/usr/lib/x86_64-linux-gnu/libXext.so - found
+[3.080s] -- Looking for gethostbyname
+[3.158s] -- Looking for gethostbyname - found
+[3.159s] -- Looking for connect
+[3.249s] -- Looking for connect - found
+[3.249s] -- Looking for remove
+[3.338s] -- Looking for remove - found
+[3.338s] -- Looking for shmat
+[3.440s] -- Looking for shmat - found
+[3.440s] -- Looking for IceConnectionNumber in ICE
+[3.540s] -- Looking for IceConnectionNumber in ICE - found
+[3.863s] -- Configuring done (3.8s)
+[3.988s] -- Generating done (0.1s)
+[3.998s] -- Build files have been written to: /home/mtrn/MTRN4231_Project/build/arm_controller
+[4.081s] Invoked command in '/home/mtrn/MTRN4231_Project/build/arm_controller' returned '0': CMAKE_PREFIX_PATH=/home/mtrn/MTRN4231_Project/install/custom_interfaces:/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom:/home/mtrn/MTRN4231_Project/install/ur5e_custom_description:/home/mtrn/MTRN4231_Project/install/move_to_marker:/home/mtrn/MTRN4231_Project/install/end_effector_description:/home/mtrn/MTRN4231_Project/install/arm_controller:/home/mtrn/MTRN4231_Project/install/ui:/home/mtrn/MTRN4231_Project/install/perception:/home/mtrn/MTRN4231_Project/install/gripper:/home/mtrn/MTRN4231_Project/install/chess_master:/home/mtrn/MTRN4231_Project/install/brain:/opt/ros/humble /home/mtrn/.local/bin/cmake /home/mtrn/MTRN4231_Project/src/arm_controller -DCMAKE_INSTALL_PREFIX=/home/mtrn/MTRN4231_Project/install/arm_controller
+[4.086s] Invoking command in '/home/mtrn/MTRN4231_Project/build/arm_controller': CMAKE_PREFIX_PATH=/home/mtrn/MTRN4231_Project/install/custom_interfaces:/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom:/home/mtrn/MTRN4231_Project/install/ur5e_custom_description:/home/mtrn/MTRN4231_Project/install/move_to_marker:/home/mtrn/MTRN4231_Project/install/end_effector_description:/home/mtrn/MTRN4231_Project/install/arm_controller:/home/mtrn/MTRN4231_Project/install/ui:/home/mtrn/MTRN4231_Project/install/perception:/home/mtrn/MTRN4231_Project/install/gripper:/home/mtrn/MTRN4231_Project/install/chess_master:/home/mtrn/MTRN4231_Project/install/brain:/opt/ros/humble /home/mtrn/.local/bin/cmake --build /home/mtrn/MTRN4231_Project/build/arm_controller -- -j20 -l20
+[4.181s] [ 50%] [32mBuilding CXX object CMakeFiles/moveit_constrain_ur.dir/src/moveit_constrain_ur.cpp.o[0m
+[4.181s] [ 50%] [32mBuilding CXX object CMakeFiles/arm_controller_node.dir/src/arm_controller_node.cpp.o[0m
+[18.137s] [ 75%] [32m[1mLinking CXX executable arm_controller_node[0m
+[19.183s] [ 75%] Built target arm_controller_node
+[20.646s] [100%] [32m[1mLinking CXX executable moveit_constrain_ur[0m
+[21.868s] [100%] Built target moveit_constrain_ur
+[21.886s] Invoked command in '/home/mtrn/MTRN4231_Project/build/arm_controller' returned '0': CMAKE_PREFIX_PATH=/home/mtrn/MTRN4231_Project/install/custom_interfaces:/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom:/home/mtrn/MTRN4231_Project/install/ur5e_custom_description:/home/mtrn/MTRN4231_Project/install/move_to_marker:/home/mtrn/MTRN4231_Project/install/end_effector_description:/home/mtrn/MTRN4231_Project/install/arm_controller:/home/mtrn/MTRN4231_Project/install/ui:/home/mtrn/MTRN4231_Project/install/perception:/home/mtrn/MTRN4231_Project/install/gripper:/home/mtrn/MTRN4231_Project/install/chess_master:/home/mtrn/MTRN4231_Project/install/brain:/opt/ros/humble /home/mtrn/.local/bin/cmake --build /home/mtrn/MTRN4231_Project/build/arm_controller -- -j20 -l20
+[21.978s] Invoking command in '/home/mtrn/MTRN4231_Project/build/arm_controller': CMAKE_PREFIX_PATH=/home/mtrn/MTRN4231_Project/install/custom_interfaces:/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom:/home/mtrn/MTRN4231_Project/install/ur5e_custom_description:/home/mtrn/MTRN4231_Project/install/move_to_marker:/home/mtrn/MTRN4231_Project/install/end_effector_description:/home/mtrn/MTRN4231_Project/install/arm_controller:/home/mtrn/MTRN4231_Project/install/ui:/home/mtrn/MTRN4231_Project/install/perception:/home/mtrn/MTRN4231_Project/install/gripper:/home/mtrn/MTRN4231_Project/install/chess_master:/home/mtrn/MTRN4231_Project/install/brain:/opt/ros/humble /home/mtrn/.local/bin/cmake --install /home/mtrn/MTRN4231_Project/build/arm_controller
+[22.017s] -- Install configuration: ""
+[22.018s] -- Installing: /home/mtrn/MTRN4231_Project/install/arm_controller/lib/arm_controller/arm_controller_node
+[22.019s] -- Set runtime path of "/home/mtrn/MTRN4231_Project/install/arm_controller/lib/arm_controller/arm_controller_node" to ""
+[22.019s] -- Installing: /home/mtrn/MTRN4231_Project/install/arm_controller/share/arm_controller/launch
+[22.019s] -- Installing: /home/mtrn/MTRN4231_Project/install/arm_controller/share/arm_controller/launch/view_combined.launch.py
+[22.019s] -- Installing: /home/mtrn/MTRN4231_Project/install/arm_controller/share/arm_controller/launch/arm_controller.launch.py
+[22.020s] -- Installing: /home/mtrn/MTRN4231_Project/install/arm_controller/share/arm_controller/urdf
+[22.021s] -- Installing: /home/mtrn/MTRN4231_Project/install/arm_controller/share/arm_controller/urdf/ur5e_with_tool.urdf.xacro
+[22.021s] -- Installing: /home/mtrn/MTRN4231_Project/install/arm_controller/share/ament_index/resource_index/package_run_dependencies/arm_controller
+[22.021s] -- Installing: /home/mtrn/MTRN4231_Project/install/arm_controller/share/ament_index/resource_index/parent_prefix_path/arm_controller
+[22.021s] -- Installing: /home/mtrn/MTRN4231_Project/install/arm_controller/share/arm_controller/environment/ament_prefix_path.sh
+[22.021s] -- Installing: /home/mtrn/MTRN4231_Project/install/arm_controller/share/arm_controller/environment/ament_prefix_path.dsv
+[22.021s] -- Installing: /home/mtrn/MTRN4231_Project/install/arm_controller/share/arm_controller/environment/path.sh
+[22.022s] -- Installing: /home/mtrn/MTRN4231_Project/install/arm_controller/share/arm_controller/environment/path.dsv
+[22.022s] -- Installing: /home/mtrn/MTRN4231_Project/install/arm_controller/share/arm_controller/local_setup.bash
+[22.022s] -- Installing: /home/mtrn/MTRN4231_Project/install/arm_controller/share/arm_controller/local_setup.sh
+[22.022s] -- Installing: /home/mtrn/MTRN4231_Project/install/arm_controller/share/arm_controller/local_setup.zsh
+[22.022s] -- Installing: /home/mtrn/MTRN4231_Project/install/arm_controller/share/arm_controller/local_setup.dsv
+[22.023s] -- Installing: /home/mtrn/MTRN4231_Project/install/arm_controller/share/arm_controller/package.dsv
+[22.024s] -- Installing: /home/mtrn/MTRN4231_Project/install/arm_controller/share/ament_index/resource_index/packages/arm_controller
+[22.024s] -- Installing: /home/mtrn/MTRN4231_Project/install/arm_controller/share/arm_controller/cmake/arm_controllerConfig.cmake
+[22.024s] -- Installing: /home/mtrn/MTRN4231_Project/install/arm_controller/share/arm_controller/cmake/arm_controllerConfig-version.cmake
+[22.024s] -- Installing: /home/mtrn/MTRN4231_Project/install/arm_controller/share/arm_controller/package.xml
+[22.036s] Invoked command in '/home/mtrn/MTRN4231_Project/build/arm_controller' returned '0': CMAKE_PREFIX_PATH=/home/mtrn/MTRN4231_Project/install/custom_interfaces:/home/mtrn/MTRN4231_Project/install/ur5e_moveit_config_custom:/home/mtrn/MTRN4231_Project/install/ur5e_custom_description:/home/mtrn/MTRN4231_Project/install/move_to_marker:/home/mtrn/MTRN4231_Project/install/end_effector_description:/home/mtrn/MTRN4231_Project/install/arm_controller:/home/mtrn/MTRN4231_Project/install/ui:/home/mtrn/MTRN4231_Project/install/perception:/home/mtrn/MTRN4231_Project/install/gripper:/home/mtrn/MTRN4231_Project/install/chess_master:/home/mtrn/MTRN4231_Project/install/brain:/opt/ros/humble /home/mtrn/.local/bin/cmake --install /home/mtrn/MTRN4231_Project/build/arm_controller

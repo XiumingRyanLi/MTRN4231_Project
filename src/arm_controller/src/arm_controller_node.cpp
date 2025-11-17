@@ -131,10 +131,13 @@ private:
     // 4) Split: approach 10 cm above, then descend
     const auto current_pose = move_group_->getCurrentPose().pose;
     geometry_msgs::msg::Pose lift = current_pose;
-    lift.position.z += 0.15;
+    if (lift.position.z < 0.25 ) { //&& target.pose.z < 0.2
+      lift.position.z = 0.3;
+    }
+    
 
     geometry_msgs::msg::Pose approach = target.pose;
-    approach.position.z += 0.15;
+    approach.position.z = 0.3;
 
     
     feedback->stage = "planning_lift"; feedback->progress_percent = 60.0f; gh->publish_feedback(feedback);
@@ -181,7 +184,7 @@ private:
   bool success = false;
 
   // --- 1) Short motion → Cartesian path ---
-  if (distance < 0.60)
+  if (distance < 0.90)
   {
     RCLCPP_INFO(node_->get_logger(), "[%s] Using Cartesian planner", tag.c_str());
     std::vector<geometry_msgs::msg::Pose> waypoints;

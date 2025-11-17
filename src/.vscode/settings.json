@@ -1,0 +1,6 @@
+{
+    "cmake.sourceDirectory": "/home/mtrn/MTRN4231_Project/src/interfaces",
+    "files.associations": {
+        "functional": "cpp"
+    }
+}
