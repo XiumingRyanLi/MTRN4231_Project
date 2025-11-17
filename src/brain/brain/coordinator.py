@@ -2,11 +2,13 @@ import rclpy
 from rclpy.node import Node
 from rclpy.action import ActionClient
 from std_msgs.msg import String
+from geometry_msgs.msg import PoseStamped
 from rclpy.callback_groups import ReentrantCallbackGroup
 from rclpy.executors import MultiThreadedExecutor
 import threading
+import time
 from custom_interfaces.srv import ChessMove
-from custom_interfaces.action import GripperCommand
+from custom_interfaces.action import GripperCommand, MoveTCP
 
 # Define corner coordinates
 A1 = (309, -818.0)
@@ -15,8 +17,10 @@ A8 = (4.9, -818.0)
 H8 = (4.9, -519.9)
 
 # Define pieces height
-KING_HEIGHT = 180
-PAWN_HEIGHT = 153.6
+# KING_HEIGHT = 180
+# PAWN_HEIGHT = 153.6
+KING_HEIGHT = 220 # (safe heights)
+PAWN_HEIGHT = 200 # (safe heights)
 
 
 class TaskCoordinator(Node):
@@ -41,10 +45,9 @@ class TaskCoordinator(Node):
         # gripper action client
         self.gripper_client = ActionClient(
             self, GripperCommand, 'gripper/command', callback_group=self.cb_group)
-        self.close_flag = False
 
         # moveit action client
-        # TODO
+        self.arm_client = ActionClient(self, MoveTCP, 'arm/pick_place', callback_group=self.cb_group)
 
     def listener_callback(self, msg):
         # validate move input
@@ -173,18 +176,30 @@ class TaskCoordinator(Node):
         return x, y
 
     def normal_move(self, x1, y1, x2, y2, sq1, sq2, h):
-        self.get_logger().info(f"Move to {x1}, {y1}, {h} ({sq1})") # from square
-        # TODO: call arm controller
+        # self.get_logger().info(f"Move to {x1}, {y1}, {h} ({sq1})") # from square
+        pick_pose = self.make_pose(x1, y1, h)
+        ok = self.send_arm_goal(pick_pose, label=f"pick {sq1}")
+        if not ok:
+            self.get_logger().error(f"Arm failed to reach pick pose for {sq1}; aborting")
+            return
+        
+        time.sleep(5)
         
         ok = self.send_gripper_goal(close=True, effort=0.0) # close gripper
         if not ok:
             self.get_logger().error("Gripper failed to close; aborting move")
             return
+        time.sleep(2)
         
-        self.get_logger().info(f"Move to {x2}, {y2}, {h} ({sq2})") # to square
-        # TODO: call arm controller
+        # self.get_logger().info(f"Move to {x2}, {y2}, {h} ({sq2})") # to square
+        pick_pose = self.make_pose(x2, y2, h)
+        ok = self.send_arm_goal(pick_pose, label=f"place {sq2}")
+        if not ok:
+            self.get_logger().error(f"Arm failed to reach place pose for {sq2}; aborting")
+            return
         
-        # artificially add 3 seconds
+        time.sleep(5)
+        
         self.send_gripper_goal(close=False, effort=0.0) # open gripper
         if not ok:
             self.get_logger().error("Gripper failed to open")
@@ -218,7 +233,7 @@ class TaskCoordinator(Node):
         
         self.send_gripper_goal(close=False, effort=8.0)
 
-    def send_gripper_goal(self, close: bool, effort: float = 0.0, timeout_sec: float = 10.0):
+    def send_gripper_goal(self, close: bool, effort: float = 0.0, timeout_sec: float = 3.0):
         if not self.gripper_client.wait_for_server(timeout_sec=2.0):
             self.get_logger().error("Gripper action server not available")
             return
@@ -299,6 +314,98 @@ class TaskCoordinator(Node):
         self.get_logger().info(
             f"Gripper feedback: {fb.progress_percent:.1f}% — {fb.stage}"
         )
+
+    def send_arm_goal(self, pose: PoseStamped, label: str = "",
+                               timeout_sec: float = 30.0) -> bool:
+        """Send an arm MoveTCP goal and block until result (or timeout)."""
+        if not self.arm_client.wait_for_server(timeout_sec=2.0):
+            self.get_logger().error("Arm action server 'arm/pick_place' not available")
+            return False
+
+        goal_msg = MoveTCP.Goal()
+        goal_msg.pick_pose = pose
+
+        tag = f" [{label}]" if label else ""
+        self.get_logger().info(
+            f"[ARM]{tag} Sending MoveTCP goal at "
+            f"({pose.pose.position.x:.1f}, {pose.pose.position.y:.1f}, {pose.pose.position.z:.1f})"
+        )
+
+        done_event = threading.Event()
+        result_container = {}
+
+        def _result_cb(result_future):
+            try:
+                result_msg = result_future.result().result
+                result_container["result"] = result_msg
+                self.get_logger().info(
+                    f"[ARM]{tag} Finished: success={result_msg.success}, "
+                    f"message='{result_msg.message}'"
+                )
+            except Exception as e:
+                self.get_logger().error(f"[ARM]{tag} Result retrieval failed: {e}")
+                result_container["error"] = e
+            finally:
+                done_event.set()
+
+        def _goal_response_cb(goal_future):
+            try:
+                goal_handle = goal_future.result()
+            except Exception as e:
+                self.get_logger().error(f"[ARM]{tag} Goal send failed: {e}")
+                result_container["error"] = e
+                done_event.set()
+                return
+
+            if not goal_handle.accepted:
+                self.get_logger().warn(f"[ARM]{tag} Goal was rejected")
+                result_container["rejected"] = True
+                done_event.set()
+                return
+
+            self.get_logger().info(f"[ARM]{tag} Goal accepted")
+            result_future = goal_handle.get_result_async()
+            result_future.add_done_callback(_result_cb)
+
+        send_future = self.arm_client.send_goal_async(
+            goal_msg,
+            feedback_callback=self._arm_feedback_cb
+        )
+        send_future.add_done_callback(_goal_response_cb)
+
+        if not done_event.wait(timeout_sec):
+            self.get_logger().error(f"[ARM]{tag} Timeout waiting for result")
+            return False
+
+        if "result" in result_container:
+            return bool(result_container["result"].success)
+
+        return False
+
+        
+      
+    def _arm_feedback_cb(self, feedback_msg):
+        fb = feedback_msg.feedback
+        self.get_logger().info(
+            f"[ARM] Feedback: {fb.progress_percent:.1f}% — {fb.stage}"
+        )
+
+
+    def make_pose(self, x: float, y: float, z: float) -> PoseStamped:
+        pose = PoseStamped()
+        pose.header.frame_id = "world"   # or "base_link" – match your arm controller
+        pose.header.stamp = self.get_clock().now().to_msg()
+        pose.pose.position.x = x
+        pose.pose.position.y = y
+        pose.pose.position.z = z
+
+        # simple upright orientation; adjust if your MoveTCP expects something else
+        pose.pose.orientation.x = 0.0
+        pose.pose.orientation.y = 0.0
+        pose.pose.orientation.z = 0.0
+        pose.pose.orientation.w = 1.0
+
+        return pose
 
 
 
