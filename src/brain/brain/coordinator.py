@@ -2,6 +2,9 @@ import rclpy
 from rclpy.node import Node
 from rclpy.action import ActionClient
 from std_msgs.msg import String
+from rclpy.callback_groups import ReentrantCallbackGroup
+from rclpy.executors import MultiThreadedExecutor
+import threading
 from custom_interfaces.srv import ChessMove
 from custom_interfaces.action import GripperCommand
 
@@ -21,20 +24,24 @@ class TaskCoordinator(Node):
     def __init__(self):
         super().__init__('task_coordinator')
 
+        # Allow callbacks to run concurrently
+        self.cb_group = ReentrantCallbackGroup()
+
         # listens to chess move from GUI
         self.move_sub_ = self.create_subscription(
-            String, 'move_finish', self.listener_callback, 10)
+            String, 'move_finish', self.listener_callback, 10, callback_group=self.cb_group)
 
         # subscribes to /player_move
         self.player_move_sub = self.create_subscription(
-            String, 'player_move', self.move_callback, 10)
+            String, 'player_move', self.move_callback, 10, callback_group=self.cb_group)
 
         # create chess master client
-        self.client = self.create_client(ChessMove, 'chess_move')
+        self.client = self.create_client(ChessMove, 'chess_move', callback_group=self.cb_group)
 
         # gripper action client
         self.gripper_client = ActionClient(
-            self, GripperCommand, 'gripper/command')
+            self, GripperCommand, 'gripper/command', callback_group=self.cb_group)
+        self.close_flag = False
 
         # moveit action client
         # TODO
@@ -166,31 +173,52 @@ class TaskCoordinator(Node):
         return x, y
 
     def normal_move(self, x1, y1, x2, y2, sq1, sq2, h):
-        self.get_logger().info(f"Move to {x1}, {y1}, {h} ({sq1})")
+        self.get_logger().info(f"Move to {x1}, {y1}, {h} ({sq1})") # from square
         # TODO: call arm controller
-        self.send_gripper_goal(close=True, effort=8.0)
-        self.get_logger().info(f"Move to {x2}, {y2}, {h} ({sq2})")
+        
+        ok = self.send_gripper_goal(close=True, effort=0.0) # close gripper
+        if not ok:
+            self.get_logger().error("Gripper failed to close; aborting move")
+            return
+        
+        self.get_logger().info(f"Move to {x2}, {y2}, {h} ({sq2})") # to square
         # TODO: call arm controller
+        
         # artificially add 3 seconds
-        self.send_gripper_goal(close=False, effort=8.0)
+        self.send_gripper_goal(close=False, effort=0.0) # open gripper
+        if not ok:
+            self.get_logger().error("Gripper failed to open")
+
 
     def discard_piece(self, x, y, sq, h):
         self.get_logger().info(f"Move to {x}, {y}, {h} ({sq})")
         # TODO: call arm controller
-        self.send_gripper_goal(close=True, effort=8.0)
+        
+        ok = self.send_gripper_goal(close=True, effort=0.0)
+        if not ok:
+            self.get_logger().error("Failed to grip piece for discard")
+            return
+        
         self.get_logger().info("Move to discard pile")
-        # TODO: call arm controller
-        self.send_gripper_goal(close=False, effort=8.0)
+        # TODO: call arm 
+        
+        self.send_gripper_goal(close=False, effort=0.0)
+            
 
     def promote_piece(self, x, y, sq, h):
         self.get_logger().info("Move to extra queen")
         # TODO: call arm controller
-        self.send_gripper_goal(close=True, effort=8.0)
+        
+        ok = self.send_gripper_goal(close=True, effort=8.0)
+        if not ok:
+            self.get_logger().error("Failed to grip queen")
+        
         self.get_logger().info(f"Move to {x}, {y}, {h} ({sq})")
         # TODO: call arm controller
+        
         self.send_gripper_goal(close=False, effort=8.0)
 
-    def send_gripper_goal(self, close: bool, effort: float = 0.0):
+    def send_gripper_goal(self, close: bool, effort: float = 0.0, timeout_sec: float = 10.0):
         if not self.gripper_client.wait_for_server(timeout_sec=2.0):
             self.get_logger().error("Gripper action server not available")
             return
@@ -203,29 +231,68 @@ class TaskCoordinator(Node):
             f"Sending gripper goal: close={close}, effort={effort:.3f}"
         )
 
+        done_event = threading.Event()
+        result_container = {}
+
+        def _result_cb(result_future):
+            try:
+                result_msg = result_future.result().result
+                result_container["result"] = result_msg
+                self.get_logger().info(
+                    f"[GRIPPER] Finished: success={result_msg.success}, "
+                    f"message='{result_msg.message}'"
+                )
+            except Exception as e:
+                self.get_logger().error(
+                    f"[GRIPPER] Result retrieval failed: {e}"
+                )
+                result_container["error"] = e
+            finally:
+                done_event.set()
+
+        def _goal_response_cb(goal_future):
+            try:
+                goal_handle = goal_future.result()
+            except Exception as e:
+                self.get_logger().error(
+                    f"[GRIPPER] Goal send failed: {e}"
+                )
+                result_container["error"] = e
+                done_event.set()
+                return
+
+            if not goal_handle.accepted:
+                self.get_logger().warn(
+                    "[GRIPPER] Goal was rejected by server"
+                )
+                result_container["rejected"] = True
+                done_event.set()
+                return
+
+            self.get_logger().info("[GRIPPER] Goal accepted")
+            # now wait for result
+            result_future = goal_handle.get_result_async()
+            result_future.add_done_callback(_result_cb)
+
         # Send goal asynchronously; we get a Future for the goal handle
         send_future = self.gripper_client.send_goal_async(
             goal_msg,
             feedback_callback=self._gripper_feedback_cb
         )
-        send_future.add_done_callback(self._gripper_goal_response_cb)
+        send_future.add_done_callback(_goal_response_cb)
+        
+        # Block current thread until result or timeout
+        if not done_event.wait(timeout_sec):
+            self.get_logger().error(
+                "[GRIPPER] Timeout waiting for result"
+            )
+            return False
 
-    def _gripper_goal_response_cb(self, future):
-        try:
-            goal_handle = future.result()
-        except Exception as e:
-            self.get_logger().error(f"Gripper goal send failed: {e}")
-            return
+        if "result" in result_container:
+            return bool(result_container["result"].success)
 
-        if not goal_handle.accepted:
-            self.get_logger().warn("Gripper goal was rejected by server")
-            return
-
-        self.get_logger().info("Gripper goal accepted")
-
-        # Ask for the result asynchronously
-        result_future = goal_handle.get_result_async()
-        result_future.add_done_callback(self._gripper_result_cb)
+        # any other path -> failure
+        return False
 
     def _gripper_feedback_cb(self, feedback_msg):
         fb = feedback_msg.feedback
@@ -233,22 +300,22 @@ class TaskCoordinator(Node):
             f"Gripper feedback: {fb.progress_percent:.1f}% — {fb.stage}"
         )
 
-    def _gripper_result_cb(self, future):
-        """Called once the gripper action is finished (success, abort, or cancel)."""
-        try:
-            result = future.result().result
-        except Exception as e:
-            self.get_logger().error(f"Gripper result retrieval failed: {e}")
-            return
-
-        self.get_logger().info(
-            f"Gripper finished: success={result.success}, message='{result.message}'"
-        )
 
 
 def main(args=None):
     rclpy.init(args=args)
     node = TaskCoordinator()
+    
+    executor = MultiThreadedExecutor()
+    executor.add_node(node)
+    
+    try:
+        executor.spin()
+    finally:
+        executor.shutdown()
+        node.destroy_node()
+        rclpy.shutdown()
+    
     rclpy.spin(node)
     node.destroy_node()
     rclpy.shutdown()
