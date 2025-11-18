@@ -183,7 +183,7 @@ class TaskCoordinator(Node):
             self.get_logger().error(f"Arm failed to reach pick pose for {sq1}; aborting")
             return
         
-        time.sleep(5)
+        time.sleep(15)
         
         ok = self.send_gripper_goal(close=True, effort=0.0) # close gripper
         if not ok:
@@ -198,7 +198,7 @@ class TaskCoordinator(Node):
             self.get_logger().error(f"Arm failed to reach place pose for {sq2}; aborting")
             return
         
-        time.sleep(5)
+        time.sleep(15)
         
         self.send_gripper_goal(close=False, effort=0.0) # open gripper
         if not ok:
