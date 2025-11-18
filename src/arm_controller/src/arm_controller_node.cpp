@@ -78,7 +78,14 @@ private:
   {
     if (!goal) return rclcpp_action::GoalResponse::REJECT;
     const auto& frame = goal->pick_pose.header.frame_id;
+    const auto& x_receieved = goal->pick_pose.pose.position.x;
+    const auto& y_receieved = goal->pick_pose.pose.position.y;
+    const auto& z_receieved = goal->pick_pose.pose.position.z;
+    
     RCLCPP_INFO(node_->get_logger(), "Received MoveTCP goal (frame=%s)", frame.c_str());
+    RCLCPP_INFO(node_->get_logger(), "Received MoveTCP goal (x=%f)", x_receieved);
+    RCLCPP_INFO(node_->get_logger(), "Received MoveTCP goal (y=%f)", y_receieved);
+    RCLCPP_INFO(node_->get_logger(), "Received MoveTCP goal (z=%f)", z_receieved);
     if (frame.empty()) return rclcpp_action::GoalResponse::REJECT;
     return rclcpp_action::GoalResponse::ACCEPT_AND_EXECUTE;
   }
@@ -104,6 +111,7 @@ private:
 
     // 1) Pose → planning frame
     geometry_msgs::msg::PoseStamped target = goal->pick_pose;
+    
     const std::string planning_frame = move_group_->getPlanningFrame();
     if (target.header.frame_id != planning_frame) {
       try {

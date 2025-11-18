@@ -2,7 +2,7 @@
 
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import String
+from std_msgs.msg import String, Bool
 import json
 
 
@@ -17,6 +17,13 @@ class ChessMoveDetector(Node):
             self.occupancy_callback,
             10
         )
+
+        self.trigger_sub = self.create_subscription(
+            Bool,
+            '/take_picture',
+            self.trigger_callback,
+            10
+        )
         
         # Publisher for detected moves
         self.move_pub = self.create_publisher(
@@ -27,8 +34,12 @@ class ChessMoveDetector(Node):
         
         # Store previous occupancy state
         self.occupancy_before = None
+        self.publish_move = False
         self.get_logger().info('Chess Move Detector Node initialized')
     
+    def trigger_callback(self, msg):
+        self.publish_move = msg.data
+
     def occupancy_callback(self, msg):
         """Callback when new occupancy data is received"""
         try:
@@ -47,7 +58,10 @@ class ChessMoveDetector(Node):
                     # Publish the detected move
                     move_msg = String()
                     move_msg.data = move_info
-                    self.move_pub.publish(move_msg)
+                    self.get_logger().info(f"{self.publish_move}")
+                    if self.publish_move == True:
+                        self.move_pub.publish(move_msg)
+                        self.get_logger().info("Publishing move")
                     
                     self.get_logger().info(f"Move detected: {move_info}")
                 else:

@@ -3,7 +3,7 @@
 import rclpy
 from rclpy.node import Node
 from sensor_msgs.msg import Image
-from std_msgs.msg import String, Empty
+from std_msgs.msg import String, Bool
 from cv_bridge import CvBridge
 import cv2
 import numpy as np
@@ -42,7 +42,7 @@ class ChessBoardDetectorNode(Node):
         )
         
         self.trigger_sub = self.create_subscription(
-            Empty,
+            Bool,
             '/take_picture',
             self.trigger_callback,
             10
@@ -387,7 +387,7 @@ class ChessBoardDetectorNode(Node):
     def detect_pieces(self, image, coord_dict):
         """Detect all pieces on the board"""
         piece_color_ranges = {
-            'black': (np.array([0, 0, 0]), np.array([75, 60, 60])),
+            'black': (np.array([0, 0, 0]), np.array([80, 65, 65])),
             'white': (np.array([180, 175, 130]), np.array([255, 255, 255]))
         }
         

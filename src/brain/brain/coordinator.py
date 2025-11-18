@@ -1,7 +1,7 @@
 import rclpy
 from rclpy.node import Node
 from rclpy.action import ActionClient
-from std_msgs.msg import String
+from std_msgs.msg import String, Bool
 from geometry_msgs.msg import PoseStamped
 from rclpy.callback_groups import ReentrantCallbackGroup
 from rclpy.executors import MultiThreadedExecutor
@@ -11,16 +11,24 @@ from custom_interfaces.srv import ChessMove
 from custom_interfaces.action import GripperCommand, MoveTCP
 
 # Define corner coordinates
-A1 = (309, -818.0)
-H1 = (309, -519.9)
-A8 = (4.9, -818.0)
-H8 = (4.9, -519.9)
+# A1 = (309, -818.0)
+A1 = (839.6, 302.1)
+# H1 = (309, -519.9)
+H1 = (538.0, 308.4)
+# A8 = (4.9, -818.0)
+A8 = (836.3, 0.3)
+# H8 = (4.9, -519.9)
+H8 = (534.8, 6.7)
+
+# DISCARD/HOME coords
+DEFAULT_COORDS = (375.1, 149.8)
+DEFAULT_HEIGHT = 240.6
 
 # Define pieces height
-# KING_HEIGHT = 180
-# PAWN_HEIGHT = 153.6
-KING_HEIGHT = 220 # (safe heights)
-PAWN_HEIGHT = 200 # (safe heights)
+# KING_HEIGHT = 182.0
+PAWN_HEIGHT = 151.9
+KING_HEIGHT = 260.0 # (safe heights)
+# PAWN_HEIGHT = 240.0 # (safe heights)
 
 
 class TaskCoordinator(Node):
@@ -37,7 +45,11 @@ class TaskCoordinator(Node):
 
         # subscribes to /player_move
         self.player_move_sub = self.create_subscription(
-            String, 'player_move', self.move_callback, 10, callback_group=self.cb_group)
+            String, '/player_move', self.move_callback, 10, callback_group=self.cb_group)
+
+        # take picture pub
+        self.take_pic_pub = self.create_publisher(
+            Bool, '/take_picture', 10)
 
         # create chess master client
         self.client = self.create_client(ChessMove, 'chess_move', callback_group=self.cb_group)
@@ -47,7 +59,7 @@ class TaskCoordinator(Node):
             self, GripperCommand, 'gripper/command', callback_group=self.cb_group)
 
         # moveit action client
-        self.arm_client = ActionClient(self, MoveTCP, 'arm/pick_place', callback_group=self.cb_group)
+        self.arm_client = ActionClient(self, MoveTCP, '/arm/pick_place', callback_group=self.cb_group)
 
     def listener_callback(self, msg):
         # validate move input
@@ -109,6 +121,7 @@ class TaskCoordinator(Node):
             pawn_sq = sq2[0] + '4'
             pawnx, pawny = self.get_real_world_coords(pawn_sq)
             self.discard_piece(pawnx, pawny, pawn_sq, PAWN_HEIGHT)
+            self.take_a_pic()
             return
         # case capture
         if resp.is_capture:
@@ -124,6 +137,7 @@ class TaskCoordinator(Node):
                     self.normal_move(x1, y1, x2, y2, sq1, sq2, KING_HEIGHT)
                 else:
                     self.normal_move(x1, y1, x2, y2, sq1, sq2, PAWN_HEIGHT)
+            self.take_a_pic()
             return
         # case castling
         if resp.is_castling:
@@ -139,17 +153,25 @@ class TaskCoordinator(Node):
                 rookx2, rooky2 = self.get_real_world_coords('d8')
                 self.normal_move(rookx1, rooky1, rookx2,
                                  rooky2, 'a8', 'd8', PAWN_HEIGHT)
+            self.take_a_pic()
             return
         # case promotion
         if resp.is_promotion:
             self.discard_piece(x1, y1, sq1, PAWN_HEIGHT)
             self.promote_piece(x2, y2, sq2, KING_HEIGHT)
+            self.take_a_pic()
             return
 
         if from_piece_is_tall:
             self.normal_move(x1, y1, x2, y2, sq1, sq2, KING_HEIGHT)
         else:
             self.normal_move(x1, y1, x2, y2, sq1, sq2, PAWN_HEIGHT)
+
+    def take_a_pic(self):
+        # take picture
+        msg = Bool()
+        msg.data = False
+        self.take_pic_pub.publish(msg)
 
     def get_real_world_coords(self, square: str):
 
@@ -177,19 +199,21 @@ class TaskCoordinator(Node):
 
     def normal_move(self, x1, y1, x2, y2, sq1, sq2, h):
         # self.get_logger().info(f"Move to {x1}, {y1}, {h} ({sq1})") # from square
+        self.get_logger().info("Making pose")
         pick_pose = self.make_pose(x1, y1, h)
+        self.get_logger().info("Sending action goal")
         ok = self.send_arm_goal(pick_pose, label=f"pick {sq1}")
         if not ok:
             self.get_logger().error(f"Arm failed to reach pick pose for {sq1}; aborting")
             return
-        
-        time.sleep(15)
+        time.sleep(0.5)
+        # time.sleep(5)
         
         ok = self.send_gripper_goal(close=True, effort=0.0) # close gripper
         if not ok:
             self.get_logger().error("Gripper failed to close; aborting move")
             return
-        time.sleep(2)
+        time.sleep(0.5)
         
         # self.get_logger().info(f"Move to {x2}, {y2}, {h} ({sq2})") # to square
         pick_pose = self.make_pose(x2, y2, h)
@@ -197,27 +221,60 @@ class TaskCoordinator(Node):
         if not ok:
             self.get_logger().error(f"Arm failed to reach place pose for {sq2}; aborting")
             return
-        
-        time.sleep(15)
+        time.sleep(0.5)
+        # time.sleep(5)
         
         self.send_gripper_goal(close=False, effort=0.0) # open gripper
         if not ok:
             self.get_logger().error("Gripper failed to open")
 
+        time.sleep(0.5)
+        # time.sleep(2)
+
+        # move to home
+        pick_pose = self.make_pose(DEFAULT_COORDS[0], DEFAULT_COORDS[1], DEFAULT_HEIGHT)
+        ok = self.send_arm_goal(pick_pose, label="go home")
+        if not ok:
+            self.get_logger().error("Arm failed to reach home; aborting")
+            return
+        time.sleep(0.5)
+        # time.sleep(5)
+
+
 
     def discard_piece(self, x, y, sq, h):
+        # move to square 2
         self.get_logger().info(f"Move to {x}, {y}, {h} ({sq})")
-        # TODO: call arm controller
+        pick_pose = self.make_pose(x, y, h)
+        ok = self.send_arm_goal(pick_pose, label=f"pick {sq}")
+        if not ok:
+            self.get_logger().error(f"Arm failed to reach pick pose for {sq}; aborting")
+            return
         
+        time.sleep(0.5)
+        # time.sleep(5)
+
+        # close grip
         ok = self.send_gripper_goal(close=True, effort=0.0)
         if not ok:
             self.get_logger().error("Failed to grip piece for discard")
             return
+        time.sleep(0.5)
+        # time.sleep(2)
         
+        # move to discard pile
         self.get_logger().info("Move to discard pile")
-        # TODO: call arm 
-        
+        pick_pose = self.make_pose(DEFAULT_COORDS[0], DEFAULT_COORDS[1], DEFAULT_HEIGHT)
+        ok = self.send_arm_goal(pick_pose, label="discard")
+        if not ok:
+            self.get_logger().error(f"Arm failed to discard; aborting")
+            return
+        time.sleep(0.5)
+        # time.sleep(5)
+
+        # open grip
         self.send_gripper_goal(close=False, effort=0.0)
+        time.sleep(0.5)
             
 
     def promote_piece(self, x, y, sq, h):
@@ -393,11 +450,11 @@ class TaskCoordinator(Node):
 
     def make_pose(self, x: float, y: float, z: float) -> PoseStamped:
         pose = PoseStamped()
-        pose.header.frame_id = "world"   # or "base_link" – match your arm controller
+        pose.header.frame_id = "base_link"   # or "base_link" – match your arm controller
         pose.header.stamp = self.get_clock().now().to_msg()
-        pose.pose.position.x = x
-        pose.pose.position.y = y
-        pose.pose.position.z = z
+        pose.pose.position.x = x / 1000.0
+        pose.pose.position.y = y / 1000.0
+        pose.pose.position.z = z / 1000.0
 
         # simple upright orientation; adjust if your MoveTCP expects something else
         pose.pose.orientation.x = 0.0
