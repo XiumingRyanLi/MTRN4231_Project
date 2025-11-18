@@ -7,7 +7,7 @@ project(end_effector_description)
 find_package(ament_cmake REQUIRED)
 
 # For each subfolder, find any more installation rules.
-install(DIRECTORY launch rviz urdf meshes
+install(DIRECTORY launch rviz urdf meshes etc config
   DESTINATION share/${PROJECT_NAME})
 
 

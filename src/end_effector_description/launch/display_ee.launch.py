@@ -6,7 +6,7 @@ from launch_ros.actions import Node
 
 def generate_launch_description():
     pkg = 'end_effector_description'
-    urdf_path = os.path.join(get_package_share_directory(pkg), 'urdf', 'end_effector.urdf')
+    urdf_path = os.path.join(get_package_share_directory(pkg), 'urdf', 'end_effector.urdf.xacro')
     with open(urdf_path, 'r') as f:
         robot_description = f.read()
 
