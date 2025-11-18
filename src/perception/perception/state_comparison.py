@@ -24,6 +24,13 @@ class ChessMoveDetector(Node):
             self.trigger_callback,
             10
         )
+
+        self.reset_sub = self.create_subscription(
+            String,
+            '/move_finish',
+            self.reset_callback,
+            10
+        )
         
         # Publisher for detected moves
         self.move_pub = self.create_publisher(
@@ -36,6 +43,11 @@ class ChessMoveDetector(Node):
         self.occupancy_before = None
         self.publish_move = False
         self.get_logger().info('Chess Move Detector Node initialized')
+
+    def reset_callback(self, msg):
+        if msg.data == "reset":
+            self.occupancy_before = None
+            self.get_logger().info("reset")
     
     def trigger_callback(self, msg):
         self.publish_move = msg.data

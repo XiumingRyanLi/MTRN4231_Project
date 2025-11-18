@@ -25,9 +25,9 @@ DEFAULT_COORDS = (375.1, 149.8)
 DEFAULT_HEIGHT = 240.6
 
 # Define pieces height
-# KING_HEIGHT = 182.0
+KING_HEIGHT = 178.0
 PAWN_HEIGHT = 151.9
-KING_HEIGHT = 260.0 # (safe heights)
+# KING_HEIGHT = 260.0 # (safe heights)
 # PAWN_HEIGHT = 240.0 # (safe heights)
 
 
@@ -166,6 +166,7 @@ class TaskCoordinator(Node):
             self.normal_move(x1, y1, x2, y2, sq1, sq2, KING_HEIGHT)
         else:
             self.normal_move(x1, y1, x2, y2, sq1, sq2, PAWN_HEIGHT)
+        self.take_a_pic()
 
     def take_a_pic(self):
         # take picture
