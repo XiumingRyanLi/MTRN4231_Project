@@ -62,7 +62,7 @@ def get_moveit_launch():
         actions=[
             IncludeLaunchDescription(
                 PythonLaunchDescriptionSource(
-                    PathJoinSubstitution([FindPackageShare('ur5e_moveit_config_custom'), 'launch', 'move_group.launch.py'])
+                    PathJoinSubstitution([FindPackageShare('ur_moveit_config_offical'), 'launch', 'move_group.launch.py'])
                 ),
                 launch_arguments=moveit_launch_args.items(),
             )
