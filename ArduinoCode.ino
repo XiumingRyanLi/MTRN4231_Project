@@ -17,8 +17,8 @@
 // ======= CONFIG =======
 constexpr bool SERVO_CONTINUOUS = false;   // <-- set true if your servo spins endlessly on write()
 constexpr int SERVO_PIN        = 9;
-constexpr int OPEN_ANGLE       = -30;
-constexpr int DEFAULT_CLOSEMAX = 120;
+constexpr int OPEN_ANGLE       = 0;
+constexpr int DEFAULT_CLOSEMAX = 100;
 constexpr int HARD_MAX_CLOSE   = 120;
 constexpr int MIN_US           = 1000;    // safer bounds for many hobby servos
 constexpr int MAX_US           = 2000;
@@ -266,7 +266,8 @@ void handleLine(String line) {
 // ======= Setup/loop =======
 void setup() {
   Serial.begin(115200);
-  gate.attach(SERVO_PIN, MIN_US, MAX_US);
+  // gate.attach(SERVO_PIN, MIN_US, MAX_US);
+  gate.attach(SERVO_PIN);
 
   if (SERVO_CONTINUOUS) {
     writeServoUs(CR_NEUTRAL_US);   // ensure stopped
@@ -280,6 +281,7 @@ void setup() {
   Serial.print(F("MODE=")); Serial.println(SERVO_CONTINUOUS ? F("CONTINUOUS") : F("POSITIONAL"));
   Serial.print(F("CLOSE_MAX=")); Serial.println(close_max_deg);
   emitState();
+  // gate.write(0);
 }
 
 void loop() {
