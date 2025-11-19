@@ -17,7 +17,7 @@
 // ======= CONFIG =======
 constexpr bool SERVO_CONTINUOUS = false;   // <-- set true if your servo spins endlessly on write()
 constexpr int SERVO_PIN        = 9;
-constexpr int OPEN_ANGLE       = 0;
+constexpr int OPEN_ANGLE       = -30;
 constexpr int DEFAULT_CLOSEMAX = 120;
 constexpr int HARD_MAX_CLOSE   = 120;
 constexpr int MIN_US           = 1000;    // safer bounds for many hobby servos
