@@ -21,12 +21,12 @@ A8 = (836.3, 0.3)
 H8 = (534.8, 6.7)
 
 # DISCARD/HOME coords
-DEFAULT_COORDS = (375.1, 149.8)
-DEFAULT_HEIGHT = 240.6
+DISCARD_COORDS = (375.1, 149.8)
+DISCARD_HEIGHT = 240.6
 
 # Define pieces height
 KING_HEIGHT = 178.0
-PAWN_HEIGHT = 151.9
+PAWN_HEIGHT = 151.0
 # KING_HEIGHT = 260.0 # (safe heights)
 # PAWN_HEIGHT = 240.0 # (safe heights)
 
@@ -225,7 +225,7 @@ class TaskCoordinator(Node):
         time.sleep(0.5)
         # time.sleep(5)
         
-        self.send_gripper_goal(close=False, effort=0.0) # open gripper
+        ok = self.send_gripper_goal(close=False, effort=0.0) # open gripper
         if not ok:
             self.get_logger().error("Gripper failed to open")
 
@@ -233,7 +233,7 @@ class TaskCoordinator(Node):
         # time.sleep(2)
 
         # move to home
-        pick_pose = self.make_pose(DEFAULT_COORDS[0], DEFAULT_COORDS[1], DEFAULT_HEIGHT)
+        pick_pose = self.make_pose(DISCARD_COORDS[0], DISCARD_COORDS[1], DISCARD_HEIGHT)
         ok = self.send_arm_goal(pick_pose, label="go home")
         if not ok:
             self.get_logger().error("Arm failed to reach home; aborting")
@@ -265,7 +265,7 @@ class TaskCoordinator(Node):
         
         # move to discard pile
         self.get_logger().info("Move to discard pile")
-        pick_pose = self.make_pose(DEFAULT_COORDS[0], DEFAULT_COORDS[1], DEFAULT_HEIGHT)
+        pick_pose = self.make_pose(DISCARD_COORDS[0], DISCARD_COORDS[1], DISCARD_HEIGHT)
         ok = self.send_arm_goal(pick_pose, label="discard")
         if not ok:
             self.get_logger().error(f"Arm failed to discard; aborting")
@@ -274,7 +274,11 @@ class TaskCoordinator(Node):
         # time.sleep(5)
 
         # open grip
-        self.send_gripper_goal(close=False, effort=0.0)
+        ok = self.send_gripper_goal(close=False, effort=0.0)
+        if not ok:
+            self.get_logger().error("Failed to grip piece for discard")
+            return
+        
         time.sleep(0.5)
             
 
