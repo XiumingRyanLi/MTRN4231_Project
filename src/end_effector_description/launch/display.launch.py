@@ -13,9 +13,12 @@ from launch.substitutions import LaunchConfiguration
 use_fake = False
 use_fake_str = 'false'
 ur_type = 'ur5e'
-ip_address = 'yyy.yyy.yyy.yyy'
+ip_address = '127.0.0.1'
 
-if not use_fake:
+if use_fake:
+    ip_address = '127.0.0.1'  # Use localhost for fake hardware
+    use_fake_str = 'true'
+else:
     print("not fake")
     ip_address = '192.168.0.100'
     use_fake_str = 'false'
@@ -23,20 +26,15 @@ if not use_fake:
 def get_ur_control_launch():
     """Configure UR control launch for the UR5e arm."""
     end_effector_path = os.path.join(
-        get_package_share_directory('end_effector_description'), 'urdf', 'end_effector.urdf.xacro'
+        get_package_share_directory('end_effector_description'), 'urdf', 'end_effector_withDriverSupport.xacro'
     )
-
-    #kinematics_path = os.path.join(
-        #get_package_share_directory('end_effector_description'), 'etc', 'robot_calibration.yaml'
-    #)
 
     ur_control_launch_args = {
         'ur_type': ur_type,
         'robot_ip': ip_address,
         'use_fake_hardware': use_fake_str,
         'launch_rviz': 'false',  
-        'description_file': end_effector_path,
-        #'kinematics_params_file': kinematics_path,
+        'description_file': end_effector_path,  # Use full path, not separate package/file
     }
 
     # Add controller if using simulated hardware
@@ -53,16 +51,16 @@ def get_ur_control_launch():
 def get_moveit_launch():
     moveit_launch_args = {
         'ur_type': ur_type,
-        'launch_rviz': 'true',
+        'launch_rviz': 'false',  # Set back to true to launch RViz from MoveIt
         'use_fake_hardware': use_fake_str,
     }
 
     return TimerAction(
-        period=4.0,  # Delay to prevent conflicts in RViz
+        period=4.0,
         actions=[
             IncludeLaunchDescription(
                 PythonLaunchDescriptionSource(
-                    PathJoinSubstitution([FindPackageShare('ur_moveit_config_offcial'), 'launch', 'move_group.launch.py'])
+                    PathJoinSubstitution([FindPackageShare('ur5e_moveit_config_custom'), 'launch', 'move_group.launch.py'])
                 ),
                 launch_arguments=moveit_launch_args.items(),
             )
@@ -96,7 +94,7 @@ def generate_launch_description():
     launch_description = [
         get_ur_control_launch(),
         get_moveit_launch(),
-        get_auxiliary_launch(),
+        # get_auxiliary_launch(),
         get_rviz_launch()
     ]
 
