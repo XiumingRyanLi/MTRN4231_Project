@@ -121,6 +121,9 @@ class ChessMaster(Node):
                     if piece and piece.piece_type == chess.PAWN:
                         text += "q"  # default to queen promotion
 
+
+            
+
             # Move user piece
             try:
                 move = chess.Move.from_uci(text)
@@ -129,8 +132,14 @@ class ChessMaster(Node):
                 self.status_publish("Invalid move format (e.g. use 'e2e4')")
                 return response
 
+            # check user piece height
+            user_piece = self.board.piece_at(move.to_square)
+            if user_piece in [chess.KING, chess.QUEEN]:
+                response.is_user_piece_tall = True
+
             if move not in self.board.legal_moves:
                 response.robot_move = 'Error: Illegal move in current state'
+                response.is_illegal = True
                 self.status_publish("Illegal move in current state")
                 return response
 
@@ -156,6 +165,7 @@ class ChessMaster(Node):
             response.is_capture = False
             response.is_tall_piece_from = False
             response.is_tall_piece_to = False
+            response.is_illegal = False
             if self.board.is_en_passant(best_move):
                 response.is_en_passant = True
             if self.board.is_capture(best_move):
