@@ -1,10 +1,8 @@
-from custom_interfaces.srv import ChessMove
 from std_msgs.msg import String, Int32, Bool
 from sensor_msgs.msg import CompressedImage
 from PIL import Image, ImageTk
 import io
 import rclpy
-from rclpy.node import Node
 import tkinter as tk
 from tkinter import ttk
 from rclpy.executors import SingleThreadedExecutor

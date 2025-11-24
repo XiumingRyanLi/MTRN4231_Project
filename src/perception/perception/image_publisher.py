@@ -54,7 +54,7 @@ class ImagePublisherNode(Node):
         # Validate image path
         if not os.path.exists(self.image_path):
             self.get_logger().error(f'Image not found: {self.image_path}')
-            self.get_logger().error(f'Searched paths:')
+            self.get_logger().error('Searched paths:')
             self.get_logger().error(f'  - {os.path.abspath(image_path_param)}')
             self.get_logger().error(f'  - {os.path.expanduser(f"~/{image_path_param}")}')
             self.get_logger().error(f'  - {os.path.expanduser(f"~/ros2_ws/src/{image_path_param}")}')
