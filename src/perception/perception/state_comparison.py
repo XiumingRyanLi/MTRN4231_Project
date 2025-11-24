@@ -2,7 +2,7 @@
 
 import rclpy
 from rclpy.node import Node
-from std_msgs.msg import String
+from std_msgs.msg import String, Bool
 import json
 
 
@@ -17,6 +17,20 @@ class ChessMoveDetector(Node):
             self.occupancy_callback,
             10
         )
+
+        self.trigger_sub = self.create_subscription(
+            Bool,
+            '/take_picture',
+            self.trigger_callback,
+            10
+        )
+
+        self.reset_sub = self.create_subscription(
+            String,
+            '/move_finish',
+            self.reset_callback,
+            10
+        )
         
         # Publisher for detected moves
         self.move_pub = self.create_publisher(
@@ -27,8 +41,17 @@ class ChessMoveDetector(Node):
         
         # Store previous occupancy state
         self.occupancy_before = None
+        self.publish_move = False
         self.get_logger().info('Chess Move Detector Node initialized')
+
+    def reset_callback(self, msg):
+        if msg.data == "reset":
+            self.occupancy_before = None
+            self.get_logger().info("reset")
     
+    def trigger_callback(self, msg):
+        self.publish_move = msg.data
+
     def occupancy_callback(self, msg):
         """Callback when new occupancy data is received"""
         try:
@@ -47,7 +70,10 @@ class ChessMoveDetector(Node):
                     # Publish the detected move
                     move_msg = String()
                     move_msg.data = move_info
-                    self.move_pub.publish(move_msg)
+                    self.get_logger().info(f"{self.publish_move}")
+                    if self.publish_move == True:
+                        self.move_pub.publish(move_msg)
+                        self.get_logger().info("Publishing move")
                     
                     self.get_logger().info(f"Move detected: {move_info}")
                 else:
@@ -105,9 +131,9 @@ class ChessMoveDetector(Node):
             from_algebraic = self.cell_to_algebraic(int(from_squares[0]))
             to_algebraic = self.cell_to_algebraic(int(to_squares[0]))
             return f"{from_algebraic}{to_algebraic}"
-        
+        self.get_logger().info(f"from squares: {from_squares}, to squares: {to_squares}")
         # Castling (2 from, 2 to - king and rook both move)
-        elif len(from_squares) == 2 and len(to_squares) == 2:
+        if len(from_squares) == 2 and len(to_squares) == 2:
             castle_move = self.detect_castling(from_squares, to_squares, occupancy_dict_after)
             if castle_move:
                 return castle_move
@@ -132,23 +158,23 @@ class ChessMoveDetector(Node):
         
         # Check for white kingside castling (e1-g1, h1-f1)
         # Cell 61 = e1, 64 = h1, 63 = g1, 62 = f1
-        if set(from_cells) == {61, 64} and set(to_cells) == {62, 63}:
-            return "e1g1"  # White kingside
+        if set(from_cells) == {60, 64} and set(to_cells) == {61, 62}:
+            return "e1c1"  # White kingside
         
         # Check for white queenside castling (e1-c1, a1-d1)
         # Cell 61 = e1, 57 = a1, 59 = c1, 60 = d1
-        if set(from_cells) == {57, 61} and set(to_cells) == {59, 60}:
-            return "e1c1"  # White queenside
+        if set(from_cells) == {57, 60} and set(to_cells) == {58, 59}:
+            return "e1g1"  # White queenside
         
         # Check for black kingside castling (e8-g8, h8-f8)
         # Cell 5 = e8, 8 = h8, 7 = g8, 6 = f8
-        if set(from_cells) == {5, 8} and set(to_cells) == {6, 7}:
-            return "e8g8"  # Black kingside
+        if set(from_cells) == {4, 8} and set(to_cells) == {5, 6}:
+            return "e8c8"  # Black kingside
         
         # Check for black queenside castling (e8-c8, a8-d8)
         # Cell 5 = e8, 1 = a8, 3 = c8, 4 = d8
-        if set(from_cells) == {1, 5} and set(to_cells) == {3, 4}:
-            return "e8c8"  # Black queenside
+        if set(from_cells) == {1, 4} and set(to_cells) == {2, 3}:
+            return "e8g8"  # Black queenside
         
         return None
     

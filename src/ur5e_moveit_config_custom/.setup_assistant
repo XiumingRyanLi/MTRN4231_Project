@@ -1,0 +1,25 @@
+moveit_setup_assistant_config:
+  urdf:
+    package: end_effector_description
+    relative_path: urdf/end_effector_withDriverSupport.xacro
+  srdf:
+    relative_path: config/end_effector_withDriverSupport.srdf
+  package_settings:
+    author_name: Ryan
+    author_email: ryan.li20180211@gmail.com
+    generated_timestamp: 1763024699
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity
+  modified_urdf:
+    xacros:
+      - control_xacro
+  control_xacro:
+    command:
+      - position
+    state:
+      - position
+      - velocity

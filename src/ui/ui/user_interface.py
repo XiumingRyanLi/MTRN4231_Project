@@ -1,7 +1,5 @@
 from custom_interfaces.srv import ChessMove
-from std_msgs.msg import String
-from std_msgs.msg import Int32
-from std_msgs.msg import Empty
+from std_msgs.msg import String, Int32, Bool
 from sensor_msgs.msg import CompressedImage
 from PIL import Image, ImageTk
 import io
@@ -89,10 +87,7 @@ class UserInterface(tk.Tk):
 
         # create take picture publisher
         self.take_pic_pub = self.node.create_publisher(
-            Empty, '/take_picture', 10)
-
-        # create player move subscriber
-        # self.move_sub = self.node.create_subscription(String, 'player_move', self.move_callback, 10)
+            Bool, '/take_picture', 10)
 
         # create board state subscriber
         self.sub = self.node.create_subscription(
@@ -137,8 +132,10 @@ class UserInterface(tk.Tk):
         self.move_entry.delete(0, tk.END)
 
     def take_picture(self):
-        self.take_pic_pub.publish(Empty())
-        self.take_pic_btn.config(state="disabled")
+        msg = Bool()
+        msg.data = True
+        self.take_pic_pub.publish(msg)
+        # self.take_pic_btn.config(state="disabled")
 
     def reset_press(self):
         # reset board
