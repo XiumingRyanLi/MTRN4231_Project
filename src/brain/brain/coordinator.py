@@ -11,13 +11,9 @@ from custom_interfaces.srv import ChessMove
 from custom_interfaces.action import GripperCommand, MoveTCP
 
 # Define corner coordinates
-# A1 = (309, -818.0)
 A1 = (839.6, 302.1)
-# H1 = (309, -519.9)
 H1 = (538.0, 308.4)
-# A8 = (4.9, -818.0)
 A8 = (836.3, 0.3)
-# H8 = (4.9, -519.9)
 H8 = (534.8, 6.7)
 
 # DISCARD/HOME coords
@@ -62,6 +58,9 @@ class TaskCoordinator(Node):
         # moveit action client
         self.arm_client = ActionClient(
             self, MoveTCP, '/arm/pick_place', callback_group=self.cb_group)
+        
+        self.user_move = None
+        self.is_user_piece_tall = None
 
     def listener_callback(self, msg):
         # validate move input
@@ -69,18 +68,19 @@ class TaskCoordinator(Node):
         if not move:
             self.get_logger().info("Please enter a move.")
             return
-
+        self.user_move = move
+        self.get_logger().info(f"Detected move: {self.user_move}")
         req = ChessMove.Request()
         req.user_move = move
         future = self.client.call_async(req)
         future.add_done_callback(self._on_response)
 
     def move_callback(self, msg):
-        move = msg.data
-        self.get_logger().info(f"Detected move: {move}")
+        self.user_move = msg.data
+        self.get_logger().info(f"Detected move: {self.user_move}")
 
         req = ChessMove.Request()
-        req.user_move = move
+        req.user_move = self.user_move
         future = self.client.call_async(req)
         future.add_done_callback(self._on_response)
 
@@ -95,6 +95,7 @@ class TaskCoordinator(Node):
         self.get_logger().info("")
         self.get_logger().info("== Chess Master Response ==")
         self.get_logger().info(f"Robot move: {resp.robot_move}")
+        self.get_logger().info(f"is_user_piece_tall: {resp.is_user_piece_tall}")
         self.get_logger().info(f"is_en_passant: {resp.is_en_passant}")
         self.get_logger().info(f"is_capture: {resp.is_capture}")
         self.get_logger().info(f"is_castling: {resp.is_castling}")
@@ -102,13 +103,29 @@ class TaskCoordinator(Node):
         self.get_logger().info(
             f"is_tall_piece_from: {resp.is_tall_piece_from}")
         self.get_logger().info(f"is_tall_piece_to: {resp.is_tall_piece_to}")
+        self.get_logger().info(f"is_illegal: {resp.is_illegal}")
+
 
         # Figure robot arm movement steps
         self.get_logger().info("== Robot Arm Movement Steps ==")
+        
+        # User illegal moveback
         robot_move = resp.robot_move
-        if len(robot_move) < 4 or len(robot_move) > 5:
+        if resp.is_illegal:
+            user_sq1 = self.user_move[0:2]
+            user_sq2 = self.user_move[2:4]
+            u_x1, u_y1 = self.get_real_world_coords(user_sq1)
+            u_x2, u_y2 = self.get_real_world_coords(user_sq2)
+            if resp.is_user_piece_tall:
+                self.normal_move(u_x2, u_y2, u_x1, u_y1, user_sq2, user_sq1, KING_HEIGHT)
+            else:
+                self.normal_move(u_x2, u_y2, u_x1, u_y1, user_sq2, user_sq1, PAWN_HEIGHT)
+            self.take_a_pic()
             return
-
+        elif len(robot_move) < 4 or len(robot_move) > 5:
+            return
+        
+        # Continue
         sq1 = robot_move[0:2]
         sq2 = robot_move[2:4]
         x1, y1 = self.get_real_world_coords(sq1)
@@ -201,54 +218,53 @@ class TaskCoordinator(Node):
         return x, y
 
     def normal_move(self, x1, y1, x2, y2, sq1, sq2, h):
-        # self.get_logger().info(f"Move to {x1}, {y1}, {h} ({sq1})") # from square
-        self.get_logger().info("Making pose")
+        # Move to piece
+        self.get_logger().info(f"Move to {x1}, {y1}, {h} ({sq1})")
         pick_pose = self.make_pose(x1, y1, h)
-        self.get_logger().info("Sending action goal")
-        ok = self.send_arm_goal(pick_pose, label=f"pick {sq1}")
-        if not ok:
-            self.get_logger().error(
-                f"Arm failed to reach pick pose for {sq1}; aborting")
-            return
-        time.sleep(0.5)
-        # time.sleep(5)
+        # ok = self.send_arm_goal(pick_pose, label=f"pick {sq1}")
+        # if not ok:
+        #     self.get_logger().error(
+        #         f"Arm failed to reach pick pose for {sq1}; aborting")
+        #     return
+        time.sleep(0.1)
 
-        ok = self.send_gripper_goal(close=True, effort=0.0)  # close gripper
-        if not ok:
-            self.get_logger().error("Gripper failed to close; aborting move")
-            return
-        time.sleep(0.5)
+        # Grip piece
+        self.get_logger().info("Close gripper")
+        # ok = self.send_gripper_goal(close=True, effort=0.0)  # close gripper
+        # if not ok:
+        #     self.get_logger().error("Gripper failed to close; aborting move")
+        #     return
+        time.sleep(0.1)
 
-        # self.get_logger().info(f"Move to {x2}, {y2}, {h} ({sq2})") # to square
+        # Move to new square
+        self.get_logger().info(f"Move to {x2}, {y2}, {h} ({sq2})")
         pick_pose = self.make_pose(x2, y2, h)
-        ok = self.send_arm_goal(pick_pose, label=f"place {sq2}")
-        if not ok:
-            self.get_logger().error(
-                f"Arm failed to reach place pose for {sq2}; aborting")
-            return
-        time.sleep(0.5)
-        # time.sleep(5)
+        # ok = self.send_arm_goal(pick_pose, label=f"place {sq2}")
+        # if not ok:
+        #     self.get_logger().error(
+        #         f"Arm failed to reach place pose for {sq2}; aborting")
+        #     return
+        time.sleep(0.1)
 
-        ok = self.send_gripper_goal(close=False, effort=0.0)  # open gripper
-        if not ok:
-            self.get_logger().error("Gripper failed to open")
-
-        time.sleep(0.5)
-        # time.sleep(2)
+        # Ungrip piece
+        self.get_logger().info("Open gripper")
+        # ok = self.send_gripper_goal(close=False, effort=0.0)  # open gripper
+        # if not ok:
+        #     self.get_logger().error("Gripper failed to open")
+        time.sleep(0.1)
 
         # move to home
+        self.get_logger().info("Move to home")
         pick_pose = self.make_pose(
             DISCARD_COORDS[0], DISCARD_COORDS[1], DISCARD_HEIGHT)
-        ok = self.send_arm_goal(pick_pose, label="go home")
-        if not ok:
-            self.get_logger().error("Arm failed to reach home; aborting")
-            return
-        time.sleep(0.5)
-        # time.sleep(5)
+        # ok = self.send_arm_goal(pick_pose, label="go home")
+        # if not ok:
+        #     self.get_logger().error("Arm failed to reach home; aborting")
+        #     return
+        time.sleep(0.1)
 
     def discard_piece(self, x, y, sq, h):
         # move to square 2
-        self.get_logger().info(f"Move to {x}, {y}, {h} ({sq})")
         pick_pose = self.make_pose(x, y, h)
         ok = self.send_arm_goal(pick_pose, label=f"pick {sq}")
         if not ok:
@@ -256,16 +272,14 @@ class TaskCoordinator(Node):
                 f"Arm failed to reach pick pose for {sq}; aborting")
             return
 
-        time.sleep(0.5)
-        # time.sleep(5)
+        time.sleep(0.1)
 
         # close grip
         ok = self.send_gripper_goal(close=True, effort=0.0)
         if not ok:
             self.get_logger().error("Failed to grip piece for discard")
             return
-        time.sleep(0.5)
-        # time.sleep(2)
+        time.sleep(0.1)
 
         # move to discard pile
         self.get_logger().info("Move to discard pile")
@@ -275,16 +289,14 @@ class TaskCoordinator(Node):
         if not ok:
             self.get_logger().error("Arm failed to discard; aborting")
             return
-        time.sleep(0.5)
-        # time.sleep(5)
+        time.sleep(0.1)
 
         # open grip
         ok = self.send_gripper_goal(close=False, effort=0.0)
         if not ok:
             self.get_logger().error("Failed to grip piece for discard")
             return
-
-        time.sleep(0.5)
+        time.sleep(0.1)
 
     def promote_piece(self, x, y, sq, h):
         self.get_logger().info("Move to extra queen")
@@ -394,7 +406,7 @@ class TaskCoordinator(Node):
         tag = f" [{label}]" if label else ""
         self.get_logger().info(
             f"[ARM]{tag} Sending MoveTCP goal at "
-            f"({pose.pose.position.x:.1f}, {pose.pose.position.y:.1f}, {pose.pose.position.z:.1f})"
+            f"({pose.pose.position.x:.3f}, {pose.pose.position.y:.3f}, {pose.pose.position.z:.3f})"
         )
 
         done_event = threading.Event()

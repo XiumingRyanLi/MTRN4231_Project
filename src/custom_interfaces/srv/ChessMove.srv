@@ -1,9 +1,11 @@
 string user_move
 ---
 string robot_move
+bool is_user_piece_tall
 bool is_en_passant
 bool is_capture
 bool is_castling
 bool is_promotion
 bool is_tall_piece_from
 bool is_tall_piece_to
+bool is_illegal
