@@ -221,50 +221,51 @@ class TaskCoordinator(Node):
         # Move to piece
         self.get_logger().info(f"Move to {x1}, {y1}, {h} ({sq1})")
         pick_pose = self.make_pose(x1, y1, h)
-        # ok = self.send_arm_goal(pick_pose, label=f"pick {sq1}")
-        # if not ok:
-        #     self.get_logger().error(
-        #         f"Arm failed to reach pick pose for {sq1}; aborting")
-        #     return
+        ok = self.send_arm_goal(pick_pose, label=f"pick {sq1}")
+        if not ok:
+            self.get_logger().error(
+                f"Arm failed to reach pick pose for {sq1}; aborting")
+            return
         time.sleep(0.1)
 
         # Grip piece
         self.get_logger().info("Close gripper")
-        # ok = self.send_gripper_goal(close=True, effort=0.0)  # close gripper
-        # if not ok:
-        #     self.get_logger().error("Gripper failed to close; aborting move")
-        #     return
+        ok = self.send_gripper_goal(close=True, effort=0.0)  # close gripper
+        if not ok:
+            self.get_logger().error("Gripper failed to close; aborting move")
+            return
         time.sleep(0.1)
 
         # Move to new square
         self.get_logger().info(f"Move to {x2}, {y2}, {h} ({sq2})")
         pick_pose = self.make_pose(x2, y2, h)
-        # ok = self.send_arm_goal(pick_pose, label=f"place {sq2}")
-        # if not ok:
-        #     self.get_logger().error(
-        #         f"Arm failed to reach place pose for {sq2}; aborting")
-        #     return
+        ok = self.send_arm_goal(pick_pose, label=f"place {sq2}")
+        if not ok:
+            self.get_logger().error(
+                f"Arm failed to reach place pose for {sq2}; aborting")
+            return
         time.sleep(0.1)
 
         # Ungrip piece
         self.get_logger().info("Open gripper")
-        # ok = self.send_gripper_goal(close=False, effort=0.0)  # open gripper
-        # if not ok:
-        #     self.get_logger().error("Gripper failed to open")
+        ok = self.send_gripper_goal(close=False, effort=0.0)  # open gripper
+        if not ok:
+            self.get_logger().error("Gripper failed to open")
         time.sleep(0.1)
 
         # move to home
         self.get_logger().info("Move to home")
         pick_pose = self.make_pose(
             DISCARD_COORDS[0], DISCARD_COORDS[1], DISCARD_HEIGHT)
-        # ok = self.send_arm_goal(pick_pose, label="go home")
-        # if not ok:
-        #     self.get_logger().error("Arm failed to reach home; aborting")
-        #     return
+        ok = self.send_arm_goal(pick_pose, label="go home")
+        if not ok:
+            self.get_logger().error("Arm failed to reach home; aborting")
+            return
         time.sleep(0.1)
 
     def discard_piece(self, x, y, sq, h):
         # move to square 2
+        self.get_logger().info(f"Move to {x}, {y}, {h} ({sq})")
         pick_pose = self.make_pose(x, y, h)
         ok = self.send_arm_goal(pick_pose, label=f"pick {sq}")
         if not ok:
@@ -275,6 +276,7 @@ class TaskCoordinator(Node):
         time.sleep(0.1)
 
         # close grip
+        self.get_logger().info("Close gripper")
         ok = self.send_gripper_goal(close=True, effort=0.0)
         if not ok:
             self.get_logger().error("Failed to grip piece for discard")
@@ -292,6 +294,7 @@ class TaskCoordinator(Node):
         time.sleep(0.1)
 
         # open grip
+        self.get_logger().info("Open gripper")
         ok = self.send_gripper_goal(close=False, effort=0.0)
         if not ok:
             self.get_logger().error("Failed to grip piece for discard")
@@ -302,14 +305,30 @@ class TaskCoordinator(Node):
         self.get_logger().info("Move to extra queen")
         # TODO: call arm controller
 
-        ok = self.send_gripper_goal(close=True, effort=8.0)
+        # Close gripper
+        self.get_logger().info("Close gripper")
+        ok = self.send_gripper_goal(close=True, effort=0.0)
         if not ok:
             self.get_logger().error("Failed to grip queen")
+            return
+        time.sleep(0.1)
 
+        # move to square
         self.get_logger().info(f"Move to {x}, {y}, {h} ({sq})")
-        # TODO: call arm controller
+        pick_pose = self.make_pose(x, y, h)
+        ok = self.send_arm_goal(pick_pose, label=f"pick {sq}")
+        if not ok:
+            self.get_logger().error(
+                f"Arm failed to reach pick pose for {sq}; aborting")
+            return
+        time.sleep(0.1)
 
-        self.send_gripper_goal(close=False, effort=8.0)
+        # Open gripper
+        self.get_logger().info("Open gripper")
+        ok = self.send_gripper_goal(close=False, effort=0.0)  # open gripper
+        if not ok:
+            self.get_logger().error("Gripper failed to open")
+        time.sleep(0.1)
 
     def send_gripper_goal(self, close: bool, effort: float = 0.0, timeout_sec: float = 3.0):
         if not self.gripper_client.wait_for_server(timeout_sec=2.0):
