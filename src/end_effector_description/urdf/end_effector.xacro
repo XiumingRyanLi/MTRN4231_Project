@@ -1,0 +1,45 @@
+<?xml version="1.0" ?>
+<robot name="end_effector" xmlns:xacro="http://ros.org/wiki/xacro">
+  
+  <!-- Arguments -->
+  <xacro:arg name="name" default="ur5e"/>
+  <xacro:arg name="ur_type" default="ur5e"/>
+  
+  <!-- Include UR description - this is the key line from your working example -->
+  <xacro:include filename="$(find ur_description)/urdf/ur.urdf.xacro"/>
+  
+  <!-- Your end effector -->
+  <link name="claw_base_link">
+    <visual>
+      <geometry>
+        <mesh filename="package://end_effector_description/meshes/end_effect.STL"/>
+      </geometry>
+      <material name="orange">
+        <color rgba="0.761 0.420 0.008 1.0"/>
+      </material>
+      <origin xyz="0 0 0.116" rpy="0 0 0"/>
+    </visual>
+    <collision>
+      <geometry>
+        <mesh filename="package://end_effector_description/meshes/end_effect.STL"/>
+      </geometry>
+      <origin xyz="0 0 0.116" rpy="0 0 0"/>
+    </collision>
+    <inertial>
+      <origin xyz="0 0 0.116" rpy="0 0 0"/>
+      <mass value="0.1"/>
+      <inertia 
+        ixx="0.0001" ixy="0.0" ixz="0.0"
+        iyy="0.0001" iyz="0.0"
+        izz="0.0001"/>
+    </inertial>
+  </link>
+  
+  <!-- Fixed joint attaching to tool0 -->
+  <joint name="arm_to_base_link" type="fixed">
+    <parent link="tool0"/>
+    <child link="claw_base_link"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+  
+</robot>

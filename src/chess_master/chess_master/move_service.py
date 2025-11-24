@@ -1,4 +1,4 @@
-from interfaces.srv import ChessMove
+from custom_interfaces.srv import ChessMove
 from sensor_msgs.msg import CompressedImage
 from std_msgs.msg import Int32
 from array import array
@@ -35,10 +35,12 @@ class ChessMaster(Node):
 
         self.current_skill = 20
         self.engine.configure({"Skill Level": self.current_skill})
-        self.skill_sub = self.create_subscription(Int32, 'skill_level', self.skill_callback, 10)
+        self.skill_sub = self.create_subscription(
+            Int32, 'skill_level', self.skill_callback, 10)
+        # self.player_move_pub = self.create_subscription(String, '/player_move', self.player_move_callback, 10)
 
         self.timer = self.create_timer(2, self.pub_callback)
-        
+
         # Banter pool
         self.BANTERS = [
             "Good move… for a human.",
@@ -77,7 +79,6 @@ class ChessMaster(Node):
             # msg.data = png_bytes
             msg.data = array('B', png_bytes)
             self.pub.publish(msg)
-            
 
     def is_valid_fen(self, fen: str) -> bool:
         try:
@@ -153,6 +154,8 @@ class ChessMaster(Node):
             response.is_castling = False
             response.is_promotion = False
             response.is_capture = False
+            response.is_tall_piece_from = False
+            response.is_tall_piece_to = False
             if self.board.is_en_passant(best_move):
                 response.is_en_passant = True
             if self.board.is_capture(best_move):
@@ -162,14 +165,28 @@ class ChessMaster(Node):
             if best_move.promotion:
                 response.is_promotion = True
 
+            # Get the piece that is moving
+            moving_piece = self.board.piece_at(best_move.from_square)
+
+            # Get the piece being captured (if any)
+            captured_piece = self.board.piece_at(best_move.to_square)
+
+            # Check what’s moving
+            if moving_piece.piece_type in [chess.KING, chess.QUEEN]:
+                response.is_tall_piece_from = True
+
+            # Check what’s being captured
+            if captured_piece and captured_piece.piece_type in [chess.KING, chess.QUEEN]:
+                response.is_tall_piece_to = True
+
             self.board.push(best_move)
-            
+
             # Check if game is over
             if self.board.is_checkmate():
-                response.robot_move = "Game Over!"
+                # response.robot_move = "Game Over!"
                 self.status_publish("HAHAHAHAHAHAHA YOU LOST L")
                 return response
-            
+
             line = self._banter_unique_choice(self.BANTERS)
             self.status_publish(line)
 
@@ -192,7 +209,7 @@ class ChessMaster(Node):
         except Exception:
             pass
         super().destroy_node()
-        
+
     def _banter_unique_choice(self, pool):
         # avoid repeating the last few lines
         choices = [s for s in pool if s not in self.banter_recent]
@@ -206,6 +223,7 @@ class ChessMaster(Node):
         msg = String()
         msg.data = str
         self.status_pub.publish(msg)
+
 
 def main():
     rclpy.init()

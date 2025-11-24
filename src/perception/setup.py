@@ -27,6 +27,10 @@ setup(
             'chess_detector = perception.chess_detector:main',
             'image_publisher = perception.image_publisher:main',
             'state_comparison = perception.state_comparison:main',
+<<<<<<< HEAD
+=======
+            'aruco_detect = perception.aruco_detect:main'
+>>>>>>> 62a18b07e0594dc6d78e18139c352180c7cc4e79
         ],
     },
 )

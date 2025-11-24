@@ -1,9 +1,4 @@
-/build/
-/build/gripper/
-/install/
-/install/gripper/
-/log/
-/chess_master_test/build/
-/chess_master_test/install/
-/chess_master_test/log/
-/chess_master_test/
+/build
+/install
+/log
+/chess_master_test
