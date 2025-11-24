@@ -52,14 +52,16 @@ class TaskCoordinator(Node):
             Bool, '/take_picture', 10)
 
         # create chess master client
-        self.client = self.create_client(ChessMove, 'chess_move', callback_group=self.cb_group)
+        self.client = self.create_client(
+            ChessMove, 'chess_move', callback_group=self.cb_group)
 
         # gripper action client
         self.gripper_client = ActionClient(
             self, GripperCommand, 'gripper/command', callback_group=self.cb_group)
 
         # moveit action client
-        self.arm_client = ActionClient(self, MoveTCP, '/arm/pick_place', callback_group=self.cb_group)
+        self.arm_client = ActionClient(
+            self, MoveTCP, '/arm/pick_place', callback_group=self.cb_group)
 
     def listener_callback(self, msg):
         # validate move input
@@ -205,27 +207,29 @@ class TaskCoordinator(Node):
         self.get_logger().info("Sending action goal")
         ok = self.send_arm_goal(pick_pose, label=f"pick {sq1}")
         if not ok:
-            self.get_logger().error(f"Arm failed to reach pick pose for {sq1}; aborting")
+            self.get_logger().error(
+                f"Arm failed to reach pick pose for {sq1}; aborting")
             return
         time.sleep(0.5)
         # time.sleep(5)
-        
-        ok = self.send_gripper_goal(close=True, effort=0.0) # close gripper
+
+        ok = self.send_gripper_goal(close=True, effort=0.0)  # close gripper
         if not ok:
             self.get_logger().error("Gripper failed to close; aborting move")
             return
         time.sleep(0.5)
-        
+
         # self.get_logger().info(f"Move to {x2}, {y2}, {h} ({sq2})") # to square
         pick_pose = self.make_pose(x2, y2, h)
         ok = self.send_arm_goal(pick_pose, label=f"place {sq2}")
         if not ok:
-            self.get_logger().error(f"Arm failed to reach place pose for {sq2}; aborting")
+            self.get_logger().error(
+                f"Arm failed to reach place pose for {sq2}; aborting")
             return
         time.sleep(0.5)
         # time.sleep(5)
-        
-        ok = self.send_gripper_goal(close=False, effort=0.0) # open gripper
+
+        ok = self.send_gripper_goal(close=False, effort=0.0)  # open gripper
         if not ok:
             self.get_logger().error("Gripper failed to open")
 
@@ -233,7 +237,8 @@ class TaskCoordinator(Node):
         # time.sleep(2)
 
         # move to home
-        pick_pose = self.make_pose(DISCARD_COORDS[0], DISCARD_COORDS[1], DISCARD_HEIGHT)
+        pick_pose = self.make_pose(
+            DISCARD_COORDS[0], DISCARD_COORDS[1], DISCARD_HEIGHT)
         ok = self.send_arm_goal(pick_pose, label="go home")
         if not ok:
             self.get_logger().error("Arm failed to reach home; aborting")
@@ -241,17 +246,16 @@ class TaskCoordinator(Node):
         time.sleep(0.5)
         # time.sleep(5)
 
-
-
     def discard_piece(self, x, y, sq, h):
         # move to square 2
         self.get_logger().info(f"Move to {x}, {y}, {h} ({sq})")
         pick_pose = self.make_pose(x, y, h)
         ok = self.send_arm_goal(pick_pose, label=f"pick {sq}")
         if not ok:
-            self.get_logger().error(f"Arm failed to reach pick pose for {sq}; aborting")
+            self.get_logger().error(
+                f"Arm failed to reach pick pose for {sq}; aborting")
             return
-        
+
         time.sleep(0.5)
         # time.sleep(5)
 
@@ -262,13 +266,14 @@ class TaskCoordinator(Node):
             return
         time.sleep(0.5)
         # time.sleep(2)
-        
+
         # move to discard pile
         self.get_logger().info("Move to discard pile")
-        pick_pose = self.make_pose(DISCARD_COORDS[0], DISCARD_COORDS[1], DISCARD_HEIGHT)
+        pick_pose = self.make_pose(
+            DISCARD_COORDS[0], DISCARD_COORDS[1], DISCARD_HEIGHT)
         ok = self.send_arm_goal(pick_pose, label="discard")
         if not ok:
-            self.get_logger().error(f"Arm failed to discard; aborting")
+            self.get_logger().error("Arm failed to discard; aborting")
             return
         time.sleep(0.5)
         # time.sleep(5)
@@ -278,21 +283,20 @@ class TaskCoordinator(Node):
         if not ok:
             self.get_logger().error("Failed to grip piece for discard")
             return
-        
+
         time.sleep(0.5)
-            
 
     def promote_piece(self, x, y, sq, h):
         self.get_logger().info("Move to extra queen")
         # TODO: call arm controller
-        
+
         ok = self.send_gripper_goal(close=True, effort=8.0)
         if not ok:
             self.get_logger().error("Failed to grip queen")
-        
+
         self.get_logger().info(f"Move to {x}, {y}, {h} ({sq})")
         # TODO: call arm controller
-        
+
         self.send_gripper_goal(close=False, effort=8.0)
 
     def send_gripper_goal(self, close: bool, effort: float = 0.0, timeout_sec: float = 3.0):
@@ -357,7 +361,7 @@ class TaskCoordinator(Node):
             feedback_callback=self._gripper_feedback_cb
         )
         send_future.add_done_callback(_goal_response_cb)
-        
+
         # Block current thread until result or timeout
         if not done_event.wait(timeout_sec):
             self.get_logger().error(
@@ -378,7 +382,7 @@ class TaskCoordinator(Node):
         )
 
     def send_arm_goal(self, pose: PoseStamped, label: str = "",
-                               timeout_sec: float = 30.0) -> bool:
+                      timeout_sec: float = 30.0) -> bool:
         """Send an arm MoveTCP goal and block until result (or timeout)."""
         if not self.arm_client.wait_for_server(timeout_sec=2.0):
             self.get_logger().error("Arm action server 'arm/pick_place' not available")
@@ -405,7 +409,8 @@ class TaskCoordinator(Node):
                     f"message='{result_msg.message}'"
                 )
             except Exception as e:
-                self.get_logger().error(f"[ARM]{tag} Result retrieval failed: {e}")
+                self.get_logger().error(
+                    f"[ARM]{tag} Result retrieval failed: {e}")
                 result_container["error"] = e
             finally:
                 done_event.set()
@@ -444,14 +449,11 @@ class TaskCoordinator(Node):
 
         return False
 
-        
-      
     def _arm_feedback_cb(self, feedback_msg):
         fb = feedback_msg.feedback
         self.get_logger().info(
             f"[ARM] Feedback: {fb.progress_percent:.1f}% — {fb.stage}"
         )
-
 
     def make_pose(self, x: float, y: float, z: float) -> PoseStamped:
         pose = PoseStamped()
@@ -470,21 +472,20 @@ class TaskCoordinator(Node):
         return pose
 
 
-
 def main(args=None):
     rclpy.init(args=args)
     node = TaskCoordinator()
-    
+
     executor = MultiThreadedExecutor()
     executor.add_node(node)
-    
+
     try:
         executor.spin()
     finally:
         executor.shutdown()
         node.destroy_node()
         rclpy.shutdown()
-    
+
     rclpy.spin(node)
     node.destroy_node()
     rclpy.shutdown()
