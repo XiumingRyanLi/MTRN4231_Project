@@ -16,14 +16,22 @@ class ImagePublisherNode(Node):
         self.declare_parameter('image_path', 'test-images/test_cam4.jpg')
         self.declare_parameter('publish_rate', 1.0)  # Hz
         self.declare_parameter('output_topic', '/camera/image_raw')
+<<<<<<< HEAD
+        self.declare_parameter('loop', True)  # Keep publishing or publish once
+=======
         self.declare_parameter('once', True)  # Keep publishing or publish once
+>>>>>>> 62a18b07e0594dc6d78e18139c352180c7cc4e79
         self.declare_parameter('use_package_path', False)  # If true, look in package share directory
         
         # Get parameters
         image_path_param = self.get_parameter('image_path').value
         publish_rate = self.get_parameter('publish_rate').value
         output_topic = self.get_parameter('output_topic').value
+<<<<<<< HEAD
+        self.loop = self.get_parameter('loop').value
+=======
         self.loop = self.get_parameter('once').value
+>>>>>>> 62a18b07e0594dc6d78e18139c352180c7cc4e79
         use_package_path = self.get_parameter('use_package_path').value
         
         # Determine full image path
