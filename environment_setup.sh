@@ -18,7 +18,8 @@ sudo apt install -y \
     ros-humble-ur-robot-driver \
     ros-humble-ur-moveit-config \
     wmctrl \
-    rviz
+    rviz \
+    tmux
 
 
 echo "[APT] Installing system pip if missing..."

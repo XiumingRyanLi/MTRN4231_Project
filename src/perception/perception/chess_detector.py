@@ -92,7 +92,7 @@ class ChessBoardDetectorNode(Node):
         try:
             cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
             # Crop to 1200x700 from top-left corner
-            self.latest_image = cv_image[100:700, 550:1150]
+            self.latest_image = cv_image[50:650, 660:1260]
             cropped_msg = self.bridge.cv2_to_imgmsg(
                 self.latest_image, encoding='bgr8')
             self.cropped_image_pub.publish(cropped_msg)
@@ -150,6 +150,10 @@ class ChessBoardDetectorNode(Node):
         if not black_samples or not white_samples:
             self.get_logger().error('Failed to collect calibration samples')
             return False
+        
+        # x, y = self.get_cell_center(coord_dict[17])
+        # sample_points = self.get_sample_region(x, y)
+        # self.get_logger().info(sample_points)
 
         # Convert to numpy arrays for easier processing
         black_samples = np.array(black_samples)
@@ -162,7 +166,8 @@ class ChessBoardDetectorNode(Node):
         # Remove top 2 and bottom 2 outliers for black pieces
         black_sorted_indices = np.argsort(black_brightness)
         if len(black_sorted_indices) > 4:
-            black_filtered_indices = black_sorted_indices[2:-2]
+            k = len(black_sorted_indices) // 7
+            black_filtered_indices = black_sorted_indices[2:-k]
             black_filtered = black_samples[black_filtered_indices]
         else:
             black_filtered = black_samples
@@ -170,7 +175,8 @@ class ChessBoardDetectorNode(Node):
         # Remove top 2 and bottom 2 outliers for white pieces
         white_sorted_indices = np.argsort(white_brightness)
         if len(white_sorted_indices) > 4:
-            white_filtered_indices = white_sorted_indices[2:-2]
+            w = len(white_sorted_indices) // 10
+            white_filtered_indices = white_sorted_indices[w:-2]
             white_filtered = white_samples[white_filtered_indices]
         else:
             white_filtered = white_samples
@@ -511,7 +517,7 @@ class ChessBoardDetectorNode(Node):
                         color_counts[color_name] += 1
                         break
 
-        threshold = total_points * 0.1
+        threshold = total_points * 0.2
 
         if color_counts['black'] > threshold and color_counts['black'] > color_counts['white']:
             return 'black'
