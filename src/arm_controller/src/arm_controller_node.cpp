@@ -51,7 +51,7 @@ public:
     move_group_->setGoalPositionTolerance(node_->get_parameter("goal_position_tolerance").as_double());
     move_group_->setGoalOrientationTolerance(node_->get_parameter("goal_orientation_tolerance").as_double());
     move_group_->setPlannerId("RRTConnect");      // consistent with your working server
-    move_group_->setMaxVelocityScalingFactor(0.25);
+    move_group_->setMaxVelocityScalingFactor(0.5);
     move_group_->setMaxAccelerationScalingFactor(0.25);
 
     setupCollisionObjects();

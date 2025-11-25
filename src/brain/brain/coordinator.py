@@ -11,10 +11,10 @@ from custom_interfaces.srv import ChessMove
 from custom_interfaces.action import GripperCommand, MoveTCP
 
 # Define corner coordinates
-A1 = (839.6, 302.1)
-H1 = (538.0, 308.4)
-A8 = (836.3, 0.3)
-H8 = (534.8, 6.7)
+A1 = (844.4, 322.7)
+H1 = (535.8, 329.4)
+A8 = (840.5, 25.2)
+H8 = (538.6, 29.1)
 
 # DISCARD/HOME coords
 DISCARD_COORDS = (375.1, 149.8)
