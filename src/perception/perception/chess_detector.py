@@ -115,6 +115,7 @@ class ChessBoardDetectorNode(Node):
     def calibrate_piece_colors(self, image, coord_dict):
         """Automatically calibrate piece colors from initial board position"""
         self.get_logger().info('Starting automatic color calibration...')
+        image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
         # Cells 1-16 should have black pieces (rows 1-2)
         black_cells = list(range(1, 17))
@@ -184,14 +185,14 @@ class ChessBoardDetectorNode(Node):
         # Calculate bounds for black pieces
         # Lower bound stays at [0, 0, 0]
         # Upper bound is the maximum from filtered samples, with some margin
-        black_upper = np.max(black_filtered, axis=0)
+        black_upper = np.percentile(black_filtered, 95, axis=0)  # 95th percentile
         # Add 15 margin, cap at 255
         black_upper = np.minimum(black_upper + 15, 255).astype(int)
 
         # Calculate bounds for white pieces
         # Upper bound stays at [255, 255, 255]
         # Lower bound is the minimum from filtered samples, with some margin
-        white_lower = np.min(white_filtered, axis=0)
+        white_lower = np.percentile(white_filtered, 5, axis=0)   # 5th percentile
         # Subtract 15 margin, floor at 0
         white_lower = np.maximum(white_lower - 15, 0).astype(int)
 
@@ -208,7 +209,7 @@ class ChessBoardDetectorNode(Node):
         self.get_logger().info(
             f'Analyzed {len(black_filtered)} black samples and {len(white_filtered)} white samples')
 
-        self.is_calibrated = True
+        #self.is_calibrated = True
         return True
 
     def process_latest_image(self):
@@ -235,6 +236,12 @@ class ChessBoardDetectorNode(Node):
 
                 # Detect pieces
                 occupancy_dict = self.detect_pieces(cv_image, coord_dict)
+
+                if not self.is_calibrated:
+                    if (occupancy_dict == {i: "black" if i <= 16 else "white" if i >= 49 else "empty" for i in range(1, 65)}):
+                        self.is_calibrated = True
+                    else:
+                        self.get_logger().warn("Calibration failed")
 
                 # Publish occupancy
                 self.publish_occupancy(occupancy_dict)
@@ -528,10 +535,10 @@ class ChessBoardDetectorNode(Node):
 
     def detect_pieces(self, image, coord_dict):
         """Detect all pieces on the board"""
-        piece_color_ranges = {
-            'black': (np.array([0, 0, 0]), np.array([80, 65, 65])),
-            'white': (np.array([180, 175, 130]), np.array([255, 255, 255]))
-        }
+        # piece_color_ranges = {
+        #     'black': (np.array([0, 0, 0]), np.array([80, 65, 65])),
+        #     'white': (np.array([180, 175, 130]), np.array([255, 255, 255]))
+        # }
 
         occupancy_dict = {}
 
