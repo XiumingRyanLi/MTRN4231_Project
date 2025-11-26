@@ -4,7 +4,7 @@ set -e
 SESSION="chessbot"
 
 # --- ROS env ---
-ROS_SETUP="source /opt/ros/humble/setup.bash && source ~/MTRN4231_Project/install/setup.bash"
+ROS_SETUP="source /opt/ros/humble/setup.bash && source ~/Documents/MTRN4231_Project/install/setup.bash"
 
 # If session already exists, kill it so we start clean
 tmux has-session -t "$SESSION" 2>/dev/null && tmux kill-session -t "$SESSION"
@@ -14,7 +14,7 @@ tmux has-session -t "$SESSION" 2>/dev/null && tmux kill-session -t "$SESSION"
 # =========================
 tmux new-session -d -s "$SESSION" -n realsense \
   "bash -lc '$ROS_SETUP; ros2 launch realsense2_camera rs_launch.py enable_color:=true rgb_camera.color_profile:=1920x1080x30; exec bash'"
-
+sleep 5
 # =========================
 # Window 1: Perception + UI + Brain + Master
 # Make task_coordinator the first pane so its logs are always visible.

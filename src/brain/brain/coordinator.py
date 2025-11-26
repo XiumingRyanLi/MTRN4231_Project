@@ -70,6 +70,7 @@ class TaskCoordinator(Node):
         self.user_move = None
         self.is_user_piece_tall = None
         self.white_turn = True
+        self.get_logger().info('Task Coordinator Node initialized')
 
     def listener_callback(self, msg):
         # validate move input
@@ -91,7 +92,7 @@ class TaskCoordinator(Node):
         req = ChessMove.Request()
         req.user_move = self.user_move
         future = self.client.call_async(req)
-        future.add_done_callback(self._on_response)
+        future.add_done_callback(self.on_response)
         self.white_turn = False
 
     def on_response(self, future: rclpy.task.Future):
@@ -513,47 +514,47 @@ class TaskCoordinator(Node):
 
         return pose
 
-    def occupancy_callback(self, msg: String):
-        self.current_occupancy = json.loads(msg.data)
+    # def occupancy_callback(self, msg: String):
+    #     self.current_occupancy = json.loads(msg.data)
 
-        if self.executing_move:
-            self.check_verification()
+    #     if self.executing_move:
+    #         self.check_verification()
 
-    def execute_engine_move(self, move_uci, mover_color):
-        self.expected_move = move_uci
-        self.mover_color = mover_color
+    # def execute_engine_move(self, move_uci, mover_color):
+    #     self.expected_move = move_uci
+    #     self.mover_color = mover_color
 
-        self.from_cell = algebraic_to_cell(move_uci[:2])
-        self.to_cell = algebraic_to_cell(move_uci[2:4])
+    #     self.from_cell = algebraic_to_cell(move_uci[:2])
+    #     self.to_cell = algebraic_to_cell(move_uci[2:4])
 
-        # snapshot board before move
-        self.occ_before = self.current_occupancy.copy()
+    #     # snapshot board before move
+    #     self.occ_before = self.current_occupancy.copy()
 
-        # command robot arm trajectory here
-        send_trajectory_to_ur5e(move_uci)
+    #     # command robot arm trajectory here
+    #     send_trajectory_to_ur5e(move_uci)
 
-        self.executing_move = True
-        self.verify_deadline = self.get_clock().now() + Duration(seconds=3)
+    #     self.executing_move = True
+    #     self.verify_deadline = self.get_clock().now() + Duration(seconds=3)
 
-    def check_verification(self):
-        if self.current_occupancy is None:
-            return
+    # def check_verification(self):
+    #     if self.current_occupancy is None:
+    #         return
 
-        if self.get_clock().now() > self.verify_deadline:
-            self.on_move_failed("timeout / no stable change")
-            return
+    #     if self.get_clock().now() > self.verify_deadline:
+    #         self.on_move_failed("timeout / no stable change")
+    #         return
 
-        occ_after = self.current_occupancy
+    #     occ_after = self.current_occupancy
 
-        if occ_after == self.occ_before:
-            # still no change → keep waiting until deadline
-            return
+    #     if occ_after == self.occ_before:
+    #         # still no change → keep waiting until deadline
+    #         return
 
-        if is_expected_change(self.occ_before, occ_after,
-                              self.from_cell, self.to_cell, self.mover_color):
-            self.on_move_success()
-        else:
-            self.on_move_failed("unexpected board change")
+    #     if is_expected_change(self.occ_before, occ_after,
+    #                           self.from_cell, self.to_cell, self.mover_color):
+    #         self.on_move_success()
+    #     else:
+    #         self.on_move_failed("unexpected board change")
 
 def main(args=None):
     rclpy.init(args=args)

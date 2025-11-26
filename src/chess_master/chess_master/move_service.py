@@ -60,6 +60,8 @@ class ChessMaster(Node):
             "My CPU is overheating from how bad that move was."
         ]
 
+        self.get_logger().info('Chess Master Node initialized')
+
     def pub_callback(self):
         with self.lock:
             fen = self.board.fen()
