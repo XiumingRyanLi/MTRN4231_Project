@@ -2,19 +2,25 @@
 <robot name="end_effector_withDriverSupport" xmlns:xacro="http://ros.org/wiki/xacro">
 
   <!-- UR args (prefer ur5e unless you truly have ur5) -->
-  <xacro:arg name="name"    default="ur5e"/>
-  <xacro:arg name="ur_type" default="ur5"/>
-  <xacro:arg name="prefix"  default=""/>
+  <xacro:arg name="name" default="ur5" />
+  <xacro:arg name="ur_type" default="ur5" />
+
 
   <!-- UR robot -->
-  <xacro:include filename="$(find ur_description)/urdf/ur.urdf.xacro"/>
+  <xacro:include filename="$(find ur_description)/urdf/ur.urdf.xacro" />
   <!-- Don't pass ur_type here; it's consumed internally by ur.urdf.xacro -->
   <!-- <xacro:ur_robot name="$(arg name)"/> -->
   <!-- <xacro:ur_robot name="$(arg name)"/> -->
   <!-- End-effector macro (your file above) -->
-  <xacro:include filename="$(find end_effector_description)/urdf/end_effector.urdf.xacro"/>
+  <xacro:include filename="$(find end_effector_description)/urdf/end_effector.urdf" />
 
   <!-- Mount the gripper to tool0 -->
-  <xacro:end_effector prefix="" parent="tool0"/>
+  <joint name="end_effector_to_ur" type="fixed">
+    <parent link="tool0" />
+    <child link="gripper" />
+  </joint>
 
+  <collision>
+    <disable_collision link1="gripper" link2="tool0"/>
+  </collision>
 </robot>

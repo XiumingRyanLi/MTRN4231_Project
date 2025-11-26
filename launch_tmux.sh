@@ -40,7 +40,7 @@ tmux select-layout -t "$SESSION:core" tiled
 # Window 2: DriverServer
 # =========================
 tmux new-window -t "$SESSION" -n driver \
-  "bash -lc '$ROS_SETUP; ros2 launch ur_robot_driver ur_control.launch.py ur_type:=ur5e robot_ip:=192.168.0.100 use_fake_hardware:=false launch_rviz:=false; exec bash'"
+  "bash -lc '$ROS_SETUP; ros2 launch end_effector_description display.launch.py; exec bash'"
 
 # small delay matching your script
 sleep 5
@@ -48,8 +48,8 @@ sleep 5
 # =========================
 # Window 3: MoveitServer
 # =========================
-tmux new-window -t "$SESSION" -n moveit \
-  "bash -lc '$ROS_SETUP; ros2 launch ur_moveit_config ur_moveit.launch.py robot_ip:=192.168.0.100 ur_type:=ur5e launch_rviz:=true; exec bash'"
+# tmux new-window -t "$SESSION" -n moveit \
+#   "bash -lc '$ROS_SETUP; ros2 launch ur_moveit_config ur_moveit.launch.py robot_ip:=192.168.0.100 ur_type:=ur5e launch_rviz:=true; exec bash'"
 
 # =========================
 # Window 4: Arm Controller

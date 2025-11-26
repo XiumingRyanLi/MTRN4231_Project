@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<robot name="end_effector">
+
+  <!-- Constants -->
+  <!-- scale_factor is manually applied to the mesh scale below. -->
+
+  <!-- Gripper Link with Mesh and Collision -->
+  <link name="gripper">
+    <visual>
+      <origin xyz="0 0 0.1" rpy="0 3.1415 0"/>
+      <geometry>
+        <mesh filename="package://end_effector_description/meshes/claw_assembly.stl" scale="0.001 0.001 0.001"/>
+        <!-- <mesh filename="../meshes/claw_assembly.stl" /> -->
+        <!-- <box size="1 1 1"/> -->
+      </geometry>
+    </visual>
+
+    <collision>
+      <origin xyz="0.10 0.00 0.02" rpy="0 0 0"/>
+      <geometry>
+        <box size="0.06 0.09 0.09"/>
+      </geometry>
+    </collision>
+
+  </link>
+
+</robot>
