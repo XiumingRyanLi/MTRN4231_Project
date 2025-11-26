@@ -93,7 +93,7 @@ def generate_launch_description():
     """Main function to generate the complete launch description."""
     launch_description = [
         get_ur_control_launch(),
-        get_moveit_launch(),
+        # get_moveit_launch(),
         # get_auxiliary_launch(),
         get_rviz_launch()
     ]
