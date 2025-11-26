@@ -41,7 +41,7 @@ class ChessMoveDetector(Node):
 
         # Store previous occupancy state
         self.occupancy_before = None
-        # self.publish_move = False
+        self.publish_move = False
         self.get_logger().info('Chess Move Detector Node initialized')
 
     def reset_callback(self, msg):
