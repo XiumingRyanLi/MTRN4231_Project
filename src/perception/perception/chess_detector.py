@@ -9,6 +9,7 @@ import cv2
 import numpy as np
 import math
 import json
+from collections import deque
 
 
 class ChessBoardDetectorNode(Node):
@@ -19,22 +20,29 @@ class ChessBoardDetectorNode(Node):
         self.declare_parameter('image_topic', '/camera/camera/color/image_raw')
         self.declare_parameter('publish_debug_images', True)
         self.declare_parameter('square_threshold', 35)
+        self.declare_parameter('stability_duration', 1.0)  # seconds
 
         # Get parameters
         image_topic = self.get_parameter('image_topic').value
         self.publish_debug = self.get_parameter('publish_debug_images').value
         self.square_threshold = self.get_parameter('square_threshold').value
+        self.stability_duration = self.get_parameter('stability_duration').value
 
         # CV Bridge
         self.bridge = CvBridge()
 
         # State variables
-        self.latest_image = None
         self.coord_dict = None
         self.M_inv = None
-        self.previous_occupancy = None
+        self.last_published_occupancy = None
         self.is_calibrated = False
         self.piece_color_ranges = None
+        
+        # Stability tracking
+        self.occupancy_history = deque(maxlen=100)  # Store recent occupancy states
+        self.last_stable_occupancy = None
+        self.stable_start_time = None
+        self.move_detected = False
 
         # Subscribers
         self.image_sub = self.create_subscription(
@@ -46,8 +54,8 @@ class ChessBoardDetectorNode(Node):
 
         self.trigger_sub = self.create_subscription(
             Bool,
-            '/take_picture',
-            self.trigger_callback,
+            '/calibrate_colors',
+            self.calibrate_callback,
             10
         )
 
@@ -84,37 +92,169 @@ class ChessBoardDetectorNode(Node):
 
         self.get_logger().info('Chess Board Detector Node initialized')
         self.get_logger().info(f'Listening to: {image_topic}')
-        self.get_logger().info('Waiting for trigger on /take_picture')
-        self.get_logger().info('First trigger will calibrate piece colors from initial position')
+        self.get_logger().info(f'Stability duration: {self.stability_duration}s')
+        self.get_logger().info('Send trigger to /calibrate_colors to calibrate from initial position')
 
     def image_callback(self, msg):
-        """Store the latest image without processing"""
+        """Process each incoming frame"""
         try:
             cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
-            # Crop to 1200x700 from top-left corner
-            self.latest_image = cv_image[50:650, 660:1260]
-            cropped_msg = self.bridge.cv2_to_imgmsg(
-                self.latest_image, encoding='bgr8')
-            self.cropped_image_pub.publish(cropped_msg)
+            # Crop to 600x600 from specified region
+            cropped_image = cv_image[50:650, 660:1260]
+            
+            if self.publish_debug:
+                cropped_msg = self.bridge.cv2_to_imgmsg(
+                    cropped_image, encoding='bgr8')
+                self.cropped_image_pub.publish(cropped_msg)
+            
+            # Process the frame
+            self.process_frame(cropped_image)
+            
         except Exception as e:
             self.get_logger().error(f'Error converting image: {str(e)}')
 
-    def trigger_callback(self, msg):
-        """Process the latest image when triggered"""
-        if self.latest_image is None:
-            self.get_logger().warn('Trigger received but no image available yet')
-            return
+    def calibrate_callback(self, msg):
+        """Trigger color calibration from initial position"""
+        if msg.data:
+            self.get_logger().info('Calibration triggered - will calibrate on next successful board detection')
+            self.is_calibrated = False
 
-        if not self.is_calibrated:
-            self.get_logger().info('First trigger - calibrating colors from initial position...')
-        else:
-            self.get_logger().info('Processing triggered image...')
+    def process_frame(self, image):
+        """Process a single frame"""
+        try:
+            # Process the chessboard
+            success, coord_dict, warped_image, debug_image, M_inv = self.process_chessboard(image)
 
-        self.process_latest_image()
+            if not success:
+                # Board detection failed, don't publish anything
+                return
+
+            # Store transformation matrix and coordinates
+            self.coord_dict = coord_dict
+            self.M_inv = M_inv
+
+            # If not calibrated, try to calibrate from current position
+            if not self.is_calibrated:
+                calibration_success = self.calibrate_piece_colors(image, coord_dict)
+                if not calibration_success:
+                    self.get_logger().warn('Waiting for calibration...')
+                    return
+                # After calibration, set the initial state
+                occupancy_dict = self.detect_pieces(image, coord_dict)
+                self.last_published_occupancy = occupancy_dict
+                self.last_stable_occupancy = occupancy_dict
+                self.publish_state(occupancy_dict, coord_dict)
+                self.get_logger().info('Initial board state published')
+                return
+
+            # Detect pieces
+            occupancy_dict = self.detect_pieces(image, coord_dict)
+            
+            # Add to history with timestamp
+            current_time = self.get_clock().now()
+            self.occupancy_history.append((current_time, occupancy_dict))
+            
+            # Check if occupancy is stable
+            is_stable, stable_occupancy = self.check_stability()
+            
+            if is_stable:
+                # Check if this is different from last published state
+                if self.last_published_occupancy is None:
+                    # First stable state
+                    self.publish_state(stable_occupancy, coord_dict)
+                    self.last_published_occupancy = stable_occupancy
+                    self.move_detected = False
+                elif self.occupancies_different(self.last_published_occupancy, stable_occupancy):
+                    # Move detected
+                    if not self.move_detected:
+                        self.move_detected = True
+                        self.stable_start_time = current_time
+                        self.last_stable_occupancy = stable_occupancy
+                        move_info = self.detect_move(self.last_published_occupancy, stable_occupancy)
+                        if move_info and 'from_square' in move_info:
+                            capture_text = " (capture)" if move_info['is_capture'] else ""
+                            self.get_logger().info(
+                                f"Move detected: {move_info['piece_color']} from {move_info['from_square']} "
+                                f"to {move_info['to_square']}{capture_text} - waiting for stability..."
+                            )
+                    else:
+                        # Check if still the same stable state
+                        if self.occupancies_same(self.last_stable_occupancy, stable_occupancy):
+                            # Check if stable for required duration
+                            time_stable = (current_time - self.stable_start_time).nanoseconds / 1e9
+                            if time_stable >= self.stability_duration:
+                                # Publish the new state
+                                self.publish_state(stable_occupancy, coord_dict)
+                                self.last_published_occupancy = stable_occupancy
+                                self.move_detected = False
+                                self.get_logger().info(f'New game state published after {time_stable:.2f}s stability')
+                        else:
+                            # State changed again, reset timer
+                            self.stable_start_time = current_time
+                            self.last_stable_occupancy = stable_occupancy
+
+            # Publish debug images
+            if self.publish_debug:
+                if debug_image is not None:
+                    debug_msg = self.bridge.cv2_to_imgmsg(debug_image, encoding='bgr8')
+                    self.debug_image_pub.publish(debug_msg)
+
+                if warped_image is not None:
+                    warped_msg = self.bridge.cv2_to_imgmsg(warped_image, encoding='rgb8')
+                    self.warped_image_pub.publish(warped_msg)
+
+        except Exception as e:
+            self.get_logger().error(f'Error processing frame: {str(e)}')
+
+    def check_stability(self):
+        """Check if occupancy has been stable for the required duration"""
+        if len(self.occupancy_history) < 2:
+            return False, None
+        
+        current_time = self.get_clock().now()
+        cutoff_time = current_time - rclpy.duration.Duration(seconds=self.stability_duration)
+        
+        # Get all states within the stability window
+        recent_states = [
+            (t, occ) for t, occ in self.occupancy_history 
+            if t >= cutoff_time
+        ]
+        
+        if not recent_states:
+            return False, None
+        
+        # Check if all recent states are the same
+        first_occupancy = recent_states[0][1]
+        for _, occupancy in recent_states[1:]:
+            if not self.occupancies_same(first_occupancy, occupancy):
+                return False, None
+        
+        return True, first_occupancy
+
+    def occupancies_same(self, occ1, occ2):
+        """Check if two occupancy dictionaries are the same"""
+        if occ1 is None or occ2 is None:
+            return False
+        if set(occ1.keys()) != set(occ2.keys()):
+            return False
+        for key in occ1.keys():
+            if occ1[key] != occ2[key]:
+                return False
+        return True
+
+    def occupancies_different(self, occ1, occ2):
+        """Check if two occupancy dictionaries are different"""
+        return not self.occupancies_same(occ1, occ2)
+
+    def publish_state(self, occupancy_dict, coord_dict):
+        """Publish occupancy and coordinates"""
+        self.publish_occupancy(occupancy_dict)
+        self.publish_coordinates(coord_dict)
 
     def calibrate_piece_colors(self, image, coord_dict):
         """Automatically calibrate piece colors from initial board position"""
         self.get_logger().info('Starting automatic color calibration...')
+        #image = cv2.cvtColor(image, cv2.COLOR_BGR2HSV)
 
         # Cells 1-16 should have black pieces (rows 1-2)
         black_cells = list(range(1, 17))
@@ -184,14 +324,14 @@ class ChessBoardDetectorNode(Node):
         # Calculate bounds for black pieces
         # Lower bound stays at [0, 0, 0]
         # Upper bound is the maximum from filtered samples, with some margin
-        black_upper = np.max(black_filtered, axis=0)
+        black_upper = np.percentile(black_filtered, 95, axis=0)  # 95th percentile
         # Add 15 margin, cap at 255
         black_upper = np.minimum(black_upper + 15, 255).astype(int)
 
         # Calculate bounds for white pieces
         # Upper bound stays at [255, 255, 255]
         # Lower bound is the minimum from filtered samples, with some margin
-        white_lower = np.min(white_filtered, axis=0)
+        white_lower = np.percentile(white_filtered, 5, axis=0)   # 5th percentile
         # Subtract 15 margin, floor at 0
         white_lower = np.maximum(white_lower - 15, 0).astype(int)
 
@@ -210,68 +350,6 @@ class ChessBoardDetectorNode(Node):
 
         self.is_calibrated = True
         return True
-
-    def process_latest_image(self):
-        """Process the stored latest image"""
-        try:
-            cv_image = self.latest_image
-
-            # Process the image
-            success, coord_dict, warped_image, debug_image, M_inv = self.process_chessboard(
-                cv_image)
-
-            if success:
-                # Store transformation matrix and coordinates
-                self.coord_dict = coord_dict
-                self.M_inv = M_inv
-
-                # If not calibrated, calibrate from initial position
-                if not self.is_calibrated:
-                    calibration_success = self.calibrate_piece_colors(
-                        cv_image, coord_dict)
-                    if not calibration_success:
-                        self.get_logger().error('Color calibration failed')
-                        return
-
-                # Detect pieces
-                occupancy_dict = self.detect_pieces(cv_image, coord_dict)
-
-                # Publish occupancy
-                self.publish_occupancy(occupancy_dict)
-
-                # Publish coordinates
-                self.publish_coordinates(coord_dict)
-
-                # Detect move if we have previous state
-                if self.previous_occupancy is not None:
-                    move_info = self.detect_move(
-                        self.previous_occupancy, occupancy_dict)
-                    if move_info and 'from_square' in move_info:
-                        capture_text = " (capture)" if move_info['is_capture'] else ""
-                        self.get_logger().info(
-                            f"Move: {move_info['piece_color']} from {move_info['from_square']} "
-                            f"to {move_info['to_square']}{capture_text}"
-                        )
-
-                self.previous_occupancy = occupancy_dict
-
-                # Publish debug images
-                if self.publish_debug:
-                    if debug_image is not None:
-                        debug_msg = self.bridge.cv2_to_imgmsg(
-                            debug_image, encoding='bgr8')
-                        self.debug_image_pub.publish(debug_msg)
-
-                    if warped_image is not None:
-                        warped_msg = self.bridge.cv2_to_imgmsg(
-                            warped_image, encoding='rgb8')
-                        self.warped_image_pub.publish(warped_msg)
-
-            else:
-                self.get_logger().warn('Failed to detect chessboard')
-
-        except Exception as e:
-            self.get_logger().error(f'Error processing image: {str(e)}')
 
     def process_chessboard(self, image):
         """Process image to extract chessboard"""
@@ -498,7 +576,6 @@ class ChessBoardDetectorNode(Node):
     def detect_piece_color(self, image, cell_coords):
         """Detect if piece is black, white, or empty"""
         if self.piece_color_ranges is None:
-            self.get_logger().error('Piece colors not calibrated yet!')
             return 'empty'
 
         center_x, center_y = self.get_cell_center(cell_coords)
@@ -528,11 +605,6 @@ class ChessBoardDetectorNode(Node):
 
     def detect_pieces(self, image, coord_dict):
         """Detect all pieces on the board"""
-        piece_color_ranges = {
-            'black': (np.array([0, 0, 0]), np.array([80, 65, 65])),
-            'white': (np.array([180, 175, 130]), np.array([255, 255, 255]))
-        }
-
         occupancy_dict = {}
 
         for cell_num, cell_coords in coord_dict.items():
@@ -580,11 +652,11 @@ class ChessBoardDetectorNode(Node):
             }
 
     def cell_to_algebraic(self, cell_num):
-        """Convert cell number (0-63) to algebraic notation (a1-h8)"""
-        row = cell_num // 8
-        col = cell_num % 8
-        file = chr(ord('a') + col)  # Convert column to letter (a-h)
-        rank = str(8 - row)  # Convert row to rank (8-1)
+        """Convert cell number (1-64) to algebraic notation (a1-h8)"""
+        row = (cell_num - 1) // 8
+        col = (cell_num - 1) % 8
+        file = chr(ord('a') + col)
+        rank = str(8 - row)
         return f"{file}{rank}"
 
     def publish_occupancy(self, occupancy_dict):
@@ -596,7 +668,6 @@ class ChessBoardDetectorNode(Node):
     def publish_coordinates(self, coord_dict):
         """Publish board coordinates as JSON string"""
         msg = String()
-        # Convert numpy types to native Python types for JSON serialization
         serializable_dict = {}
         for key, value in coord_dict.items():
             serializable_dict[str(key)] = [

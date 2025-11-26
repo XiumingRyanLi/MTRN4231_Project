@@ -19,7 +19,11 @@ sudo apt install -y \
     ros-humble-ur-moveit-config \
     wmctrl \
     rviz \
-    tmux
+    tmux \
+    ros-humble-rosidl-default-generators \
+    ros-humble-rosidl-default-runtime \
+    ros-humble-geometry-msgs \
+    ros-humble-builtin-interfaces
 
 
 echo "[APT] Installing system pip if missing..."
