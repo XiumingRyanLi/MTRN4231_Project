@@ -7,24 +7,23 @@ from rclpy.callback_groups import ReentrantCallbackGroup
 from rclpy.executors import MultiThreadedExecutor
 import threading
 import time
+import json
 from custom_interfaces.srv import ChessMove
 from custom_interfaces.action import GripperCommand, MoveTCP
 
 # Define corner coordinates
-A1 = (839.6, 302.1)
-H1 = (538.0, 308.4)
-A8 = (836.3, 0.3)
-H8 = (534.8, 6.7)
+A1 = (844.4, 322.7)
+H1 = (535.8, 329.4)
+A8 = (840.5, 25.2)
+H8 = (538.6, 29.1)
 
 # DISCARD/HOME coords
 DISCARD_COORDS = (375.1, 149.8)
-DISCARD_HEIGHT = 240.6
+DISCARD_HEIGHT = 250.6
 
 # Define pieces height
 KING_HEIGHT = 178.0
 PAWN_HEIGHT = 151.0
-# KING_HEIGHT = 260.0 # (safe heights)
-# PAWN_HEIGHT = 240.0 # (safe heights)
 
 
 class TaskCoordinator(Node):
@@ -59,8 +58,18 @@ class TaskCoordinator(Node):
         self.arm_client = ActionClient(
             self, MoveTCP, '/arm/pick_place', callback_group=self.cb_group)
         
+        # engine move result publisher
+        self.engine_move_pub = self.create_publisher(Bool, 'engine_move_result', 10)
+
+        # board occupancy subscriber
+        self.occ_sub = self.create_subscription(
+            String, "/chess/occupancy", self.occupancy_callback, 10, callback_group=self.cb_group)
+        self.current_occupancy = None
+        self.executing_move = False
+
         self.user_move = None
         self.is_user_piece_tall = None
+        self.white_turn = True
 
     def listener_callback(self, msg):
         # validate move input
@@ -73,7 +82,7 @@ class TaskCoordinator(Node):
         req = ChessMove.Request()
         req.user_move = move
         future = self.client.call_async(req)
-        future.add_done_callback(self._on_response)
+        future.add_done_callback(self.on_response)
 
     def move_callback(self, msg):
         self.user_move = msg.data
@@ -83,8 +92,9 @@ class TaskCoordinator(Node):
         req.user_move = self.user_move
         future = self.client.call_async(req)
         future.add_done_callback(self._on_response)
+        self.white_turn = False
 
-    def _on_response(self, future: rclpy.task.Future):
+    def on_response(self, future: rclpy.task.Future):
         try:
             resp: ChessMove.Response = future.result()
         except Exception as e:
@@ -120,7 +130,7 @@ class TaskCoordinator(Node):
                 self.normal_move(u_x2, u_y2, u_x1, u_y1, user_sq2, user_sq1, KING_HEIGHT)
             else:
                 self.normal_move(u_x2, u_y2, u_x1, u_y1, user_sq2, user_sq1, PAWN_HEIGHT)
-            self.take_a_pic()
+            # self.take_a_pic()
             return
         elif len(robot_move) < 4 or len(robot_move) > 5:
             return
@@ -140,7 +150,7 @@ class TaskCoordinator(Node):
             pawn_sq = sq2[0] + '4'
             pawnx, pawny = self.get_real_world_coords(pawn_sq)
             self.discard_piece(pawnx, pawny, pawn_sq, PAWN_HEIGHT)
-            self.take_a_pic()
+            # self.take_a_pic()
             return
         # case capture
         if resp.is_capture:
@@ -156,12 +166,12 @@ class TaskCoordinator(Node):
                     self.normal_move(x1, y1, x2, y2, sq1, sq2, KING_HEIGHT)
                 else:
                     self.normal_move(x1, y1, x2, y2, sq1, sq2, PAWN_HEIGHT)
-            self.take_a_pic()
+            # self.take_a_pic()
             return
         # case castling
         if resp.is_castling:
             self.normal_move(x1, y1, x2, y2, sq1, sq2, KING_HEIGHT)
-            # check which rook to move (works for white only for now)
+            # check which rook to move (works for black only for now)
             if sq2 == 'g8':
                 rookx1, rooky1 = self.get_real_world_coords('h8')
                 rookx2, rooky2 = self.get_real_world_coords('f8')
@@ -172,26 +182,27 @@ class TaskCoordinator(Node):
                 rookx2, rooky2 = self.get_real_world_coords('d8')
                 self.normal_move(rookx1, rooky1, rookx2,
                                  rooky2, 'a8', 'd8', PAWN_HEIGHT)
-            self.take_a_pic()
+            # self.take_a_pic()
             return
         # case promotion
         if resp.is_promotion:
             self.discard_piece(x1, y1, sq1, PAWN_HEIGHT)
             self.promote_piece(x2, y2, sq2, KING_HEIGHT)
-            self.take_a_pic()
+            # self.take_a_pic()
             return
 
         if from_piece_is_tall:
             self.normal_move(x1, y1, x2, y2, sq1, sq2, KING_HEIGHT)
         else:
             self.normal_move(x1, y1, x2, y2, sq1, sq2, PAWN_HEIGHT)
-        self.take_a_pic()
+        # self.take_a_pic()
 
-    def take_a_pic(self):
+
+    # def take_a_pic(self):
         # take picture
-        msg = Bool()
-        msg.data = False
-        self.take_pic_pub.publish(msg)
+        # msg = Bool()
+        # msg.data = False
+        # self.take_pic_pub.publish(msg)
 
     def get_real_world_coords(self, square: str):
 
@@ -502,6 +513,47 @@ class TaskCoordinator(Node):
 
         return pose
 
+    def occupancy_callback(self, msg: String):
+        self.current_occupancy = json.loads(msg.data)
+
+        if self.executing_move:
+            self.check_verification()
+
+    def execute_engine_move(self, move_uci, mover_color):
+        self.expected_move = move_uci
+        self.mover_color = mover_color
+
+        self.from_cell = algebraic_to_cell(move_uci[:2])
+        self.to_cell = algebraic_to_cell(move_uci[2:4])
+
+        # snapshot board before move
+        self.occ_before = self.current_occupancy.copy()
+
+        # command robot arm trajectory here
+        send_trajectory_to_ur5e(move_uci)
+
+        self.executing_move = True
+        self.verify_deadline = self.get_clock().now() + Duration(seconds=3)
+
+    def check_verification(self):
+        if self.current_occupancy is None:
+            return
+
+        if self.get_clock().now() > self.verify_deadline:
+            self.on_move_failed("timeout / no stable change")
+            return
+
+        occ_after = self.current_occupancy
+
+        if occ_after == self.occ_before:
+            # still no change → keep waiting until deadline
+            return
+
+        if is_expected_change(self.occ_before, occ_after,
+                              self.from_cell, self.to_cell, self.mover_color):
+            self.on_move_success()
+        else:
+            self.on_move_failed("unexpected board change")
 
 def main(args=None):
     rclpy.init(args=args)
