@@ -51,7 +51,7 @@ def get_ur_control_launch():
 def get_moveit_launch():
     moveit_launch_args = {
         'ur_type': ur_type,
-        'launch_rviz': 'false',  # Set back to true to launch RViz from MoveIt
+        'launch_rviz': 'true',  # Set back to true to launch RViz from MoveIt
         'use_fake_hardware': use_fake_str,
     }
 
@@ -60,13 +60,13 @@ def get_moveit_launch():
         actions=[
             IncludeLaunchDescription(
                 PythonLaunchDescriptionSource(
-                    PathJoinSubstitution([FindPackageShare('ur5e_moveit_config_custom'), 'launch', 'move_group.launch.py'])
+                    PathJoinSubstitution([FindPackageShare('ur_moveit_config'), 'launch', 'ur_moveit.launch.py'])
                 ),
                 launch_arguments=moveit_launch_args.items(),
             )
         ]
     )
-
+ 
 
 def get_rviz_launch():
     moveit_launch_path = os.path.join(
@@ -93,9 +93,9 @@ def generate_launch_description():
     """Main function to generate the complete launch description."""
     launch_description = [
         get_ur_control_launch(),
-        # get_moveit_launch(),
+        get_moveit_launch(),
         # get_auxiliary_launch(),
-        get_rviz_launch()
+        # get_rviz_launch()
     ]
 
     # Only add camera launch if using real hardware
