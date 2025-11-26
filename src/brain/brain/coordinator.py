@@ -18,12 +18,13 @@ A8 = (840.5, 25.2)
 H8 = (538.6, 29.1)
 
 # DISCARD/HOME coords
-DISCARD_COORDS = (375.1, 149.8)
-DISCARD_HEIGHT = 250.6
+DISCARD_COORDS = (353.3, 138.1)
+DISCARD_HEIGHT = 240
+HOME_HEIGHT = 650
 
 # Define pieces height
 KING_HEIGHT = 178.0
-PAWN_HEIGHT = 151.0
+PAWN_HEIGHT = 152.4
 
 
 class TaskCoordinator(Node):
@@ -58,14 +59,14 @@ class TaskCoordinator(Node):
         self.arm_client = ActionClient(
             self, MoveTCP, '/arm/pick_place', callback_group=self.cb_group)
         
-        # engine move result publisher
-        self.engine_move_pub = self.create_publisher(Bool, 'engine_move_result', 10)
+        # # engine move result publisher
+        # self.engine_move_pub = self.create_publisher(Bool, 'engine_move_result', 10)
 
-        # board occupancy subscriber
-        self.occ_sub = self.create_subscription(
-            String, "/chess/occupancy", self.occupancy_callback, 10, callback_group=self.cb_group)
-        self.current_occupancy = None
-        self.executing_move = False
+        # # board occupancy subscriber
+        # self.occ_sub = self.create_subscription(
+        #     String, "/chess/occupancy", self.occupancy_callback, 10, callback_group=self.cb_group)
+        # self.current_occupancy = None
+        # self.executing_move = False
 
         self.user_move = None
         self.is_user_piece_tall = None
@@ -268,7 +269,7 @@ class TaskCoordinator(Node):
         # move to home
         self.get_logger().info("Move to home")
         pick_pose = self.make_pose(
-            DISCARD_COORDS[0], DISCARD_COORDS[1], DISCARD_HEIGHT)
+            DISCARD_COORDS[0], DISCARD_COORDS[1], HOME_HEIGHT)
         ok = self.send_arm_goal(pick_pose, label="go home")
         if not ok:
             self.get_logger().error("Arm failed to reach home; aborting")
