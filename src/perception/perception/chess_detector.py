@@ -99,8 +99,8 @@ class ChessBoardDetectorNode(Node):
         """Process each incoming frame"""
         try:
             cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
-            # Crop to 600x600 from specified region
-            cropped_image = cv_image[50:650, 660:1260]
+            # Image is already cropped by board_locator node
+            cropped_image = cv_image
             
             if self.publish_debug:
                 cropped_msg = self.bridge.cv2_to_imgmsg(
