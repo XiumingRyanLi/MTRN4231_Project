@@ -60,6 +60,8 @@ class ChessMaster(Node):
             "My CPU is overheating from how bad that move was."
         ]
 
+        self.get_logger().info('Chess Master Node initialized')
+
     def pub_callback(self):
         with self.lock:
             fen = self.board.fen()
@@ -92,6 +94,14 @@ class ChessMaster(Node):
         self.get_logger().info(f'Incoming request: {text}')
 
         with self.lock:
+            # do everything below only if white is moving
+            if self.board.turn == chess.BLACK:
+                self.get_logger().info(f'Black moved: {text}')
+                response.robot_move = "Black moved"
+                move = chess.Move.from_uci(text)
+                self.board.push(move)
+                return response
+
             # Set board with FEN
             if self.is_valid_fen(text):
                 self.board = chess.Board(text)
@@ -120,9 +130,6 @@ class ChessMaster(Node):
                 if text[1] == '7' and text[3] == '8':
                     if piece and piece.piece_type == chess.PAWN:
                         text += "q"  # default to queen promotion
-
-
-            
 
             # Move user piece
             try:
@@ -189,11 +196,10 @@ class ChessMaster(Node):
             if captured_piece and captured_piece.piece_type in [chess.KING, chess.QUEEN]:
                 response.is_tall_piece_to = True
 
-            self.board.push(best_move)
+            # self.board.push(best_move)
 
             # Check if game is over
             if self.board.is_checkmate():
-                # response.robot_move = "Game Over!"
                 self.status_publish("HAHAHAHAHAHAHA YOU LOST L")
                 return response
 
