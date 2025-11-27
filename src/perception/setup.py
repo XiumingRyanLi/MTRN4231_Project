@@ -28,7 +28,10 @@ setup(
             'image_publisher = perception.image_publisher:main',
             'state_comparison = perception.state_comparison:main',
             'aruco_detect = perception.aruco_detect:main',
-            'board_locator = perception.board_locator:main'
+            'board_locator = perception.board_locator:main',
+            'board_transformer = chess_vision.board_transformer:main',
+            'board_visualizer = chess_vision.board_visualizer:main',
+
         ],
     },
 )
