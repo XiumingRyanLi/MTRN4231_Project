@@ -563,7 +563,7 @@ class ChessBoardDetectorNode(Node):
         center_y = int(np.mean(y_coords))
         return center_x, center_y
 
-    def get_sample_region(self, center_x, center_y, radius=5):
+    def get_sample_region(self, center_x, center_y, radius=7):
         """Get sample points around center"""
         points = []
         for angle in range(0, 360, 30):

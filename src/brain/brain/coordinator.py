@@ -12,10 +12,10 @@ from custom_interfaces.srv import ChessMove
 from custom_interfaces.action import GripperCommand, MoveTCP
 
 # Define corner coordinates
-A1 = (844.4, 322.7)
-H1 = (535.8, 329.4)
-A8 = (840.5, 25.2)
-H8 = (538.6, 29.1)
+A1 = (803.8, 297.5)
+H1 = (510.3, 299.7)
+A8 = (803.8, -4.3)
+H8 = (507.5, 1.5)
 
 # DISCARD/HOME coords
 DISCARD_COORDS = (353.3, 138.1)
@@ -23,8 +23,8 @@ DISCARD_HEIGHT = 240
 HOME_HEIGHT = 650
 
 # Define pieces height
-KING_HEIGHT = 178.0
-PAWN_HEIGHT = 152.4
+KING_HEIGHT = 177.0
+PAWN_HEIGHT = 151.4
 
 
 class TaskCoordinator(Node):

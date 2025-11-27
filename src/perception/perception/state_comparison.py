@@ -71,12 +71,12 @@ class ChessMoveDetector(Node):
                     # Publish the detected move
                     move_msg = String()
                     move_msg.data = move_info
-                    self.get_logger().info(f"{self.publish_move}")
-                    if self.publish_move == True:
+                    if (move_msg.data != 'Unexpected move pattern detected'):
+                        self.get_logger().info(f"{self.publish_move}")
                         self.move_pub.publish(move_msg)
                         self.get_logger().info("Publishing move")
 
-                    self.get_logger().info(f"Move detected: {move_info}")
+                        self.get_logger().info(f"Move detected: {move_info}")
                 else:
                     self.get_logger().debug("Occupancy unchanged, skipping move detection")
 
