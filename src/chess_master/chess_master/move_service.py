@@ -141,7 +141,7 @@ class ChessMaster(Node):
 
             # check user piece height
             user_piece = self.board.piece_at(move.from_square)
-            if user_piece.piece_type in [chess.KING, chess.QUEEN]:
+            if user_piece and user_piece.piece_type in [chess.KING, chess.QUEEN]:
                 response.is_user_piece_tall = True
 
             if move not in self.board.legal_moves:
