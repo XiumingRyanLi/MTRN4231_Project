@@ -58,20 +58,12 @@ class TaskCoordinator(Node):
         # moveit action client
         self.arm_client = ActionClient(
             self, MoveTCP, '/arm/pick_place', callback_group=self.cb_group)
-        
-        # # engine move result publisher
-        # self.engine_move_pub = self.create_publisher(Bool, 'engine_move_result', 10)
-
-        # # board occupancy subscriber
-        # self.occ_sub = self.create_subscription(
-        #     String, "/chess/occupancy", self.occupancy_callback, 10, callback_group=self.cb_group)
-        # self.current_occupancy = None
-        # self.executing_move = False
 
         self.user_move = None
         self.is_user_piece_tall = None
         self.white_turn = True
         self.get_logger().info('Task Coordinator Node initialized')
+        self.prev_illegal_move = None
 
     def listener_callback(self, msg):
         # validate move input
@@ -124,16 +116,24 @@ class TaskCoordinator(Node):
         # User illegal moveback
         robot_move = resp.robot_move
         if resp.is_illegal:
-            user_sq1 = self.user_move[0:2]
-            user_sq2 = self.user_move[2:4]
-            u_x1, u_y1 = self.get_real_world_coords(user_sq1)
-            u_x2, u_y2 = self.get_real_world_coords(user_sq2)
-            if resp.is_user_piece_tall:
-                self.normal_move(u_x2, u_y2, u_x1, u_y1, user_sq2, user_sq1, KING_HEIGHT)
-            else:
-                self.normal_move(u_x2, u_y2, u_x1, u_y1, user_sq2, user_sq1, PAWN_HEIGHT)
-            # self.take_a_pic()
-            return
+            curr_sq1 = self.user_move[0:2]
+            curr_sq2 = self.user_move[2:4]
+            if self.prev_illegal_move is None:
+                u_x1, u_y1 = self.get_real_world_coords(curr_sq1)
+                u_x2, u_y2 = self.get_real_world_coords(curr_sq2)
+                if resp.is_user_piece_tall:
+                    self.normal_move(u_x2, u_y2, u_x1, u_y1, curr_sq2, curr_sq1, KING_HEIGHT)
+                else:
+                    self.normal_move(u_x2, u_y2, u_x1, u_y1, curr_sq2, curr_sq1, PAWN_HEIGHT)
+                # self.take_a_pic()
+                return
+            
+            prev_sq1 = self.prev_illegal_move[0:2]
+            prev_sq2 = self.prev_illegal_move[2:4]
+            if curr_sq1 == prev_sq2 and curr_sq2 == prev_sq1:
+                self.get_logger().info("Ignoring move back")
+                self.prev_illegal_move = None
+
         elif len(robot_move) < 4 or len(robot_move) > 5:
             return
         
