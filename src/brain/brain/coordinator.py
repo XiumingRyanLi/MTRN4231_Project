@@ -22,8 +22,8 @@ DISCARD_HEIGHT = 240
 HOME_HEIGHT = 650
 
 # Define pieces height
-KING_HEIGHT = 178.0
-PAWN_HEIGHT = 152.4
+KING_HEIGHT = 177.0
+PAWN_HEIGHT = 151.4
 
 
 class TaskCoordinator(Node):
