@@ -7,7 +7,6 @@ from rclpy.callback_groups import ReentrantCallbackGroup
 from rclpy.executors import MultiThreadedExecutor
 import threading
 import time
-import json
 from custom_interfaces.srv import ChessMove
 from custom_interfaces.action import GripperCommand, MoveTCP
 
@@ -58,20 +57,12 @@ class TaskCoordinator(Node):
         # moveit action client
         self.arm_client = ActionClient(
             self, MoveTCP, '/arm/pick_place', callback_group=self.cb_group)
-        
-        # # engine move result publisher
-        # self.engine_move_pub = self.create_publisher(Bool, 'engine_move_result', 10)
-
-        # # board occupancy subscriber
-        # self.occ_sub = self.create_subscription(
-        #     String, "/chess/occupancy", self.occupancy_callback, 10, callback_group=self.cb_group)
-        # self.current_occupancy = None
-        # self.executing_move = False
 
         self.user_move = None
         self.is_user_piece_tall = None
         self.white_turn = True
         self.get_logger().info('Task Coordinator Node initialized')
+        self.prev_illegal_move = None
 
     def listener_callback(self, msg):
         # validate move input
@@ -120,20 +111,27 @@ class TaskCoordinator(Node):
 
         # Figure robot arm movement steps
         self.get_logger().info("== Robot Arm Movement Steps ==")
+        robot_move = resp.robot_move
         
         # User illegal moveback
-        robot_move = resp.robot_move
         if resp.is_illegal:
-            user_sq1 = self.user_move[0:2]
-            user_sq2 = self.user_move[2:4]
-            u_x1, u_y1 = self.get_real_world_coords(user_sq1)
-            u_x2, u_y2 = self.get_real_world_coords(user_sq2)
-            if resp.is_user_piece_tall:
-                self.normal_move(u_x2, u_y2, u_x1, u_y1, user_sq2, user_sq1, KING_HEIGHT)
-            else:
-                self.normal_move(u_x2, u_y2, u_x1, u_y1, user_sq2, user_sq1, PAWN_HEIGHT)
-            # self.take_a_pic()
+            curr_sq1 = self.user_move[0:2]
+            curr_sq2 = self.user_move[2:4]
+            if self.prev_illegal_move is None:
+                u_x1, u_y1 = self.get_real_world_coords(curr_sq1)
+                u_x2, u_y2 = self.get_real_world_coords(curr_sq2)
+                if resp.is_user_piece_tall:
+                    self.normal_move(u_x2, u_y2, u_x1, u_y1, curr_sq2, curr_sq1, KING_HEIGHT)
+                else:
+                    self.normal_move(u_x2, u_y2, u_x1, u_y1, curr_sq2, curr_sq1, PAWN_HEIGHT)
+                # self.take_a_pic()
+                self.prev_illegal_move = self.user_move
+                return
+            
+            self.get_logger().info("Ignoring move back")
+            self.prev_illegal_move = None
             return
+
         elif len(robot_move) < 4 or len(robot_move) > 5:
             return
         
@@ -207,7 +205,7 @@ class TaskCoordinator(Node):
         # self.take_pic_pub.publish(msg)
 
     def get_real_world_coords(self, square: str):
-
+        self.get_logger().info(f"get_real_world_coords() called with square={repr(square)}")
         # Extract file (A-H) and rank (1-8)
         file = square[0].upper()
         rank = int(square[1])
@@ -352,9 +350,9 @@ class TaskCoordinator(Node):
         goal_msg.close = close          # True = close, False = open
         goal_msg.effort = effort        # 0.0 means "ignore effort" in your bridge
 
-        self.get_logger().info(
-            f"Sending gripper goal: close={close}, effort={effort:.3f}"
-        )
+        # self.get_logger().info(
+        #     f"Sending gripper goal: close={close}, effort={effort:.3f}"
+        # )
 
         done_event = threading.Event()
         result_container = {}
@@ -363,10 +361,10 @@ class TaskCoordinator(Node):
             try:
                 result_msg = result_future.result().result
                 result_container["result"] = result_msg
-                self.get_logger().info(
-                    f"[GRIPPER] Finished: success={result_msg.success}, "
-                    f"message='{result_msg.message}'"
-                )
+                # self.get_logger().info(
+                #     f"[GRIPPER] Finished: success={result_msg.success}, "
+                #     f"message='{result_msg.message}'"
+                # )
             except Exception as e:
                 self.get_logger().error(
                     f"[GRIPPER] Result retrieval failed: {e}"
@@ -394,7 +392,7 @@ class TaskCoordinator(Node):
                 done_event.set()
                 return
 
-            self.get_logger().info("[GRIPPER] Goal accepted")
+            # self.get_logger().info("[GRIPPER] Goal accepted")
             # now wait for result
             result_future = goal_handle.get_result_async()
             result_future.add_done_callback(_result_cb)
@@ -421,9 +419,9 @@ class TaskCoordinator(Node):
 
     def _gripper_feedback_cb(self, feedback_msg):
         fb = feedback_msg.feedback
-        self.get_logger().info(
-            f"Gripper feedback: {fb.progress_percent:.1f}% — {fb.stage}"
-        )
+        # self.get_logger().info(
+        #     f"Gripper feedback: {fb.progress_percent:.1f}% — {fb.stage}"
+        # )
 
     def send_arm_goal(self, pose: PoseStamped, label: str = "",
                       timeout_sec: float = 30.0) -> bool:
@@ -436,10 +434,10 @@ class TaskCoordinator(Node):
         goal_msg.pick_pose = pose
 
         tag = f" [{label}]" if label else ""
-        self.get_logger().info(
-            f"[ARM]{tag} Sending MoveTCP goal at "
-            f"({pose.pose.position.x:.3f}, {pose.pose.position.y:.3f}, {pose.pose.position.z:.3f})"
-        )
+        # self.get_logger().info(
+        #     f"[ARM]{tag} Sending MoveTCP goal at "
+        #     f"({pose.pose.position.x:.3f}, {pose.pose.position.y:.3f}, {pose.pose.position.z:.3f})"
+        # )
 
         done_event = threading.Event()
         result_container = {}
@@ -448,10 +446,10 @@ class TaskCoordinator(Node):
             try:
                 result_msg = result_future.result().result
                 result_container["result"] = result_msg
-                self.get_logger().info(
-                    f"[ARM]{tag} Finished: success={result_msg.success}, "
-                    f"message='{result_msg.message}'"
-                )
+                # self.get_logger().info(
+                #     f"[ARM]{tag} Finished: success={result_msg.success}, "
+                #     f"message='{result_msg.message}'"
+                # )
             except Exception as e:
                 self.get_logger().error(
                     f"[ARM]{tag} Result retrieval failed: {e}")
@@ -474,7 +472,7 @@ class TaskCoordinator(Node):
                 done_event.set()
                 return
 
-            self.get_logger().info(f"[ARM]{tag} Goal accepted")
+            # self.get_logger().info(f"[ARM]{tag} Goal accepted")
             result_future = goal_handle.get_result_async()
             result_future.add_done_callback(_result_cb)
 
@@ -495,9 +493,9 @@ class TaskCoordinator(Node):
 
     def _arm_feedback_cb(self, feedback_msg):
         fb = feedback_msg.feedback
-        self.get_logger().info(
-            f"[ARM] Feedback: {fb.progress_percent:.1f}% — {fb.stage}"
-        )
+        # self.get_logger().info(
+        #     f"[ARM] Feedback: {fb.progress_percent:.1f}% — {fb.stage}"
+        # )
 
     def make_pose(self, x: float, y: float, z: float) -> PoseStamped:
         pose = PoseStamped()
@@ -515,47 +513,6 @@ class TaskCoordinator(Node):
 
         return pose
 
-    # def occupancy_callback(self, msg: String):
-    #     self.current_occupancy = json.loads(msg.data)
-
-    #     if self.executing_move:
-    #         self.check_verification()
-
-    # def execute_engine_move(self, move_uci, mover_color):
-    #     self.expected_move = move_uci
-    #     self.mover_color = mover_color
-
-    #     self.from_cell = algebraic_to_cell(move_uci[:2])
-    #     self.to_cell = algebraic_to_cell(move_uci[2:4])
-
-    #     # snapshot board before move
-    #     self.occ_before = self.current_occupancy.copy()
-
-    #     # command robot arm trajectory here
-    #     send_trajectory_to_ur5e(move_uci)
-
-    #     self.executing_move = True
-    #     self.verify_deadline = self.get_clock().now() + Duration(seconds=3)
-
-    # def check_verification(self):
-    #     if self.current_occupancy is None:
-    #         return
-
-    #     if self.get_clock().now() > self.verify_deadline:
-    #         self.on_move_failed("timeout / no stable change")
-    #         return
-
-    #     occ_after = self.current_occupancy
-
-    #     if occ_after == self.occ_before:
-    #         # still no change → keep waiting until deadline
-    #         return
-
-    #     if is_expected_change(self.occ_before, occ_after,
-    #                           self.from_cell, self.to_cell, self.mover_color):
-    #         self.on_move_success()
-    #     else:
-    #         self.on_move_failed("unexpected board change")
 
 def main(args=None):
     rclpy.init(args=args)
