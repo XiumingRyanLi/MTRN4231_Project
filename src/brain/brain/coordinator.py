@@ -111,9 +111,9 @@ class TaskCoordinator(Node):
 
         # Figure robot arm movement steps
         self.get_logger().info("== Robot Arm Movement Steps ==")
+        robot_move = resp.robot_move
         
         # User illegal moveback
-        robot_move = resp.robot_move
         if resp.is_illegal:
             curr_sq1 = self.user_move[0:2]
             curr_sq2 = self.user_move[2:4]
