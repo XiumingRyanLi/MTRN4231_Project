@@ -369,7 +369,7 @@ class ChessBoardDetectorNode(Node):
             dilation_image = cv2.dilate(canny_image, kernel, iterations=1)
 
             # Hough Lines
-            lines = cv2.HoughLinesP(dilation_image, 1, np.pi / 180, threshold=200,
+            lines = cv2.HoughLinesP(dilation_image, 1, np.pi / 180, threshold=300,
                                     minLineLength=50, maxLineGap=100)
 
             # Create black image for lines

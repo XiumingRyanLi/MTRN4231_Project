@@ -1,428 +1,188 @@
 #!/usr/bin/env python3
 
 import rclpy
-import cv2
-import tf2_ros
-import numpy as np
-import pyrealsense2 as rs
-import json
-from cv_bridge import CvBridge, CvBridgeError
-
 from rclpy.node import Node
-from sensor_msgs.msg import Image, CameraInfo
-from geometry_msgs.msg import PointStamped
-from std_msgs.msg import String
-from tf2_ros.buffer import Buffer
-from tf2_ros.transform_listener import TransformListener
-import tf2_geometry_msgs
+from sensor_msgs.msg import Image
+from cv_bridge import CvBridge
+import cv2
+import numpy as np
 
 
-class BoardLocatorNode(Node):
+class ChessboardBorderDetector(Node):
     def __init__(self):
-        super().__init__('board_locator_node')
+        super().__init__('chessboard_border_detector')
         
-        # Parameters
-        self.declare_parameter('board_height_offset', 0.1)  # 10cm above table
-        self.declare_parameter('depth_threshold', 0.02)  # 2cm tolerance for plane detection
-        self.declare_parameter('min_board_area', 0.1)  # Minimum board area in m^2
-        self.declare_parameter('input_image_topic', '/camera/camera/color/image_raw')  # Input topic (should be remapped in launch to avoid loop)
-        self.declare_parameter('output_image_topic', '/camera/camera/color/image_raw')  # Output topic
+        # Create CV Bridge
+        self.bridge = CvBridge()
         
-        self.board_height_offset = self.get_parameter('board_height_offset').value
-        self.depth_threshold = self.get_parameter('depth_threshold').value
-        self.min_board_area = self.get_parameter('min_board_area').value
-        input_topic = self.get_parameter('input_image_topic').value
-        output_topic = self.get_parameter('output_image_topic').value
-        
-        # CV Bridge
-        self.cv_bridge = CvBridge()
-        
-        # Camera data
-        self.intrinsics = None
-        self.depth_image = None
-        self.rgb_image = None
-        
-        # Board detection state
-        self.board_corners_camera_frame = None
-        self.board_detected = False
-        self.last_published_stamp = None  # Track last published message to avoid feedback loop
-        
-        # Subscriptions
-        self.image_sub = self.create_subscription(
+        # Subscribe to camera topic
+        self.subscription = self.create_subscription(
             Image,
-            input_topic,
-            self.rgb_image_callback,
-            10
-        )
+            '/camera/camera/color/image_raw',
+            self.image_callback,
+            10)
         
-        self.depth_sub = self.create_subscription(
-            Image,
-            '/camera/camera/aligned_depth_to_color/image_raw',
-            self.depth_image_callback,
-            10
-        )
+        # Publishers for debugging visualization
+        self.pub_final = self.create_publisher(Image, '/chessboard/final_detection', 10)
+        self.pub_gray = self.create_publisher(Image, '/chessboard/debug/gray', 10)
+        self.pub_thresh = self.create_publisher(Image, '/chessboard/debug/threshold', 10)
+        self.pub_morph = self.create_publisher(Image, '/chessboard/debug/morphology', 10)
+        self.pub_contours = self.create_publisher(Image, '/chessboard/debug/contours', 10)
         
-        self.cam_info_sub = self.create_subscription(
-            CameraInfo,
-            '/camera/camera/aligned_depth_to_color/camera_info',
-            self.camera_info_callback,
-            10
-        )
-        
-        # Publishers
-        self.cropped_image_pub = self.create_publisher(
-            Image,
-            output_topic,
-            10
-        )
-        
-        self.corners_pub = self.create_publisher(
-            String,
-            '/chess/board_corners',
-            10
-        )
-        
-        # TF2 setup
-        self.tf_buffer = Buffer()
-        self.tf_listener = TransformListener(self.tf_buffer, self)
-        
-        # Timer for processing
-        self.processing_timer = self.create_timer(0.1, self.process_board_detection)
-        
-        self.get_logger().info('Board Locator Node initialized')
-        self.get_logger().info(f'Looking for board at {self.board_height_offset}m above table')
-        self.get_logger().info(f'Subscribing to: {input_topic}')
-        self.get_logger().info(f'Publishing to: {output_topic}')
+        self.get_logger().info('Chessboard border detector node started')
+        self.get_logger().info('Publishing debug topics:')
+        self.get_logger().info('  - /chessboard/debug/gray')
+        self.get_logger().info('  - /chessboard/debug/threshold')
+        self.get_logger().info('  - /chessboard/debug/morphology')
+        self.get_logger().info('  - /chessboard/debug/contours')
+        self.get_logger().info('  - /chessboard/final_detection')
     
-    def camera_info_callback(self, msg):
-        """Store camera intrinsics from camera info"""
-        try:
-            if self.intrinsics:
-                return
-            
-            self.intrinsics = rs.intrinsics()
-            self.intrinsics.width = msg.width
-            self.intrinsics.height = msg.height
-            self.intrinsics.ppx = msg.k[2]
-            self.intrinsics.ppy = msg.k[5]
-            self.intrinsics.fx = msg.k[0]
-            self.intrinsics.fy = msg.k[4]
-            
-            if msg.distortion_model == 'plumb_bob':
-                self.intrinsics.model = rs.distortion.brown_conrady
-            elif msg.distortion_model == 'equidistant':
-                self.intrinsics.model = rs.distortion.kannala_brandt4
-            
-            self.intrinsics.coeffs = [float(i) for i in msg.d]
-            
-            self.get_logger().info('Camera intrinsics received')
-        except Exception as e:
-            self.get_logger().error(f'Error processing camera info: {str(e)}')
-    
-    def rgb_image_callback(self, msg):
-        """Store RGB image"""
-        # Skip if this is our own published message (avoid feedback loop)
-        if self.last_published_stamp is not None:
-            if msg.header.stamp.sec == self.last_published_stamp.sec and \
-               msg.header.stamp.nanosec == self.last_published_stamp.nanosec:
-                return
+    def detect_white_border_corners(self, image):
+        """
+        Detect the four corners of the white border around the chessboard
+        """
+        # Convert to grayscale
+        gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+        self.get_logger().debug('Converted to grayscale')
         
-        try:
-            self.rgb_image = self.cv_bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
-        except Exception as e:
-            self.get_logger().error(f'Error converting RGB image: {str(e)}')
-    
-    def depth_image_callback(self, msg):
-        """Store depth image"""
-        try:
-            self.depth_image = self.cv_bridge.imgmsg_to_cv2(msg, msg.encoding)
-        except Exception as e:
-            self.get_logger().error(f'Error converting depth image: {str(e)}')
-    
-    def pixel_to_3d(self, pixel_x, pixel_y, depth_value):
-        """Convert pixel coordinates to 3D point in camera frame"""
-        if self.intrinsics is None:
-            return None
+        # Publish grayscale for debugging
+        gray_msg = self.bridge.cv2_to_imgmsg(gray, encoding='mono8')
+        self.pub_gray.publish(gray_msg)
         
-        # Depth is in mm, convert to meters
-        depth_m = depth_value * 0.001
+        # Apply Gaussian blur to reduce noise
+        blurred = cv2.GaussianBlur(gray, (5, 5), 0)
         
-        # Use pyrealsense2 to deproject
-        point_3d = rs.rs2_deproject_pixel_to_point(
-            self.intrinsics,
-            [pixel_x, pixel_y],
-            depth_m
-        )
+        # Threshold to isolate white border
+        # Adjust threshold values based on lighting conditions
+        _, thresh = cv2.threshold(blurred, 170, 255, cv2.THRESH_BINARY)
+        self.get_logger().debug(f'Applied threshold, white pixels: {np.count_nonzero(thresh)}')
         
-        return point_3d
-    
-    def detect_board_plane(self, depth_image):
-        """Detect board plane using edge detection on depth image"""
-        if depth_image is None:
-            return None
+        # Publish threshold image
+        thresh_msg = self.bridge.cv2_to_imgmsg(thresh, encoding='mono8')
+        self.pub_thresh.publish(thresh_msg)
         
-        # Convert depth to meters for processing
-        depth_m = depth_image.astype(np.float32) * 0.001
-        
-        # Find table surface (lowest points in depth)
-        # Assume table is the dominant plane at the bottom
-        table_depth = np.percentile(depth_m[depth_m > 0], 10)  # 10th percentile as table
-        
-        # Target board depth is table_depth + offset
-        target_depth = table_depth + self.board_height_offset
-        
-        # Create mask for board plane (within threshold)
-        board_mask = np.abs(depth_m - target_depth) < self.depth_threshold
-        board_mask = board_mask.astype(np.uint8) * 255
-        
-        # Apply morphological operations to clean up
+        # Morphological operations to clean up the mask
         kernel = np.ones((5, 5), np.uint8)
-        board_mask = cv2.morphologyEx(board_mask, cv2.MORPH_CLOSE, kernel)
-        board_mask = cv2.morphologyEx(board_mask, cv2.MORPH_OPEN, kernel)
+        thresh = cv2.morphologyEx(thresh, cv2.MORPH_CLOSE, kernel)
+        thresh = cv2.morphologyEx(thresh, cv2.MORPH_OPEN, kernel)
+        self.get_logger().debug(f'After morphology, white pixels: {np.count_nonzero(thresh)}')
         
-        # Edge detection on depth image
-        # Normalize depth for edge detection
-        depth_normalized = cv2.normalize(depth_image, None, 0, 255, cv2.NORM_MINMAX, dtype=cv2.CV_8U)
-        
-        # Apply Gaussian blur
-        blurred = cv2.GaussianBlur(depth_normalized, (5, 5), 0)
-        
-        # Canny edge detection
-        edges = cv2.Canny(blurred, 50, 150)
-        
-        # Combine with board mask
-        combined = cv2.bitwise_and(edges, board_mask)
-        
-        # Dilate edges to connect nearby edges
-        kernel = np.ones((3, 3), np.uint8)
-        combined = cv2.dilate(combined, kernel, iterations=2)
-        
-        return combined, board_mask
-    
-    def find_board_corners(self, edge_image, board_mask):
-        """Find board corners from edge detection"""
-        if edge_image is None:
-            return None
+        # Publish morphology result
+        morph_msg = self.bridge.cv2_to_imgmsg(thresh, encoding='mono8')
+        self.pub_morph.publish(morph_msg)
         
         # Find contours
-        contours, _ = cv2.findContours(edge_image, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+        contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+        self.get_logger().info(f'Found {len(contours)} contours')
+        
+        # Draw all contours for debugging
+        contour_debug = image.copy()
+        cv2.drawContours(contour_debug, contours, -1, (0, 255, 0), 2)
+        contour_msg = self.bridge.cv2_to_imgmsg(contour_debug, encoding='bgr8')
+        self.pub_contours.publish(contour_msg)
         
         if not contours:
-            return None
+            self.get_logger().warn('No contours found!')
+            return None, image
         
-        # Find largest contour (should be the board)
-        largest_contour = max(contours, key=cv2.contourArea)
+        # Sort contours by area and show top 5
+        sorted_contours = sorted(contours, key=cv2.contourArea, reverse=True)
+        for i, cnt in enumerate(sorted_contours[:5]):
+            area = cv2.contourArea(cnt)
+            self.get_logger().info(f'  Contour {i+1}: area = {area:.0f} pixels')
         
-        # Check if contour area is reasonable
-        area = cv2.contourArea(largest_contour)
-        if area < 1000:  # Minimum pixel area
-            return None
+        # Find the largest contour (assuming it's the white border)
+        largest_contour = sorted_contours[0]
+        largest_area = cv2.contourArea(largest_contour)
+        self.get_logger().info(f'Using largest contour with area: {largest_area:.0f} pixels')
         
-        # Approximate contour to polygon
+        # Get the bounding rectangle
         epsilon = 0.02 * cv2.arcLength(largest_contour, True)
         approx = cv2.approxPolyDP(largest_contour, epsilon, True)
         
-        # We need 4 corners for a rectangle
-        if len(approx) < 4:
-            # Try to find 4 corners using bounding box
-            rect = cv2.minAreaRect(largest_contour)
-            box = cv2.boxPoints(rect)
-            box = np.int0(box)
-            corners = box
+        self.get_logger().info(f'Polygon approximation found {len(approx)} points')
+        
+        # If we have 4 points, we found the corners
+        if len(approx) == 4:
+            corners = approx.reshape(4, 2)
+            
+            # Sort corners: top-left, top-right, bottom-right, bottom-left
+            corners = self.order_corners(corners)
+            
+            # Draw on output image
+            output = image.copy()
+            
+            # Draw contour
+            cv2.drawContours(output, [approx], 0, (0, 255, 0), 3)
+            
+            # Draw corners
+            for i, corner in enumerate(corners):
+                cv2.circle(output, tuple(corner), 10, (0, 0, 255), -1)
+                cv2.putText(output, f'C{i+1}', tuple(corner + 15), 
+                           cv2.FONT_HERSHEY_SIMPLEX, 0.7, (255, 0, 0), 2)
+            
+            self.get_logger().info('✓ Successfully detected 4 corners!')
+            return corners, output
         else:
-            # Use the 4 corners from approximation
-            corners = approx.reshape(-1, 2)
-            
-            # If we have more than 4, take the 4 most extreme points
-            if len(corners) > 4:
-                # Find extreme points
-                corners = self.find_extreme_points(corners)
-        
-        # Sort corners: top-left, top-right, bottom-left, bottom-right
-        corners_sorted = self.sort_corners(corners)
-        
-        return corners_sorted
+            self.get_logger().warn(f'Polygon has {len(approx)} points, need exactly 4')
+            # Draw the approximation anyway for debugging
+            output = image.copy()
+            cv2.drawContours(output, [approx], 0, (0, 255, 255), 3)
+            for point in approx:
+                pt = tuple(point[0])
+                cv2.circle(output, pt, 8, (255, 0, 255), -1)
+            return None, output
     
-    def find_extreme_points(self, points):
-        """Find 4 extreme points from a set of points"""
-        if len(points) <= 4:
-            return points
+    def order_corners(self, corners):
+        """
+        Order corners as: top-left, top-right, bottom-right, bottom-left
+        """
+        # Sort by y-coordinate
+        sorted_by_y = corners[np.argsort(corners[:, 1])]
         
-        # Find points with min/max x+y and min/max x-y
-        sums = points[:, 0] + points[:, 1]
-        diffs = points[:, 0] - points[:, 1]
+        # Top two points
+        top = sorted_by_y[:2]
+        top = top[np.argsort(top[:, 0])]  # Sort by x
         
-        top_left_idx = np.argmin(sums)
-        bottom_right_idx = np.argmax(sums)
-        top_right_idx = np.argmax(diffs)
-        bottom_left_idx = np.argmin(diffs)
+        # Bottom two points
+        bottom = sorted_by_y[2:]
+        bottom = bottom[np.argsort(bottom[:, 0])]  # Sort by x
         
-        return np.array([
-            points[top_left_idx],
-            points[top_right_idx],
-            points[bottom_right_idx],
-            points[bottom_left_idx]
-        ])
+        return np.array([top[0], top[1], bottom[1], bottom[0]], dtype=np.int32)
     
-    def sort_corners(self, corners):
-        """Sort corners in order: top-left, top-right, bottom-right, bottom-left"""
-        # Calculate center
-        center = np.mean(corners, axis=0)
-        
-        # Sort by angle from center
-        angles = []
-        for corner in corners:
-            dx = corner[0] - center[0]
-            dy = corner[1] - center[1]
-            angle = np.arctan2(dy, dx)
-            angles.append(angle)
-        
-        # Sort by angle
-        sorted_indices = np.argsort(angles)
-        sorted_corners = corners[sorted_indices]
-        
-        # Find top-left (smallest x+y)
-        sums = [c[0] + c[1] for c in sorted_corners]
-        top_left_idx = np.argmin(sums)
-        
-        # Rotate to start from top-left
-        sorted_corners = np.roll(sorted_corners, -top_left_idx, axis=0)
-        
-        return sorted_corners
-    
-    def transform_point_to_base_link(self, point_3d_camera):
-        """Transform 3D point from camera frame to base_link frame"""
-        if point_3d_camera is None:
-            return None
-        
+    def image_callback(self, msg):
         try:
-            # Create PointStamped message
-            point_stamped = PointStamped()
-            point_stamped.header.frame_id = 'camera_color_optical_frame'
-            point_stamped.header.stamp = self.get_clock().now().to_msg()
-            point_stamped.point.x = point_3d_camera[0]
-            point_stamped.point.y = point_3d_camera[1]
-            point_stamped.point.z = point_3d_camera[2]
+            # Convert ROS Image to OpenCV format
+            cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
             
-            # Transform to base_link
-            transform = self.tf_buffer.lookup_transform(
-                'base_link',
-                'camera_color_optical_frame',
-                rclpy.time.Time()
-            )
+            # Detect corners
+            corners, output_image = self.detect_white_border_corners(cv_image)
             
-            point_transformed = tf2_geometry_msgs.do_transform_point(point_stamped, transform)
+            if corners is not None:
+                self.get_logger().info('═══════════════════════════════')
+                self.get_logger().info('CORNER DETECTION SUCCESSFUL')
+                
+                # Log corner positions
+                for i, corner in enumerate(corners):
+                    self.get_logger().info(f'  Corner {i+1}: x={corner[0]:4d}, y={corner[1]:4d}')
+                self.get_logger().info('═══════════════════════════════')
+            else:
+                self.get_logger().warn('═══════════════════════════════')
+                self.get_logger().warn('FAILED TO DETECT 4 CORNERS')
+                self.get_logger().warn('Check debug topics for details')
+                self.get_logger().warn('═══════════════════════════════')
             
-            return [point_transformed.point.x, point_transformed.point.y]
-        
+            # Publish final visualization
+            output_msg = self.bridge.cv2_to_imgmsg(output_image, encoding='bgr8')
+            self.pub_final.publish(output_msg)
+            
         except Exception as e:
-            self.get_logger().error(f'TF transform error: {str(e)}')
-            return None
-    
-    def process_board_detection(self):
-        """Main processing loop to detect board and publish results"""
-        if self.depth_image is None or self.rgb_image is None or self.intrinsics is None:
-            return
-        
-        # Detect board plane using edge detection
-        edge_image, board_mask = self.detect_board_plane(self.depth_image)
-        
-        if edge_image is None:
-            return
-        
-        # Find board corners
-        corners_pixel = self.find_board_corners(edge_image, board_mask)
-        
-        if corners_pixel is None or len(corners_pixel) < 4:
-            self.board_detected = False
-            return
-        
-        # Convert corners to 3D points in camera frame
-        corners_3d_camera = []
-        for corner in corners_pixel:
-            x, y = int(corner[0]), int(corner[1])
-            
-            # Get depth at corner
-            if 0 <= y < self.depth_image.shape[0] and 0 <= x < self.depth_image.shape[1]:
-                depth_value = self.depth_image[y, x]
-                if depth_value > 0:
-                    point_3d = self.pixel_to_3d(x, y, depth_value)
-                    if point_3d:
-                        corners_3d_camera.append(point_3d)
-        
-        if len(corners_3d_camera) < 4:
-            return
-        
-        # Transform corners to base_link frame
-        corners_base_link = []
-        for point_3d in corners_3d_camera:
-            corner_base = self.transform_point_to_base_link(point_3d)
-            if corner_base:
-                corners_base_link.append(corner_base)
-        
-        if len(corners_base_link) < 4:
-            return
-        
-        # Map corners to chess board notation
-        # Assuming corners are: top-left, top-right, bottom-right, bottom-left
-        # Chess board: A1 (bottom-left), H1 (bottom-right), A8 (top-left), H8 (top-right)
-        # But we need to determine which corner is which based on position
-        # For now, assume: corners_base_link[0]=A8, corners_base_link[1]=H8, 
-        #                   corners_base_link[2]=H1, corners_base_link[3]=A1
-        
-        # Sort by y coordinate (assuming base_link z is up, y might be forward/backward)
-        # Actually, we need to understand the coordinate system better
-        # Let's use the pixel positions to determine which is which
-        
-        # In pixel space: top-left, top-right, bottom-right, bottom-left
-        # In chess: A8 (top-left), H8 (top-right), H1 (bottom-right), A1 (bottom-left)
-        board_corners = {
-            'A8': corners_base_link[0],  # top-left
-            'H8': corners_base_link[1],  # top-right
-            'H1': corners_base_link[2],  # bottom-right
-            'A1': corners_base_link[3]   # bottom-left
-        }
-        
-        # Publish corner coordinates
-        corners_msg = String()
-        corners_msg.data = json.dumps({
-            'A1': board_corners['A1'],
-            'H1': board_corners['H1'],
-            'A8': board_corners['A8'],
-            'H8': board_corners['H8']
-        })
-        self.corners_pub.publish(corners_msg)
-        
-        # Crop RGB image to board region
-        if self.rgb_image is not None:
-            # Get bounding box from corners
-            x_coords = [int(c[0]) for c in corners_pixel]
-            y_coords = [int(c[1]) for c in corners_pixel]
-            
-            x_min = max(0, min(x_coords) - 10)
-            x_max = min(self.rgb_image.shape[1], max(x_coords) + 10)
-            y_min = max(0, min(y_coords) - 10)
-            y_max = min(self.rgb_image.shape[0], max(y_coords) + 10)
-            
-            # Crop image
-            cropped_image = self.rgb_image[y_min:y_max, x_min:x_max]
-            
-            # Publish cropped image
-            try:
-                cropped_msg = self.cv_bridge.cv2_to_imgmsg(cropped_image, encoding='bgr8')
-                cropped_msg.header.stamp = self.get_clock().now().to_msg()
-                cropped_msg.header.frame_id = 'camera_color_optical_frame'
-                self.last_published_stamp = cropped_msg.header.stamp
-                self.cropped_image_pub.publish(cropped_msg)
-            except Exception as e:
-                self.get_logger().error(f'Error publishing cropped image: {str(e)}')
-        
-        self.board_detected = True
+            self.get_logger().error(f'Error processing image: {str(e)}')
 
 
 def main(args=None):
     rclpy.init(args=args)
-    node = BoardLocatorNode()
+    node = ChessboardBorderDetector()
     
     try:
         rclpy.spin(node)
@@ -435,4 +195,3 @@ def main(args=None):
 
 if __name__ == '__main__':
     main()
-
