@@ -326,7 +326,7 @@ class ChessBoardDetectorNode(Node):
         # Upper bound is the maximum from filtered samples, with some margin
         black_upper = np.percentile(black_filtered, 95, axis=0)  # 95th percentile
         # Add 15 margin, cap at 255
-        black_upper = np.minimum(black_upper + 15, 255).astype(int)
+        black_upper = np.minimum(black_upper + 20, 255).astype(int)
 
         # Calculate bounds for white pieces
         # Upper bound stays at [255, 255, 255]
