@@ -70,6 +70,7 @@ class BoardTransformerNode(Node):
         self.timer = self.create_timer(0.1, self.process_transformation)
         
         self.get_logger().info('Board Transformer Node initialized')
+        self.get_logger().info(f'Sampling radius: {self.sampling_radius}')
     
     def camera_info_callback(self, msg):
         """Store camera intrinsics"""
@@ -77,6 +78,7 @@ class BoardTransformerNode(Node):
             return
             
         try:
+            self.get_logger().info('Receiving camera info...')
             self.intrinsics = rs.intrinsics()
             self.intrinsics.width = msg.width
             self.intrinsics.height = msg.height
@@ -87,7 +89,12 @@ class BoardTransformerNode(Node):
             self.intrinsics.model = rs.distortion.brown_conrady
             self.intrinsics.coeffs = list(msg.d)
             
-            self.get_logger().info('Camera intrinsics received')
+            self.get_logger().info(
+                f'Camera intrinsics received:\n'
+                f'  Resolution: {msg.width}x{msg.height}\n'
+                f'  Focal length: fx={self.intrinsics.fx:.2f}, fy={self.intrinsics.fy:.2f}\n'
+                f'  Principal point: ppx={self.intrinsics.ppx:.2f}, ppy={self.intrinsics.ppy:.2f}'
+            )
         except Exception as e:
             self.get_logger().error(f'Error storing camera intrinsics: {str(e)}')
     
@@ -97,6 +104,14 @@ class BoardTransformerNode(Node):
             corners_data = json.loads(msg.data)
             self.board_corners_pixel = corners_data
             self.get_logger().debug(f'Received board corners: {corners_data}')
+            self.get_logger().info(
+                f'Board corners updated (pixel space):\n'
+                f'  A1: {corners_data.get("A1", "missing")}\n'
+                f'  H1: {corners_data.get("H1", "missing")}\n'
+                f'  A8: {corners_data.get("A8", "missing")}\n'
+                f'  H8: {corners_data.get("H8", "missing")}',
+                throttle_duration_sec=2.0
+            )
         except Exception as e:
             self.get_logger().error(f'Error parsing corners: {str(e)}')
     
@@ -104,6 +119,12 @@ class BoardTransformerNode(Node):
         """Store depth image"""
         try:
             self.current_depth = self.bridge.imgmsg_to_cv2(msg, 'passthrough')
+            self.get_logger().debug(
+                f'Depth image received: {self.current_depth.shape}, '
+                f'dtype={self.current_depth.dtype}, '
+                f'range=[{np.nanmin(self.current_depth):.1f}, {np.nanmax(self.current_depth):.1f}]',
+                throttle_duration_sec=5.0
+            )
         except Exception as e:
             self.get_logger().error(f'Error converting depth image: {str(e)}')
     
@@ -118,22 +139,48 @@ class BoardTransformerNode(Node):
             float: Median depth in meters, or NaN if invalid
         """
         if self.current_depth is None:
+            self.get_logger().warn('No depth image available')
+            return float('nan')
+        
+        # Check bounds
+        if (x_center < 0 or x_center >= self.current_depth.shape[1] or
+            y_center < 0 or y_center >= self.current_depth.shape[0]):
+            self.get_logger().warn(
+                f'Pixel ({x_center}, {y_center}) out of bounds '
+                f'({self.current_depth.shape[1]}x{self.current_depth.shape[0]})'
+            )
             return float('nan')
         
         # Extract patch around center
-        depth_patch = self.current_depth[
-            max(0, y_center - self.sampling_radius):min(self.current_depth.shape[0], y_center + self.sampling_radius + 1),
-            max(0, x_center - self.sampling_radius):min(self.current_depth.shape[1], x_center + self.sampling_radius + 1)
-        ]
+        y_min = max(0, y_center - self.sampling_radius)
+        y_max = min(self.current_depth.shape[0], y_center + self.sampling_radius + 1)
+        x_min = max(0, x_center - self.sampling_radius)
+        x_max = min(self.current_depth.shape[1], x_center + self.sampling_radius + 1)
+        
+        depth_patch = self.current_depth[y_min:y_max, x_min:x_max]
         
         # Get valid depths
         valid_depths = depth_patch[(depth_patch > 0) & ~np.isnan(depth_patch)]
         
+        self.get_logger().debug(
+            f'Depth sampling at ({x_center}, {y_center}): '
+            f'patch size {depth_patch.shape}, {len(valid_depths)} valid pixels'
+        )
+        
         if len(valid_depths) < 3:
+            self.get_logger().warn(
+                f'Insufficient valid depth pixels at ({x_center}, {y_center}): '
+                f'only {len(valid_depths)} valid points'
+            )
             return float('nan')
         
         # Return median depth in meters
-        return float(np.median(valid_depths)) * 0.001
+        depth_m = float(np.median(valid_depths)) * 0.001
+        self.get_logger().debug(
+            f'Depth at ({x_center}, {y_center}): {depth_m:.3f}m '
+            f'(raw median: {np.median(valid_depths):.1f}mm)'
+        )
+        return depth_m
     
     def pixel_to_3d(self, pixel_x, pixel_y, depth_m):
         """
@@ -146,7 +193,12 @@ class BoardTransformerNode(Node):
         Returns:
             list: [x, y, z] in camera frame, or None if invalid
         """
-        if self.intrinsics is None or np.isnan(depth_m):
+        if self.intrinsics is None:
+            self.get_logger().warn('Camera intrinsics not available')
+            return None
+            
+        if np.isnan(depth_m):
+            self.get_logger().warn(f'Invalid depth (NaN) for pixel ({pixel_x}, {pixel_y})')
             return None
         
         try:
@@ -156,9 +208,15 @@ class BoardTransformerNode(Node):
                 [pixel_x, pixel_y],
                 depth_m
             )
+            self.get_logger().debug(
+                f'Deprojected ({pixel_x}, {pixel_y}, {depth_m:.3f}m) -> '
+                f'camera_link: [{point_3d[0]:.3f}, {point_3d[1]:.3f}, {point_3d[2]:.3f}]'
+            )
             return point_3d
         except Exception as e:
-            self.get_logger().error(f'Deprojection error: {str(e)}')
+            self.get_logger().error(
+                f'Deprojection error for pixel ({pixel_x}, {pixel_y}): {str(e)}'
+            )
             return None
     
     def transform_to_base(self, point_camera):
@@ -180,6 +238,10 @@ class BoardTransformerNode(Node):
             point_stamped.point.y = point_camera[1]
             point_stamped.point.z = point_camera[2]
             
+            self.get_logger().debug(
+                f'Looking up transform: camera_link -> base'
+            )
+            
             # Look up transform
             transform = self.tf_buffer.lookup_transform(
                 'base',  # Target frame
@@ -188,33 +250,66 @@ class BoardTransformerNode(Node):
                 timeout=rclpy.duration.Duration(seconds=1.0)
             )
             
+            self.get_logger().debug(
+                f'Transform found: translation=({transform.transform.translation.x:.3f}, '
+                f'{transform.transform.translation.y:.3f}, {transform.transform.translation.z:.3f})'
+            )
+            
             # Transform point
             point_transformed = tf2_geometry_msgs.do_transform_point(point_stamped, transform)
             
-            # Return as [x, y] in base frame
-            return [
+            result = [
                 point_transformed.point.x,
                 point_transformed.point.y
             ]
             
-        except (tf2_ros.LookupException, 
-                tf2_ros.ConnectivityException, 
-                tf2_ros.ExtrapolationException) as e:
-            self.get_logger().error(f'TF transform failed: {str(e)}')
+            self.get_logger().debug(
+                f'Transformed camera_link [{point_camera[0]:.3f}, {point_camera[1]:.3f}, {point_camera[2]:.3f}] -> '
+                f'base [{result[0]:.3f}, {result[1]:.3f}]'
+            )
+            
+            return result
+            
+        except tf2_ros.LookupException as e:
+            self.get_logger().error(f'TF lookup failed (frames may not exist): {str(e)}')
+            return None
+        except tf2_ros.ConnectivityException as e:
+            self.get_logger().error(f'TF connectivity error: {str(e)}')
+            return None
+        except tf2_ros.ExtrapolationException as e:
+            self.get_logger().error(f'TF extrapolation error (timing issue): {str(e)}')
+            return None
+        except Exception as e:
+            self.get_logger().error(f'Unexpected TF error: {str(e)}')
             return None
     
     def process_transformation(self):
         """
         Main processing loop: transform board corners from pixel space to base frame.
         """
+        # Log status of all prerequisites
+        self.get_logger().debug(
+            f'Transformation check: '
+            f'corners={self.board_corners_pixel is not None}, '
+            f'depth={self.current_depth is not None}, '
+            f'intrinsics={self.intrinsics is not None}',
+            throttle_duration_sec=5.0
+        )
+        
+        # Check prerequisites
         if self.board_corners_pixel is None:
+            self.get_logger().warn('Waiting for board corners...', throttle_duration_sec=5.0)
             return
         
         if self.current_depth is None:
+            self.get_logger().warn('Waiting for depth image...', throttle_duration_sec=5.0)
             return
         
         if self.intrinsics is None:
+            self.get_logger().warn('Waiting for camera intrinsics...', throttle_duration_sec=5.0)
             return
+        
+        self.get_logger().info('✓ All prerequisites met, processing transformation...', throttle_duration_sec=2.0)
         
         # Process each corner
         corners_base = {}
@@ -224,6 +319,8 @@ class BoardTransformerNode(Node):
                 self.get_logger().warn(f'Missing corner: {corner_name}')
                 return
             
+            self.get_logger().debug(f'Processing corner: {corner_name}')
+            
             # Get pixel coordinates (assuming they're [x, y] from board_locator)
             pixel_coords = self.board_corners_pixel[corner_name]
             
@@ -232,8 +329,13 @@ class BoardTransformerNode(Node):
                 pixel_x = int(pixel_coords[0])
                 pixel_y = int(pixel_coords[1])
             else:
-                self.get_logger().error(f'Invalid pixel format for {corner_name}')
+                self.get_logger().error(
+                    f'Invalid pixel format for {corner_name}: {pixel_coords} '
+                    f'(type: {type(pixel_coords)})'
+                )
                 return
+            
+            self.get_logger().debug(f'{corner_name}: pixel=({pixel_x}, {pixel_y})')
             
             # Get depth at this pixel
             depth_m = self.get_average_depth(pixel_x, pixel_y)
@@ -242,6 +344,8 @@ class BoardTransformerNode(Node):
                 self.get_logger().warn(f'Invalid depth for corner {corner_name}')
                 return
             
+            self.get_logger().debug(f'{corner_name}: depth={depth_m:.3f}m')
+            
             # Convert to 3D point in camera frame
             point_3d_camera = self.pixel_to_3d(pixel_x, pixel_y, depth_m)
             
@@ -249,12 +353,21 @@ class BoardTransformerNode(Node):
                 self.get_logger().warn(f'Failed to deproject {corner_name}')
                 return
             
+            self.get_logger().debug(
+                f'{corner_name}: camera_3d=[{point_3d_camera[0]:.3f}, '
+                f'{point_3d_camera[1]:.3f}, {point_3d_camera[2]:.3f}]'
+            )
+            
             # Transform to base frame
             point_base = self.transform_to_base(point_3d_camera)
             
             if point_base is None:
-                self.get_logger().warn(f'Failed to transform {corner_name}')
+                self.get_logger().warn(f'Failed to transform {corner_name} to base frame')
                 return
+            
+            self.get_logger().debug(
+                f'{corner_name}: base_2d=[{point_base[0]:.3f}, {point_base[1]:.3f}]'
+            )
             
             corners_base[corner_name] = point_base
         
@@ -270,12 +383,16 @@ class BoardTransformerNode(Node):
             self.board_corners_base_pub.publish(corners_msg)
             
             self.get_logger().info(
-                f'Board corners in base frame:\n'
+                f'✓ Board corners transformed to base frame:\n'
                 f'  A1: [{corners_base["A1"][0]:.3f}, {corners_base["A1"][1]:.3f}]\n'
                 f'  H1: [{corners_base["H1"][0]:.3f}, {corners_base["H1"][1]:.3f}]\n'
                 f'  A8: [{corners_base["A8"][0]:.3f}, {corners_base["A8"][1]:.3f}]\n'
                 f'  H8: [{corners_base["H8"][0]:.3f}, {corners_base["H8"][1]:.3f}]',
                 throttle_duration_sec=2.0
+            )
+        else:
+            self.get_logger().warn(
+                f'Incomplete corner set: only {len(corners_base)}/4 corners processed'
             )
 
 
@@ -286,7 +403,7 @@ def main(args=None):
     try:
         rclpy.spin(node)
     except KeyboardInterrupt:
-        pass
+        node.get_logger().info('Shutting down...')
     finally:
         node.destroy_node()
         rclpy.shutdown()
