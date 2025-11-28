@@ -333,7 +333,7 @@ class ChessBoardDetectorNode(Node):
         # Lower bound is the minimum from filtered samples, with some margin
         white_lower = np.percentile(white_filtered, 5, axis=0)   # 5th percentile
         # Subtract 15 margin, floor at 0
-        white_lower = np.maximum(white_lower - 15, 0).astype(int)
+        white_lower = np.maximum(white_lower - 5, 0).astype(int)
 
         # Store calibrated ranges
         self.piece_color_ranges = {
