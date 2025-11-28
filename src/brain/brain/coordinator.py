@@ -204,7 +204,7 @@ class TaskCoordinator(Node):
         # self.take_pic_pub.publish(msg)
 
     def get_real_world_coords(self, square: str):
-
+        self.get_logger().info(f"get_real_world_coords() called with square={repr(square)}")
         # Extract file (A-H) and rank (1-8)
         file = square[0].upper()
         rank = int(square[1])
