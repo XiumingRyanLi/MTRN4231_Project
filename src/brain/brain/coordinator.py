@@ -130,6 +130,7 @@ class TaskCoordinator(Node):
             
             self.get_logger().info("Ignoring move back")
             self.prev_illegal_move = None
+            return
 
         elif len(robot_move) < 4 or len(robot_move) > 5:
             return
