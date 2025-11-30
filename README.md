@@ -91,20 +91,27 @@ This script:
 ## 5.3 Hardware Setup
 
 ### **UR5e Robot**
+- Ensure the UR5e pendant is powered up and ready for movement.
 - Connect the UR5e control box to the ROS PC via Ethernet.
-- Assign static IPs in the same subnet (e.g., 192.168.0.x).
-- Load the “External Control” URCap on the pendant.
+- Assign static IPs in the same subnet, check by ping 192.168.0.77.
+- Set the system state to Automatic and load the ros.urp file onto the UR5e pendant.
 - Set robot → ROS control target IP to the ROS machine.
 
 ### **Overhead Camera**
-- Mount above board at a fixed perpendicular angle.
-- Ensure entire 8×8 grid is visible with minimal distortion.
+- Set up a beam structure using square beams to create an overhang structure.
+- Have a camera mounted to the camera mount by tighening through a M3 bolt.
+image plzzzzzzzzzz
+- Connect the USBC connection to the camera
+- Slide the mount onto the beam, it is held securly with friction fit.
 - Check camera enumeration:
 ```bash
 ls /dev/video*
 ```
+If it shows up the camera then it is good.
 
 ### **End-Effector / Gripper**
+- Ensure all the links for the gripper are 3d printed
+- 
 - Mount custom-designed gripper using UR5e flange adapter.
 - Upload firmware:
 ```bash
@@ -154,19 +161,19 @@ This section describes how to launch, test, and interact with the full chess-rob
 
 ---
 
-## 6.1 Full-System Launch (Recommended)
+## 6.1 Full-System Launch
 
 From project root:
 
 ```bash
-./launch.sh
+./tmux_launch.sh
 ```
 
 This launches:
 - UR5e driver  
-- MoveIt planning pipeline  
+- MoveIt planning pipeline and RViz
 - Perception stack  
-- Chess logic + Stockfish  
+- Brain node + Stockfish  
 - GUI  
 
 To use a multi-window tmux interface:
@@ -186,12 +193,12 @@ ros2 launch <moveit_package> moveit_rviz.launch.py
 
 ### **Terminal 2 — Vision**
 ```bash
-ros2 run vision chess_detector
+ros2 run preception chess_detector
 ```
 
 ### **Terminal 3 — Game Coordinator**
 ```bash
-ros2 run chess_controller master.py
+ros2 run task_coordinator coordinator.py
 ```
 
 ### **Terminal 4 — GUI**
@@ -208,8 +215,7 @@ python3 gui_test.py
 - GUI shows:
   - Board state  
   - Current turn  
-  - Legal moves  
-  - Stockfish recommendations  
+   
 
 ### **When a move is executed:**
 1. The system verifies legality.
@@ -252,30 +258,163 @@ If no result appears:
 
 # 8. Discussion and Future Improvements
 
-Several engineering challenges emerged during development:
+Throughout development, several engineering challenges emerged across perception, motion planning, end-effector performance, and overall system integration. These areas represent strong opportunities for refinement in a future release of the chess robot platform.
 
-### **Perception**
-- Lighting drastically affects board detection.
-- Shadows cause false piece detections.
-- Future versions:  
-  - Use AprilTags or ArUco grids  
-  - Integrate depth sensing (Realsense or ZED)  
+---
 
-### **Motion Planning**
-- The UR5e must avoid collisions with tall pieces.  
-- Some diagonal pieces require more complex approach trajectories.  
-- Future upgrade:  
-  - Use pilz industrial planner for deterministic paths  
-  - Add dynamic obstacle detection  
+## **Perception**
 
-### **End-Effector Performance**
-- Suction or magnetic grippers could improve reliability.
-- Current servo mechanism works but is sensitive to alignment.
+The current perception pipeline uses HSV thresholding, contour extraction, and difference-based state comparison. While effective under controlled conditions, it was highly sensitive to environmental factors:
 
-### **System Integration**
-- TF tree maintenance is critical.  
-- Minor calibration drift significantly impacts accuracy.  
-- Future upgrade: automated calibration routine.
+- Lighting fluctuations caused inconsistent segmentation.  
+- Robot shadows occasionally triggered false detections.  
+- A white boundary around the chessboard was required for stable detection.  
+
+### **Future Improvements**
+
+#### **1. Deep-learning-based detection (YOLOv8/YOLOv10)**  
+A neural-network detector would be far more resilient to lighting variations and would eliminate the need for artificial borders around the board.
+
+**How to implement:**
+1. Collect labelled datasets of piece locations under varied lighting.  
+2. Train a YOLO model to detect:
+   - 64 square positions  
+   - Piece classes (pawn, rook, knight, bishop, queen, king)  
+   - Empty squares  
+3. Integrate with ROS2 using a custom node or `ros_yolo` packages.  
+4. Replace HSV segmentation with bounding-box centroid detection.
+
+#### **2. Depth-sensing integration (Intel RealSense / ZED2i)**  
+Depth data helps differentiate between squares, detect piece height, and resolve occlusions.
+
+**How to implement:**
+- Fuse RGB + depth into a unified RGB-D perception node.  
+- Identify piece height using point cloud clustering.  
+- Project depth centroids into the chessboard coordinate frame.
+
+#### **3. Arm-mounted camera for mobile scanning**  
+Mounting the camera on the UR5e wrist allows the robot to reposition for a better view.
+
+**Long-term capability:**
+- Scan multiple chessboards on different tables using a single camera.  
+- Automatically adjust vantage point to reduce occlusions.  
+
+**How to implement:**
+1. Add a `camera_link` in the robot URDF + TF tree.  
+2. Perform hand–eye calibration.  
+3. Create scanning trajectories (raster pattern or targeted waypoints).  
+4. Capture images and stitch results into a board state model.
+
+---
+
+## **Motion Planning**
+
+Although MoveIt handled most tasks well, several limitations were identified:
+
+- Tall pieces increased collision risk during lateral motions.  
+- Knight/queen trajectories required more sophisticated approach angles.  
+- Small orientation drift could nudge adjacent pieces unintentionally.
+
+### **Future Improvements**
+
+#### **1. Pilz Industrial Motion Planner**  
+Pilz provides deterministic LIN/PTP/CIRC motions ideal for tabletop interactions.
+
+**How to implement:**
+1. Enable Pilz by updating `planning_pipelines` in MoveIt config.  
+2. Use LIN motions for approach, grasp, retreat:  
+   - LIN (base → approach)  
+   - LIN (approach → grasp)  
+   - LIN (grasp → retreat)  
+3. Retain PTP only for long-distance moves above the board.
+
+#### **2. Dynamic collision objects from perception**  
+Using live perception to update MoveIt’s planning scene reduces accidental bumps.
+
+**How to implement:**
+1. Publish each identified piece as a MoveIt collision object.  
+2. Update at 5–10 Hz via the PlanningSceneInterface.  
+3. Ensure planned paths avoid dynamically placed obstacles.
+
+---
+
+## **End-Effector Performance**
+
+The current servo-driven finger gripper works reliably but is highly sensitive to alignment and tolerances:
+
+- Minor calibration drift affects grasp consistency.  
+- Servo backlash introduces small error in finger positioning.  
+- Some pieces are easier to pick than others depending on geometry.
+
+### **Future Improvements**
+
+#### **1. Suction-based gripper**
+Ideal for flat-top pieces and independent of rotational alignment.
+
+**How to implement:**
+- Add a micro-pump and solenoid valve.  
+- Integrate vacuum pressure sensor for grasp verification.  
+- Update gripper action server to support suction/venting commands.
+
+#### **2. Hybrid magnetic + mechanical design**
+Useful for metal-core or retrofitted pieces.
+
+**How to implement:**
+- Embed neodymium magnet in the finger pad area.  
+- Use servo fingers primarily for stabilisation.
+
+#### **3. Improved servo calibration**
+**How to implement:**
+- Add startup homing via limit switches or stall sensing.  
+- Smooth PWM transitions to prevent jerky motion.  
+- Tune servo speeds per piece type.
+
+---
+
+## **System Integration**
+
+The system relies heavily on accurate TF transforms between:
+
+- `base_link`  
+- `tool0`  
+- `gripper_link`  
+- `camera_frame`  
+- `chessboard_frame`  
+
+Small deviations in calibration significantly impacted manipulation accuracy.
+
+### **Issues Observed**
+- TF drift caused misaligned picks.  
+- Manual calibration consumed time.  
+- Camera mounting inconsistencies changed board position estimates.  
+
+### **Future Improvements**
+
+#### **1. Automated calibration and TF correction**
+**How to implement:**
+1. Place 2–4 ArUco markers around the board.  
+2. Use perception to solve board pose automatically.  
+3. Compute `camera → chessboard` transform at runtime.  
+4. Apply periodic recalibration to minimise drift.
+
+#### **2. Diagnostics and health monitoring**
+**How to implement:**
+- Add ROS2 Diagnostics messages for vision, gripper, TF, motion state.  
+- Display health indicators on the UI.  
+- Add a console panel in RViz for real-time alerts.
+
+#### **3. Multi-board and multi-table automation**
+Paired with an arm-mounted camera, the UR5e could act as a multi-station chess referee.
+
+**How to implement:**
+1. Define multiple table frames in the environment.  
+2. Implement autonomous navigation between tables (via predefined joint targets).  
+3. At each table, trigger a scanning routine.  
+4. Create a scheduler to manage multiple concurrent games.
+
+---
+
+Overall, these improvements map a clear pathway toward a more robust, scalable, and fully autonomous chess-playing robotic system that can operate across variable environments and multiple concurrent games.
 
 ---
 
@@ -311,6 +450,143 @@ Additional support was received in lab sessions from course staff.
 
 ---
 
+# 10. Repository Structure
+
+The repository follows a modular ROS 2 workspace design. Each major subsystem
+(arm control, perception, UI, game logic, custom interfaces, etc.) is isolated
+into its own package for clarity, maintainability, and debugging.
+
+Below is a detailed breakdown of each directory, its purpose, and any special notes
+about its origin or usage.
+
+```
+src/
+├── arm_controller/
+│   ├── src/arm_controller_node.cpp        # Main robot TCP motion + MoveIt client
+│   ├── launch/arm_controller.launch.py    # Launch file for arm control node
+│   └── CMakeLists.txt / package.xml
+│
+├── brain/
+│   # Placeholder for higher-level decision modules (not used heavily this term)
+│
+├── chess_master/
+│   ├── chess_master/move_service.py       # Service node handling verified chess moves
+│   ├── chess_master/__init__.py
+│   └── CMakeLists.txt / package.xml
+│
+├── custom_interfaces/
+│   ├── action/
+│   │   ├── GripperCommand.action          # Custom action for opening/closing gripper
+│   │   └── MoveTCP.action                 # Cartesian motion action for UR5e TCP
+│   └── srv/
+│       └── ChessMove.srv                  # Service for making a validated chess move
+│
+├── end_effector_description/
+│   ├── urdf/                              # URDF/XACRO files for the custom gripper
+│   ├── meshes/                            # STL/DAE meshes of the gripper
+│   ├── config/                            # RViz + joint configuration
+│   ├── rviz/
+│   └── launch/
+│       ├── display.launch.py              # Visualize end-effector only (testing)
+│       └── display_ee.launch.py           # Joint state publisher + gripper visualization
+│
+├── gripper/
+│   ├── gripper/gripper_bridge_node.py     # ROS <-> Arduino serial bridge
+│   ├── gripper/gripper_server.py          # Action server for gripper open/close
+│   ├── gripper/gripper_client.py          # Client used by arm_controller
+│   └── launch/gripper_bringup.launch.py   # Brings up gripper control stack
+│
+├── perception/
+│   ├── perception/aruco_detect.py         # ArUco board detection (optional)
+│   ├── perception/chess_detector.py       # Main HSV + contour-based chessboard detector
+│   ├── perception/image_publisher.py      # USB camera publisher
+│   ├── perception/state_comparison.py     # Detects piece movement between frames
+│   ├── resource/
+│   ├── test-images/                       # Ground truth test images
+│   └── test/                              # Automated testing utilities
+│
+├── ui/
+│   ├── ui/board_state_sub.py              # Subscribes to board_state topic
+│   ├── ui/user_interface.py               # Tkinter interface for game monitoring
+│   ├── resource/
+│   └── test/
+│
+├── ur5e_custom_description/               # ❌ NOT USED — kept for archival only
+│   # (Old experiment — deprecated. Replaced completely by end_effector_description.)
+│
+├── ur5e_moveit_config_custom/
+│   # ✔ This is the **actual MoveIt config used** by the robot.
+│   #   Generated using MoveIt Setup Assistant and fully customised
+│   #   to integrate the custom end-effector.
+│   ├── config/
+│   │   ├── end_effector_withDriverSupport.srdf  # SRDF defining planning groups
+│   │   ├── initial_positions.yaml               # Used for RViz display startup
+│   │   ├── joint_limits.yaml                    # URDF+MoveIt joint limits
+│   │   ├── kinematics.yaml                      # IKFast/KDL solver config
+│   │   ├── moveit_controllers.yaml              # MoveIt2 control mappings
+│   │   ├── pilz_cartesian_limits.yaml           # Constraints for Pilz planner
+│   │   └── moveit.rviz
+│   ├── launch/
+│   └── CMakeLists.txt / package.xml
+│
+├── ur_moveit_config_official/
+│   # ✔ Downloaded from **Universal Robots official MoveIt2 repository**.
+│   #   Used as a clean, correct reference model for:
+│   #     • MoveIt Setup Assistant input  
+│   #     • URDF baseline (without our gripper)  
+│   #     • Re-exporting custom configs
+│   #   NOT used at runtime.
+│   └── (Official UR-provided files)
+│
+└── ur5e_custom_description/                # Duplicate note: remains unused
+```
+
+---
+
+##  Important Notes About UR Packages
+
+### ** `ur_moveit_config_official/`**
+- Pulled directly from the official Universal Robots MoveIt2 repository.
+- Used **only for MoveIt Setup Assistant workflows**:
+  - exporting correct SRDF groups  
+  - inheriting correct joint limits  
+  - ensuring compatibility with UR5e URDF  
+- **Never launched during runtime** — serves as a clean reference.
+
+### ** `ur5e_moveit_config_custom/`**
+- **The MoveIt package actually used in the project.**
+- Integrates:
+  - Custom end-effector  
+  - Custom joint limits & planning groups  
+  - Corrected SRDF  
+  - Collision meshes for the gripper  
+- Generated using MoveIt Setup Assistant, starting from the official UR package above.
+
+### **❌ `ur5e_custom_description/`**
+- An early prototype.
+- No longer used in MoveIt or any launch files.
+- Kept only for documentation and archival reasons.
+
+---
+
+## Summary of Package Responsibilities
+
+| Package | Purpose |
+|--------|---------|
+| `arm_controller` | Executes TCP motions, MoveIt control, action clients |
+| `brain` | High-level logic (not majorly used this term) |
+| `chess_master` | Validated chess move service + game coordination |
+| `custom_interfaces` | Action & service definitions (`MoveTCP`, `GripperCommand`, `ChessMove`) |
+| `end_effector_description` | URDF, meshes, and visualization for custom gripper |
+| `gripper` | ROS ↔ Arduino interface, gripper action server |
+| `perception` | HSV board detection, ArUco detection, move comparison |
+| `ui` | Tkinter front-end for monitoring board & robot state |
+| `ur_moveit_config_official` | Official UR reference package — used only for Setup Assistant |
+| `ur5e_moveit_config_custom` | Actual MoveIt config used during operation |
+| `ur5e_custom_description` | Old unused package retained for reference |
+
+
+
 # 11. References & Acknowledgements
 
 ### **Frameworks and Libraries**
@@ -333,4 +609,5 @@ Additional support was received in lab sessions from course staff.
 ---
 
     
+
 
