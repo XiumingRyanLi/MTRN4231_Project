@@ -60,7 +60,7 @@ class ChessboardBorderDetector(Node):
         
         # Threshold to isolate white border
         # Adjust threshold values based on lighting conditions
-        _, thresh = cv2.threshold(blurred, 165, 255, cv2.THRESH_BINARY)
+        _, thresh = cv2.threshold(blurred, 170, 255, cv2.THRESH_BINARY)
         self.get_logger().debug(f'Applied threshold, white pixels: {np.count_nonzero(thresh)}')
         
         # Publish threshold image

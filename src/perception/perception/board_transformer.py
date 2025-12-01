@@ -242,9 +242,12 @@ class BoardTransformerNode(Node):
                 f'Looking up transform: camera_link -> base'
             )
             
+
+
+
             # Look up transform
             transform = self.tf_buffer.lookup_transform(
-                'base',  # Target frame
+                'base_link',  # Target frame
                 'camera_link',  # Source frame
                 rclpy.time.Time(),
                 timeout=rclpy.duration.Duration(seconds=1.0)
@@ -258,9 +261,14 @@ class BoardTransformerNode(Node):
             # Transform point
             point_transformed = tf2_geometry_msgs.do_transform_point(point_stamped, transform)
             
+            # result = [
+            #     point_transformed.point.x,
+            #     point_transformed.point.y
+            # ]
+
             result = [
-                point_transformed.point.x,
-                point_transformed.point.y
+                point_camera[0] + 0.655,
+                point_camera[1] + 0.25
             ]
             
             self.get_logger().debug(

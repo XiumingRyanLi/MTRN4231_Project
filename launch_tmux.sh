@@ -67,7 +67,7 @@ tmux new-window -t "$SESSION" -n gripper \
 # Window 6: Transformation Topic
 # =========================
 tmux new-window -t "$SESSION" -n tf_topic \
-  "bash -lc '$ROS_SETUP; ros2 run tf2_ros static_transform_publisher 0.655 0.25 0.934 1 0 0 0.000796 base camera_link; exec bash'"
+  "bash -lc '$ROS_SETUP; ros2 run tf2_ros static_transform_publisher 0.655 0.25 0.934 0.5 -0.5 -0.5 -0.5 base camera_link; exec bash'"
 
 # Attach to session
 tmux attach -t "$SESSION"
