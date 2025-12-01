@@ -57,6 +57,26 @@ class TaskCoordinator(Node):
         # moveit action client
         self.arm_client = ActionClient(
             self, MoveTCP, '/arm/pick_place', callback_group=self.cb_group)
+        
+        # Board corner coordinates subscriber
+        self.board_corners_sub = self.create_subscription(
+            String, '/chess/board_corners', self.board_corners_callback, 10, callback_group=self.cb_group)
+        
+        # Board corner coordinates (in millimeters, matching existing code)
+        # Initialize with default hardcoded values
+        self.A1 = (803.8, 297.5)
+        self.H1 = (510.3, 299.7)
+        self.A8 = (803.8, -4.3)
+        self.H8 = (507.5, 1.5)
+        
+        # # engine move result publisher
+        # self.engine_move_pub = self.create_publisher(Bool, 'engine_move_result', 10)
+
+        # # board occupancy subscriber
+        # self.occ_sub = self.create_subscription(
+        #     String, "/chess/occupancy", self.occupancy_callback, 10, callback_group=self.cb_group)
+        # self.current_occupancy = None
+        # self.executing_move = False
 
         self.user_move = None
         self.is_user_piece_tall = None
@@ -86,6 +106,22 @@ class TaskCoordinator(Node):
         future = self.client.call_async(req)
         future.add_done_callback(self.on_response)
         self.white_turn = False
+    
+    def board_corners_callback(self, msg):
+        """Callback to receive board corner coordinates from board_locator"""
+        try:
+            corners_data = json.loads(msg.data)
+            
+            # Coordinates come in meters from board_locator, convert to millimeters
+            # to match existing code format
+            self.A1 = (corners_data['A1'][0] * 1000.0, corners_data['A1'][1] * 1000.0)
+            self.H1 = (corners_data['H1'][0] * 1000.0, corners_data['H1'][1] * 1000.0)
+            self.A8 = (corners_data['A8'][0] * 1000.0, corners_data['A8'][1] * 1000.0)
+            self.H8 = (corners_data['H8'][0] * 1000.0, corners_data['H8'][1] * 1000.0)
+            
+            self.get_logger().info(f"Received board corners: A1={self.A1}, H1={self.H1}, A8={self.A8}, H8={self.H8}")
+        except Exception as e:
+            self.get_logger().error(f"Error parsing board corners: {str(e)}")
 
     def on_response(self, future: rclpy.task.Future):
         try:
@@ -213,18 +249,18 @@ class TaskCoordinator(Node):
         if file not in "ABCDEFGH" or rank not in range(1, 9):
             raise ValueError("Invalid square. Use like 'e4' or 'A1'.")
 
-        # Calculate step size
-        dx_per_file = (H1[0] - A1[0]) / 7
-        dy_per_file = (H1[1] - A1[1]) / 7
-        dx_per_rank = (A8[0] - A1[0]) / 7
-        dy_per_rank = (A8[1] - A1[1]) / 7
+        # Calculate step size using instance variables (updated from board_locator)
+        dx_per_file = (self.H1[0] - self.A1[0]) / 7
+        dy_per_file = (self.H1[1] - self.A1[1]) / 7
+        dx_per_rank = (self.A8[0] - self.A1[0]) / 7
+        dy_per_rank = (self.A8[1] - self.A1[1]) / 7
 
         # Compute offsets
         file_index = ord(file) - ord('A')
         rank_index = rank - 1
 
-        x = A1[0] + file_index * dx_per_file + rank_index * dx_per_rank
-        y = A1[1] + file_index * dy_per_file + rank_index * dy_per_rank
+        x = self.A1[0] + file_index * dx_per_file + rank_index * dx_per_rank
+        y = self.A1[1] + file_index * dy_per_file + rank_index * dy_per_rank
 
         return x, y
 
