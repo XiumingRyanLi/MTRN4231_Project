@@ -267,8 +267,8 @@ class BoardTransformerNode(Node):
             # ]
 
             result = [
-                point_camera[0] + 0.655,
-                point_camera[1] + 0.25
+                point_camera[0] + 0.675,
+                point_camera[1]*-1 + 0.163
             ]
             
             self.get_logger().debug(

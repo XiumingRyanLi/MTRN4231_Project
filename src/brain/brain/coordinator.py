@@ -61,7 +61,7 @@ class TaskCoordinator(Node):
         
         # Board corner coordinates subscriber
         self.board_corners_sub = self.create_subscription(
-            String, '/chess/board_corners', self.board_corners_callback, 10, callback_group=self.cb_group)
+            String, '/chess/board_corners_base_frame', self.board_corners_callback, 10, callback_group=self.cb_group)
         
         # Board corner coordinates (in millimeters, matching existing code)
         # Initialize with default hardcoded values
@@ -114,10 +114,10 @@ class TaskCoordinator(Node):
             
             # Coordinates come in meters from board_locator, convert to millimeters
             # to match existing code format
-            self.A1 = (corners_data['A1'][0] * 1000.0, corners_data['A1'][1] * 1000.0)
-            self.H1 = (corners_data['H1'][0] * 1000.0, corners_data['H1'][1] * 1000.0)
-            self.A8 = (corners_data['A8'][0] * 1000.0, corners_data['A8'][1] * 1000.0)
-            self.H8 = (corners_data['H8'][0] * 1000.0, corners_data['H8'][1] * 1000.0)
+            self.A1 = (corners_data['A1']['x'], corners_data['A1']['y'])
+            self.H1 = (corners_data['H1']['x'], corners_data['H1']['y'])
+            self.A8 = (corners_data['A8']['x'], corners_data['A8']['y'])
+            self.H8 = (corners_data['H8']['x'], corners_data['H8']['y'])
             
             self.get_logger().info(f"Received board corners: A1={self.A1}, H1={self.H1}, A8={self.A8}, H8={self.H8}")
         except Exception as e:

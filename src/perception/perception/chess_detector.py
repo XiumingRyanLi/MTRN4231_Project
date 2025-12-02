@@ -17,7 +17,7 @@ class ChessBoardDetectorNode(Node):
         super().__init__('chess_board_detector_node')
 
         # Parameters
-        self.declare_parameter('image_topic', '/camera/camera/color/image_raw')
+        self.declare_parameter('image_topic', '/board_crop')
         self.declare_parameter('publish_debug_images', True)
         self.declare_parameter('square_threshold', 35)
         self.declare_parameter('stability_duration', 1.0)  # seconds
@@ -369,7 +369,7 @@ class ChessBoardDetectorNode(Node):
             dilation_image = cv2.dilate(canny_image, kernel, iterations=1)
 
             # Hough Lines
-            lines = cv2.HoughLinesP(dilation_image, 1, np.pi / 180, threshold=300,
+            lines = cv2.HoughLinesP(dilation_image, 1, np.pi / 180, threshold=250,
                                     minLineLength=50, maxLineGap=100)
 
             # Create black image for lines

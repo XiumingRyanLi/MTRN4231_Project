@@ -31,6 +31,9 @@ class ChessboardBorderDetector(Node):
         self.pub_morph = self.create_publisher(Image, '/chessboard/debug/morphology', 10)
         self.pub_contours = self.create_publisher(Image, '/chessboard/debug/contours', 10)
         
+        # Publisher for cropped board image
+        self.pub_crop = self.create_publisher(Image, '/board_crop', 10)
+        
         # Publisher for board corners
         self.pub_corners = self.create_publisher(String, '/chess/board_corners', 10)
         
@@ -42,6 +45,7 @@ class ChessboardBorderDetector(Node):
         self.get_logger().info('  - /chessboard/debug/contours')
         self.get_logger().info('  - /chessboard/final_detection')
         self.get_logger().info('  - /chess/board_corners')
+        self.get_logger().info('  - /board_crop')
     
     def detect_white_border_corners(self, image):
         """
@@ -89,7 +93,7 @@ class ChessboardBorderDetector(Node):
         
         if not contours:
             self.get_logger().warn('No contours found!')
-            return None, image
+            return None, None, image
         
         # Sort contours by area and show top 5
         sorted_contours = sorted(contours, key=cv2.contourArea, reverse=True)
@@ -135,14 +139,14 @@ class ChessboardBorderDetector(Node):
             cv2.drawContours(output, [inner_contour], 0, (255, 0, 0), 2)
             
             # Draw inner corners with chess notation
-            chess_labels = ['A8', 'H8', 'H1', 'A1']
+            chess_labels = ['H1', 'A1', 'A8', 'H8']
             for i, (corner, label) in enumerate(zip(indented_corners, chess_labels)):
                 cv2.circle(output, tuple(corner), 8, (255, 0, 255), -1)
                 cv2.putText(output, label, tuple(corner - np.array([10, 20])), 
                            cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 0), 2)
             
             self.get_logger().info('✓ Successfully detected 4 corners!')
-            return indented_corners, output
+            return corners, indented_corners, output
         else:
             self.get_logger().warn(f'Polygon has {len(approx)} points, need exactly 4')
             # Draw the approximation anyway for debugging
@@ -151,7 +155,7 @@ class ChessboardBorderDetector(Node):
             for point in approx:
                 pt = tuple(point[0])
                 cv2.circle(output, pt, 8, (255, 0, 255), -1)
-            return None, output
+            return None, None, output
     
     def order_corners(self, corners):
         """
@@ -192,26 +196,56 @@ class ChessboardBorderDetector(Node):
         
         return indented
     
+    def crop_and_warp_board(self, image, corners):
+        """
+        Crop and perspective-transform the board to a square image.
+        Corners should be in order: top-left, top-right, bottom-right, bottom-left
+        """
+        # Calculate the width and height of the board
+        width_top = np.linalg.norm(corners[1] - corners[0])
+        width_bottom = np.linalg.norm(corners[2] - corners[3])
+        max_width = int(max(width_top, width_bottom))
+        
+        height_left = np.linalg.norm(corners[3] - corners[0])
+        height_right = np.linalg.norm(corners[2] - corners[1])
+        max_height = int(max(height_left, height_right))
+        
+        # Use square dimensions (largest side)
+        output_size = max(max_width, max_height)
+        
+        # Define destination points for the warped image (square)
+        dst_points = np.array([
+            [0, 0],
+            [output_size - 1, 0],
+            [output_size - 1, output_size - 1],
+            [0, output_size - 1]
+        ], dtype=np.float32)
+        
+        # Get perspective transform matrix
+        src_points = corners.astype(np.float32)
+        matrix = cv2.getPerspectiveTransform(src_points, dst_points)
+        
+        # Warp the image
+        warped = cv2.warpPerspective(image, matrix, (output_size, output_size))
+        
+        return warped
+    
     def publish_corners(self, corners):
         """
         Publish corners as a dictionary with chess notation.
         Corners order: A8 (top-left), H8 (top-right), H1 (bottom-right), A1 (bottom-left)
         """
         corners_dict = {
-            'A8': [int(corners[0][0]), int(corners[0][1])],
-            'H8': [int(corners[1][0]), int(corners[1][1])],
-            'H1': [int(corners[2][0]), int(corners[2][1])],
-            'A1': [int(corners[3][0]), int(corners[3][1])]
+            'H1': [int(corners[0][0]), int(corners[0][1])],
+            'A1': [int(corners[1][0]), int(corners[1][1])],
+            'A8': [int(corners[2][0]), int(corners[2][1])],
+            'H8': [int(corners[3][0]), int(corners[3][1])]
         }
         
         # Convert to JSON string and publish
         msg = String()
         msg.data = json.dumps(corners_dict)
         self.pub_corners.publish(msg)
-        
-        # self.get_logger().info('Published board corners:')
-        # for square, pos in corners_dict.items():
-        #     self.get_logger().info(f'  {square}: ({pos["x"]}, {pos["y"]})')
     
     def image_callback(self, msg):
         try:
@@ -219,25 +253,34 @@ class ChessboardBorderDetector(Node):
             cv_image = self.bridge.imgmsg_to_cv2(msg, desired_encoding='bgr8')
             
             # Detect corners
-            corners, output_image = self.detect_white_border_corners(cv_image)
+            outer_corners, inner_corners, output_image = self.detect_white_border_corners(cv_image)
             
-            if corners is not None:
+            if outer_corners is not None:
                 self.get_logger().info('═══════════════════════════════')
                 self.get_logger().info('CORNER DETECTION SUCCESSFUL')
                 
                 # Log corner positions
-                chess_labels = ['A8', 'H8', 'H1', 'A1']
-                for i, (corner, label) in enumerate(zip(corners, chess_labels)):
+                chess_labels = ['H1', 'A1', 'A8', 'H8']
+                for i, (corner, label) in enumerate(zip(inner_corners, chess_labels)):
                     self.get_logger().info(f'  {label}: x={corner[0]:4d}, y={corner[1]:4d}')
                 self.get_logger().info('═══════════════════════════════')
                 
                 # Publish corners to topic
-                self.publish_corners(corners)
+                self.publish_corners(inner_corners)
+                
+                # Crop and warp the board using outer corners
+                cropped_board = self.crop_and_warp_board(cv_image, outer_corners)
+                
+                # Publish cropped board
+                crop_msg = self.bridge.cv2_to_imgmsg(cropped_board, encoding='bgr8')
+                self.pub_crop.publish(crop_msg)
+                self.get_logger().info(f'Published cropped board: {cropped_board.shape[0]}x{cropped_board.shape[1]}')
+                
             else:
                 self.get_logger().warn('═══════════════════════════════')
                 self.get_logger().warn('FAILED TO DETECT 4 CORNERS')
                 self.get_logger().warn('Check debug topics for details')
-                self.get_logger().warn('Not publishing to /chess/board_corners')
+                self.get_logger().warn('Not publishing to /chess/board_corners or /board_crop')
                 self.get_logger().warn('═══════════════════════════════')
             
             # Publish final visualization
