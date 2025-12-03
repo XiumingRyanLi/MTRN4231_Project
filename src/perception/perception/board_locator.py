@@ -173,29 +173,68 @@ class ChessboardBorderDetector(Node):
         bottom = bottom[np.argsort(bottom[:, 0])]  # Sort by x
         
         return np.array([top[0], top[1], bottom[1], bottom[0]], dtype=np.int32)
-    
+        
     def indent_corners(self, corners, indent_pixels):
         """
         Indent corners inward by specified number of pixels.
+        Works correctly even when the quadrilateral is rotated.
         Corners order: top-left, top-right, bottom-right, bottom-left
         Returns corners in order: A8 (top-left), H8 (top-right), H1 (bottom-right), A1 (bottom-left)
         """
-        indented = np.zeros_like(corners)
+        indented = np.zeros_like(corners, dtype=np.float64)
         
-        # Top-left: move right and down
-        indented[0] = corners[0] + np.array([indent_pixels, indent_pixels])
-        
-        # Top-right: move left and down
-        indented[1] = corners[1] + np.array([-indent_pixels, indent_pixels])
-        
-        # Bottom-right: move left and up
-        indented[2] = corners[2] + np.array([-indent_pixels, -indent_pixels])
-        
-        # Bottom-left: move right and up
-        indented[3] = corners[3] + np.array([indent_pixels, -indent_pixels])
+        for i in range(4):
+            # Get the two edges adjacent to this corner
+            prev_idx = (i - 1) % 4
+            next_idx = (i + 1) % 4
+            
+            # Calculate edge vectors
+            edge1 = corners[i] - corners[prev_idx]  # Edge coming into this corner
+            edge2 = corners[next_idx] - corners[i]  # Edge going out of this corner
+            
+            # Normalize the edges
+            edge1_len = np.linalg.norm(edge1)
+            edge2_len = np.linalg.norm(edge2)
+            
+            if edge1_len > 0:
+                edge1_unit = edge1 / edge1_len
+            else:
+                edge1_unit = np.array([0.0, 0.0])
+                
+            if edge2_len > 0:
+                edge2_unit = edge2 / edge2_len
+            else:
+                edge2_unit = np.array([0.0, 0.0])
+            
+            # Get perpendicular inward normals (rotate 90° clockwise for inward direction)
+            # For a vector [x, y], rotating 90° clockwise gives [y, -x]
+            normal1 = np.array([edge1_unit[1], -edge1_unit[0]])
+            normal2 = np.array([edge2_unit[1], -edge2_unit[0]])
+            
+            # Average the two normals to get the bisector direction
+            bisector = normal1 + normal2
+            bisector_len = np.linalg.norm(bisector)
+            
+            if bisector_len > 0:
+                bisector_unit = bisector / bisector_len
+            else:
+                bisector_unit = np.array([0.0, 0.0])
+            
+            # Calculate how much to move along the bisector
+            # The indent distance needs to be adjusted based on the angle between edges
+            angle = np.arccos(np.clip(np.dot(edge1_unit, edge2_unit), -1.0, 1.0))
+            
+            # Avoid division by zero for very small angles
+            if abs(np.sin(angle / 2)) > 1e-6:
+                move_distance = indent_pixels / np.sin(angle / 2)
+            else:
+                move_distance = indent_pixels
+            
+            # Move the corner inward
+            indented[i] = corners[i] + bisector_unit * move_distance
         
         return indented
-    
+        
     def crop_and_warp_board(self, image, corners):
         """
         Crop and perspective-transform the board to a square image.
