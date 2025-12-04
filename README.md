@@ -104,9 +104,9 @@ This script:
 ### **Overhead Camera**
 - Set up a beam structure using square beams to create an overhang structure.
 - Have a camera mounted to the camera mount by tighening through a M3 bolt.
-image plzzzzzzzzzz
 - Connect the USBC connection to the camera
 - Slide the mount onto the beam, it is held securly with friction fit.
+![Overhead camera](images/camera.jpg)
 - Check camera enumeration:
 ```bash
 ls /dev/video*
@@ -117,7 +117,8 @@ If it shows up the camera then it is good.
 - Ensure all the links for the gripper are 3d printed
 - Fully assemble the gripper shown as:
 
-Images plzzzzzzzzzz
+
+![End effector attached](images/End_effector_attached.png)
   
 - Mount custom-designed gripper using UR5e flange adapter.
 - Upload firmware:
@@ -132,7 +133,8 @@ arduino-cli upload -p /dev/ttyACM0 ArduinoCode.ino
 - Ensure solid grounding between Arduino, UR5e controller, and sensing modules.
 - USB isolation is recommended for noise immunity.
 
-Wiring imagessssssssssssss
+![Arduino setup](images/Arduino_setup.jpg)
+
 
 ---
 
@@ -145,7 +147,9 @@ Defines transform:
 ```
 camera_frame → chessboard_frame → robot_base_frame
 ```
-Store final values in your TF broadcaster or YAML file.
+Store final values in the TF broadcaster.
+
+![Program running on pendant](images/transformed_board.jpg)
 
 ### **2. Square Mapping**
 `chess_square.py` defines coordinates of all 64 squares.
@@ -163,6 +167,7 @@ Use robot to probe:
 These define approach heights and safe drop heights.
 
 ---
+![Grooved chess piece](images/chess_piece.jpg)
 
 # 6. Running the System
 
@@ -192,6 +197,8 @@ To use a multi-window tmux interface:
 ./launch_tmux.sh
 ```
 
+Open the teach pendent and load in the program
+![Load ROS2 program on pendant](images/Load_ros2_program_on_pandent.jpg)
 ---
 
 ## 6.2 Component-Level Launch (For Debugging)
@@ -241,12 +248,15 @@ python3 gui_test.py
 
 ### **Robot not moving**
 - check in Rviz that the robot is simulated, the current position of the robot in real life is accuracte in the simulation
+![Program running on pendant](images/running_pendent.jpg)
 -    If not the same then check UR5e pandant is in automatic mode.
 -    IP mismatch between URCap → ROS driver. Run
 ```bash
 ping 192.168.0.77
 ```
 - If the robot does show up accuractely in RVIZ, check the terminal, if it shows that MoveIt is failing to find a collision-free path, look at which step did it fail at and debug arm_controller_node.cpp.
+
+
 
 ### **Camera not publishing**
 ```bash
@@ -359,6 +369,7 @@ The current servo-driven finger gripper works reliably but is highly sensitive t
 - Servo backlash introduces small error in finger positioning, pushing the chess piece out in the release movement.  
 - Some pieces are easier to pick than others depending on geometry.
 - Current chess piece consists of a small groove that allows for easy picking
+![Grooved chess piece](images/chess_piece.jpg)
 
 ### **Future Improvements**
 
@@ -372,6 +383,7 @@ Useful for metal-core or retrofitted pieces.
 - Add startup homing via limit switches or stall sensing.  
 - Smooth PWM transitions to prevent jerky motion.  
 - Install a force sensor that measure the pick up exerted by the gripper for secure pick up.
+- The gripper flanges doesn't contract and release at the same time due to friction, so the chess pieces will be moved slightly during the placing motion
 
 ---
 
@@ -389,16 +401,17 @@ Small deviations in calibration significantly impacted manipulation accuracy.
 
 ### **Issues Observed**
 - TF drift caused misaligned picks.  
-- Manual calibration consumed time.  
+- Manual calibration is required for each board offseting the white boarder to the corner position A1, A8, H1, H8 consumed time.  
 - Camera mounting inconsistencies changed board position estimates.  
 
 ### **Future Improvements**
-#### **2. Diagnostics and health monitoring**
-- Add ROS2 Diagnostics messages for vision, gripper, TF, motion state.  
+####  Diagnostics and health monitoring
+- Add ROS2 Diagnostics messages for vision, gripper, TF, motion state.
+- Add in Yolo to automatically adjust the 4 corner poses.
 - Display health indicators on the UI.  
 - Add a console panel in RViz for real-time alerts.
 
-#### . Multi-board and multi-table automation**
+#### Multi-board and multi-table automation
 Paired with an arm-mounted camera, the UR5e could act as a multi-station chess referee.
 
 **How to implement:**
@@ -417,9 +430,9 @@ Overall, these improvements map a clear pathway toward a more robust, scalable, 
 
 | Member | Contribution |
 |--------|--------------|
-| **Ryan Li** | MoveIt integration, URDF/xacro modeling, motion planning, TF integration, gripper implementation|
+| **Ryan Li** | MoveIt integration, URDF/xacro modeling, TF integration, gripper implementation|
 | **Johnnie Parris** | Vision pipeline, depth transforms, TF integration |
-| **Justin Kwok** | Game engine integration, Stockfish communication, task coordination, GUI, gripper implementation|
+| **Justin Kwok** | Game engine integration, task coordination, GUI, gripper implementation|
 
 Additional support was received in lab sessions from course staff.
 
@@ -506,11 +519,11 @@ src/
 │   ├── resource/
 │   └── test/
 │
-├── ur5e_custom_description/               # ❌ NOT USED — kept for archival only
+├── ur5e_custom_description/               # NOT USED — kept for archival only
 │   # (Old experiment — deprecated. Replaced completely by end_effector_description.)
 │
 ├── ur5e_moveit_config_custom/
-│   # ✔ This is the **actual MoveIt config used** by the robot.
+│   # This is the **actual MoveIt config used** by the robot.
 │   #   Generated using MoveIt Setup Assistant and fully customised
 │   #   to integrate the custom end-effector.
 │   ├── config/
@@ -525,7 +538,7 @@ src/
 │   └── CMakeLists.txt / package.xml
 │
 ├── ur_moveit_config_official/
-│   # ✔ Downloaded from **Universal Robots official MoveIt2 repository**.
+│   #  Downloaded from **Universal Robots official MoveIt2 repository**.
 │   #   Used as a clean, correct reference model for:
 │   #     • MoveIt Setup Assistant input  
 │   #     • URDF baseline (without our gripper)  
@@ -557,7 +570,7 @@ src/
   - Collision meshes for the gripper  
 - Generated using MoveIt Setup Assistant, starting from the official UR package above.
 
-### **❌ `ur5e_custom_description/`**
+### ** `ur5e_custom_description/`**
 - An early prototype.
 - No longer used in MoveIt or any launch files.
 - Kept only for documentation and archival reasons.
