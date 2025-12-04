@@ -50,6 +50,10 @@ pip install numpy opencv-python Pillow pyyaml scipy
 - Stockfish (included in `stockfish/` folder)
 - No external installation needed
 
+### ** Computer Vision**
+- Open CV
+- Realsense Camera3 Module
+  
 ### **Microcontroller**
 - Arduino IDE OR arduino-cli for uploading the end-effector firmware
 
@@ -111,7 +115,10 @@ If it shows up the camera then it is good.
 
 ### **End-Effector / Gripper**
 - Ensure all the links for the gripper are 3d printed
-- 
+- Fully assemble the gripper shown as:
+
+Images plzzzzzzzzzz
+  
 - Mount custom-designed gripper using UR5e flange adapter.
 - Upload firmware:
 ```bash
@@ -124,6 +131,8 @@ arduino-cli upload -p /dev/ttyACM0 ArduinoCode.ino
 ### **Electrical**
 - Ensure solid grounding between Arduino, UR5e controller, and sensing modules.
 - USB isolation is recommended for noise immunity.
+
+Wiring imagessssssssssssss
 
 ---
 
@@ -171,9 +180,10 @@ From project root:
 
 This launches:
 - UR5e driver  
-- MoveIt planning pipeline and RViz
-- Perception stack  
-- Brain node + Stockfish  
+- MoveIt planner, UR Driver controller and RViz
+- Perception stack
+- Brain node to coordinate tasks
+- Chess master node that runs Stockfish  
 - GUI  
 
 To use a multi-window tmux interface:
@@ -230,18 +240,21 @@ python3 gui_test.py
 ## 6.4 Troubleshooting Guide
 
 ### **Robot not moving**
-- check in Rviz that the robot is simulated 
-- UR5e not in Remote Control mode.
-- IP mismatch between URCap → ROS driver.
-- MoveIt failing to find a collision-free path.
+- check in Rviz that the robot is simulated, the current position of the robot in real life is accuracte in the simulation
+-    If not the same then check UR5e pandant is in automatic mode.
+-    IP mismatch between URCap → ROS driver. Run
+```bash
+ping 192.168.0.77
+```
+- If the robot does show up accuractely in RVIZ, check the terminal, if it shows that MoveIt is failing to find a collision-free path, look at which step did it fail at and debug arm_controller_node.cpp.
 
 ### **Camera not publishing**
 ```bash
 ros2 topic list | grep image
 ```
 If no result appears:
-- Missing drivers  
-- USB bandwidth exceeded  
+- Missing drivers --> install realsense camera driver
+- 
 
 ### **Squares misaligned**
 - Open Rviz and add a image topic
@@ -293,7 +306,7 @@ Depth data helps differentiate between squares, detect piece height, and resolve
 - Project depth centroids into the chessboard coordinate frame.
 
 #### **3. Arm-mounted camera for mobile scanning**  
-Mounting the camera on the UR5e wrist allows the robot to reposition for a better view.
+Mounting the camera on the UR5e wrist allows the robot to reposition for more complexed operations.
 
 **Long-term capability:**
 - Scan multiple chessboards on different tables using a single camera.  
@@ -343,31 +356,22 @@ Using live perception to update MoveIt’s planning scene reduces accidental bum
 The current servo-driven finger gripper works reliably but is highly sensitive to alignment and tolerances:
 
 - Minor calibration drift affects grasp consistency.  
-- Servo backlash introduces small error in finger positioning.  
+- Servo backlash introduces small error in finger positioning, pushing the chess piece out in the release movement.  
 - Some pieces are easier to pick than others depending on geometry.
+- Current chess piece consists of a small groove that allows for easy picking
 
 ### **Future Improvements**
 
 #### **1. Suction-based gripper**
 Ideal for flat-top pieces and independent of rotational alignment.
 
-**How to implement:**
-- Add a micro-pump and solenoid valve.  
-- Integrate vacuum pressure sensor for grasp verification.  
-- Update gripper action server to support suction/venting commands.
-
 #### **2. Hybrid magnetic + mechanical design**
 Useful for metal-core or retrofitted pieces.
 
-**How to implement:**
-- Embed neodymium magnet in the finger pad area.  
-- Use servo fingers primarily for stabilisation.
-
 #### **3. Improved servo calibration**
-**How to implement:**
 - Add startup homing via limit switches or stall sensing.  
 - Smooth PWM transitions to prevent jerky motion.  
-- Tune servo speeds per piece type.
+- Install a force sensor that measure the pick up exerted by the gripper for secure pick up.
 
 ---
 
@@ -389,21 +393,12 @@ Small deviations in calibration significantly impacted manipulation accuracy.
 - Camera mounting inconsistencies changed board position estimates.  
 
 ### **Future Improvements**
-
-#### **1. Automated calibration and TF correction**
-**How to implement:**
-1. Place 2–4 ArUco markers around the board.  
-2. Use perception to solve board pose automatically.  
-3. Compute `camera → chessboard` transform at runtime.  
-4. Apply periodic recalibration to minimise drift.
-
 #### **2. Diagnostics and health monitoring**
-**How to implement:**
 - Add ROS2 Diagnostics messages for vision, gripper, TF, motion state.  
 - Display health indicators on the UI.  
 - Add a console panel in RViz for real-time alerts.
 
-#### **3. Multi-board and multi-table automation**
+#### . Multi-board and multi-table automation**
 Paired with an arm-mounted camera, the UR5e could act as a multi-station chess referee.
 
 **How to implement:**
@@ -422,8 +417,8 @@ Overall, these improvements map a clear pathway toward a more robust, scalable, 
 
 | Member | Contribution |
 |--------|--------------|
-| **Ryan Li** | MoveIt integration, URDF/xacro modeling, motion planning, system bring-up, TF integration, gripper implementation|
-| **Johnnie Parris** | Vision pipeline, depth transforms, perception → TF integration |
+| **Ryan Li** | MoveIt integration, URDF/xacro modeling, motion planning, TF integration, gripper implementation|
+| **Johnnie Parris** | Vision pipeline, depth transforms, TF integration |
 | **Justin Kwok** | Game engine integration, Stockfish communication, task coordination, GUI, gripper implementation|
 
 Additional support was received in lab sessions from course staff.
@@ -609,5 +604,6 @@ src/
 ---
 
     
+
 
 
