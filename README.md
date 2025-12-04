@@ -3,18 +3,38 @@
 2. Project Overview:
    -video
 
-3. System Architecture:
-   - package level architecture diagram
+---
+
+# 3. System Architecture:
+
+This section outlines the architecture of our system. It also includes behaviour tree, a description for each node in the system and explanations on custom message type interfaces.   
+
+---
+
+## 3.1 package level architecture diagram
    - behaviour tree showing closed loop
    - description of each node
-   - custom message interface explainations
+   - custom message interface explanations
 
-4. Technical Components:
+---
+
+# 4. Technical Components:
    - Computer Vision:
    - Custom End-Effector:
    - System Visualisation:
-   - Closed-Loop Operation:
-  
+
+### Closed-Loop Operation:
+
+(will update)
+
+First, the camera is constantly detecting the board’s location. So even if the board is shifted slightly, the system automatically recalibrates and updates the coordinates of all pieces.
+
+Next, the system detects every chess pieces and tracks their changes between moves. This allows it to confirm whether a move has occurred—both from the user or from the robot itself. 
+
+Finally, the chess game state is always kept up to date. Every detected move is applied to the internal game model, which allows the robot to accurately calculate its next response based on the current state of the game.
+
+Together, these three elements form the closed-loop: the robot acts, perception measures the real board, and the system adjusts to the game state in real time.
+
 ---
 
 # 5. Installation and Setup
@@ -50,7 +70,7 @@ pip install numpy opencv-python Pillow pyyaml scipy
 - Stockfish (included in `stockfish/` folder)
 - No external installation needed
 
-### ** Computer Vision**
+### **Computer Vision**
 - Open CV
 - Realsense Camera3 Module
   
