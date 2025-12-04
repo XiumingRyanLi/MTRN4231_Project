@@ -13,7 +13,7 @@ tmux has-session -t "$SESSION" 2>/dev/null && tmux kill-session -t "$SESSION"
 # Window 0: RealSense Camera
 # =========================
 tmux new-session -d -s "$SESSION" -n realsense \
-  "bash -lc '$ROS_SETUP; ros2 launch realsense2_camera rs_launch.py enable_color:=true rgb_camera.color_profile:=1920x1080x30; exec bash'"
+  # "bash -lc '$ROS_SETUP; ros2 launch realsense2_camera rs_launch.py enable_color:=true rgb_camera.color_profile:=1920x1080x30; exec bash'"
 sleep 5
 # =========================
 # Window 1: Perception + UI + Brain + Master

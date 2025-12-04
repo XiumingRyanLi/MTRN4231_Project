@@ -64,7 +64,7 @@ class ChessboardBorderDetector(Node):
         
         # Threshold to isolate white border
         # Adjust threshold values based on lighting conditions
-        _, thresh = cv2.threshold(blurred, 160, 255, cv2.THRESH_BINARY)
+        _, thresh = cv2.threshold(blurred, 170, 255, cv2.THRESH_BINARY)
         self.get_logger().debug(f'Applied threshold, white pixels: {np.count_nonzero(thresh)}')
         
         # Publish threshold image
@@ -81,13 +81,32 @@ class ChessboardBorderDetector(Node):
         morph_msg = self.bridge.cv2_to_imgmsg(thresh, encoding='mono8')
         self.pub_morph.publish(morph_msg)
         
-        # Find contours
-        contours, _ = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+        # Find contours (compatible with OpenCV 3.x and 4.x)
+        contours_result = cv2.findContours(thresh, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+        # OpenCV 4.x returns (contours, hierarchy)
+        # OpenCV 3.x returns (image, contours, hierarchy)
+        if len(contours_result) == 2:
+            contours, _ = contours_result
+        else:
+            _, contours, _ = contours_result
+        
         self.get_logger().info(f'Found {len(contours)} contours')
         
-        # Draw all contours for debugging
+        # Additional debugging info
+        if len(contours) == 0:
+            self.get_logger().warn('Zero contours detected despite threshold image looking good!')
+            self.get_logger().warn(f'Threshold image stats: min={np.min(thresh)}, max={np.max(thresh)}, '
+                                  f'white_pixels={np.count_nonzero(thresh)}, '
+                                  f'shape={thresh.shape}, dtype={thresh.dtype}')
+        
+        # Draw all contours for debugging - ONLY if contours exist
         contour_debug = image.copy()
-        cv2.drawContours(contour_debug, contours, -1, (0, 255, 0), 2)
+        if len(contours) > 0:
+            cv2.drawContours(contour_debug, contours, -1, (0, 255, 0), 2)
+        else:
+            # Add text overlay indicating no contours found
+            cv2.putText(contour_debug, "NO CONTOURS DETECTED", (50, 50),
+                       cv2.FONT_HERSHEY_SIMPLEX, 1, (0, 0, 255), 2)
         contour_msg = self.bridge.cv2_to_imgmsg(contour_debug, encoding='bgr8')
         self.pub_contours.publish(contour_msg)
         
@@ -119,8 +138,18 @@ class ChessboardBorderDetector(Node):
             # Sort corners: top-left, top-right, bottom-right, bottom-left
             corners = self.order_corners(corners)
             
-            # Calculate indented corners (20 pixels inward)
+            # Calculate indented corners (90 pixels inward)
             indented_corners = self.indent_corners(corners, 90)
+            
+            # Validate indented corners
+            if np.any(np.isnan(indented_corners)) or np.any(np.isinf(indented_corners)):
+                self.get_logger().error('Invalid indented corners (NaN or Inf detected)!')
+                self.get_logger().error(f'Original corners: {corners}')
+                self.get_logger().error(f'Indented corners: {indented_corners}')
+                return None, None, image
+            
+            # Convert to integer coordinates
+            indented_corners = indented_corners.astype(np.int32)
             
             # Draw on output image
             output = image.copy()
@@ -136,13 +165,16 @@ class ChessboardBorderDetector(Node):
             
             # Draw inner square (indented border)
             inner_contour = indented_corners.reshape((-1, 1, 2))
-            cv2.drawContours(output, [inner_contour], 0, (255, 0, 0), 2)
+            if len(inner_contour) > 0:
+                cv2.drawContours(output, [inner_contour], 0, (255, 0, 0), 2)
             
             # Draw inner corners with chess notation
             chess_labels = ['H1', 'A1', 'A8', 'H8']
             for i, (corner, label) in enumerate(zip(indented_corners, chess_labels)):
-                cv2.circle(output, tuple(corner), 8, (255, 0, 255), -1)
-                cv2.putText(output, label, tuple(corner - np.array([10, 20])), 
+                corner_tuple = tuple(corner.astype(int))
+                cv2.circle(output, corner_tuple, 8, (255, 0, 255), -1)
+                text_pos = tuple((corner - np.array([10, 20])).astype(int))
+                cv2.putText(output, label, text_pos, 
                            cv2.FONT_HERSHEY_SIMPLEX, 0.6, (255, 255, 0), 2)
             
             self.get_logger().info('✓ Successfully detected 4 corners!')
@@ -151,10 +183,11 @@ class ChessboardBorderDetector(Node):
             self.get_logger().warn(f'Polygon has {len(approx)} points, need exactly 4')
             # Draw the approximation anyway for debugging
             output = image.copy()
-            cv2.drawContours(output, [approx], 0, (0, 255, 255), 3)
-            for point in approx:
-                pt = tuple(point[0])
-                cv2.circle(output, pt, 8, (255, 0, 255), -1)
+            if len(approx) > 0:
+                cv2.drawContours(output, [approx], 0, (0, 255, 255), 3)
+                for point in approx:
+                    pt = tuple(point[0])
+                    cv2.circle(output, pt, 8, (255, 0, 255), -1)
             return None, None, output
     
     def order_corners(self, corners):
@@ -179,9 +212,12 @@ class ChessboardBorderDetector(Node):
         Indent corners inward by specified number of pixels.
         Works correctly even when the quadrilateral is rotated.
         Corners order: top-left, top-right, bottom-right, bottom-left
-        Returns corners in order: A8 (top-left), H8 (top-right), H1 (bottom-right), A1 (bottom-left)
+        Returns corners in order: H1, A1, A8, H8
         """
         indented = np.zeros_like(corners, dtype=np.float64)
+        
+        self.get_logger().debug(f'Indenting corners by {indent_pixels} pixels')
+        self.get_logger().debug(f'Input corners: {corners}')
         
         for i in range(4):
             # Get the two edges adjacent to this corner
@@ -196,20 +232,24 @@ class ChessboardBorderDetector(Node):
             edge1_len = np.linalg.norm(edge1)
             edge2_len = np.linalg.norm(edge2)
             
+            self.get_logger().debug(f'Corner {i}: edge1_len={edge1_len:.2f}, edge2_len={edge2_len:.2f}')
+            
             if edge1_len > 0:
                 edge1_unit = edge1 / edge1_len
             else:
                 edge1_unit = np.array([0.0, 0.0])
+                self.get_logger().warn(f'Corner {i}: edge1 has zero length!')
                 
             if edge2_len > 0:
                 edge2_unit = edge2 / edge2_len
             else:
                 edge2_unit = np.array([0.0, 0.0])
+                self.get_logger().warn(f'Corner {i}: edge2 has zero length!')
             
-            # Get perpendicular inward normals (rotate 90° clockwise for inward direction)
-            # For a vector [x, y], rotating 90° clockwise gives [y, -x]
-            normal1 = np.array([edge1_unit[1], -edge1_unit[0]])
-            normal2 = np.array([edge2_unit[1], -edge2_unit[0]])
+            # Get perpendicular inward normals (rotate 90° counter-clockwise for inward direction)
+            # For a vector [x, y], rotating 90° counter-clockwise gives [-y, x]
+            normal1 = np.array([-edge1_unit[1], edge1_unit[0]])
+            normal2 = np.array([-edge2_unit[1], edge2_unit[0]])
             
             # Average the two normals to get the bisector direction
             bisector = normal1 + normal2
@@ -219,6 +259,7 @@ class ChessboardBorderDetector(Node):
                 bisector_unit = bisector / bisector_len
             else:
                 bisector_unit = np.array([0.0, 0.0])
+                self.get_logger().warn(f'Corner {i}: bisector has zero length!')
             
             # Calculate how much to move along the bisector
             # The indent distance needs to be adjusted based on the angle between edges
@@ -229,10 +270,16 @@ class ChessboardBorderDetector(Node):
                 move_distance = indent_pixels / np.sin(angle / 2)
             else:
                 move_distance = indent_pixels
+                self.get_logger().warn(f'Corner {i}: angle too small, using default move distance')
+            
+            self.get_logger().debug(f'Corner {i}: angle={np.degrees(angle):.2f}°, move_distance={move_distance:.2f}')
             
             # Move the corner inward
             indented[i] = corners[i] + bisector_unit * move_distance
+            
+            self.get_logger().debug(f'Corner {i}: {corners[i]} -> {indented[i]}')
         
+        self.get_logger().debug(f'Output indented corners: {indented}')
         return indented
         
     def crop_and_warp_board(self, image, corners):
@@ -328,6 +375,8 @@ class ChessboardBorderDetector(Node):
             
         except Exception as e:
             self.get_logger().error(f'Error processing image: {str(e)}')
+            import traceback
+            self.get_logger().error(traceback.format_exc())
 
 
 def main(args=None):

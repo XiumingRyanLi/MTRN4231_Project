@@ -24,7 +24,7 @@ HOME_HEIGHT = 650
 
 # Define pieces height
 KING_HEIGHT = 177.0
-PAWN_HEIGHT = 151.4
+PAWN_HEIGHT = 151.85
 
 
 class TaskCoordinator(Node):
@@ -114,12 +114,12 @@ class TaskCoordinator(Node):
             
             # Coordinates come in meters from board_locator, convert to millimeters
             # to match existing code format
-            self.A1 = (corners_data['A1']['x'], corners_data['A1']['y'])
-            self.H1 = (corners_data['H1']['x'], corners_data['H1']['y'])
-            self.A8 = (corners_data['A8']['x'], corners_data['A8']['y'])
-            self.H8 = (corners_data['H8']['x'], corners_data['H8']['y'])
+            self.A1 = (corners_data['A1']['x']*1000, corners_data['A1']['y']*1000)
+            self.H1 = (corners_data['H1']['x']*1000, corners_data['H1']['y']*1000)
+            self.A8 = (corners_data['A8']['x']*1000, corners_data['A8']['y']*1000)
+            self.H8 = (corners_data['H8']['x']*1000, corners_data['H8']['y']*1000)
             
-            self.get_logger().info(f"Received board corners: A1={self.A1}, H1={self.H1}, A8={self.A8}, H8={self.H8}")
+            #self.get_logger().info(f"Received board corners: A1={self.A1}, H1={self.H1}, A8={self.A8}, H8={self.H8}")
         except Exception as e:
             self.get_logger().error(f"Error parsing board corners: {str(e)}")
 
