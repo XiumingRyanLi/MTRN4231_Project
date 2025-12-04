@@ -1,20 +1,143 @@
 1. Table of Contents:
 
 2. Project Overview:
-   -video
+
+### Video Demonstration
+[Demo video](https://drive.google.com/file/d/12D7yRUQ7zP9_5kHSG2tsbPRO5HvzOLBO/view?usp=sharing)
 
 ---
 
 # 3. System Architecture:
 
-This section outlines the architecture of our system. It also includes behaviour tree, a description for each node in the system and explanations on custom message type interfaces.   
+This section outlines the architecture of our system. It also includes behaviour tree, a description for each node in the system and explanations on custom message type interfaces.
+
+## 3.1 Architecture Diagrams
+- Diagram of active nodes (Generated using rqt_graph)
+![rqt_graph](images/rosgraph.png)
+- A package-level architecture diagram showing node interactions and topics
+![package-level architecture diagram](images/architecture_diagram.png)
+
+## 3.2 State Diagram
+
+- State diagram of closed-loop system behaviour
+![state diagram](images/state_diagram.png)
+
+## 3.2.5 Transformation Tree
+
+- Transformation tree diagram (Generated using tf view_frames)
+![tf tree diagram](images/tf_graph.png)
+
+## 3.3 Description of each node
+
+The following section provides a brief description of the function of each active node when running the chess bot.
+
+### Task Coordinator
+
+The Task Coordinator is the central decision-making node that orchestrates the entire chess-playing pipeline. It receives detected moves from perception and validated moves from the chess master. Based on the current game phase, it determines whether the user or robot is acting next. During the robot’s turn, it sequences all actions required to execute a move—issuing pick-and-place goals to the arm controller, triggering the gripper controller, and monitoring perception feedback to verify successful execution. The task coordinator ensures smooth progression of the game by synchronizing perception, planning, manipulation, and UI interaction into one coherent control loop.
+
+### User Interface
+
+The User Interface node provides a manual interaction point for operators. It displays the current game state using SVG, shows status/debug messages from chess master, and allows users to input backup moves when perception fails. It publishes user-confirmed moves and robot-move acknowledgements, ensuring the system can continue operating even under uncertain perception conditions.
+
+### Chess Master
+
+The Chess Master node maintains the internal chess engine and game state. It validates detected moves using Python-Chess, queries Stockfish for the robot’s next move, and publishes legal move decisions to the task coordinator. It also returns game status information (e.g., check, checkmate, illegal move) for display in the UI and for overall mission logic.
+
+### Board Locator
+
+The Board Locator node identifies the chessboard’s four corner coordinates in the camera image. It receives raw RealSense frames, detects the board region, and outputs both the cropped board image and the corner coordinates in image space. These coordinates are critical for generating accurate occupancy grids and mapping camera data to physical board geometry.
+
+### Board Transformer
+
+The Board Transformer converts chessboard corner coordinates from image space into real-world coordinates expressed in the robot’s base frame. Using known camera intrinsics, depth information, and TF transforms, it produces precise board geometry for downstream nodes such as the state comparison and arm controller.
+
+### State Detector
+
+The State Detector node analyzes the cropped chessboard image and generates an 8×8 occupancy grid describing which squares contain pieces. It performs color segmentation, square analysis, and piece presence detection, publishing the resulting board occupancy for comparison against previous game states.
+
+### State Comparison
+
+The State Comparison node receives the latest occupancy grid and compares it with the previously known board. From this difference, it identifies a player move (origin and destination square). It publishes the detected move to the chess master and flags potential illegal or ambiguous moves for corrective action.
+
+### Arm Controller
+
+The Arm Controller node serves as the motion interface for the UR5e robot. It accepts high-level pick-and-place goals from the task coordinator, uses MoveIt to plan collision-free trajectories, and executes them via the UR driver. It abstracts away joint control and ensures the robot reaches the correct pose for selecting up, carrying, and placing chess pieces.
+
+### Gripper Controller
+
+The Gripper Controller node provides the command interface for the Arduino-based gripper mechanism. It sends open/close commands over a serial connection and receives execution feedback. It exposes a ROS2 action interface, allowing the task coordinator to reliably synchronize gripping with arm motions during piece manipulation.
+
+## 3.4 Custom interfaces
+
+This section explains all custom message types or interfaces used in this project
+
+### GripperCommand.action
+```
+# Goal
+bool    close        # true=close, false=open
+float64 effort       # N (0.0 if not used)
 
 ---
+# Result
+bool   success
+string message
 
-## 3.1 package level architecture diagram
-   - behaviour tree showing closed loop
-   - description of each node
-   - custom message interface explanations
+---
+# Feedback
+float64 progress_percent
+string  stage
+```
+
+The GripperCommand action defines the high-level interface used by the task coordinator to control the robot’s gripper during pick-and-place operations. Its Goal contains two fields: close, a boolean specifying whether the gripper should close (true) or open (false), and effort, an optional force parameter expressed in Newtons (typically set to 0.0 in this project since the force control isn't utilised). When a command is sent, the gripper controller begins executing the motion and continuously publishes Feedback messages consisting of progress_percent, indicating how far the action has progressed (0–100%), and stage, a textual description of the current phase of the operation (i.e., "verifying" / "executing"). After the motion finishes or times out, the controller returns a Result containing a success flag and a descriptive message explaining the outcome.
+
+### MoveTCP.action
+```
+# Goal
+geometry_msgs/PoseStamped pick_pose
+
+---
+# Result
+bool   success
+string message
+
+---
+# Feedback
+float64 progress_percent
+string  stage
+```
+
+The MoveTCP action provides the high-level motion interface used by the task coordinator to command the UR5e arm to move its Tool Center Point (TCP) to a specified pose in the robot’s workspace. The Goal contains a single field, pick_pose, which is a geometry_msgs/PoseStamped specifying the desired end-effector position and orientation in a particular reference frame (usually base_link or the calibrated board frame). When this goal is sent, the arm controller uses MoveIt to plan a collision-free trajectory toward the target pose and begins execution. Throughout the motion, the controller publishes Feedback messages including a progress_percent value (0–100%) that indicates how much of the planned trajectory has been executed, along with a stage string describing the current phase of movement (i.e., "planning_lift", "planning_approach", "planning_descend", "done"). After the motion completes, the Result reports whether the movement succeeded and includes a descriptive message that may indicate success, planning failures, unreachable poses, or execution problems. This action encapsulates the entire TCP motion process—planning, executing, monitoring, and reporting—so that higher-level nodes can request precise end-effector poses without handling low-level kinematics or trajectory control directly.
+
+
+### ChessMove.srv
+```
+string user_move
+---
+string robot_move
+bool is_user_piece_tall
+bool is_en_passant
+bool is_capture
+bool is_castling
+bool is_promotion
+bool is_tall_piece_from
+bool is_tall_piece_to
+bool is_illegal
+```
+The ChessMove service defines the communication interface between the chess logic inside the Chess Master node and the Task Coordinator. The request contains a single field, user_move, which is the algebraic move string extracted from the camera-based board comparison (e.g., "e2e4"). When the service is called, the Chess Master validates this user move, updates its internal game state, and determines the robot's response. The response includes robot_move, the engine-generated reply move using Stockfish, and several boolean flags describing the nature of the move. These flags indicate whether special handling is required:
+
+`is_user_piece_tall` — whether the human moved a tall piece (i.e., king, or queen), which affects gripping height.
+
+`is_en_passant` — whether the robot must execute an en passant.
+
+`is_capture` — whether the robot must remove an opponent piece.
+
+`is_castling` — whether the robot must perform castling.
+
+`is_promotion` — whether the robot must replace a pawn with a promoted piece.
+
+`is_tall_piece_from` / `is_tall_piece_to` — whether the robot’s own move starts or ends on a square containing a tall piece (affecting approach trajectories).
+
+`is_illegal` — whether the detected user move is invalid so the system can command a move back correction.
 
 ---
 
@@ -23,17 +146,13 @@ This section outlines the architecture of our system. It also includes behaviour
    - Custom End-Effector:
    - System Visualisation:
 
-### Closed-Loop Operation:
+### Closed-Loop Operation
 
-(will update)
+The system operates as a closed-loop control system by continuously feeding perception back into decision-making. 
 
-First, the camera is constantly detecting the board’s location. So even if the board is shifted slightly, the system automatically recalibrates and updates the coordinates of all pieces.
+The RealSense camera constantly feeds image to board locator and board transformer, allowing them to always monitor the chessboard. They continuously recalculates the board corners and square positions whenever the board shifts, so all piece coordinates stay accurate even if the physical setup moves slightly. Also, the state detector generates an updated 8×8 occupancy grid after each stable frame, and the state comparison node tracks how this grid changes over time to infer moves made by either the user or the robot. Every detected move is applied to the internal chess model in the Chess Master node, so the game state in software always reflects the real board on the table. 
 
-Next, the system detects every chess pieces and tracks their changes between moves. This allows it to confirm whether a move has occurred—both from the user or from the robot itself. 
-
-Finally, the chess game state is always kept up to date. Every detected move is applied to the internal game model, which allows the robot to accurately calculate its next response based on the current state of the game.
-
-Together, these three elements form the closed-loop: the robot acts, perception measures the real board, and the system adjusts to the game state in real time.
+This live feedback allows the robot’s future behaviour (its next move and motion plan) to always be based on the current state of the chess board.
 
 ---
 
@@ -41,18 +160,16 @@ Together, these three elements form the closed-loop: the robot acts, perception 
 
 This section explains how to install dependencies, build the workspace, configure the hardware, and prepare the system for running a full chess-playing session with the UR5e robot.
 
----
-
 ## 5.1 Software Prerequisites
 
 The system has been tested on the following stack:
 
 ### **Operating System**
-- Ubuntu 22.04 LTS  
+- Ubuntu 22.04 LTS (or any Ubuntu 22.04-based distros)
 - Real-time kernel NOT required
 
 ### **Robotics Framework**
-- ROS 2 Humble Hawksbill  
+- Desktop Install of [ROS 2 Humble Hawksbill](https://docs.ros.org/en/humble/Installation/Ubuntu-Install-Debs.html)
 - MoveIt 2 (installed through apt)
 
 ### **Development Tools**
@@ -72,25 +189,24 @@ pip install numpy opencv-python Pillow pyyaml scipy
 
 ### **Computer Vision**
 - Open CV
-- Realsense Camera3 Module
+- Realsense Camera2 Module
   
 ### **Microcontroller**
 - Arduino IDE OR arduino-cli for uploading the end-effector firmware
 
----
 
 ## 5.2 Cloning and Building the Workspace
 
 ```bash
 # Create workspace
-mkdir -p ~/mtrn4231_ws/src
-cd ~/mtrn4231_ws/src
+mkdir -p ~/mtrn4231_ws/
+cd ~/mtrn4231_ws/
 
 # Clone project
 git clone <repo-url> chess_robot
 
 # Build
-cd ~/mtrn4231_ws
+cd ~/mtrn4231_ws/chess_robot
 colcon build --symlink-install
 
 # Source the environment
@@ -100,17 +216,14 @@ source install/setup.bash
 Alternatively, the project includes a helper script:
 
 ```bash
-cd chess_robot
+cd ~/mtrn4231_ws/chess_robot
 ./environment_setup.sh
 ```
 
 This script:
-- Installs required Python dependencies  
-- Builds the ROS workspace  
-- Sets up Stockfish paths  
-- Automatically sources your ROS environment  
-
----
+- Installs APT dependencies
+- Installs required Python packages  
+- Make Stockfish executable
 
 ## 5.3 Hardware Setup
 
@@ -126,7 +239,8 @@ This script:
 - Have a camera mounted to the camera mount by tighening through a M3 bolt.
 - Connect the USBC connection to the camera
 - Slide the mount onto the beam, it is held securly with friction fit.
-![Overhead camera](images/camera.jpg)
+<img src="images/camera.jpg" width="700">
+<!-- ![Overhead camera](images/camera.jpg) -->
 - Check camera enumeration:
 ```bash
 ls /dev/video*
@@ -137,8 +251,8 @@ If it shows up the camera then it is good.
 - Ensure all the links for the gripper are 3d printed
 - Fully assemble the gripper shown as:
 
-
-![End effector attached](images/End_effector_attached.png)
+<img src="images/End_effector_attached.png" width="600">
+<!-- ![End effector attached](images/End_effector_attached.png) -->
   
 - Mount custom-designed gripper using UR5e flange adapter.
 - Upload firmware:
@@ -152,11 +266,11 @@ arduino-cli upload -p /dev/ttyACM0 ArduinoCode.ino
 ### **Electrical**
 - Ensure solid grounding between Arduino, UR5e controller, and sensing modules.
 - USB isolation is recommended for noise immunity.
+- Connect signal to D9 pin
 
-![Arduino setup](images/Arduino_setup.jpg)
+<img src="images/Arduino_setup.jpg" width="600">
+<!-- ![Arduino setup](images/Arduino_setup.jpg) -->
 
-
----
 
 ## 5.4 System Calibration
 
@@ -171,56 +285,62 @@ Store final values in the TF broadcaster.
 
 ![Program running on pendant](images/transformed_board.jpg)
 
-### **2. Square Mapping**
-`chess_square.py` defines coordinates of all 64 squares.
+### **2. Z-Height Calibration**
+Use robot to probe:
+- Height of tall pieces (Kings and queens)  
+- Top of board surface
 
-If board is moved or scaled, update values:
+Update values in brain/coordinator.py:
 ```python
-square_coords["e4"] = [x, y, z]
+# Define pieces height
+KING_HEIGHT = 177.0
+PAWN_HEIGHT = 151.85
 ```
 
-### **3. Z-Height Calibration**
-Use robot to probe:
-- Top of board surface  
-- Top of tallest piece  
+Feel free to change where the robot discard chess pieces:
+```python
+# DISCARD/HOME coords
+DISCARD_COORDS = (353.3, 138.1)
+DISCARD_HEIGHT = 240
+HOME_HEIGHT = 650
+```
 
 These define approach heights and safe drop heights.
 
+<!-- <img src="images/chess_piece.jpg" width="400"> -->
+<!-- ![Grooved chess piece](images/chess_piece.jpg) -->
+
 ---
-![Grooved chess piece](images/chess_piece.jpg)
 
 # 6. Running the System
 
 This section describes how to launch, test, and interact with the full chess-robot pipeline.
-
----
 
 ## 6.1 Full-System Launch
 
 From project root:
 
 ```bash
-./tmux_launch.sh
-```
-
-This launches:
-- UR5e driver  
-- MoveIt planner, UR Driver controller and RViz
-- Perception stack
-- Brain node to coordinate tasks
-- Chess master node that runs Stockfish  
-- GUI  
-
-To use a multi-window tmux interface:
-
-```bash
 ./launch_tmux.sh
 ```
 
-Open the teach pendent and load in the program
-![Load ROS2 program on pendant](images/Load_ros2_program_on_pandent.jpg)
----
+This launches:
+- Realsense camera driver
+- UR5e driver  
+- MoveIt planner, UR Driver controller and RViz
+- Perception stack
+- Task coordinator node to coordinate tasks
+- Chess master node that runs Stockfish  
+- GUI
 
+Open the teach pendent and load in the program
+<img src="images/Load_ros2_program_on_pandent.jpg" width="800">
+<!-- ![Load ROS2 program on pendant](images/Load_ros2_program_on_pandent.jpg) -->
+
+To kill terminate all nodes:
+```bash
+tmux kill-session -t chessbot
+```
 ## 6.2 Component-Level Launch (For Debugging)
 
 ### **Terminal 1 — MoveIt + UR5e Control**
@@ -233,25 +353,23 @@ ros2 launch <moveit_package> moveit_rviz.launch.py
 ros2 run preception chess_detector
 ```
 
-### **Terminal 3 — Game Coordinator**
+### **Terminal 3 — Task Coordinator + Chess Master**
 ```bash
-ros2 run task_coordinator coordinator.py
+ros2 run brain coordinator
 ```
 
 ### **Terminal 4 — GUI**
 ```bash
-python3 gui_test.py
+ros2 run ui user_interface
 ```
-
----
 
 ## 6.3 What Should Happen During Execution
 
 - RViz displays live UR5e joint states.
 - Vision node detects board grid and pieces.
 - GUI shows:
-  - Board state  
-  - Current turn  
+  - Board state
+  - Status output
    
 
 ### **When a move is executed:**
@@ -262,13 +380,12 @@ python3 gui_test.py
 5. Vision system double-checks placement.
 6. Game state updates.
 
----
-
 ## 6.4 Troubleshooting Guide
 
 ### **Robot not moving**
 - check in Rviz that the robot is simulated, the current position of the robot in real life is accuracte in the simulation
-![Program running on pendant](images/running_pendent.jpg)
+<img src="images/running_pendent.jpg" width="800">
+<!-- ![Program running on pendant](images/running_pendent.jpg) -->
 -    If not the same then check UR5e pandant is in automatic mode.
 -    IP mismatch between URCap → ROS driver. Run
 ```bash
@@ -302,8 +419,6 @@ If no result appears:
 # 8. Discussion and Future Improvements
 
 Throughout development, several engineering challenges emerged across perception, motion planning, end-effector performance, and overall system integration. These areas represent strong opportunities for refinement in a future release of the chess robot platform.
-
----
 
 ## **Perception**
 
@@ -348,7 +463,6 @@ Mounting the camera on the UR5e wrist allows the robot to reposition for more co
 3. Create scanning trajectories (raster pattern or targeted waypoints).  
 4. Capture images and stitch results into a board state model.
 
----
 
 ## **Motion Planning**
 
@@ -379,8 +493,6 @@ Using live perception to update MoveIt’s planning scene reduces accidental bum
 2. Update at 5–10 Hz via the PlanningSceneInterface.  
 3. Ensure planned paths avoid dynamically placed obstacles.
 
----
-
 ## **End-Effector Performance**
 
 The current servo-driven finger gripper works reliably but is highly sensitive to alignment and tolerances:
@@ -389,7 +501,9 @@ The current servo-driven finger gripper works reliably but is highly sensitive t
 - Servo backlash introduces small error in finger positioning, pushing the chess piece out in the release movement.  
 - Some pieces are easier to pick than others depending on geometry.
 - Current chess piece consists of a small groove that allows for easy picking
-![Grooved chess piece](images/chess_piece.jpg)
+
+<img src="images/chess_piece.jpg" width="550">
+<!-- ![Grooved chess piece](images/chess_piece.jpg) -->
 
 ### **Future Improvements**
 
@@ -404,8 +518,6 @@ Useful for metal-core or retrofitted pieces.
 - Smooth PWM transitions to prevent jerky motion.  
 - Install a force sensor that measure the pick up exerted by the gripper for secure pick up.
 - The gripper flanges doesn't contract and release at the same time due to friction, so the chess pieces will be moved slightly during the placing motion
-
----
 
 ## **System Integration**
 
@@ -440,11 +552,10 @@ Paired with an arm-mounted camera, the UR5e could act as a multi-station chess r
 3. At each table, trigger a scanning routine.  
 4. Create a scheduler to manage multiple concurrent games.
 
----
+###
 
 Overall, these improvements map a clear pathway toward a more robust, scalable, and fully autonomous chess-playing robotic system that can operate across variable environments and multiple concurrent games.
 
----
 
 # 9. Contributors
 
@@ -466,19 +577,17 @@ Additional support was received in lab sessions from course staff.
 ├── stockfish/                   # Stockfish chess engine binary & weights
 ├── ArduinoCode.ino              # Gripper firmware (servo control + motion presets)
 ├── board.png                    # Calibration board image
-├── chess_square.py              # Coordinates of 64 physical board squares
+├── chess_square.py              # Test file for calculating coordinates of 64 physical board squares
 ├── environment_setup.sh         # Setup script (deps + build + env)
-├── gui_test.py                  # Standalone GUI for board visualisation
+├── gui_test.py                  # Standalone GUI test file for board visualisation
 ├── kill_all.sh                  # Terminates all ROS + python nodes
 ├── launch.sh                    # One-command full system launcher
 ├── launch_tmux.sh               # Multi-window launcher for debugging
-├── master.py                    # High-level game logic + motion sequencing
+├── master.py                    # High-level game logic + motion sequencing test file
 └── robot arm movement steps.txt # Internal motion notes for trajectory design
 ```
 
 ---
-
-# 10. Repository Structure
 
 The repository follows a modular ROS 2 workspace design. Each major subsystem
 (arm control, perception, UI, game logic, custom interfaces, etc.) is isolated
@@ -495,10 +604,10 @@ src/
 │   └── CMakeLists.txt / package.xml
 │
 ├── brain/
-│   # Placeholder for higher-level decision modules (not used heavily this term)
+│   └── brain/coordinator.py               # High-level control node handling pipeline
 │
 ├── chess_master/
-│   ├── chess_master/move_service.py       # Service node handling verified chess moves
+│   ├── chess_master/chess_master.py       # Service node handling verified chess moves
 │   ├── chess_master/__init__.py
 │   └── CMakeLists.txt / package.xml
 │
@@ -534,10 +643,7 @@ src/
 │   └── test/                              # Automated testing utilities
 │
 ├── ui/
-│   ├── ui/board_state_sub.py              # Subscribes to board_state topic
-│   ├── ui/user_interface.py               # Tkinter interface for game monitoring
-│   ├── resource/
-│   └── test/
+│   └── ui/user_interface.py               # Tkinter interface for game monitoring
 │
 ├── ur5e_custom_description/               # NOT USED — kept for archival only
 │   # (Old experiment — deprecated. Replaced completely by end_effector_description.)
@@ -569,7 +675,6 @@ src/
 └── ur5e_custom_description/                # Duplicate note: remains unused
 ```
 
----
 
 ##  Important Notes About UR Packages
 
@@ -595,14 +700,13 @@ src/
 - No longer used in MoveIt or any launch files.
 - Kept only for documentation and archival reasons.
 
----
 
 ## Summary of Package Responsibilities
 
 | Package | Purpose |
 |--------|---------|
 | `arm_controller` | Executes TCP motions, MoveIt control, action clients |
-| `brain` | High-level logic (not majorly used this term) |
+| `brain` | High-level control logic (task coordinator) |
 | `chess_master` | Validated chess move service + game coordination |
 | `custom_interfaces` | Action & service definitions (`MoveTCP`, `GripperCommand`, `ChessMove`) |
 | `end_effector_description` | URDF, meshes, and visualization for custom gripper |
@@ -614,7 +718,6 @@ src/
 | `ur5e_custom_description` | Old unused package retained for reference |
 
 
-
 # 11. References & Acknowledgements
 
 ### **Frameworks and Libraries**
@@ -623,6 +726,7 @@ src/
 - UR5e ROS 2 Driver  
 - OpenCV for vision  
 - Stockfish chess engine  
+- python-chess Python library
 
 ### **Academic Resources**
 - MTRN4231 Robotics Course Notes  

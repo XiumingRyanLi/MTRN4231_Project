@@ -24,7 +24,6 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'board_state = ui.board_state_sub:main',
             'user_interface = ui.user_interface:main'
         ],
     },

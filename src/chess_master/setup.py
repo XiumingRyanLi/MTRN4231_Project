@@ -24,7 +24,7 @@ setup(
     },
     entry_points={
         'console_scripts': [
-            'master = chess_master.move_service:main',
+            'master = chess_master.chess_master:main',
         ],
     },
 )
