@@ -129,18 +129,42 @@ class ArucoDetectorNode(Node):
         if ids is not None and len(ids) > 0:
             ids_flat = ids.flatten().tolist()
             
-            # Estimate pose for each marker
-            rvecs, tvecs, _ = cv2.aruco.estimatePoseSingleMarkers(
-                corners, 
-                self.marker_size, 
-                self.camera_matrix, 
-                self.dist_coeffs
-            )
+            # Estimate pose for each marker - handle both old and new OpenCV APIs
+            rvecs_list = []
+            tvecs_list = []
+            
+            for corner in corners:
+                # Use cv2.solvePnP for each marker (works across all OpenCV versions)
+                # Define 3D coordinates of marker corners in marker coordinate system
+                # Marker is assumed to be on XY plane (Z=0) with size marker_size
+                half_size = self.marker_size / 2.0
+                object_points = np.array([
+                    [-half_size,  half_size, 0],
+                    [ half_size,  half_size, 0],
+                    [ half_size, -half_size, 0],
+                    [-half_size, -half_size, 0]
+                ], dtype=np.float32)
+                
+                # Solve PnP to get rotation and translation vectors
+                success, rvec, tvec = cv2.solvePnP(
+                    object_points,
+                    corner,
+                    self.camera_matrix,
+                    self.dist_coeffs,
+                    flags=cv2.SOLVEPNP_IPPE_SQUARE
+                )
+                
+                if success:
+                    rvecs_list.append(rvec)
+                    tvecs_list.append(tvec)
             
             for i, marker_id in enumerate(ids_flat):
-                # Get rotation and translation vectors
-                rvec = rvecs[i][0]
-                tvec = tvecs[i][0]
+                if i >= len(rvecs_list):
+                    continue
+                    
+                # Get rotation and translation vectors and flatten them
+                rvec = rvecs_list[i].flatten()
+                tvec = tvecs_list[i].flatten()
                 
                 # Convert rotation vector to rotation matrix
                 rotation_matrix, _ = cv2.Rodrigues(rvec)
@@ -167,10 +191,14 @@ class ArucoDetectorNode(Node):
                 
                 self.pose_pub.publish(pose_msg)
                 
+                # Convert quaternion to Euler angles (roll, pitch, yaw) in degrees
+                euler = r.as_euler('xyz', degrees=True)
+                roll, pitch, yaw = euler[0], euler[1], euler[2]
+                
                 self.get_logger().info(
                     f"Marker ID {marker_id}: "
                     f"Pos=[{tvec[0]:.3f}, {tvec[1]:.3f}, {tvec[2]:.3f}]m, "
-                    f"Quat=[{quat[0]:.3f}, {quat[1]:.3f}, {quat[2]:.3f}, {quat[3]:.3f}]"
+                    f"Rot=[roll={roll:.1f}°, pitch={pitch:.1f}°, yaw={yaw:.1f}°]"
                 )
         else:
             self.get_logger().debug("No markers")
