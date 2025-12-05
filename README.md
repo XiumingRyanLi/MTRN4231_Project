@@ -231,13 +231,67 @@ The vision pipeline provides closed-loop feedback for the robot, ensuring:
 - **Special Move Recognition** — Handles castling and en passant without manual intervention
 
 This enables fully autonomous gameplay where the robot continuously monitors the physical board and responds to detected moves.
+
+
 ## 4.2 Custom End-Effector
 
-<!-- TODO: add things here -->
+The chess robot uses a custom servo-driven end effector designed specifically for handling 3D-printed chess pieces.
+
+### Mechanical Design
+
+- Three-finger linkage gripper, driven by a single hobby servo.  
+- Compact form factor to keep the tool centre point close to the flange and reduce inertial load.  
+- Fingers are shaped to enter a radial groove on each chess piece, providing repeatable contact and self-centering during grasp.  
+- All structural parts are 3D printed and can be re-printed or modified quickly for new game pieces.
+
+To support robust grasping, each chess piece was designed with an integrated circumferential groove:
+
+- The groove provides a well-defined gripping surface at a consistent height.  
+- Complex profiles such as knights, bishops, and queens can still be handled reliably, since the fingers only need to find the groove rather than a flat surface.  
+- This also allows future end-effector variants (e.g., magnetic or hybrid grippers) to reuse the same piece geometry.
+
+### Actuation and Electronics
+
+The gripper is controlled by an Arduino, which receives open/close commands from the ROS 2 gripper node over serial.
+
+- PWM output drives the servo position, with calibrated angles for **open**, **neutral**, and **closed** states.  
+- Command interface is intentionally simple (`open` / `close`) so that higher-level nodes only need to reason about grasp intent, not servo angles.  
+- Power and signal wiring follow a common ground reference with the ROS PC, and USB isolation is recommended to reduce noise.
+
+### Role in the System
+
+- Provides reliable piece pickup and placement while minimising collision risk with neighbouring pieces.  
+- The groove-based design allows the same gripper to be reused across the full set of pieces without per-piece tuning.  
+- The modular flange adapter means the tool can be swapped out in future (e.g., suction cup or hybrid gripper) with minimal changes to the rest of the stack.
+
+---
 
 ## 4.3 System Visualisation
 
-<!-- TODO: add things here -->
+System visualisation was a crucial part of development, used both for design validation and day-to-day debugging.
+
+### URDF / Xacro Model
+
+- The UR5e robot model from the official UR description package was extended with our custom gripper using Xacro.  
+- The combined model (arm + end effector) was loaded into RViz via the `end_effector_description` and `ur5e_moveit_config_custom` packages.  
+- Joint limits, collision geometry, and visual meshes were tuned so the simulated motion closely matched the physical robot.
+
+### RViz and TF Visualisation
+
+RViz was used to:
+
+- Display the live TF tree (`base_link`, `tool0`, `gripper_link`, `camera_frame`, `chessboard_frame`).  
+- Visualise the planning scene used by MoveIt, including the table and virtual board.  
+- Monitor planned trajectories before execution to catch potential collisions or singularities.  
+- Overlay the camera image stream when calibrating chessboard detection and verifying square alignment.
+
+By keeping the URDF, TF tree, and planning scene consistent between simulation and hardware, we were able to:
+
+- Check reachability of all 64 squares before running any real moves.  
+- Debug calibration issues quickly when picks were misaligned.  
+- Iterate on gripper geometry and mounting offsets without risking the physical robot.
+
+This visualisation pipeline acted as a bridge between the abstract software architecture and the real-world behaviour of the system, and it remains the primary tool for inspecting and tuning the overall setup.
 
 ## 4.4 Closed-Loop Operation
 
@@ -855,6 +909,7 @@ src/
 ---
 
     
+
 
 
 
