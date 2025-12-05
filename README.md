@@ -163,8 +163,6 @@ This section summarises the key technical elements of the system, including the 
 
 ## 4.1 Computer Vision
 
-## 4.1 Computer Vision
-
 The computer vision pipeline transforms raw camera images into actionable chess moves through three coordinated nodes: Board Locator, State Detector, and State Comparison.
 
 ### Board Locator
@@ -857,6 +855,7 @@ src/
 ---
 
     
+
 
 
 
