@@ -443,23 +443,24 @@ If no result appears:
 
 # 7. Results and Demonstration:
 
-<!-- TODO: add things here -->
+This section presents the system’s performance relative to its design goals, supported by quantitative result, output demosntration, and discussion of the robot’s robustness, adaptability, and innovative aspects.
 
 ## 7.1 System Performance
 
-<!-- TODO: add things here -->
+<!-- TODO: edit -->
 
 ## 7.2 Quantitative Results
 
-<!-- TODO: add things here -->
+<!-- TODO: edit -->
+
 
 ## 7.3 Operational Demonstration
 
-<!-- TODO: add things here -->
+<!-- TODO: edit -->
 
 ## 7.4 Robustness, Adaptability, and Innovation
 
-<!-- TODO: add things here -->
+<!-- TODO: edit -->
 
 ---
 
@@ -725,7 +726,7 @@ src/
 
 ##  Important Notes About UR Packages
 
-### ** `ur_moveit_config_official/`**
+### **`ur_moveit_config_official/`**
 - Pulled directly from the official Universal Robots MoveIt2 repository.
 - Used **only for MoveIt Setup Assistant workflows**:
   - exporting correct SRDF groups  
@@ -733,7 +734,7 @@ src/
   - ensuring compatibility with UR5e URDF  
 - **Never launched during runtime** — serves as a clean reference.
 
-### ** `ur5e_moveit_config_custom/`**
+### **`ur5e_moveit_config_custom/`**
 - **The MoveIt package actually used in the project.**
 - Integrates:
   - Custom end-effector  
@@ -742,7 +743,7 @@ src/
   - Collision meshes for the gripper  
 - Generated using MoveIt Setup Assistant, starting from the official UR package above.
 
-### ** `ur5e_custom_description/`**
+### **`ur5e_custom_description/`**
 - An early prototype.
 - No longer used in MoveIt or any launch files.
 - Kept only for documentation and archival reasons.
