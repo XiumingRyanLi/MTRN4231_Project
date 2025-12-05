@@ -19,7 +19,7 @@ ChessBot combines a UR5e robotic arm, a custom gripper, and a computer-vision pi
 This robot design addresses our customer needs, providing a tactile experience of over-the-board chess while delivering the challenge and adaptability of a computer opponent.
 
 ## 2.3 Video Demonstration
-[Video Demo](https://drive.google.com/file/d/1c5ny12LSPAJMo_sHEN5k1z9A3rD4nEmV/view?usp=sharing)
+[Video Demo](https://drive.google.com/file/d/1yLkw7y4LNCeMz_NkLVMP5ToxRHmnHbvh/view?usp=sharing)
 
 ---
 
