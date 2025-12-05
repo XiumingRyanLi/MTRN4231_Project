@@ -163,8 +163,76 @@ This section summarises the key technical elements of the system, including the 
 
 ## 4.1 Computer Vision
 
-<!-- TODO: add things here -->
+## 4.1 Computer Vision
 
+The computer vision pipeline transforms raw camera images into actionable chess moves through three coordinated nodes: Board Locator, State Detector, and State Comparison.
+
+### Board Locator
+
+The Board Locator node detects the chessboard's physical boundaries by identifying the white border surrounding the playing surface.
+
+**Detection Pipeline:**
+1. **Threshold & Morphology** — Grayscale conversion followed by binary thresholding (threshold: 160) isolates the white border. Morphological closing and opening operations remove noise.
+2. **Contour Extraction** — The largest external contour is selected and approximated to a 4-point polygon representing the board corners.
+3. **Corner Indentation** — Detected corners are shifted inward by 90 pixels using bisector geometry to align with the actual playing squares (A1, A8, H1, H8).
+4. **Perspective Transform** — The board region is warped to a canonical 1200×1200 square image.
+
+**Outputs:**
+- `/chess/board_corners` — JSON mapping chess notation to pixel coordinates
+- `/board_crop` — Perspective-corrected board image
+
+### State Detector
+
+The State Detector analyzes the cropped board to generate an 8×8 occupancy grid indicating piece positions and colors.
+
+**Grid Extraction:**
+1. **Edge & Line Detection** — Canny edge detection and Hough line transform identify the board grid structure.
+2. **Square Validation** — Contours are filtered by area (2000–20000 px²) and geometry (4 corners, side length variance < 35px).
+3. **64-Square Division** — The warped board is divided into 64 equal cells with coordinates mapped back to the original image using the inverse perspective matrix.
+
+**Piece Detection:**
+- **Automatic Calibration** — On startup, the system samples BGR values from the standard chess starting position (rows 1–2 for black, rows 7–8 for white). Outlier filtering removes the top/bottom brightness extremes, and color ranges are calculated with 15-unit margins.
+- **Classification** — For each square, 12 sample points are collected in a 7-pixel radius. If >20% match a calibrated color range, the square is classified as black/white/empty.
+
+**Stability Filtering:**
+- Occupancy states are buffered with timestamps
+- New states publish only after remaining stable for 1.0 seconds
+- Prevents false detections from shadows, partial moves, or camera noise
+
+**Outputs:**
+- `/chess/occupancy` — JSON mapping cell numbers (1–64) to piece colors
+- `/chess/board_coordinates` — Pixel coordinates of all 64 squares
+
+### State Comparison
+
+The State Comparison node extracts chess moves by comparing consecutive stable occupancy grids.
+
+**Move Detection Logic:**
+- Identifies **origin squares** where pieces disappeared (occupied → empty)
+- Identifies **destination squares** where pieces appeared (empty → occupied) or changed color (captures)
+- Converts cell numbers to algebraic notation (e.g., cell 60 → "e1")
+
+**Special Move Handling:**
+- **Normal Moves** (1 origin, 1 destination) — Published as algebraic notation (e.g., "e2e4")
+- **Castling** (2 origins, 2 destinations) — Detected by matching specific king-rook movement patterns:
+  - White kingside: cells {60, 64} → {61, 62} becomes "e1c1"
+  - Black queenside: cells {1, 4} → {2, 3} becomes "e8g8"
+- **En Passant** (2 origins, 1 destination) — Validated by checking diagonal pawn movement and same-row capture
+- **Invalid Patterns** — Logged as "Unexpected move pattern" without publishing
+
+**Outputs:**
+- `/player_move` — Algebraic move string (e.g., "e2e4", "e1g1")
+
+### Contribution to Task
+
+The vision pipeline provides closed-loop feedback for the robot, ensuring:
+- **Automatic Board Registration** — No manual corner calibration required
+- **Real-Time Move Detection** — Human moves trigger immediate robot responses
+- **State Verification** — Robot actions are validated against actual board state
+- **Lighting Adaptation** — Automatic color calibration handles varied environments
+- **Special Move Recognition** — Handles castling and en passant without manual intervention
+
+This enables fully autonomous gameplay where the robot continuously monitors the physical board and responds to detected moves.
 ## 4.2 Custom End-Effector
 
 <!-- TODO: add things here -->
@@ -789,6 +857,7 @@ src/
 ---
 
     
+
 
 
 
