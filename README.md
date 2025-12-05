@@ -1,9 +1,25 @@
-1. Table of Contents:
+# 1. Table of Contents: <!-- omit in toc -->
 
-2. Project Overview:
+<!-- generate at the end, use markdown all in one vscode extension to generate -->
 
-### Video Demonstration
-[Demo video](https://drive.google.com/file/d/12D7yRUQ7zP9_5kHSG2tsbPRO5HvzOLBO/view?usp=sharing)
+# 2. Project Overview:
+
+This section outlines the real-world problem our system addresses, the intended users who benefit from it, and a brief summary of how the robot functions.
+
+## 2.1 Problem Description and Intended Users
+
+Many chess players today train almost entirely online, but it lacks the physical experience of handling real pieces and maintaining spatial awareness on an actual board. This creates a gap for serious competitors who practice in a digital environment but ultimately compete using physical boards, where skills such as tactile precision, board vision, and real-world timing all matter. Casual players who want to enjoy solo chess on a real board face a similar limitation: without a human opponent, the experience is incomplete.
+
+Our system addresses this gap by providing a physical chess-playing robot that can interact with a real board, respond to human moves, and play full games using an onboard engine. The intended users include competitive players wanting realistic over-the-board training, hobbyists who enjoy playing physical chess whenever they want without needing an opponent, and anyone interested in blending robotics with traditional board-game interaction.
+
+## 2.2 Robot Functionality Summary
+
+ChessBot combines a UR5e robotic arm, a custom gripper, and a computer-vision pipeline to enable a fully physical chess game against an AI opponent. A camera mounted above the board continuously monitors the playing surface, allowing the system to detect piece positions, identify when the human player has moved, and extract the corresponding chess move in real time. This move is passed to the onboard chess engine, which updates the game state and computes the robot’s response. The arm controller then plans and executes a pick-and-place motion to carry out the engine’s move on the physical board using the gripper.
+
+This robot design addresses our customer needs, providing a tactile experience of over-the-board chess while delivering the challenge and adaptability of a computer opponent.
+
+## 2.3 Video Demonstration
+[Video Demo](https://drive.google.com/file/d/1c5ny12LSPAJMo_sHEN5k1z9A3rD4nEmV/view?usp=sharing)
 
 ---
 
@@ -17,15 +33,15 @@ This section outlines the architecture of our system. It also includes behaviour
 - A package-level architecture diagram showing node interactions and topics
 ![package-level architecture diagram](images/architecture_diagram.png)
 
+## 3.1.5 Transformation Tree
+
+- Transformation tree diagram (Generated using tf view_frames)
+![tf tree diagram](images/tf_graph.png)
+
 ## 3.2 State Diagram
 
 - State diagram of closed-loop system behaviour
 ![state diagram](images/state_diagram.png)
-
-## 3.2.5 Transformation Tree
-
-- Transformation tree diagram (Generated using tf view_frames)
-![tf tree diagram](images/tf_graph.png)
 
 ## 3.3 Description of each node
 
@@ -142,11 +158,22 @@ The ChessMove service defines the communication interface between the chess logi
 ---
 
 # 4. Technical Components:
-   - Computer Vision:
-   - Custom End-Effector:
-   - System Visualisation:
 
-### Closed-Loop Operation
+This section summarises the key technical elements of the system, including the computer-vision pipeline, the custom end-effector hardware, the visualisation tools used during development, and the closed-loop feedback mechanisms that allow the robot to interact with the physical chessboard in real time.
+
+## 4.1 Computer Vision
+
+<!-- TODO: add things here -->
+
+## 4.2 Custom End-Effector
+
+<!-- TODO: add things here -->
+
+## 4.3 System Visualisation
+
+<!-- TODO: add things here -->
+
+## 4.4 Closed-Loop Operation
 
 The system operates as a closed-loop control system by continuously feeding perception back into decision-making. 
 
@@ -416,11 +443,31 @@ If no result appears:
 
 # 7. Results and Demonstration:
 
+<!-- TODO: add things here -->
+
+## 7.1 System Performance
+
+<!-- TODO: add things here -->
+
+## 7.2 Quantitative Results
+
+<!-- TODO: add things here -->
+
+## 7.3 Operational Demonstration
+
+<!-- TODO: add things here -->
+
+## 7.4 Robustness, Adaptability, and Innovation
+
+<!-- TODO: add things here -->
+
+---
+
 # 8. Discussion and Future Improvements
 
 Throughout development, several engineering challenges emerged across perception, motion planning, end-effector performance, and overall system integration. These areas represent strong opportunities for refinement in a future release of the chess robot platform.
 
-## **Perception**
+## 8.1 Perception
 
 The current perception pipeline uses HSV thresholding, contour extraction, and difference-based state comparison. While effective under controlled conditions, it was highly sensitive to environmental factors:
 
@@ -464,7 +511,7 @@ Mounting the camera on the UR5e wrist allows the robot to reposition for more co
 4. Capture images and stitch results into a board state model.
 
 
-## **Motion Planning**
+## 8.2 Motion Planning
 
 Although MoveIt handled most tasks well, several limitations were identified:
 
@@ -493,7 +540,7 @@ Using live perception to update MoveIt’s planning scene reduces accidental bum
 2. Update at 5–10 Hz via the PlanningSceneInterface.  
 3. Ensure planned paths avoid dynamically placed obstacles.
 
-## **End-Effector Performance**
+## 8.3 End-Effector Performance
 
 The current servo-driven finger gripper works reliably but is highly sensitive to alignment and tolerances:
 
@@ -519,7 +566,7 @@ Useful for metal-core or retrofitted pieces.
 - Install a force sensor that measure the pick up exerted by the gripper for secure pick up.
 - The gripper flanges doesn't contract and release at the same time due to friction, so the chess pieces will be moved slightly during the placing motion
 
-## **System Integration**
+## 8.4 System Integration
 
 The system relies heavily on accurate TF transforms between:
 
@@ -559,11 +606,11 @@ Overall, these improvements map a clear pathway toward a more robust, scalable, 
 
 # 9. Contributors
 
-| Member | Contribution |
-|--------|--------------|
-| **Ryan Li** | MoveIt integration, URDF/xacro modeling, TF integration, gripper implementation|
-| **Johnnie Parris** | Vision pipeline, depth transforms, TF integration |
-| **Justin Kwok** | Game engine integration, task coordination, GUI, gripper implementation|
+| Member             | Contribution                                                                    |
+| ------------------ | ------------------------------------------------------------------------------- |
+| **Ryan Li**        | MoveIt integration, URDF/xacro modeling, TF integration, gripper implementation |
+| **Johnnie Parris** | Vision pipeline, depth transforms, TF integration                               |
+| **Justin Kwok**    | Game engine integration, task coordination, GUI, gripper implementation         |
 
 Additional support was received in lab sessions from course staff.
 
@@ -703,19 +750,19 @@ src/
 
 ## Summary of Package Responsibilities
 
-| Package | Purpose |
-|--------|---------|
-| `arm_controller` | Executes TCP motions, MoveIt control, action clients |
-| `brain` | High-level control logic (task coordinator) |
-| `chess_master` | Validated chess move service + game coordination |
-| `custom_interfaces` | Action & service definitions (`MoveTCP`, `GripperCommand`, `ChessMove`) |
-| `end_effector_description` | URDF, meshes, and visualization for custom gripper |
-| `gripper` | ROS ↔ Arduino interface, gripper action server |
-| `perception` | HSV board detection, ArUco detection, move comparison |
-| `ui` | Tkinter front-end for monitoring board & robot state |
-| `ur_moveit_config_official` | Official UR reference package — used only for Setup Assistant |
-| `ur5e_moveit_config_custom` | Actual MoveIt config used during operation |
-| `ur5e_custom_description` | Old unused package retained for reference |
+| Package                     | Purpose                                                                 |
+| --------------------------- | ----------------------------------------------------------------------- |
+| `arm_controller`            | Executes TCP motions, MoveIt control, action clients                    |
+| `brain`                     | High-level control logic (task coordinator)                             |
+| `chess_master`              | Validated chess move service + game coordination                        |
+| `custom_interfaces`         | Action & service definitions (`MoveTCP`, `GripperCommand`, `ChessMove`) |
+| `end_effector_description`  | URDF, meshes, and visualization for custom gripper                      |
+| `gripper`                   | ROS ↔ Arduino interface, gripper action server                          |
+| `perception`                | HSV board detection, ArUco detection, move comparison                   |
+| `ui`                        | Tkinter front-end for monitoring board & robot state                    |
+| `ur_moveit_config_official` | Official UR reference package — used only for Setup Assistant           |
+| `ur5e_moveit_config_custom` | Actual MoveIt config used during operation                              |
+| `ur5e_custom_description`   | Old unused package retained for reference                               |
 
 
 # 11. References & Acknowledgements
