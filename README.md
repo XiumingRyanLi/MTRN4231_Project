@@ -447,20 +447,33 @@ This section presents the system’s performance relative to its design goals, s
 
 ## 7.1 System Performance
 
-<!-- TODO: edit -->
+<!-- TODO: add things -->
 
 ## 7.2 Quantitative Results
 
-<!-- TODO: edit -->
-
+<!-- TODO: add things -->
 
 ## 7.3 Operational Demonstration
 
-<!-- TODO: edit -->
+<!-- TODO: edit if necessary -->
+| White border thresholding                    | Board transformation                                 | Occupancy grid generation                    |
+| -------------------------------------------- | ---------------------------------------------------- | -------------------------------------------- |
+| <img src="images/threshold.png" width="300"> | <img src="images/transformed_board.jpg" width="300"> | <img src="images/occupancy.png" width="300"> |
+
+
+- **GUI output**
+  
+<img src="images/gui_0.png" width="300">
+
+- **Arm Visualization in RViz**
+
+<img src="images/rviz_arm.png" width="800">
+
+- [**Video Demo**](https://drive.google.com/file/d/1yLkw7y4LNCeMz_NkLVMP5ToxRHmnHbvh/view?usp=sharing)
 
 ## 7.4 Robustness, Adaptability, and Innovation
 
-<!-- TODO: edit -->
+<!-- TODO: add things -->
 
 ---
 
